@@ -1,7 +1,7 @@
 'use client';
-import Logo from './logo';
-import MenuBar from './menuBar';
-import MenuButton from './menuButton';
+import Logo from './Logo';
+import MenuBar from './MenuBar';
+import MenuButton from './MenuButton';
 import * as S from './styled';
 
 export default function Header() {

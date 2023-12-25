@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '../../lib/registry';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
   title: 'archive-eng',
@@ -11,7 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <Header />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
