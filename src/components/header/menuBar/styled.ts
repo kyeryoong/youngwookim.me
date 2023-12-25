@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export const Background = styled('div')`
   width: 100vw;
@@ -49,7 +50,7 @@ export const MeunBarWrapper = styled('div')`
   }
 `;
 
-export const Menu = styled('button')`
+export const Menu = styled(Link)`
   font-size: 2.5rem;
   height: 50px;
   line-height: 50px;
