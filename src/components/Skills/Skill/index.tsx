@@ -32,11 +32,11 @@ const Skill = ({
         backgroundColor1[1] - backgroundColorOffset2
       }, ${backgroundColor1[2] - backgroundColorOffset2})`;
 
-  const imageSrc = customImage ?? `/skills/${name}.svg`;
+  const src = customImage ?? `/skills/${name}.svg`;
 
   return (
     <S.SkillWrapper rgb1={rgb1} rgb2={rgb2}>
-      <S.SkillIcon width={60} height={60} src={imageSrc} alt={`${name} Icon`} />
+      <S.SkillIcon width={60} height={60} src={src} alt={`${name} Icon`} />
       <S.SkillName textColor={textColor}>{name}</S.SkillName>
     </S.SkillWrapper>
   );
