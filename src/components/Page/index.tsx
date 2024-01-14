@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import * as S from './styled';
 
 type PageProps = {
-  children: ReactNode;
+  children?: ReactNode;
   customStyle?: React.CSSProperties;
 };
 
