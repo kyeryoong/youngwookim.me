@@ -14,7 +14,7 @@ export const ButtonWrapper = styled('div')`
   }
 
   &.hide {
-    right: 12vw;
+    right: 100px;
   }
 `;
 
