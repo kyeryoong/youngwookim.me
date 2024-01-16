@@ -4,11 +4,25 @@ import styled from 'styled-components';
 export const Wrapper = styled('div')`
   width: 100vw;
   height: 100vh;
-  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: black;
+
+  animation: FadeOut 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+
+  @keyframes FadeOut {
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Title = styled('span')<{ delay?: number }>`
@@ -21,11 +35,12 @@ export const Title = styled('span')<{ delay?: number }>`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: Float 2s;
+  animation: Float 1.5s;
   animation-fill-mode: forwards;
-  animation-delay: ${({ delay }) => `${delay}s`};
+  animation-delay: ${({ delay }) => (delay ? `${delay / 1000}s` : '0s')};
   opacity: 0;
   transform: translateY(50px);
+  z-index: 100;
 
   @keyframes Float {
     0% {
@@ -38,4 +53,18 @@ export const Title = styled('span')<{ delay?: number }>`
       transform: translateY(0px);
     }
   }
+`;
+
+export const Slide = styled('div')<{ show: boolean }>`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
