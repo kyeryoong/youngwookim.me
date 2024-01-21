@@ -9,16 +9,7 @@ export const Background = styled('div')`
   position: fixed;
   top: 0px;
   left: 0px;
-  transition: 0.5s;
-  z-index: 1;
-
-  &.show {
-    opacity: 0.5;
-  }
-
-  &.hide {
-    opacity: 0;
-  }
+  opacity: 0.5;
 `;
 
 export const MeunBarWrapper = styled('div')`
@@ -35,18 +26,19 @@ export const MeunBarWrapper = styled('div')`
   gap: 20px;
   position: fixed;
   transition: 0.5s;
-  z-index: 10;
 
   &.show {
     top: 0px;
     right: 0px;
     opacity: 1;
+    z-index: 10;
   }
 
   &.hide {
     top: 0px;
     right: -500px;
     opacity: 0;
+    z-index: 0;
   }
 `;
 

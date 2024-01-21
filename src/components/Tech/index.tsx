@@ -1,4 +1,5 @@
 import { ReactNode, Children } from 'react';
+import { StarIcon } from './StarIcon';
 import * as S from './styled';
 
 type TechProps = {
@@ -62,7 +63,7 @@ export function Tech({
     <S.TechWrapper rgb1={rgb1} rgb2={rgb2} core={core}>
       <S.TechIcon textColor={textColor} width={200} height={200} src={src} alt={`${name} Icon`} />
       <S.TechName textColor={textColor}>{name}</S.TechName>
-      {core && <S.StarIcon />}
+      {core && <StarIcon />}
     </S.TechWrapper>
   );
 }

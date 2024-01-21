@@ -51,16 +51,6 @@ export const TechName = styled('span')<{
   color: ${({ textColor }) => textColor};
 `;
 
-export const StarIcon = styled('div')`
-  width: 8px;
-  height: 8px;
-  border-radius: 8px;
-  margin-top: 15px;
-  margin-left: 10px;
-  background-color: gold;
-  align-self: flex-start;
-`;
-
 export const TechList = styled('div')`
   margin-bottom: 100px;
   display: flex;

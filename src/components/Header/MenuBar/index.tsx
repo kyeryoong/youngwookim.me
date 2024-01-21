@@ -17,7 +17,7 @@ const MenuBar = observer(() => {
           Tech
         </S.Menu>
       </S.MeunBarWrapper>
-      <S.Background className={store.isMenuOpen ? 'show' : 'hide'} />
+      {store.isMenuOpen && <S.Background />}
     </>
   );
 });
