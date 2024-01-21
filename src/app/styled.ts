@@ -9,28 +9,25 @@ export const Wrapper = styled('div')`
   align-items: center;
   justify-content: center;
   background-color: black;
-
-  animation: FadeOut 1.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-
-  @keyframes FadeOut {
-    50% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
 `;
 
-export const Title = styled('span')<{ delay?: number }>`
-  font-size: 3rem;
-  font-weight: 700;
+export const HeadingWrapper = styled('div')`
   width: 100vw;
-  text-align: center;
-  display: block;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Heading = styled('span')<{ delay?: number }>`
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+
   background: linear-gradient(180deg, rgb(255, 255, 255) 20%, rgb(180, 180, 180) 90%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -53,18 +50,4 @@ export const Title = styled('span')<{ delay?: number }>`
       transform: translateY(0px);
     }
   }
-`;
-
-export const Slide = styled('div')<{ show: boolean }>`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: 1s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
