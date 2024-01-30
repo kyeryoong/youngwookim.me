@@ -7,7 +7,7 @@ export const ButtonWrapper = styled('div')`
   cursor: pointer;
   transition: 0.5s;
   position: fixed;
-  z-index: 11;
+  z-index: 100;
 
   &.show {
     right: 40px;
