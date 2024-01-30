@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import Spline from '@splinetool/react-spline';
+import Image from 'next/image';
 
 export const BackgroundWrapper = styled('div')`
   width: 100vw;
@@ -11,7 +11,7 @@ export const BackgroundWrapper = styled('div')`
   justify-content: center;
   animation-name: FadeIn;
   animation-duration: 1s;
-  animation-delay: 3s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
 
@@ -41,14 +41,13 @@ export const Heading = styled('span')`
   -webkit-text-stroke: 3px transparent;
 `;
 
-export const SplineComponents = styled(Spline)`
+export const Graphics = styled(Image)`
   position: fixed;
-  transform: translateY(0px);
+  object-fit: contain;
   animation-name: Floating;
   animation-duration: 4s;
-  animation-delay: 3s;
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
+  transform: translateY(0px);
 
   @keyframes Floating {
     0% {
@@ -65,23 +64,74 @@ export const SplineComponents = styled(Spline)`
   }
 `;
 
-export const ToggleButton = styled(SplineComponents)`
-  width: 35vw !important;
-  height: 35vw !important;
-  bottom: 0vw;
-  left: -5vw;
+export const Toggle = styled(Graphics)`
+  width: 50vw;
+  height: 50vw;
+  bottom: -7.5vw;
+  left: -15vw;
 `;
 
-export const ComponentSymbol = styled(SplineComponents)`
-  width: 25vw !important;
-  height: 25vw !important;
+export const ToggleWrapper = styled(Toggle)`
+  z-index: 100;
+`;
+
+export const ToggleSwitch = styled(Toggle)`
+  z-index: 101;
+`;
+
+export const Computer = styled(Graphics)`
+  width: 50vw;
+  height: 50vw;
+  bottom: -17.5vw;
+  right: -10vw;
+`;
+
+export const Computer1 = styled(Computer)`
+  z-index: 101;
+  animation-name: FloatingAndFading;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  transform: translateY(0px);
+  opacity: 0;
+
+  @keyframes FloatingAndFading {
+    0% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+
+    75% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+  }
+`;
+
+export const Computer2 = styled(Computer)`
+  z-index: 100;
+`;
+
+export const ArrowBracket = styled('video')`
+  width: 25vw;
+  height: 25vw;
+  position: fixed;
   top: -5vw;
   right: 20vw;
-`;
-
-export const Computer = styled(SplineComponents)`
-  width: 35vw !important;
-  height: 35vw !important;
-  bottom: -10vw;
-  right: 0vw;
+  animation-name: Floating;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  transform: translateY(0px);
 `;
