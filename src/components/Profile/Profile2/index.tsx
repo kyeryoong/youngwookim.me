@@ -10,7 +10,7 @@ const Profile2 = observer(() => {
 
   const serverDate = xmlHttpRequest.getResponseHeader('Date') ?? '';
 
-  const today = new Date(serverDate);
+  const today = new Date();
   const data = new Date(2023, 6, 3);
 
   let workingDays = Math.abs(today.getTime() - data.getTime());
