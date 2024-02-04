@@ -13,11 +13,14 @@ const MenuBar = observer(() => {
         <S.Menu onClick={handleMenuClick} href="/">
           Home
         </S.Menu>
+        <S.Menu onClick={handleMenuClick} href="/profile">
+          Profile
+        </S.Menu>
         <S.Menu onClick={handleMenuClick} href="/tech">
           Tech
         </S.Menu>
       </S.MeunBarWrapper>
-      {store.isMenuOpen && <S.Background />}
+      {/* <S.Background className={store.isMenuOpen ? 'show' : 'hide'} /> */}
     </>
   );
 });
