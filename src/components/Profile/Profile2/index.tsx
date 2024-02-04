@@ -8,7 +8,7 @@ const Profile2 = observer(() => {
   xmlHttpRequest.setRequestHeader('ContentType', 'text/html');
   xmlHttpRequest.send('');
 
-  const serverDate = xmlHttpRequest.getResponseHeader('Date') ?? '';
+  // const serverDate = xmlHttpRequest.getResponseHeader('Date') ?? '';
 
   const today = new Date();
   const data = new Date(2023, 6, 3);
