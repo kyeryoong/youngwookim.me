@@ -3,10 +3,10 @@ import * as S from './styled';
 import { useEffect, useState } from 'react';
 
 const Profile2 = observer(() => {
-  const xmlHttpRequest = new XMLHttpRequest();
-  xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
-  xmlHttpRequest.setRequestHeader('ContentType', 'text/html');
-  xmlHttpRequest.send('');
+  // const xmlHttpRequest = new XMLHttpRequest();
+  // xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
+  // xmlHttpRequest.setRequestHeader('ContentType', 'text/html');
+  // xmlHttpRequest.send('');
 
   // const serverDate = xmlHttpRequest.getResponseHeader('Date') ?? '';
 
