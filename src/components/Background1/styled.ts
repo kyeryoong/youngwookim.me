@@ -10,7 +10,7 @@ export const BackgroundWrapper = styled('div')`
   justify-content: center;
   animation-name: FadeIn;
   animation-duration: 1s;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
 
@@ -42,19 +42,28 @@ export const Heading = styled('span')`
 `;
 
 export const Asterisk = styled('video')`
-  width: 35vw;
-  height: 35vw;
+  width: 30vw;
+  height: 30vw;
   position: fixed;
-  bottom: 0vw;
-  left: -7.5vw;
+  bottom: 5vw;
+  left: -5vw;
   z-index: 1;
 `;
 
-export const ArrowBracket = styled('video')`
-  width: 35vw;
-  height: 35vw;
+export const ComponentSymbol = styled('video')`
+  width: 30vw;
+  height: 30vw;
   position: fixed;
   top: -7.5vw;
   right: -5vw;
+  z-index: 1;
+`;
+
+export const ArrowFunction = styled('video')`
+  width: 50vw;
+  height: 25vw;
+  position: fixed;
+  bottom: -5vw;
+  right: 5vw;
   z-index: 1;
 `;
