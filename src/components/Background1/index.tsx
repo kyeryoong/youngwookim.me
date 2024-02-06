@@ -1,6 +1,6 @@
 import * as S from './styled';
 
-export default function Background1() {
+const Background1 = () => {
   return (
     <S.BackgroundWrapper>
       <S.Asterisk src={'/home/asterisk.mp4'} autoPlay muted loop />
@@ -8,4 +8,6 @@ export default function Background1() {
       <S.ArrowFunction src={'/home/arrow-function.mp4'} autoPlay muted loop />
     </S.BackgroundWrapper>
   );
-}
+};
+
+export default Background1;

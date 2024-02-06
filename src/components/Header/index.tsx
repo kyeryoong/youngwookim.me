@@ -4,7 +4,7 @@ import MenuBar from './MenuBar';
 import MenuButton from './MenuButton';
 import * as S from './styled';
 
-export default function Header() {
+const Header = () => {
   return (
     <S.HeaderWrapper>
       <Logo />
@@ -12,4 +12,6 @@ export default function Header() {
       <MenuBar />
     </S.HeaderWrapper>
   );
-}
+};
+
+export default Header;

@@ -1,6 +1,6 @@
 import { ReactNode, Children } from 'react';
-import { StarIcon } from './StarIcon';
 import * as S from './styled';
+import { StarIcon } from './StarIcon';
 
 type TechProps = {
   name: string;
@@ -15,7 +15,7 @@ type TechProps = {
 
 type TechListProps = { categoryName: string; children?: ReactNode };
 
-function hexToRgb(hex: string | undefined) {
+const hexToRgb = (hex: string | undefined) => {
   if (hex) {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
@@ -28,9 +28,9 @@ function hexToRgb(hex: string | undefined) {
   } else {
     return { r: 0, g: 0, b: 0 };
   }
-}
+};
 
-export function Tech({
+export const Tech = ({
   name,
   customImage,
   textColor,
@@ -39,7 +39,7 @@ export function Tech({
   backgroundColorOffset1 = 20,
   backgroundColorOffset2 = 60,
   core,
-}: TechProps) {
+}: TechProps) => {
   const rgbObject1 = hexToRgb(backgroundColor1);
   const rgbObject2 = hexToRgb(backgroundColor2);
 
@@ -66,9 +66,9 @@ export function Tech({
       {core && <StarIcon />}
     </S.TechWrapper>
   );
-}
+};
 
-export function TechList({ categoryName, children }: TechListProps) {
+export const TechList = ({ categoryName, children }: TechListProps) => {
   return (
     <S.TechList>
       <S.TechListHeader>
@@ -78,4 +78,4 @@ export function TechList({ categoryName, children }: TechListProps) {
       {children}
     </S.TechList>
   );
-}
+};
