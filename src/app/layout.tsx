@@ -4,7 +4,7 @@ import StyledComponentsRegistry from '../../lib/registry';
 import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: 'archive-eng',
+  title: 'youngwookim.me',
   description: `Young-Woo Kim's Portfolio Page`,
 };
 
