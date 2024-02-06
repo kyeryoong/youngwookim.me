@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   z-index: 1000;
 `;
 
@@ -15,8 +15,8 @@ export const LogoImage = styled(Image)`
   height: 50px;
 `;
 
-export const LogoTitle = styled('span')`
-  font-size: 2rem;
+export const LogoTitle = styled('h1')`
+  font-size: 1.8rem;
   font-weight: 500;
   color: white;
 `;
