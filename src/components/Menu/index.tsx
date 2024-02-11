@@ -3,6 +3,7 @@ import * as S from './styled';
 import store from '@/stores/store';
 import { observer } from 'mobx-react';
 import MenuButton from './MenuButton';
+import Console from './Console';
 
 const Menu = observer(() => {
   const handleBackgroundClick = () => {
@@ -29,6 +30,7 @@ const Menu = observer(() => {
           <MenuButton target="" />
           <MenuButton target="profile" />
           <MenuButton target="tech" />
+          <Console />
         </S.MenuBottom>
       </S.MenuWrapper>
     </S.MenuBackground>
