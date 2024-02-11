@@ -47,6 +47,8 @@ const Console = observer(() => {
     setCurrentLine(event.target.value);
   };
 
+  console.log(previousLines);
+
   return (
     <S.ConsoleWrapper onSubmit={processCommand}>
       <S.ResultLineWrapper>
