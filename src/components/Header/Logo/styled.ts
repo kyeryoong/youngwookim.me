@@ -7,7 +7,7 @@ export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
   gap: 20px;
-  z-index: 1000;
+  z-index: 12000;
 `;
 
 export const LogoImage = styled(Image)`

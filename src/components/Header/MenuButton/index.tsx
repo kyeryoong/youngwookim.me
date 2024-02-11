@@ -8,10 +8,10 @@ const MenuButton = observer(() => {
   };
 
   return (
-    <S.ButtonWrapper className={store.isMenuOpen ? 'show' : 'hide'} onClick={handleClick}>
-      <S.ButtonsElements1 className={store.isMenuOpen ? 'show' : 'hide'} />
-      <S.ButtonsElements2 className={store.isMenuOpen ? 'show' : 'hide'} />
-      <S.ButtonsElements3 className={store.isMenuOpen ? 'show' : 'hide'} />
+    <S.ButtonWrapper onClick={handleClick}>
+      <S.ButtonsElements1 className={store.isMenuOpen ? 'opened' : 'closed'} />
+      <S.ButtonsElements2 className={store.isMenuOpen ? 'opened' : 'closed'} />
+      <S.ButtonsElements3 className={store.isMenuOpen ? 'opened' : 'closed'} />
     </S.ButtonWrapper>
   );
 });

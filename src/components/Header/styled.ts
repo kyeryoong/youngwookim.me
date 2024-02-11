@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled('header')`
   width: 100vw;
-  height: 200px;
+  height: 160px;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -12,5 +12,5 @@ export const HeaderWrapper = styled('header')`
   padding-left: 100px;
   padding-right: 100px;
   background: linear-gradient(180deg, black, transparent);
-  z-index: 1000;
+  z-index: 10000;
 `;

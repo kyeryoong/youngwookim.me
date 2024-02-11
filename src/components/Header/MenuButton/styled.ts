@@ -7,15 +7,8 @@ export const ButtonWrapper = styled('div')`
   cursor: pointer;
   transition: 0.5s;
   position: fixed;
-  z-index: 100;
-
-  &.show {
-    right: 40px;
-  }
-
-  &.hide {
-    right: 100px;
-  }
+  right: 100px;
+  z-index: 12000;
 `;
 
 export const ButtonsElements = styled('div')`
@@ -30,7 +23,7 @@ export const ButtonsElements1 = styled(ButtonsElements)`
   position: absolute;
   top: 15%;
 
-  &.show {
+  &.opened {
     width: 100%;
     transform: rotate(45deg);
     top: 45%;
@@ -43,7 +36,7 @@ export const ButtonsElements2 = styled(ButtonsElements)`
   top: 45%;
   opacity: 1;
 
-  &.show {
+  &.opened {
     width: 0%;
     opacity: 0;
   }
@@ -54,7 +47,7 @@ export const ButtonsElements3 = styled(ButtonsElements)`
   position: absolute;
   bottom: 15%;
 
-  &.show {
+  &.opened {
     width: 100%;
     transform: rotate(-45deg);
     bottom: 45%;
