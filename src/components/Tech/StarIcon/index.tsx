@@ -4,8 +4,6 @@ import * as S from './styled';
 export function StarIcon() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  console.log(isHovered);
-
   function handleMouseEnter() {
     setIsHovered(true);
   }
