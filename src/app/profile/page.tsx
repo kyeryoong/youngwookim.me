@@ -16,7 +16,6 @@ const Profile = observer(() => {
       modules={[Mousewheel]}
       autoHeight={true}
       speed={1000}
-      onSwiper={(swiper) => console.log(swiper)}
       style={{
         width: '100vw',
         height: '100vh',
