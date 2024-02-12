@@ -4,9 +4,18 @@ type ThemeType = 'light' | 'dark';
 
 class Store {
   isMenuOpen: boolean = false;
-  theme: ThemeType = 'dark';
+  theme: ThemeType;
 
   constructor() {
+    const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
+
+    if (localStorageTheme) {
+      this.theme = localStorageTheme;
+    } else {
+      this.theme = 'dark';
+      localStorage.setItem('youngwookim.me_theme', 'dark');
+    }
+
     makeAutoObservable(this);
   }
 
@@ -16,6 +25,7 @@ class Store {
 
   setTheme = (value: ThemeType) => {
     this.theme = value;
+    localStorage.setItem('youngwookim.me_theme', value);
   };
 }
 
