@@ -5,7 +5,7 @@ import Image from 'next/image';
 export const PageWrapper = styled('div')`
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ export const PageWrapper = styled('div')`
 
 export const WorkingExperienceWrapper = styled('div')`
   width: 50vw;
-  border-bottom: 1px solid white;
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.white}`};
   padding-bottom: 60px;
   margin-bottom: 60px;
   position: relative;
@@ -23,7 +23,7 @@ export const WorkingExperienceWrapper = styled('div')`
 export const WorkingExperienceDays = styled('span')`
   font-size: 12rem;
   font-weight: 600;
-  color: white;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const WorkingExperienceLabel = styled('span')`
@@ -50,10 +50,10 @@ export const CompanyLogo = styled(Image)`
 
 export const CompanyName = styled('span')`
   font-size: 1.6rem;
-  color: white;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const CompanyDays = styled('span')`
   font-size: 1.6rem;
-  color: gray;
+  color: ${({ theme }) => theme.color.gray};
 `;

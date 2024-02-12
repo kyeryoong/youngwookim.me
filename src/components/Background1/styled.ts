@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const BackgroundWrapper = styled('div')`
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,10 +51,10 @@ export const Asterisk = styled('video')`
 `;
 
 export const ComponentSymbol = styled('video')`
-  width: 30vw;
-  height: 30vw;
+  width: 32vw;
+  height: 24vw;
   position: fixed;
-  top: -7.5vw;
+  top: -5vw;
   right: -5vw;
   z-index: 1;
 `;

@@ -11,6 +11,6 @@ export const HeaderWrapper = styled('header')`
   align-items: center;
   padding-left: 100px;
   padding-right: 100px;
-  background: linear-gradient(180deg, black, transparent);
+  background: ${({ theme }) => `linear-gradient(180deg, ${theme.color.black}, transparent)`};
   z-index: 10000;
 `;

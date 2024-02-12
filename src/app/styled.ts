@@ -8,7 +8,7 @@ export const Wrapper = styled('div')`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: ${({ theme }) => theme.color.black};
 `;
 
 export const HeadingWrapper = styled('div')`
@@ -27,8 +27,10 @@ export const Heading = styled('span')<{ delay?: number }>`
   font-size: 4rem;
   font-weight: 700;
   color: white;
-
-  background: linear-gradient(180deg, rgb(255, 255, 255) 20%, rgb(180, 180, 180) 90%);
+  background: ${({ theme }) =>
+    theme.mode === 'dark'
+      ? `linear-gradient(180deg, ${theme.color.white} 20%, ${theme.color.gray} 90%)`
+      : `linear-gradient(180deg, ${theme.color.gray} 20%, ${theme.color.white} 90%)`};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

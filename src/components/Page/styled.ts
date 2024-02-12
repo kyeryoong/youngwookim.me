@@ -7,5 +7,5 @@ export const PageWrapper = styled('div')`
   padding-right: 15vw;
   padding-top: 20vh;
   padding-bottom: 20vh;
-  background-color: black;
+  background-color: ${({ theme }) => theme.color.black};
 `;

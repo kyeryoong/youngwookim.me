@@ -14,7 +14,7 @@ export const ButtonWrapper = styled('div')`
 export const ButtonsElements = styled('div')`
   height: 10%;
   border-radius: 10px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white};
   transition: 0.5s;
 `;
 

@@ -30,8 +30,8 @@ export const Tooltip = styled('div')`
   position: absolute;
   bottom: 20px;
   left: 0px;
-  background-color: white;
-  color: gray;
+  background-color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.gray};
   transition: 0.5s;
   white-space: nowrap;
 

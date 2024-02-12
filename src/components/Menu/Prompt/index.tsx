@@ -71,6 +71,17 @@ const Prompt = observer(() => {
       setResultLines((prev: string[]) => [...prev, 'user']);
     }
 
+    // 테마 변경
+    else if (prefix === 'theme') {
+      if (suffix === 'light') {
+        store.setTheme('light');
+      } else if (suffix === 'dark') {
+        store.setTheme('dark');
+      } else {
+        setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
+      }
+    }
+
     // 유효하지 않은 명령어
     else {
       setResultLines((prev: string[]) => [...prev, `bash: ${currentLine}: command not found`]);

@@ -5,7 +5,7 @@ export const PageWrapper = styled('div')`
   font-size: min(3rem, 2vw);
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,6 +80,6 @@ export const Text = {
   `,
 
   White: styled(TextBase)`
-    color: #ffffff;
+    color: ${({ theme }) => theme.color.white};
   `,
 };

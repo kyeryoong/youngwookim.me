@@ -61,7 +61,7 @@ export const TechList = styled('div')`
 export const TechListHeader = styled('span')`
   width: 100%;
   color: white;
-  border-bottom: 1px solid white;
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.white}`};
   padding-bottom: 35px;
   margin-bottom: 25px;
   display: flex;
@@ -72,11 +72,11 @@ export const TechListHeader = styled('span')`
 export const TechListCategoryName = styled('span')`
   font-size: 2rem;
   font-weight: 600;
-  color: white;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const TechListCount = styled('span')`
   font-size: 3rem;
   font-weight: 700;
-  color: white;
+  color: ${({ theme }) => theme.color.white};
 `;

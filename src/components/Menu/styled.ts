@@ -13,12 +13,14 @@ export const MenuBackground = styled('div')`
   transition: 0.5s;
 
   &.opened {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${({ theme }) =>
+      theme.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)'};
     z-index: 9000;
   }
 
   &.closed {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: ${({ theme }) =>
+      theme.mode === 'dark' ? 'rgba(0, 0, 0, 0)' : 'rgba(255, 255, 255, 0)'};
     z-index: 0;
   }
 `;
