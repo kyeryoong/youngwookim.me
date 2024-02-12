@@ -24,7 +24,8 @@ const Profile = observer(() => {
         left: '0px',
         backgroundColor: 'black',
         zIndex: '2',
-      }}>
+      }}
+    >
       <SwiperSlide>
         <Profile1 />
       </SwiperSlide>

@@ -17,10 +17,12 @@ const Menu = observer(() => {
   return (
     <S.MenuBackground
       className={store.isMenuOpen ? 'opened' : 'closed'}
-      onClick={handleBackgroundClick}>
+      onClick={handleBackgroundClick}
+    >
       <S.MenuWrapper
         className={store.isMenuOpen ? 'opened' : 'closed'}
-        onClick={handleMenuWrapperclick}>
+        onClick={handleMenuWrapperclick}
+      >
         <S.MenuTop>
           <S.MenuTopButton.Red />
           <S.MenuTopButton.Yellow />
