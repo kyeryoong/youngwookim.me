@@ -1,13 +1,38 @@
+import { observer } from 'mobx-react';
 import * as S from './styled';
+import store from '@/stores/store';
 
-const Background1 = () => {
+const Background1 = observer(() => {
   return (
     <S.BackgroundWrapper>
-      <S.Asterisk src={'/home/asterisk.mp4'} autoPlay muted loop />
-      <S.ComponentSymbol src={'/home/component_symbol.mp4'} autoPlay muted loop />
-      <S.ArrowFunction src={'/home/arrow-function.mp4'} autoPlay muted loop />
+      <S.Asterisk
+        src={store.theme === 'dark' ? '/home/asterisk_dark.mp4' : '/home/asterisk_light.mp4'}
+        autoPlay
+        muted
+        loop
+      />
+      <S.ComponentSymbol
+        src={
+          store.theme === 'dark'
+            ? '/home/component_symbol_dark.mp4'
+            : '/home/component_symbol_light.mp4'
+        }
+        autoPlay
+        muted
+        loop
+      />
+      <S.ArrowFunction
+        src={
+          store.theme === 'dark'
+            ? '/home/arrow_function_dark.mp4'
+            : '/home/arrow_function_light.mp4'
+        }
+        autoPlay
+        muted
+        loop
+      />
     </S.BackgroundWrapper>
   );
-};
+});
 
 export default Background1;
