@@ -1,6 +1,8 @@
 export default {
+  mode: 'dark',
   color: {
     black: '#000000',
-    white: '#FFFFFF',
+    white: '#ffffff',
+    gray: '#b4b4b4',
   },
 };
