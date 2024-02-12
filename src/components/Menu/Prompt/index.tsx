@@ -73,10 +73,8 @@ const Prompt = observer(() => {
 
     // 테마 변경
     else if (prefix === 'theme') {
-      if (suffix === 'light') {
-        store.setTheme('light');
-      } else if (suffix === 'dark') {
-        store.setTheme('dark');
+      if (suffix === 'dark' || suffix === 'light') {
+        store.setTheme(suffix);
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
       }
