@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '../../lib/registry';
-import Header from '@/components/Header';
-import Menu from '@/components/Menu';
+import App from './app';
 
 export const metadata: Metadata = {
   title: 'youngwookim.me',
@@ -14,9 +13,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          <Header />
-          <Menu />
-          {children}
+          <App>{children}</App>
         </StyledComponentsRegistry>
       </body>
     </html>
