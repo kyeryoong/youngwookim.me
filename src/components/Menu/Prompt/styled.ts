@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-export const ConsoleWrapper = styled('form')``;
+export const PromptWrapper = styled('form')``;
 
 export const CurrentLineCursor = styled('span')`
   font-size: 1.2rem;
@@ -30,4 +30,5 @@ export const ResultLine = styled('span')`
   line-height: 25px;
   color: white;
   display: block;
+  white-space: pre;
 `;
