@@ -1,8 +1,10 @@
 import { makeAutoObservable } from 'mobx';
 
+type ThemeType = 'light' | 'dark';
+
 class Store {
   isMenuOpen: boolean = false;
-  isDarkMode: boolean = true;
+  theme: ThemeType = 'dark';
 
   constructor() {
     makeAutoObservable(this);
@@ -12,8 +14,8 @@ class Store {
     this.isMenuOpen = value;
   };
 
-  setIsDarkMode = (value: boolean) => {
-    this.isDarkMode = value;
+  setTheme = (value: ThemeType) => {
+    this.theme = value;
   };
 }
 
