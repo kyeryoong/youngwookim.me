@@ -1,3 +1,4 @@
+'use client';
 import { makeAutoObservable } from 'mobx';
 
 type ThemeType = 'light' | 'dark';
@@ -7,17 +8,13 @@ class Store {
   theme: ThemeType;
 
   constructor() {
-    if (typeof window !== 'undefined') {
-      const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
+    const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
 
-      if (localStorageTheme) {
-        this.theme = localStorageTheme;
-      } else {
-        this.theme = 'dark';
-        localStorage.setItem('youngwookim.me_theme', 'dark');
-      }
+    if (localStorageTheme) {
+      this.theme = localStorageTheme;
     } else {
       this.theme = 'dark';
+      localStorage.setItem('youngwookim.me_theme', 'dark');
     }
 
     makeAutoObservable(this);
@@ -29,10 +26,7 @@ class Store {
 
   setTheme = (value: ThemeType) => {
     this.theme = value;
-
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('youngwookim.me_theme', value);
-    }
+    localStorage.setItem('youngwookim.me_theme', value);
   };
 }
 
