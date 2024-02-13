@@ -5,8 +5,8 @@ import styled from 'styled-components';
 export const MenuButton = styled('button')`
   font-size: 2.5rem;
   font-weight: 500;
-  height: 60px;
-  line-height: 60px;
+  height: 55px;
+  line-height: 55px;
   color: white;
   background-color: transparent;
   border: none;

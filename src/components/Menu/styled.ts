@@ -26,12 +26,16 @@ export const MenuBackground = styled('div')`
 `;
 
 export const MenuWrapper = styled('div')`
-  width: 1100px;
-  height: 600px;
+  width: 50vw;
+  min-width: 1000px;
+  height: 60vh;
+  min-height: 700px;
   border-radius: 15px;
   border: #282828;
   background-color: #101010;
   transition: 0.5s;
+  display: grid;
+  grid-template-rows: fit-content(100%) 1fr;
 
   &.opened {
     opacity: 1;
@@ -78,7 +82,22 @@ export const MenuTopButton = {
 };
 
 export const MenuBottom = styled('div')`
-  display: flex;
-  flex-direction: column;
   padding: 20px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    border: 5px solid transparent;
+    background-color: #505050;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #101010;
+    border-radius: 0px 0px 15px 0px;
+  }
 `;
