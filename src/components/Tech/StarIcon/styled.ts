@@ -14,8 +14,8 @@ export const StarIcon = styled('div')`
   width: 100%;
   height: 100%;
   border-radius: 10px;
-
   background-color: gold;
+  cursor: pointer;
   transition: 0.5s;
 
   &:hover {
@@ -30,8 +30,8 @@ export const Tooltip = styled('div')`
   position: absolute;
   bottom: 20px;
   left: 0px;
-  background-color: ${({ theme }) => theme.color.white};
-  color: ${({ theme }) => theme.color.gray};
+  background-color: ${({ theme }) => theme.color.gray[100]};
+  color: ${({ theme }) => theme.color.gray[700]};
   transition: 0.5s;
   white-space: nowrap;
 
