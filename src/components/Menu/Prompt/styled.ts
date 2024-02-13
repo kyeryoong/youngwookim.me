@@ -1,10 +1,14 @@
 'use client';
 import styled from 'styled-components';
 
-export const PromptWrapper = styled('form')``;
+export const PromptWrapper = styled('form')`
+  margin-top: 10px;
+`;
 
 export const CurrentLineCursor = styled('span')`
+  font-family: 'JetBrains Mono';
   font-size: 1.2rem;
+  line-height: 25px;
   color: white;
 
   &::before {
@@ -13,22 +17,24 @@ export const CurrentLineCursor = styled('span')`
 `;
 
 export const CurrentLineInput = styled('input')`
+  font-family: 'JetBrains Mono', 'Pretendard';
   font-size: 1.2rem;
+  width: calc(100% - 30px);
   height: 25px;
   line-height: 25px;
-  color: white;
+  color: #ffffff;
+  background-color: transparent;
   border: none;
   outline: none;
-  background-color: transparent;
 `;
 
 export const ResultLineWrapper = styled('div')``;
 
 export const ResultLine = styled('span')`
+  font-family: 'JetBrains Mono', 'Pretendard';
   font-size: 1.2rem;
-  height: 25px;
   line-height: 25px;
-  color: white;
+  color: #ffffff;
   display: block;
   white-space: pre;
 `;
