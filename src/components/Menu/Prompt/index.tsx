@@ -4,6 +4,7 @@ import store from '@/stores/store';
 import { useRouter } from 'next/navigation';
 import { observer } from 'mobx-react';
 import { useState, useEffect, useRef } from 'react';
+import { initText, helpText, fortuneTexts } from './text';
 
 const Prompt = observer(() => {
   const router = useRouter();
@@ -16,9 +17,11 @@ const Prompt = observer(() => {
   useEffect(() => {
     ref.current?.focus();
 
-    setCurrentLine('');
-    setPreviousLines([]);
-    setResultLines([]);
+    if (store.isMenuOpen) {
+      setCurrentLine('');
+      setPreviousLines([]);
+      setResultLines([initText]);
+    }
   }, [store.isMenuOpen]);
 
   const processCommand = () => {
@@ -28,6 +31,7 @@ const Prompt = observer(() => {
 
     const [prefix, suffix] = currentLine.trim().toLowerCase().split(' ');
 
+    /********** 주요 명령어 **********/
     // 페이지 이동
     if (prefix === 'cd') {
       if (suffix === undefined) {
@@ -61,6 +65,27 @@ const Prompt = observer(() => {
       store.setIsMenuOpen(false);
     }
 
+    // 테마 변경
+    else if (prefix === 'theme') {
+      if (suffix === undefined) {
+        if (store.theme === 'dark') {
+          store.setTheme('light');
+        } else {
+          store.setTheme('dark');
+        }
+      } else if (suffix === 'dark' || suffix === 'light') {
+        store.setTheme(suffix);
+      } else {
+        setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
+      }
+    }
+
+    // 도웁말 출력
+    else if (prefix === 'help') {
+      setResultLines((prev: string[]) => [...prev, helpText]);
+    }
+
+    /********** 기타 명령어 **********/
     // 현재 경로 출력
     else if (prefix === 'pwd') {
       setResultLines((prev: string[]) => [...prev, `${window.location.href}`]);
@@ -71,13 +96,17 @@ const Prompt = observer(() => {
       setResultLines((prev: string[]) => [...prev, 'user']);
     }
 
-    // 테마 변경
-    else if (prefix === 'theme') {
-      if (suffix === 'dark' || suffix === 'light') {
-        store.setTheme(suffix);
-      } else {
-        setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
-      }
+    // 현재 날짜 출력
+    else if (prefix === 'date') {
+      setResultLines((prev: string[]) => [...prev, `${String(new Date())}`]);
+    }
+
+    // 현재 날짜 출력
+    else if (prefix === 'fortune') {
+      setResultLines((prev: string[]) => [
+        ...prev,
+        fortuneTexts[Math.floor(Math.random() * fortuneTexts.length)],
+      ]);
     }
 
     // 유효하지 않은 명령어
@@ -104,7 +133,12 @@ const Prompt = observer(() => {
         ))}
       </S.ResultLineWrapper>
       <S.CurrentLineCursor />
-      <S.CurrentLineInput value={currentLine} onChange={handleLineChange} ref={ref} />
+      <S.CurrentLineInput
+        value={currentLine}
+        onChange={handleLineChange}
+        ref={ref}
+        spellCheck={false}
+      />
     </S.PromptWrapper>
   );
 });
