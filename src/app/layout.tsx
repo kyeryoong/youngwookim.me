@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './layout.css';
 import StyledComponentsRegistry from '../../lib/registry';
 import App from './app';
 

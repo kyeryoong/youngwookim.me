@@ -7,15 +7,18 @@ import dark from '@/theme/dark';
 import light from '@/theme/light';
 import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from 'styled-components';
+import * as S from './appStyled';
 
 type AppProps = { children: React.ReactNode };
 
 const App = observer(({ children }: AppProps) => {
   return (
     <ThemeProvider theme={store.theme === 'dark' ? dark : light}>
-      <Header />
-      <Menu />
-      {children}
+      <S.AppWrapper>
+        <Header />
+        <Menu />
+        {children}
+      </S.AppWrapper>
     </ThemeProvider>
   );
 });
