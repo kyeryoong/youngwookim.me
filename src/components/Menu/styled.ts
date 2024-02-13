@@ -29,8 +29,8 @@ export const MenuWrapper = styled('div')`
   width: 1100px;
   height: 600px;
   border-radius: 15px;
-  border: 1px solid #464646;
-  background-color: #1e1e1e;
+  border: #282828;
+  background-color: #101010;
   transition: 0.5s;
 
   &.opened {
@@ -49,17 +49,18 @@ export const MenuWrapper = styled('div')`
 export const MenuTop = styled('div')`
   height: 50px;
   border-radius: 15px 15px 0px 0px;
-  background-color: #2d2d2d;
+  background-color: #282828;
   display: flex;
   align-items: center;
-  gap: 7.5px;
+  gap: 10px;
   padding: 20px;
 `;
 
 export const MenuTopButtonBase = styled('button')`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
+  border: none;
 `;
 
 export const MenuTopButton = {
