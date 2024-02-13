@@ -29,8 +29,8 @@ export const Heading = styled('span')<{ delay?: number }>`
   color: white;
   background: ${({ theme }) =>
     theme.mode === 'dark'
-      ? `linear-gradient(180deg, ${theme.color.white} 20%, ${theme.color.gray} 90%)`
-      : `linear-gradient(180deg, ${theme.color.gray} 20%, ${theme.color.white} 90%)`};
+      ? `linear-gradient(180deg, ${theme.color.white} 20%, ${theme.color.gray[500]} 90%)`
+      : `linear-gradient(180deg, ${theme.color.gray[500]} 20%, ${theme.color.white} 90%)`};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
