@@ -14,15 +14,15 @@ type AppProps = { children: React.ReactNode };
 
 const App = observer(({ children }: AppProps) => {
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toUpperCase() === 'M') {
         event.preventDefault();
         store.setIsMenuOpened(!store.isMenuOpened);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
   return (

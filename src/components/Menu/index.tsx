@@ -26,7 +26,7 @@ const Menu = observer(() => {
   };
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Esc' || event.key === 'Escape') {
         event.preventDefault();
         store.setIsMenuOpened(false);
@@ -34,8 +34,8 @@ const Menu = observer(() => {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
   return (
