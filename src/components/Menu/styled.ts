@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 
-export const MenuBackground = styled('div')`
+export const MenuBackground = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -11,48 +11,33 @@ export const MenuBackground = styled('div')`
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-
-  &.opened {
-    background-color: ${({ theme }) =>
-      theme.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)'};
-    z-index: 9000;
-  }
-
-  &.closed {
-    background-color: ${({ theme }) =>
-      theme.mode === 'dark' ? 'rgba(0, 0, 0, 0)' : 'rgba(255, 255, 255, 0)'};
-    z-index: 0;
-  }
+  background-color: ${({ theme, isMenuOpened }) =>
+    theme.mode === 'dark'
+      ? `rgba(0, 0, 0, ${isMenuOpened ? 0.5 : 0})`
+      : `rgba(255, 255, 255, ${isMenuOpened ? 0.5 : 0})`};
+  z-index: ${({ isMenuOpened, isMenuExpanded }) =>
+    isMenuOpened ? (isMenuExpanded ? 110000 : 9000) : 0};
 `;
 
-export const MenuWrapper = styled('div')`
-  width: 50vw;
+export const MenuWrapper = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
+  width: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vw' : '50vw')};
   min-width: 1000px;
-  height: 60vh;
+  height: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vh' : '60vh')};
   min-height: 700px;
-  border-radius: 15px;
+  border-radius: ${({ isMenuExpanded }) => (isMenuExpanded ? '0px' : '15px')};
   border: #282828;
   background-color: #101010;
   transition: 0.5s;
   display: grid;
   grid-template-rows: fit-content(100%) 1fr;
-
-  &.opened {
-    opacity: 1;
-    z-index: 20000;
-    transform: translateY(0px);
-  }
-
-  &.closed {
-    opacity: 0;
-    z-index: 0;
-    transform: translateY(100px);
-  }
+  opacity: ${({ isMenuOpened }) => (isMenuOpened ? 1 : 0)};
+  z-index: ${({ isMenuOpened }) => (isMenuOpened ? 20000 : 0)};
+  transform: ${({ isMenuOpened }) => (isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
 `;
 
-export const MenuTop = styled('div')`
+export const MenuTop = styled('div')<{ isMenuExpanded: boolean }>`
   height: 50px;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: ${({ isMenuExpanded }) => (isMenuExpanded ? '0px' : '15px 15px 0px 0px')};
   background-color: #282828;
   display: flex;
   align-items: center;
@@ -76,7 +61,7 @@ export const MenuTopButton = {
     background-color: #ffc12f;
   `,
 
-  Blue: styled(MenuTopButtonBase)`
+  Green: styled(MenuTopButtonBase)`
     background-color: #29ca41;
   `,
 };

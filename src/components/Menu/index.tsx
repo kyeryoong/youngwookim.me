@@ -9,10 +9,20 @@ import { useEffect } from 'react';
 const Menu = observer(() => {
   const handleBackgroundClick = () => {
     store.setIsMenuOpened(false);
+    store.setIsMenuExpanded(false);
   };
 
   const handleMenuWrapperclick = (event: React.MouseEvent) => {
     event.stopPropagation();
+  };
+
+  const handleCloseButtonClick = () => {
+    store.setIsMenuOpened(false);
+    store.setIsMenuExpanded(false);
+  };
+
+  const handleExpandButtonClick = () => {
+    store.setIsMenuExpanded(!store.isMenuExpanded);
   };
 
   useEffect(() => {
@@ -20,6 +30,7 @@ const Menu = observer(() => {
       if (event.key === 'Esc' || event.key === 'Escape') {
         event.preventDefault();
         store.setIsMenuOpened(false);
+        store.setIsMenuExpanded(false);
       }
     };
 
@@ -29,17 +40,19 @@ const Menu = observer(() => {
 
   return (
     <S.MenuBackground
-      className={store.isMenuOpened ? 'opened' : 'closed'}
+      isMenuOpened={store.isMenuOpened}
+      isMenuExpanded={store.isMenuExpanded}
       onClick={handleBackgroundClick}
     >
       <S.MenuWrapper
-        className={store.isMenuOpened ? 'opened' : 'closed'}
+        isMenuOpened={store.isMenuOpened}
+        isMenuExpanded={store.isMenuExpanded}
         onClick={handleMenuWrapperclick}
       >
-        <S.MenuTop>
-          <S.MenuTopButton.Red />
+        <S.MenuTop isMenuExpanded={store.isMenuExpanded}>
+          <S.MenuTopButton.Red onClick={handleCloseButtonClick} />
           <S.MenuTopButton.Yellow />
-          <S.MenuTopButton.Blue />
+          <S.MenuTopButton.Green onClick={handleExpandButtonClick} />
         </S.MenuTop>
         <S.MenuBottom>
           <MenuButton target="" />
