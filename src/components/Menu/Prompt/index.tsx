@@ -105,7 +105,9 @@ const Prompt = observer(() => {
     else if (prefix === 'fortune') {
       setResultLines((prev: string[]) => [
         ...prev,
-        fortuneTexts[Math.floor(Math.random() * fortuneTexts.length)],
+        suffix !== undefined
+          ? fortuneTexts[Number(suffix)]
+          : fortuneTexts[Math.floor(Math.random() * fortuneTexts.length)],
       ]);
     }
 
