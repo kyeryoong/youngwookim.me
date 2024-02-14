@@ -4,6 +4,7 @@ type ThemeType = 'light' | 'dark';
 
 class Store {
   isMenuOpened: boolean = false;
+  isMenuExpanded: boolean = false;
   theme: ThemeType;
 
   constructor() {
@@ -25,6 +26,10 @@ class Store {
 
   setIsMenuOpened = (value: boolean) => {
     this.isMenuOpened = value;
+  };
+
+  setIsMenuExpanded = (value: boolean) => {
+    this.isMenuExpanded = value;
   };
 
   setTheme = (value: ThemeType) => {
