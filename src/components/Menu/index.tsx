@@ -4,6 +4,7 @@ import store from '@/stores/store';
 import { observer } from 'mobx-react';
 import MenuButton from './MenuButton';
 import Prompt from './Prompt';
+import { useEffect } from 'react';
 
 const Menu = observer(() => {
   const handleBackgroundClick = () => {
@@ -13,6 +14,18 @@ const Menu = observer(() => {
   const handleMenuWrapperclick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Esc' || event.key === 'Escape') {
+        event.preventDefault();
+        store.setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <S.MenuBackground
