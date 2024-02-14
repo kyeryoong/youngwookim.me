@@ -8,10 +8,23 @@ import light from '@/theme/light';
 import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from 'styled-components';
 import * as S from './appStyled';
+import { useEffect } from 'react';
 
 type AppProps = { children: React.ReactNode };
 
 const App = observer(({ children }: AppProps) => {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toUpperCase() === 'M') {
+        event.preventDefault();
+        store.setIsMenuOpen(!store.isMenuOpen);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <ThemeProvider theme={store.theme === 'dark' ? dark : light}>
       <S.AppWrapper>
