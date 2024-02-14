@@ -9,7 +9,7 @@ type MeunButtonProps = {
 
 const MenuButton = observer(({ target }: MeunButtonProps) => {
   const handleMenuClick = () => {
-    store.setIsMenuOpen(false);
+    store.setIsMenuOpened(false);
   };
 
   const capitalize = (name: string) => {

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 const Menu = observer(() => {
   const handleBackgroundClick = () => {
-    store.setIsMenuOpen(false);
+    store.setIsMenuOpened(false);
   };
 
   const handleMenuWrapperclick = (event: React.MouseEvent) => {
@@ -19,7 +19,7 @@ const Menu = observer(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Esc' || event.key === 'Escape') {
         event.preventDefault();
-        store.setIsMenuOpen(false);
+        store.setIsMenuOpened(false);
       }
     };
 
@@ -29,11 +29,11 @@ const Menu = observer(() => {
 
   return (
     <S.MenuBackground
-      className={store.isMenuOpen ? 'opened' : 'closed'}
+      className={store.isMenuOpened ? 'opened' : 'closed'}
       onClick={handleBackgroundClick}
     >
       <S.MenuWrapper
-        className={store.isMenuOpen ? 'opened' : 'closed'}
+        className={store.isMenuOpened ? 'opened' : 'closed'}
         onClick={handleMenuWrapperclick}
       >
         <S.MenuTop>

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 
 const Logo = observer(() => {
   const handleLogoClick = () => {
-    store.setIsMenuOpen(false);
+    store.setIsMenuOpened(false);
   };
 
   return (

@@ -3,7 +3,7 @@ import { makeAutoObservable } from 'mobx';
 type ThemeType = 'light' | 'dark';
 
 class Store {
-  isMenuOpen: boolean = false;
+  isMenuOpened: boolean = false;
   theme: ThemeType;
 
   constructor() {
@@ -23,8 +23,8 @@ class Store {
     makeAutoObservable(this);
   }
 
-  setIsMenuOpen = (value: boolean) => {
-    this.isMenuOpen = value;
+  setIsMenuOpened = (value: boolean) => {
+    this.isMenuOpened = value;
   };
 
   setTheme = (value: ThemeType) => {

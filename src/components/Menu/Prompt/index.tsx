@@ -17,12 +17,12 @@ const Prompt = observer(() => {
   useEffect(() => {
     ref.current?.focus();
 
-    if (store.isMenuOpen) {
+    if (store.isMenuOpened) {
       setCurrentLine('');
       setPreviousLines([]);
       setResultLines([initText]);
     }
-  }, [store.isMenuOpen]);
+  }, [store.isMenuOpened]);
 
   const processCommand = () => {
     event?.preventDefault();
@@ -38,13 +38,13 @@ const Prompt = observer(() => {
         setCurrentLine('');
       } else if (suffix === 'home') {
         router.push('/');
-        store.setIsMenuOpen(false);
+        store.setIsMenuOpened(false);
       } else if (suffix === 'profile') {
         router.push('profile');
-        store.setIsMenuOpen(false);
+        store.setIsMenuOpened(false);
       } else if (suffix === 'tech') {
         router.push('tech');
-        store.setIsMenuOpen(false);
+        store.setIsMenuOpened(false);
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: cd: ${suffix}: No such page`]);
       }
@@ -62,7 +62,7 @@ const Prompt = observer(() => {
 
     // 메뉴 닫기
     else if (prefix === 'exit') {
-      store.setIsMenuOpen(false);
+      store.setIsMenuOpened(false);
     }
 
     // 테마 변경

@@ -4,14 +4,14 @@ import { observer } from 'mobx-react';
 
 const MenuButton = observer(() => {
   const handleClick = () => {
-    store.setIsMenuOpen(!store.isMenuOpen);
+    store.setIsMenuOpened(!store.isMenuOpened);
   };
 
   return (
     <S.ButtonWrapper onClick={handleClick}>
-      <S.ButtonsElements1 className={store.isMenuOpen ? 'opened' : 'closed'} />
-      <S.ButtonsElements2 className={store.isMenuOpen ? 'opened' : 'closed'} />
-      <S.ButtonsElements3 className={store.isMenuOpen ? 'opened' : 'closed'} />
+      <S.ButtonsElements1 className={store.isMenuOpened ? 'opened' : 'closed'} />
+      <S.ButtonsElements2 className={store.isMenuOpened ? 'opened' : 'closed'} />
+      <S.ButtonsElements3 className={store.isMenuOpened ? 'opened' : 'closed'} />
     </S.ButtonWrapper>
   );
 });

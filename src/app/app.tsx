@@ -17,7 +17,7 @@ const App = observer(({ children }: AppProps) => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toUpperCase() === 'M') {
         event.preventDefault();
-        store.setIsMenuOpen(!store.isMenuOpen);
+        store.setIsMenuOpened(!store.isMenuOpened);
       }
     };
 
