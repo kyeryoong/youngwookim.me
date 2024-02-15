@@ -6,11 +6,11 @@ import store from '@/stores/store';
 
 import * as S from './styled';
 
-type MeunButtonProps = {
+type MeunElementProps = {
   target: string;
 };
 
-const MenuButton = observer(({ target }: MeunButtonProps) => {
+const MenuElement = observer(({ target }: MeunElementProps) => {
   const handleMenuClick = () => {
     store.setIsMenuOpened(false);
   };
@@ -20,13 +20,13 @@ const MenuButton = observer(({ target }: MeunButtonProps) => {
   };
 
   return (
-    <S.MenuButton>
-      <S.MenuButtonCursor />
-      <S.MenuButtonText onClick={handleMenuClick} href={`/${target}`}>
+    <S.MenuElement>
+      <S.MenuElementCursor />
+      <S.MenuElementText onClick={handleMenuClick} href={`/${target}`}>
         {target !== '' ? capitalize(target) : 'Home'}
-      </S.MenuButtonText>
-    </S.MenuButton>
+      </S.MenuElementText>
+    </S.MenuElement>
   );
 });
 
-export default MenuButton;
+export default MenuElement;

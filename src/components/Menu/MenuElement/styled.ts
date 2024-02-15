@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const MenuButton = styled('button')`
+export const MenuElement = styled('button')`
   font-size: 2.5rem;
   font-weight: 500;
   height: 55px;
@@ -21,7 +21,7 @@ export const MenuButton = styled('button')`
   }
 `;
 
-export const MenuButtonCursor = styled('div')`
+export const MenuElementCursor = styled('div')`
   width: 0px;
   height: 60px;
   text-align: left;
@@ -33,4 +33,4 @@ export const MenuButtonCursor = styled('div')`
   }
 `;
 
-export const MenuButtonText = styled(Link)``;
+export const MenuElementText = styled(Link)``;

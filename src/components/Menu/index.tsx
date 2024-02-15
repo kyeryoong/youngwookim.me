@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 import store from '@/stores/store';
 
-import MenuButton from './MenuButton';
+import MenuButton from './MenuElement';
 import Prompt from './Prompt';
 import * as S from './styled';
 
