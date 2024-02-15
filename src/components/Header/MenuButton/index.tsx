@@ -10,9 +10,9 @@ const MenuButton = observer(() => {
 
   return (
     <S.ButtonWrapper onClick={handleClick}>
-      <S.ButtonsElements1 className={store.isMenuOpened ? 'opened' : 'closed'} />
-      <S.ButtonsElements2 className={store.isMenuOpened ? 'opened' : 'closed'} />
-      <S.ButtonsElements3 className={store.isMenuOpened ? 'opened' : 'closed'} />
+      <S.ButtonsElements1 isMenuOpened={store.isMenuOpened} />
+      <S.ButtonsElements2 isMenuOpened={store.isMenuOpened} />
+      <S.ButtonsElements3 isMenuOpened={store.isMenuOpened} />
     </S.ButtonWrapper>
   );
 });

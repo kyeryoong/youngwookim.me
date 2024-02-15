@@ -17,38 +17,23 @@ export const ButtonsElements = styled('div')`
   transition: 0.5s;
 `;
 
-export const ButtonsElements1 = styled(ButtonsElements)`
-  width: 50%;
+export const ButtonsElements1 = styled(ButtonsElements)<{ isMenuOpened: boolean }>`
   position: absolute;
-  top: 15%;
-
-  &.opened {
-    width: 100%;
-    transform: rotate(45deg);
-    top: 45%;
-  }
+  width: ${({ isMenuOpened }) => (isMenuOpened ? '100%' : '50%')};
+  top: ${({ isMenuOpened }) => (isMenuOpened ? '45%' : '15%')};
+  transform: ${({ isMenuOpened }) => isMenuOpened && 'rotate(45deg)'};
 `;
 
-export const ButtonsElements2 = styled(ButtonsElements)`
-  width: 100%;
+export const ButtonsElements2 = styled(ButtonsElements)<{ isMenuOpened: boolean }>`
   position: absolute;
+  width: ${({ isMenuOpened }) => (isMenuOpened ? '0%' : '100%')};
   top: 45%;
-  opacity: 1;
-
-  &.opened {
-    width: 0%;
-    opacity: 0;
-  }
+  opacity: ${({ isMenuOpened }) => (isMenuOpened ? '0' : '1')};
 `;
 
-export const ButtonsElements3 = styled(ButtonsElements)`
-  width: 75%;
+export const ButtonsElements3 = styled(ButtonsElements)<{ isMenuOpened: boolean }>`
   position: absolute;
-  bottom: 15%;
-
-  &.opened {
-    width: 100%;
-    transform: rotate(-45deg);
-    bottom: 45%;
-  }
+  width: ${({ isMenuOpened }) => (isMenuOpened ? '100%' : '75%')};
+  bottom: ${({ isMenuOpened }) => (isMenuOpened ? '45%' : '15%')};
+  transform: ${({ isMenuOpened }) => isMenuOpened && 'rotate(-45deg)'};
 `;
