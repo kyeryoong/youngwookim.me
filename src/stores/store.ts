@@ -8,19 +8,19 @@ class Store {
   theme: ThemeType;
 
   constructor() {
-    if (typeof window !== 'undefined') {
-      const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
+    // if (typeof window !== 'undefined') {
+    //   const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
 
-      if (localStorageTheme) {
-        this.theme = localStorageTheme;
-      } else {
-        this.theme = 'dark';
-        localStorage.setItem('youngwookim.me_theme', 'dark');
-      }
-    } else {
-      this.theme = 'dark';
-    }
-
+    //   if (localStorageTheme) {
+    //     this.theme = localStorageTheme;
+    //   } else {
+    //     this.theme = 'dark';
+    //     localStorage.setItem('youngwookim.me_theme', 'dark');
+    //   }
+    // } else {
+    //   this.theme = 'dark';
+    // }
+    this.theme = (window.localStorage.getItem('youngwookim.me_theme') as ThemeType) ?? 'dark';
     makeAutoObservable(this);
   }
 

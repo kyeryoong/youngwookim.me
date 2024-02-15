@@ -27,8 +27,6 @@ const App = observer(({ children }: AppProps) => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
-  localStorage.getItem('youngwookim.me_theme');
-
   return (
     <ThemeProvider theme={store.theme === 'dark' ? dark : light}>
       <S.AppWrapper>
