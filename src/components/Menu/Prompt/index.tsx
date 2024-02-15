@@ -118,7 +118,9 @@ const Prompt = observer(() => {
 
     // 유효하지 않은 명령어
     else {
-      setResultLines((prev: string[]) => [...prev, `bash: ${currentLine}: command not found`]);
+      if (suffix || prefix) {
+        setResultLines((prev: string[]) => [...prev, `bash: ${currentLine}: command not found`]);
+      }
     }
 
     setPreviousLines((prev: string[]) => [...prev, currentLine]);
