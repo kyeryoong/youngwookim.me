@@ -12,6 +12,12 @@ class Store {
 
   setIsMenuOpened = (value: boolean) => {
     this.isMenuOpened = value;
+
+    if (value === false) {
+      setTimeout(() => {
+        this.isMenuExpanded = false;
+      }, 500);
+    }
   };
 
   setIsMenuExpanded = (value: boolean) => {

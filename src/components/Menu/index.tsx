@@ -12,7 +12,6 @@ import * as S from './styled';
 const Menu = observer(() => {
   const handleBackgroundClick = () => {
     store.setIsMenuOpened(false);
-    store.setIsMenuExpanded(false);
   };
 
   const handleMenuWrapperclick = (event: React.MouseEvent) => {
@@ -21,7 +20,6 @@ const Menu = observer(() => {
 
   const handleCloseButtonClick = () => {
     store.setIsMenuOpened(false);
-    store.setIsMenuExpanded(false);
   };
 
   const handleExpandButtonClick = () => {
@@ -33,7 +31,6 @@ const Menu = observer(() => {
       if (event.key === 'Esc' || event.key === 'Escape') {
         event.preventDefault();
         store.setIsMenuOpened(false);
-        store.setIsMenuExpanded(false);
       }
     };
 
