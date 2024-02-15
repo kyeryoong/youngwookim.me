@@ -14,6 +14,7 @@ const Prompt = observer(() => {
   const ref = useRef<HTMLInputElement>(null);
 
   const [currentLine, setCurrentLine] = useState<string>('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [previousLines, setPreviousLines] = useState<string[]>([]);
   const [resultLines, setResultLines] = useState<string[]>([]);
 
@@ -30,6 +31,7 @@ const Prompt = observer(() => {
   const processCommand = () => {
     event?.preventDefault();
 
+    store.setPromptEntered();
     setResultLines((prev: string[]) => [...prev, `> ${currentLine}`]);
 
     const [prefix, suffix] = currentLine.trim().toLowerCase().split(' ');
@@ -127,8 +129,6 @@ const Prompt = observer(() => {
     event.preventDefault();
     setCurrentLine(event.target.value);
   };
-
-  console.log(previousLines);
 
   return (
     <S.PromptWrapper onSubmit={processCommand}>

@@ -5,6 +5,7 @@ class Store {
   isMenuOpened: boolean = false;
   isMenuExpanded: boolean = false;
   theme: ThemeType = 'dark';
+  promptEntered: number = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -27,6 +28,10 @@ class Store {
   setTheme = (value: ThemeType) => {
     this.theme = value;
     localStorage.setItem('youngwookim.me_theme', String(value));
+  };
+
+  setPromptEntered = () => {
+    this.promptEntered++;
   };
 }
 

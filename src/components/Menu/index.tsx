@@ -1,7 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import store from '@/stores/store';
 
@@ -10,6 +10,8 @@ import Prompt from './Prompt';
 import * as S from './styled';
 
 const Menu = observer(() => {
+  const ref = useRef<HTMLInputElement>(null);
+
   const handleBackgroundClick = () => {
     store.setIsMenuOpened(false);
   };
@@ -38,6 +40,12 @@ const Menu = observer(() => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollTop = ref.current.scrollHeight;
+    }
+  }, [store.promptEntered]);
+
   return (
     <S.MenuBackground
       isMenuOpened={store.isMenuOpened}
@@ -54,7 +62,7 @@ const Menu = observer(() => {
           <S.MenuTopButton.Yellow />
           <S.MenuTopButton.Green onClick={handleExpandButtonClick} />
         </S.MenuTop>
-        <S.MenuBottom>
+        <S.MenuBottom ref={ref}>
           <MenuButton target="" />
           <MenuButton target="profile" />
           <MenuButton target="tech" />
