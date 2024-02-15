@@ -43,16 +43,16 @@ const Menu = observer(() => {
 
   return (
     <S.MenuBackground
-      $isMenuOpened={store.isMenuOpened}
-      $isMenuExpanded={store.isMenuExpanded}
+      isMenuOpened={store.isMenuOpened}
+      isMenuExpanded={store.isMenuExpanded}
       onClick={handleBackgroundClick}
     >
       <S.MenuWrapper
-        $isMenuOpened={store.isMenuOpened}
-        $isMenuExpanded={store.isMenuExpanded}
+        isMenuOpened={store.isMenuOpened}
+        isMenuExpanded={store.isMenuExpanded}
         onClick={handleMenuWrapperclick}
       >
-        <S.MenuTop $isMenuExpanded={store.isMenuExpanded}>
+        <S.MenuTop isMenuExpanded={store.isMenuExpanded}>
           <S.MenuTopButton.Red onClick={handleCloseButtonClick} />
           <S.MenuTopButton.Yellow />
           <S.MenuTopButton.Green onClick={handleExpandButtonClick} />

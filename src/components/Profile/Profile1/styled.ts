@@ -12,10 +12,10 @@ export const PageWrapper = styled('div')`
 
 export const YoungWoo = styled('div')``;
 
-export const Line = styled('div')<{ $delay?: number }>`
+export const Line = styled('div')<{ delay?: number }>`
   animation: Float 1.5s;
   animation-fill-mode: forwards;
-  animation-delay: ${({ $delay }) => ($delay ? `${$delay / 1000}s` : '0s')};
+  animation-delay: ${({ delay }) => (delay ? `${delay / 1000}s` : '0s')};
   opacity: 0;
   transform: translateY(50px);
 

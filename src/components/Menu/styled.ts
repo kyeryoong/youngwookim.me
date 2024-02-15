@@ -1,6 +1,8 @@
+'use client';
+
 import styled from 'styled-components';
 
-export const MenuBackground = styled('div')<{ $isMenuOpened: boolean; $isMenuExpanded: boolean }>`
+export const MenuBackground = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -10,33 +12,33 @@ export const MenuBackground = styled('div')<{ $isMenuOpened: boolean; $isMenuExp
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-  background-color: ${({ theme, $isMenuOpened }) =>
+  background-color: ${({ theme, isMenuOpened }) =>
     theme.mode === 'dark'
-      ? `rgba(0, 0, 0, ${$isMenuOpened ? 0.5 : 0})`
-      : `rgba(255, 255, 255, ${$isMenuOpened ? 0.5 : 0})`};
-  z-index: ${({ $isMenuOpened, $isMenuExpanded }) =>
-    $isMenuOpened ? ($isMenuExpanded ? 110000 : 9000) : 0};
+      ? `rgba(0, 0, 0, ${isMenuOpened ? 0.5 : 0})`
+      : `rgba(255, 255, 255, ${isMenuOpened ? 0.5 : 0})`};
+  z-index: ${({ isMenuOpened, isMenuExpanded }) =>
+    isMenuOpened ? (isMenuExpanded ? 110000 : 9000) : 0};
 `;
 
-export const MenuWrapper = styled('div')<{ $isMenuOpened: boolean; $isMenuExpanded: boolean }>`
-  width: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vw' : '50vw')};
+export const MenuWrapper = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
+  width: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vw' : '50vw')};
   min-width: 1000px;
-  height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vh' : '60vh')};
+  height: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vh' : '60vh')};
   min-height: 700px;
-  border-radius: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '15px')};
+  border-radius: ${({ isMenuExpanded }) => (isMenuExpanded ? '0px' : '15px')};
   border: #282828;
   background-color: #101010;
   transition: 0.5s;
   display: grid;
   grid-template-rows: fit-content(100%) 1fr;
-  opacity: ${({ $isMenuOpened }) => ($isMenuOpened ? 1 : 0)};
-  z-index: ${({ $isMenuOpened }) => ($isMenuOpened ? 20000 : 0)};
-  transform: ${({ $isMenuOpened }) => ($isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
+  opacity: ${({ isMenuOpened }) => (isMenuOpened ? 1 : 0)};
+  z-index: ${({ isMenuOpened }) => (isMenuOpened ? 20000 : 0)};
+  transform: ${({ isMenuOpened }) => (isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
 `;
 
-export const MenuTop = styled('div')<{ $isMenuExpanded: boolean }>`
+export const MenuTop = styled('div')<{ isMenuExpanded: boolean }>`
   height: 50px;
-  border-radius: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '15px 15px 0px 0px')};
+  border-radius: ${({ isMenuExpanded }) => (isMenuExpanded ? '0px' : '15px 15px 0px 0px')};
   background-color: #282828;
   display: flex;
   align-items: center;
