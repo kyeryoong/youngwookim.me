@@ -1,4 +1,5 @@
 'use client';
+
 import styled from 'styled-components';
 
 export const MenuBackground = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`

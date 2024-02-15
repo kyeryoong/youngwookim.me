@@ -1,6 +1,7 @@
-import * as S from './styled';
-import store from '../../../stores/store';
 import { observer } from 'mobx-react';
+
+import store from '../../../stores/store';
+import * as S from './styled';
 
 const MenuButton = observer(() => {
   const handleClick = () => {

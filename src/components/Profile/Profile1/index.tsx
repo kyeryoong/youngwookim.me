@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react';
+
 import * as S from './styled';
 
 const Profile1 = observer(() => {

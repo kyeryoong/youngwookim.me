@@ -1,10 +1,13 @@
 'use client';
-import * as S from './styled';
-import store from '@/stores/store';
-import { useRouter } from 'next/navigation';
+
 import { observer } from 'mobx-react';
-import { useState, useEffect, useRef } from 'react';
-import { initText, helpText, fortuneTexts } from './text';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+
+import store from '@/stores/store';
+
+import * as S from './styled';
+import { fortuneTexts, helpText, initText } from './text';
 
 const Prompt = observer(() => {
   const router = useRouter();

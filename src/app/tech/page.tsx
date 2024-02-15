@@ -1,5 +1,7 @@
 'use client';
+
 import { observer } from 'mobx-react';
+
 import Page from '@/components/Page';
 import { Tech, TechList } from '@/components/Tech';
 

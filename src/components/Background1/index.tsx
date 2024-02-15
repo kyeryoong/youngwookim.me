@@ -1,6 +1,8 @@
 import { observer } from 'mobx-react';
-import * as S from './styled';
+
 import store from '@/stores/store';
+
+import * as S from './styled';
 
 const Background1 = observer(() => {
   return (

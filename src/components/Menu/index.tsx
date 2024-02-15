@@ -1,10 +1,13 @@
 'use client';
-import * as S from './styled';
-import store from '@/stores/store';
+
 import { observer } from 'mobx-react';
+import { useEffect } from 'react';
+
+import store from '@/stores/store';
+
 import MenuButton from './MenuButton';
 import Prompt from './Prompt';
-import { useEffect } from 'react';
+import * as S from './styled';
 
 const Menu = observer(() => {
   const handleBackgroundClick = () => {

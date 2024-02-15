@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
-import * as S from './styled';
 import { useEffect, useState } from 'react';
+
+import * as S from './styled';
 
 const Profile2 = observer(() => {
   // const xmlHttpRequest = new XMLHttpRequest();

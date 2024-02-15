@@ -1,6 +1,7 @@
-import { ReactNode, Children } from 'react';
-import * as S from './styled';
+import { Children, ReactNode } from 'react';
+
 import { StarIcon } from './StarIcon';
+import * as S from './styled';
 
 type TechProps = {
   name: string;

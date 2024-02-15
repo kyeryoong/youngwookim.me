@@ -1,9 +1,12 @@
 'use client';
-import { observer } from 'mobx-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/free-mode';
+
+import { observer } from 'mobx-react';
+import { Mousewheel } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import Profile1 from '@/components/Profile/Profile1';
 import Profile2 from '@/components/Profile/Profile2';
 

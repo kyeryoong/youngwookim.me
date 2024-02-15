@@ -1,14 +1,16 @@
 'use client';
 
+import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
+
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
 import store from '@/stores/store';
 import dark from '@/theme/dark';
 import light from '@/theme/light';
-import { observer } from 'mobx-react-lite';
-import { ThemeProvider } from 'styled-components';
+
 import * as S from './appStyled';
-import { useEffect } from 'react';
 
 type AppProps = { children: React.ReactNode };
 

@@ -1,9 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
+
 import { observer } from 'mobx-react';
+import { useEffect, useState } from 'react';
+
+import Background1 from '@/components/Background1';
 
 import * as S from './styled';
-import Background1 from '@/components/Background1';
 
 const Home = observer(() => {
   const [page, setPage] = useState<number>(0);
