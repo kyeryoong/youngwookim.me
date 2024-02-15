@@ -1,26 +1,12 @@
 import { makeAutoObservable } from 'mobx';
 
 type ThemeType = 'light' | 'dark';
-
 class Store {
   isMenuOpened: boolean = false;
   isMenuExpanded: boolean = false;
-  theme: ThemeType;
+  theme: ThemeType = 'dark';
 
   constructor() {
-    // if (typeof window !== 'undefined') {
-    //   const localStorageTheme = localStorage.getItem('youngwookim.me_theme') as ThemeType;
-
-    //   if (localStorageTheme) {
-    //     this.theme = localStorageTheme;
-    //   } else {
-    //     this.theme = 'dark';
-    //     localStorage.setItem('youngwookim.me_theme', 'dark');
-    //   }
-    // } else {
-    //   this.theme = 'dark';
-    // }
-    this.theme = (window.localStorage.getItem('youngwookim.me_theme') as ThemeType) ?? 'dark';
     makeAutoObservable(this);
   }
 
@@ -34,7 +20,7 @@ class Store {
 
   setTheme = (value: ThemeType) => {
     this.theme = value;
-    localStorage.setItem('youngwookim.me_theme', value);
+    localStorage.setItem('youngwookim.me_theme', String(value));
   };
 }
 

@@ -27,6 +27,20 @@ const App = observer(({ children }: AppProps) => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const themeMode = localStorage.getItem('youngwookim.me_theme');
+
+      if (themeMode === 'dark') {
+        store.setTheme('dark');
+      } else if (themeMode === 'light') {
+        store.setTheme('light');
+      } else {
+        store.setTheme('dark');
+      }
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={store.theme === 'dark' ? dark : light}>
       <S.AppWrapper>
