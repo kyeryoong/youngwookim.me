@@ -5,7 +5,7 @@ import * as S from './styled';
 const Profile1 = observer(() => {
   const handleEmailClick = () => {
     window.open(
-      'mailto:kyeryoong@gmail.com?subject=안녕하세요, archive-eng을 통해서 이메일 드립니다.',
+      'mailto:kyeryoong@gmail.com?subject=안녕하세요, youngwookim.me을 통해서 이메일 드립니다.',
     );
   };
 
