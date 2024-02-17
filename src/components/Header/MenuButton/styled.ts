@@ -8,9 +8,9 @@ export const ButtonWrapper = styled('div')`
   width: 40px;
   height: 40px;
   cursor: pointer;
-  transition: 0.5s;
-  position: fixed;
+  position: absolute;
   right: 100px;
+  transition: 0.5s;
   z-index: 12000;
 `;
 
