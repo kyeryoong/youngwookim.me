@@ -3,7 +3,8 @@
 import { observer } from 'mobx-react';
 
 import Page from '@/components/Page';
-import { Tech, TechList } from '@/components/Tech';
+import { Tech } from '@/components/Tech/Tech';
+import { TechList } from '@/components/Tech/TechList';
 
 const TechPage = observer(() => {
   return (

@@ -1,7 +1,5 @@
-import { Children, ReactNode } from 'react';
-
-import { GradientBackground } from './GradientBackground';
-import { StarIcon } from './StarIcon';
+import { GradientBackground } from '../GradientBackground';
+import { StarIcon } from '../StarIcon';
 import * as S from './styled';
 
 type TechProps = {
@@ -14,8 +12,6 @@ type TechProps = {
   backgroundColorOffset2?: number;
   core?: boolean;
 };
-
-type TechListProps = { categoryName: string; children?: ReactNode };
 
 const hexToRgb = (hex: string | undefined) => {
   if (hex) {
@@ -68,17 +64,5 @@ export const Tech = ({
       {core && <StarIcon />}
       {core && <GradientBackground />}
     </S.TechWrapper>
-  );
-};
-
-export const TechList = ({ categoryName, children }: TechListProps) => {
-  return (
-    <S.TechList>
-      <S.TechListHeader>
-        <S.TechListCategoryName>{categoryName}</S.TechListCategoryName>
-        <S.TechListCount>{Children.count(children)}</S.TechListCount>
-      </S.TechListHeader>
-      {children}
-    </S.TechList>
   );
 };
