@@ -11,6 +11,7 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
   padding-bottom: 15vh;
   background-color: ${({ theme }) => theme.color.black};
   display: ${({ hide }) => hide && 'none'};
+  color: ${({ theme }) => theme.color.gray[500]};
 `;
 
 export const FooterTop = styled('div')`
@@ -35,7 +36,6 @@ export const FooterTopRight = styled('div')`
 
 export const FooterBottom = styled('div')`
   text-align: center;
-
   margin-top: 50px;
 `;
 
