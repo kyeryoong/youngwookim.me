@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
 import store from '@/stores/store';
@@ -47,6 +48,7 @@ const App = observer(({ children }: AppProps) => {
         <Header />
         <Menu />
         {children}
+        <Footer />
       </S.AppWrapper>
     </ThemeProvider>
   );
