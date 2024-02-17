@@ -36,6 +36,22 @@ const TechPage = observer(() => {
         <Tech name="Figma" textColor="white" backgroundColor1="#2E3038" core />
       </TechList>
 
+      <TechList categoryName="Database">
+        <Tech name="MongoDB" textColor="white" backgroundColor1="#00684A" />
+        <Tech
+          name="MySQL"
+          textColor="white"
+          backgroundColor1="#00758F"
+          backgroundColor2="#F29111"
+        />
+        <Tech
+          name="Firebase"
+          textColor="white"
+          backgroundColor1="#1E88E5"
+          customImage="Firebase.svg"
+        />
+      </TechList>
+
       <TechList categoryName="Version Control">
         <Tech name="Git" textColor="white" backgroundColor1="#F05133" core />
         <Tech name="GitHub" textColor="white" backgroundColor1="#444c54" />
