@@ -4,6 +4,10 @@ type LineProps = {
   delay?: number;
 };
 
+type TextHoverProps = {
+  hover?: boolean;
+};
+
 export const PageWrapper = styled('div')`
   font-size: min(3rem, 2vw);
   width: 100vw;
@@ -51,12 +55,12 @@ export const Text = {
     color: #fd971f;
   `,
 
-  Yellow: styled(TextBase)`
+  Yellow: styled(TextBase)<TextHoverProps>`
     color: #e6db74;
 
     &:hover {
-      color: aqua;
-      cursor: pointer;
+      color: ${({ hover }) => hover && 'aqua'};
+      cursor: ${({ hover }) => hover && 'pointer'};
     }
   `,
 
