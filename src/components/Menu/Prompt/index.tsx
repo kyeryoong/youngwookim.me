@@ -73,11 +73,7 @@ const Prompt = observer(() => {
     // 테마 변경
     else if (prefix === 'theme') {
       if (suffix === undefined) {
-        if (store.theme === 'dark') {
-          store.setTheme('light');
-        } else {
-          store.setTheme('dark');
-        }
+        store.toggleTheme();
       } else if (suffix === 'dark' || suffix === 'light') {
         store.setTheme(suffix);
       } else {
@@ -114,6 +110,11 @@ const Prompt = observer(() => {
           ? fortuneTexts[Number(suffix)]
           : fortuneTexts[Math.floor(Math.random() * fortuneTexts.length)],
       ]);
+    }
+
+    // 프롬프트 확장
+    else if (prefix === 'expand') {
+      store.setIsMenuExpanded(!store.isMenuExpanded);
     }
 
     // 유효하지 않은 명령어
