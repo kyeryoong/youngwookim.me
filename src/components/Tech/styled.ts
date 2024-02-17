@@ -19,6 +19,7 @@ export const TechWrapper = styled('div')<TechWrapperProps>`
   font-size: 1.8rem;
   font-weight: 600;
   width: fit-content;
+  position: relative;
   border-radius: 100px;
   padding-top: 7.5px;
   padding-bottom: 7.5px;
@@ -28,25 +29,13 @@ export const TechWrapper = styled('div')<TechWrapperProps>`
   align-items: center;
   background: ${({ rgb1, rgb2 }) => `linear-gradient(90deg, ${rgb1}, ${rgb2}, ${rgb1})`};
   background-size: 200% 200%;
-  animation-name: ${({ core }) => core && `Gradient`};
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
-  @keyframes Gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 200% 50%;
-    }
-  }
 `;
 
 export const TechIcon = styled(Image)<TechIconProps>`
   width: 60px;
   height: 60px;
   padding: 5px;
+  z-index: 100;
   filter: ${({ textColor }) =>
     textColor === 'black' &&
     'invert(100%) sepia(100%) saturate(0%) hue-rotate(218deg) brightness(104%) contrast(102%)'};

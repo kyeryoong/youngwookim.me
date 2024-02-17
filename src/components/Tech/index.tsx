@@ -1,5 +1,6 @@
 import { Children, ReactNode } from 'react';
 
+import { GradientBackground } from './GradientBackground';
 import { StarIcon } from './StarIcon';
 import * as S from './styled';
 
@@ -65,6 +66,7 @@ export const Tech = ({
       <S.TechIcon textColor={textColor} width={200} height={200} src={src} alt={`${name} Icon`} />
       <S.TechName textColor={textColor}>{name}</S.TechName>
       {core && <StarIcon />}
+      {core && <GradientBackground />}
     </S.TechWrapper>
   );
 };

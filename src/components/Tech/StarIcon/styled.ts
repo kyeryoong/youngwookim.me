@@ -7,6 +7,7 @@ export const StarIconWrapper = styled('div')`
   margin-left: 10px;
   align-self: flex-start;
   position: relative;
+  z-index: 100;
 `;
 
 export const StarIcon = styled('div')`
