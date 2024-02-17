@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type HeadingProps = {
+  delay?: number;
+};
+
 export const Wrapper = styled('div')`
   width: 100vw;
   height: 100vh;
@@ -22,7 +26,7 @@ export const HeadingWrapper = styled('div')`
   justify-content: center;
 `;
 
-export const Heading = styled('span')<{ delay?: number }>`
+export const Heading = styled('span')<HeadingProps>`
   font-size: 4rem;
   font-weight: 700;
   color: white;

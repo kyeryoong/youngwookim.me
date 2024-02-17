@@ -1,8 +1,20 @@
-'use client';
-
 import styled from 'styled-components';
 
-export const MenuBackground = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
+type MenuBackgroundProps = {
+  isMenuOpened: boolean;
+  isMenuExpanded: boolean;
+};
+
+type MenuWrapperProps = {
+  isMenuOpened: boolean;
+  isMenuExpanded: boolean;
+};
+
+type MenuTopProps = {
+  isMenuExpanded: boolean;
+};
+
+export const MenuBackground = styled('div')<MenuBackgroundProps>`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -20,7 +32,7 @@ export const MenuBackground = styled('div')<{ isMenuOpened: boolean; isMenuExpan
     isMenuOpened ? (isMenuExpanded ? 110000 : 9000) : 0};
 `;
 
-export const MenuWrapper = styled('div')<{ isMenuOpened: boolean; isMenuExpanded: boolean }>`
+export const MenuWrapper = styled('div')<MenuWrapperProps>`
   width: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vw' : '50vw')};
   min-width: 1000px;
   height: ${({ isMenuExpanded }) => (isMenuExpanded ? '100vh' : '60vh')};
@@ -36,7 +48,7 @@ export const MenuWrapper = styled('div')<{ isMenuOpened: boolean; isMenuExpanded
   transform: ${({ isMenuOpened }) => (isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
 `;
 
-export const MenuTop = styled('div')<{ isMenuExpanded: boolean }>`
+export const MenuTop = styled('div')<MenuTopProps>`
   height: 50px;
   border-radius: ${({ isMenuExpanded }) => (isMenuExpanded ? '0px' : '15px 15px 0px 0px')};
   background-color: #282828;

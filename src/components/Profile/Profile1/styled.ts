@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type LineProps = {
+  delay?: number;
+};
+
 export const PageWrapper = styled('div')`
   font-size: min(3rem, 2vw);
   width: 100vw;
@@ -12,7 +16,7 @@ export const PageWrapper = styled('div')`
 
 export const YoungWoo = styled('div')``;
 
-export const Line = styled('div')<{ delay?: number }>`
+export const Line = styled('div')<LineProps>`
   animation: Float 1.5s;
   animation-fill-mode: forwards;
   animation-delay: ${({ delay }) => (delay ? `${delay / 1000}s` : '0s')};
@@ -47,12 +51,12 @@ export const Text = {
     color: #fd971f;
   `,
 
-  Yellow: styled(TextBase)<{ hover?: boolean }>`
+  Yellow: styled(TextBase)`
     color: #e6db74;
 
     &:hover {
-      color: ${({ hover }) => hover && 'aqua'};
-      cursor: ${({ hover }) => hover && 'pointer'};
+      color: aqua;
+      cursor: pointer;
     }
   `,
 

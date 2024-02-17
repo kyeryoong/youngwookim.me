@@ -1,11 +1,21 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export const TechWrapper = styled('div')<{
+type TechWrapperProps = {
   rgb1: string;
   rgb2?: string;
   core?: boolean;
-}>`
+};
+
+type TechIconProps = {
+  textColor: string;
+};
+
+type TechNameProps = {
+  textColor: string;
+};
+
+export const TechWrapper = styled('div')<TechWrapperProps>`
   font-size: 1.8rem;
   font-weight: 600;
   width: fit-content;
@@ -33,9 +43,7 @@ export const TechWrapper = styled('div')<{
   }
 `;
 
-export const TechIcon = styled(Image)<{
-  textColor: string;
-}>`
+export const TechIcon = styled(Image)<TechIconProps>`
   width: 60px;
   height: 60px;
   padding: 5px;
@@ -44,9 +52,7 @@ export const TechIcon = styled(Image)<{
     'invert(100%) sepia(100%) saturate(0%) hue-rotate(218deg) brightness(104%) contrast(102%)'};
 `;
 
-export const TechName = styled('span')<{
-  textColor: string;
-}>`
+export const TechName = styled('span')<TechNameProps>`
   color: ${({ textColor }) => textColor};
 `;
 
