@@ -7,10 +7,6 @@ import * as S from './styled';
 const Profile3 = observer(() => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleTableItemEnter = (event: any) => {
-    setHoveredIndex(Number(event._targetInst.pendingProps.alt));
-  };
-
   const handleMouseLeave = () => {
     setHoveredIndex(null);
   };
@@ -27,8 +23,8 @@ const Profile3 = observer(() => {
           width={1500}
           height={1000}
           src={'/profile/keyboard_graphic.png'}
-          alt="0"
-          onMouseEnter={handleTableItemEnter}
+          alt="Keyboard"
+          onMouseEnter={() => setHoveredIndex(0)}
           onMouseLeave={handleMouseLeave}
           itemIndex={0}
           hoveredIndex={hoveredIndex}
@@ -37,8 +33,8 @@ const Profile3 = observer(() => {
           width={1000}
           height={1000}
           src={'/profile/mouse_graphic.png'}
-          alt="1"
-          onMouseEnter={handleTableItemEnter}
+          alt="Mouse"
+          onMouseEnter={() => setHoveredIndex(1)}
           onMouseLeave={handleMouseLeave}
           itemIndex={1}
           hoveredIndex={hoveredIndex}
@@ -47,8 +43,8 @@ const Profile3 = observer(() => {
           width={1500}
           height={1500}
           src={'/profile/monitor_graphic.png'}
-          alt="2"
-          onMouseEnter={handleTableItemEnter}
+          alt="Monitor"
+          onMouseEnter={() => setHoveredIndex(2)}
           onMouseLeave={handleMouseLeave}
           itemIndex={2}
           hoveredIndex={hoveredIndex}
@@ -57,8 +53,8 @@ const Profile3 = observer(() => {
           width={1000}
           height={1500}
           src={'/profile/coffee_graphic.png'}
-          alt="3"
-          onMouseEnter={handleTableItemEnter}
+          alt="Coffee"
+          onMouseEnter={() => setHoveredIndex(3)}
           onMouseLeave={handleMouseLeave}
           itemIndex={3}
           hoveredIndex={hoveredIndex}
@@ -67,8 +63,8 @@ const Profile3 = observer(() => {
           width={1000}
           height={1500}
           src={'/profile/book_graphic.png'}
-          alt="4"
-          onMouseEnter={handleTableItemEnter}
+          alt="Book"
+          onMouseEnter={() => setHoveredIndex(4)}
           onMouseLeave={handleMouseLeave}
           itemIndex={4}
           hoveredIndex={hoveredIndex}
