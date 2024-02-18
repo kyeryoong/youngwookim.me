@@ -9,6 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Profile1 from '@/components/Profile/Profile1';
 import Profile2 from '@/components/Profile/Profile2';
+import Profile3 from '@/components/Profile/Profile3';
+import Footer from '@/components/Footer';
 
 const Profile = observer(() => {
   return (
@@ -34,6 +36,12 @@ const Profile = observer(() => {
       </SwiperSlide>
       <SwiperSlide>
         <Profile2 />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Profile3 />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Footer />
       </SwiperSlide>
     </Swiper>
   );

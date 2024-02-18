@@ -4,7 +4,7 @@ import * as S from './styled';
 
 const Footer = () => {
   const pathname = usePathname();
-  const hide = ['/', '/profile'].includes(pathname);
+  const hide = ['/'].includes(pathname);
 
   const handleGitHubClick = () => {
     window.open('https://github.com/kyeryoong');
