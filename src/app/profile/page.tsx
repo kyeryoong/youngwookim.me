@@ -7,10 +7,10 @@ import { observer } from 'mobx-react';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Footer from '@/components/Footer';
 import Profile1 from '@/components/Profile/Profile1';
 import Profile2 from '@/components/Profile/Profile2';
 import Profile3 from '@/components/Profile/Profile3';
-import Footer from '@/components/Footer';
 
 const Profile = observer(() => {
   return (
