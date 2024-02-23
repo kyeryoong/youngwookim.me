@@ -24,8 +24,8 @@ export const description = [
     imgSrc: '/profile/coffee_image.png',
   },
   {
-    nameEng: 'Modern React DeepDive',
-    nameKor: '모던 리액트 DeepDive',
+    nameEng: 'Modern React Deep Dive',
+    nameKor: '모던 리액트 Deep Dive',
     price: 48000,
     imgSrc: '/profile/book_image.png',
   },
