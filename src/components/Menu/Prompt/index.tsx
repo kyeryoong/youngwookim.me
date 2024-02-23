@@ -50,6 +50,9 @@ const Prompt = observer(() => {
       } else if (suffix === 'tech') {
         router.push('tech');
         store.setIsMenuOpened(false);
+      } else if (suffix === 'projects') {
+        router.push('projects');
+        store.setIsMenuOpened(false);
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: cd: ${suffix}: No such page`]);
       }
