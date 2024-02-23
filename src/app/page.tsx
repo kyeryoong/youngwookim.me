@@ -3,7 +3,7 @@
 import { observer } from 'mobx-react';
 import { useEffect, useState } from 'react';
 
-import Background1 from '@/components/Background1';
+import Background1 from '@/components/Background/Background1';
 
 import * as S from './styled';
 
@@ -19,12 +19,6 @@ const Home = observer(() => {
   return (
     <S.Wrapper>
       <Background1 />
-
-      <S.HeadingWrapper>
-        <S.Heading delay={500}>안녕하세요</S.Heading>
-        <S.Heading delay={1000}>프론트엔드 개발자</S.Heading>
-        <S.Heading delay={1500}>김영우입니다.</S.Heading>
-      </S.HeadingWrapper>
     </S.Wrapper>
   );
 });
