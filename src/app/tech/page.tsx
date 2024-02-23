@@ -3,6 +3,7 @@
 import { observer } from 'mobx-react';
 
 import Page from '@/components/Page';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { Tech } from '@/components/Tech/Tech';
 import { TechList } from '@/components/Tech/TechList';
 
@@ -58,6 +59,8 @@ const TechPage = observer(() => {
         <Tech name="GitHub" textColor="white" backgroundColor1="#444c54" />
         <Tech name="GitLab" textColor="white" backgroundColor1="#FC6D26" core />
       </TechList>
+
+      <ScrollToTopButton />
     </Page>
   );
 });
