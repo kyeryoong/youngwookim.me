@@ -14,7 +14,7 @@ const Profile1 = observer(() => {
   };
 
   return (
-    <S.PageWrapper>
+    <S.ProfilePageWrapper>
       <S.YoungWoo>
         <S.Line delay={0}>
           <S.Text.DarkGray>&#47;&#47; Let me introduce myself.</S.Text.DarkGray>
@@ -83,7 +83,7 @@ const Profile1 = observer(() => {
           <S.Text.Gray>&#59;</S.Text.Gray>
         </S.Line>
       </S.YoungWoo>
-    </S.PageWrapper>
+    </S.ProfilePageWrapper>
   );
 });
 

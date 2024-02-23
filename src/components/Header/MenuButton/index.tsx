@@ -9,11 +9,11 @@ const MenuButton = observer(() => {
   };
 
   return (
-    <S.ButtonWrapper onClick={handleClick}>
-      <S.ButtonsElements1 isMenuOpened={store.isMenuOpened} />
-      <S.ButtonsElements2 isMenuOpened={store.isMenuOpened} />
-      <S.ButtonsElements3 isMenuOpened={store.isMenuOpened} />
-    </S.ButtonWrapper>
+    <S.MenuButtonWrapper onClick={handleClick}>
+      <S.MenuButtonsElements1 isMenuOpened={store.isMenuOpened} />
+      <S.MenuButtonsElements2 isMenuOpened={store.isMenuOpened} />
+      <S.MenuButtonsElements3 isMenuOpened={store.isMenuOpened} />
+    </S.MenuButtonWrapper>
   );
 });
 

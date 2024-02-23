@@ -20,12 +20,12 @@ const MenuElement = observer(({ target }: MeunElementProps) => {
   };
 
   return (
-    <S.MenuElement>
+    <S.MenuElementWrapper>
       <S.MenuElementCursor />
       <S.MenuElementText onClick={handleMenuClick} href={`/${target}`}>
         {target !== '' ? capitalize(target) : 'Home'}
       </S.MenuElementText>
-    </S.MenuElement>
+    </S.MenuElementWrapper>
   );
 });
 

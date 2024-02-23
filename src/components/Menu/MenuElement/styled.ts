@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const MenuElement = styled('button')`
+export const MenuElementWrapper = styled('button')`
   font-size: 2.5rem;
   font-weight: 500;
   height: 55px;

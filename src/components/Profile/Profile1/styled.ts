@@ -8,7 +8,7 @@ type TextHoverProps = {
   hover?: boolean;
 };
 
-export const PageWrapper = styled('div')`
+export const ProfilePageWrapper = styled('div')`
   font-size: min(3rem, 2vw);
   width: 100vw;
   height: 100vh;

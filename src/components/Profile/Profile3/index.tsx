@@ -12,7 +12,7 @@ const Profile3 = observer(() => {
   };
 
   return (
-    <S.PageWrapper>
+    <S.ProfilePageWrapper>
       <S.Heading>
         What&#39;s on
         <br />
@@ -89,7 +89,7 @@ const Profile3 = observer(() => {
           <S.DescriptionPlaceHolder>Place the mouse on the item.</S.DescriptionPlaceHolder>
         )}
       </S.DescriptionWrapper>
-    </S.PageWrapper>
+    </S.ProfilePageWrapper>
   );
 });
 

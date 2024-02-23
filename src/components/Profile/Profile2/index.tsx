@@ -42,7 +42,7 @@ const Profile2 = observer(() => {
   }
 
   return (
-    <S.PageWrapper>
+    <S.ProfilePageWrapper>
       <S.WorkingExperienceWrapper>
         <S.WorkingExperienceDays>{useCountUp(workingDays, 0, 500)}</S.WorkingExperienceDays>
         <S.WorkingExperienceLabel>days of working experience</S.WorkingExperienceLabel>
@@ -57,7 +57,7 @@ const Profile2 = observer(() => {
         <S.CompanyName>티맥스와플닷에이아이</S.CompanyName>
         <S.CompanyDays>2023.7.3 ~ 현재</S.CompanyDays>
       </S.CompanyWrapper>
-    </S.PageWrapper>
+    </S.ProfilePageWrapper>
   );
 });
 

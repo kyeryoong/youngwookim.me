@@ -6,7 +6,7 @@ type TableItemBaseProps = {
   hoveredIndex: number | null;
 };
 
-export const PageWrapper = styled('div')`
+export const ProfilePageWrapper = styled('div')`
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.color.black};
