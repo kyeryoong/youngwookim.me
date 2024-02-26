@@ -26,7 +26,7 @@ export const WorkingExperienceDays = styled('span')`
 `;
 
 export const WorkingExperienceLabel = styled('span')`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.font.xxl};
   position: absolute;
   margin-top: 40px;
   top: 0px;
@@ -48,11 +48,11 @@ export const CompanyLogo = styled(Image)`
 `;
 
 export const CompanyName = styled('span')`
-  font-size: 1.6rem;
+  font-size: ${({ theme }) => theme.font.xl};
   color: ${({ theme }) => theme.color.gray[400]};
 `;
 
 export const CompanyDays = styled('span')`
-  font-size: 1.6rem;
+  font-size: ${({ theme }) => theme.font.xl};
   color: ${({ theme }) => theme.color.gray[500]};
 `;

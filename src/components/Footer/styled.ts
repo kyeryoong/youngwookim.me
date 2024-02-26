@@ -28,7 +28,6 @@ export const FooterTopLeft = styled('div')`
 `;
 
 export const FooterTopRight = styled('div')`
-  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,12 +39,12 @@ export const FooterBottom = styled('div')`
 `;
 
 export const Name = styled('span')`
-  font-size: 1.75rem;
+  font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
 `;
 
 export const ContactLabel = styled('label')`
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
   text-align: right;
 `;

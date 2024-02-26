@@ -42,7 +42,7 @@ export const HeadingWrapper = styled('div')`
 `;
 
 export const Heading = styled('span')<HeadingProps>`
-  font-size: 4rem;
+  font-size: ${({ theme }) => theme.font.xxxxl};
   font-weight: 700;
   color: white;
   background: ${({ theme }) =>

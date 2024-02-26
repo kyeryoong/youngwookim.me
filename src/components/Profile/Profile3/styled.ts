@@ -19,7 +19,7 @@ export const ProfilePageWrapper = styled('div')`
 
 export const Heading = styled('h1')`
   width: 400px;
-  font-size: 4rem;
+  font-size: ${({ theme }) => theme.font.xxxxxl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.white};
 `;
@@ -107,12 +107,12 @@ export const DescriptionImage = styled(Image)`
 `;
 
 export const DescriptionNameEng = styled('span')`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.font.xxl};
   color: ${({ theme }) => theme.color.white[800]};
 `;
 
 export const DescriptionNameKor = styled('span')`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.l};
   color: ${({ theme }) => theme.color.gray[500]};
   border-top: ${({ theme }) => `1px solid ${theme.color.gray[500]}`};
   padding-top: 20px;
@@ -120,12 +120,12 @@ export const DescriptionNameKor = styled('span')`
 `;
 
 export const DescriptionPrice = styled('span')`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.l};
   color: ${({ theme }) => theme.color.gray[500]};
 `;
 
 export const DescriptionPlaceHolder = styled('div')`
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.font.xxl};
   color: ${({ theme }) => theme.color.gray[500]};
   text-align: right;
 `;

@@ -24,7 +24,7 @@ export const StarIcon = styled('div')`
 `;
 
 export const Tooltip = styled('div')`
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.font.s};
   border-radius: 5px;
   padding: 10px;
   position: absolute;

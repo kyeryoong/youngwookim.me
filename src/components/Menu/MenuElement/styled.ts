@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const MenuElementWrapper = styled('button')`
-  font-size: 2.5rem;
+  font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 500;
   height: 55px;
   line-height: 55px;

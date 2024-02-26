@@ -15,7 +15,7 @@ export const LogoImage = styled(Image)`
 `;
 
 export const LogoTitle = styled('h1')`
-  font-size: 1.8rem;
+  font-size: ${({ theme }) => theme.font.xxl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.white};
 `;

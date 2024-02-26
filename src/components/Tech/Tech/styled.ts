@@ -16,7 +16,7 @@ type TechNameProps = {
 };
 
 export const TechWrapper = styled('div')<TechWrapperProps>`
-  font-size: 1.8rem;
+  font-size: ${({ theme }) => theme.font.xxl};
   font-weight: 600;
   width: fit-content;
   position: relative;

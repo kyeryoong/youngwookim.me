@@ -9,6 +9,7 @@ import Header from '@/components/Header';
 import Menu from '@/components/Menu';
 import store from '@/stores/store';
 import dark from '@/theme/dark';
+import font from '@/theme/font';
 import light from '@/theme/light';
 
 import * as S from './appStyled';
@@ -43,7 +44,7 @@ const App = observer(({ children }: AppProps) => {
   }, []);
 
   return (
-    <ThemeProvider theme={store.theme === 'dark' ? dark : light}>
+    <ThemeProvider theme={store.theme === 'dark' ? { ...dark, font } : { ...light, font }}>
       <S.AppWrapper>
         <Header />
         <Menu />

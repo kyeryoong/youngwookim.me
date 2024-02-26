@@ -6,7 +6,7 @@ export const PromptWrapper = styled('form')`
 
 export const CurrentLineCursor = styled('span')`
   font-family: 'JetBrains Mono';
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.l};
   line-height: 25px;
   color: white;
 
@@ -17,7 +17,7 @@ export const CurrentLineCursor = styled('span')`
 
 export const CurrentLineInput = styled('input')`
   font-family: 'JetBrains Mono', 'Pretendard';
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.l};
   width: calc(100% - 30px);
   height: 25px;
   line-height: 25px;
@@ -31,7 +31,7 @@ export const ResultLineWrapper = styled('div')``;
 
 export const ResultLine = styled('span')`
   font-family: 'JetBrains Mono', 'Pretendard';
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.l};
   line-height: 25px;
   color: #ffffff;
   display: block;

@@ -19,13 +19,13 @@ export const TechListHeader = styled('span')`
 `;
 
 export const TechListCategoryName = styled('span')`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 600;
   color: ${({ theme }) => theme.color.white};
 `;
 
 export const TechListCount = styled('span')`
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.font.xxxxl};
   font-weight: 700;
   color: ${({ theme }) => theme.color.white};
 `;
