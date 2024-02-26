@@ -1,5 +1,6 @@
 import './layout.css';
 
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 
 import StyledComponentsRegistry from '../../lib/registry';
@@ -16,6 +17,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <StyledComponentsRegistry>
           <App>{children}</App>
+          <Analytics />
         </StyledComponentsRegistry>
       </body>
     </html>
