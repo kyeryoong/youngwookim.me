@@ -1,4 +1,4 @@
-export default {
+const font = {
   xxxs: '8px',
   xxs: '9px',
   xs: '10px',
@@ -11,4 +11,20 @@ export default {
   xxxxl: '48px',
   xxxxxl: '64px',
   xxxxxxl: '96px',
+  mobile: {
+    xxxs: '7px',
+    xxs: '8px',
+    xs: '9px',
+    s: '10px',
+    m: '12px',
+    l: '14px',
+    xl: '16px',
+    xxl: '20px',
+    xxxl: '25px',
+    xxxxl: '30px',
+    xxxxxl: '40px',
+    xxxxxxl: '60px',
+  },
 };
+
+export default font;

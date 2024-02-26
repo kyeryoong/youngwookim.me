@@ -13,6 +13,10 @@ export const CurrentLineCursor = styled('span')`
   &::before {
     content: '> ';
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;
 
 export const CurrentLineInput = styled('input')`
@@ -25,6 +29,10 @@ export const CurrentLineInput = styled('input')`
   background-color: transparent;
   border: none;
   outline: none;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;
 
 export const ResultLineWrapper = styled('div')``;
@@ -36,4 +44,8 @@ export const ResultLine = styled('span')`
   color: #ffffff;
   display: block;
   white-space: pre;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;

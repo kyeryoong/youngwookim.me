@@ -21,6 +21,12 @@ export const StarIcon = styled('div')`
   &:hover {
     transform: scale(1.5);
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    &:hover {
+      transform: scale(1);
+    }
+  }
 `;
 
 export const Tooltip = styled('div')`
@@ -41,5 +47,10 @@ export const Tooltip = styled('div')`
 
   &.hide {
     opacity: 0;
+  }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.s};
+    display: none;
   }
 `;

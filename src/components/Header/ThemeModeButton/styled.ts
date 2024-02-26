@@ -9,12 +9,18 @@ export const ThemeModeButtonWrapper = styled('button')<ThemeModeButtonWrapperPro
   height: 40px;
   background-color: transparent;
   border: none;
-  position: absolute;
-  right: 170px;
+  justify-self: end;
+  margin-right: 30px;
   transition: 0.5s;
   z-index: 12000;
   cursor: pointer;
   opacity: ${({ show }) => (show ? 1 : 0)};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 56px;
+    height: 32px;
+    margin-right: 24px;
+  }
 `;
 
 export const ToggleSwitchWrapper = styled('div')`
@@ -24,6 +30,10 @@ export const ToggleSwitchWrapper = styled('div')`
   background-color: ${({ theme }) => theme.color.gray[700]};
   padding: 5px;
   transition: 0.5s;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    padding: 4px;
+  }
 `;
 
 export const ToggleSwitch = styled('div')`
@@ -33,4 +43,10 @@ export const ToggleSwitch = styled('div')`
   background-color: ${({ theme }) => (theme.mode === 'dark' ? 'white' : 'gold')};
   margin-left: ${({ theme }) => (theme.mode === 'dark' ? '0%' : '30px')};
   transition: 0.5s;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 24px;
+    height: 24px;
+    margin-left: ${({ theme }) => (theme.mode === 'dark' ? '0%' : '24px')};
+  }
 `;

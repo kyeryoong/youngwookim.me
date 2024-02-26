@@ -7,11 +7,15 @@ type MenuButtonsElementsProps = {
 export const MenuButtonWrapper = styled('div')`
   width: 40px;
   height: 40px;
-  cursor: pointer;
-  position: absolute;
-  right: 100px;
+  position: relative;
   transition: 0.5s;
   z-index: 12000;
+  cursor: pointer;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const MenuButtonsElements = styled('div')`

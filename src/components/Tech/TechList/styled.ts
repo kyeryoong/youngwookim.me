@@ -22,10 +22,18 @@ export const TechListCategoryName = styled('span')`
   font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 600;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxl};
+  }
 `;
 
 export const TechListCount = styled('span')`
   font-size: ${({ theme }) => theme.font.xxxxl};
   font-weight: 700;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxl};
+  }
 `;

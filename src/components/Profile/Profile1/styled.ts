@@ -16,6 +16,10 @@ export const ProfilePageWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxl};
+  }
 `;
 
 export const YoungWoo = styled('div')``;

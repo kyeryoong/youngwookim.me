@@ -42,7 +42,7 @@ export const HeadingWrapper = styled('div')`
 `;
 
 export const Heading = styled('span')<HeadingProps>`
-  font-size: ${({ theme }) => theme.font.xxxxl};
+  font-size: ${({ theme }) => theme.font.xxxxxl};
   font-weight: 700;
   color: white;
   background: ${({ theme }) =>
@@ -69,6 +69,10 @@ export const Heading = styled('span')<HeadingProps>`
       transform: translateY(0px);
     }
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxxxl};
+  }
 `;
 
 export const Asterisk = styled('video')`
@@ -78,6 +82,13 @@ export const Asterisk = styled('video')`
   bottom: 5vw;
   left: -5vw;
   z-index: 1;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: 50vw;
+    height: 50vw;
+    bottom: calc(50vh - 25vw);
+    left: -10vw;
+  }
 `;
 
 export const ComponentSymbol = styled('video')`
@@ -87,6 +98,13 @@ export const ComponentSymbol = styled('video')`
   top: -5vw;
   right: -5vw;
   z-index: 1;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: 75vw;
+    height: 50vw;
+    top: 5vw;
+    right: -15vw;
+  }
 `;
 
 export const ArrowFunction = styled('video')`
@@ -96,4 +114,10 @@ export const ArrowFunction = styled('video')`
   bottom: -5vw;
   right: 5vw;
   z-index: 1;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: 100vw;
+    height: 50vw;
+    right: -15vw;
+  }
 `;

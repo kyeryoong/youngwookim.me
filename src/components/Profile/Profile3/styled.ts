@@ -22,6 +22,10 @@ export const Heading = styled('h1')`
   font-size: ${({ theme }) => theme.font.xxxxxl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxxxl};
+  }
 `;
 
 export const TableItemsWrapper = styled('div')`
@@ -109,6 +113,10 @@ export const DescriptionImage = styled(Image)`
 export const DescriptionNameEng = styled('span')`
   font-size: ${({ theme }) => theme.font.xxl};
   color: ${({ theme }) => theme.color.white[800]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxl};
+  }
 `;
 
 export const DescriptionNameKor = styled('span')`
@@ -117,15 +125,27 @@ export const DescriptionNameKor = styled('span')`
   border-top: ${({ theme }) => `1px solid ${theme.color.gray[500]}`};
   padding-top: 20px;
   margin-top: 20px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;
 
 export const DescriptionPrice = styled('span')`
   font-size: ${({ theme }) => theme.font.l};
   color: ${({ theme }) => theme.color.gray[500]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;
 
 export const DescriptionPlaceHolder = styled('div')`
   font-size: ${({ theme }) => theme.font.xxl};
   color: ${({ theme }) => theme.color.gray[500]};
   text-align: right;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;

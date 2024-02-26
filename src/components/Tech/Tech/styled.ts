@@ -29,6 +29,10 @@ export const TechWrapper = styled('div')<TechWrapperProps>`
   align-items: center;
   background: ${({ rgb1, rgb2 }) => `linear-gradient(90deg, ${rgb1}, ${rgb2}, ${rgb1})`};
   background-size: 200% 200%;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxl};
+  }
 `;
 
 export const TechIcon = styled(Image)<TechIconProps>`

@@ -46,6 +46,13 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
   opacity: ${({ isMenuOpened }) => (isMenuOpened ? 1 : 0)};
   z-index: ${({ isMenuOpened }) => (isMenuOpened ? 20000 : 0)};
   transform: ${({ isMenuOpened }) => (isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 90vw;
+    min-width: 90vw;
+    height: 75vh;
+    min-height: 75vh;
+  }
 `;
 
 export const MenuTop = styled('div')<MenuTopProps>`

@@ -12,10 +12,19 @@ export const LogoWrapper = styled(Link)`
 export const LogoImage = styled(Image)`
   width: 50px;
   height: 50px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const LogoTitle = styled('h1')`
   font-size: ${({ theme }) => theme.font.xxl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxl};
+  }
 `;

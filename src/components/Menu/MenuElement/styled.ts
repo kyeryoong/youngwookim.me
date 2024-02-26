@@ -17,17 +17,27 @@ export const MenuElementWrapper = styled('button')`
   &:hover > div {
     width: 40px;
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxl};
+    height: 40px;
+    line-height: 40px;
+  }
 `;
 
 export const MenuElementCursor = styled('div')`
   width: 0px;
-  height: 60px;
+  height: 55px;
   text-align: left;
   transition: 0.5s;
   overflow: hidden;
 
   &::before {
     content: '> ';
+  }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    height: 40px;
   }
 `;
 

@@ -32,6 +32,10 @@ export const WorkingExperienceLabel = styled('span')`
   top: 0px;
   right: 0px;
   color: ${({ theme }) => theme.color.gray[500]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxl};
+  }
 `;
 
 export const CompanyWrapper = styled('div')`
@@ -50,9 +54,17 @@ export const CompanyLogo = styled(Image)`
 export const CompanyName = styled('span')`
   font-size: ${({ theme }) => theme.font.xl};
   color: ${({ theme }) => theme.color.gray[400]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
 `;
 
 export const CompanyDays = styled('span')`
   font-size: ${({ theme }) => theme.font.xl};
   color: ${({ theme }) => theme.color.gray[500]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
 `;

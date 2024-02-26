@@ -12,6 +12,12 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
   background-color: ${({ theme }) => theme.color.black};
   display: ${({ hide }) => hide && 'none'};
   color: ${({ theme }) => theme.color.gray[500]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 7.5vh;
+  }
 `;
 
 export const FooterTop = styled('div')`
@@ -41,12 +47,20 @@ export const FooterBottom = styled('div')`
 export const Name = styled('span')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
 `;
 
 export const ContactLabel = styled('label')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
   text-align: right;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
 `;
 
 export const ContactButtonWrapper = styled('div')`
