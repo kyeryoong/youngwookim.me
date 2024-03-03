@@ -32,6 +32,10 @@ export const TechWrapper = styled('div')<TechWrapperProps>`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xxl};
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 16.5px;
   }
 `;
 
@@ -43,6 +47,11 @@ export const TechIcon = styled(Image)<TechIconProps>`
   filter: ${({ $textColor }) =>
     $textColor === 'black' &&
     'invert(100%) sepia(100%) saturate(0%) hue-rotate(218deg) brightness(104%) contrast(102%)'};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const TechName = styled('span')<TechNameProps>`

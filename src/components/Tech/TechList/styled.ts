@@ -5,6 +5,10 @@ export const TechListWrapper = styled('div')`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    gap: min(5vw, 10px);
+  }
 `;
 
 export const TechListHeader = styled('span')`
