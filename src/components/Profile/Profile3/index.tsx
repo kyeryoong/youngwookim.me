@@ -26,8 +26,8 @@ const Profile3 = observer(() => {
           alt="Keyboard"
           onMouseEnter={() => setHoveredIndex(0)}
           onMouseLeave={handleMouseLeave}
-          itemIndex={0}
-          hoveredIndex={hoveredIndex}
+          $itemIndex={0}
+          $hoveredIndex={hoveredIndex}
         />
         <S.TableItem.Mouse
           width={1000}
@@ -36,8 +36,8 @@ const Profile3 = observer(() => {
           alt="Mouse"
           onMouseEnter={() => setHoveredIndex(1)}
           onMouseLeave={handleMouseLeave}
-          itemIndex={1}
-          hoveredIndex={hoveredIndex}
+          $itemIndex={1}
+          $hoveredIndex={hoveredIndex}
         />
         <S.TableItem.Monitor
           width={1500}
@@ -46,8 +46,8 @@ const Profile3 = observer(() => {
           alt="Monitor"
           onMouseEnter={() => setHoveredIndex(2)}
           onMouseLeave={handleMouseLeave}
-          itemIndex={2}
-          hoveredIndex={hoveredIndex}
+          $itemIndex={2}
+          $hoveredIndex={hoveredIndex}
         />
         <S.TableItem.Coffee
           width={1000}
@@ -56,8 +56,8 @@ const Profile3 = observer(() => {
           alt="Coffee"
           onMouseEnter={() => setHoveredIndex(3)}
           onMouseLeave={handleMouseLeave}
-          itemIndex={3}
-          hoveredIndex={hoveredIndex}
+          $itemIndex={3}
+          $hoveredIndex={hoveredIndex}
         />
         <S.TableItem.Book
           width={1000}
@@ -66,8 +66,8 @@ const Profile3 = observer(() => {
           alt="Book"
           onMouseEnter={() => setHoveredIndex(4)}
           onMouseLeave={handleMouseLeave}
-          itemIndex={4}
-          hoveredIndex={hoveredIndex}
+          $itemIndex={4}
+          $hoveredIndex={hoveredIndex}
         />
       </S.TableItemsWrapper>
       <S.DescriptionWrapper>

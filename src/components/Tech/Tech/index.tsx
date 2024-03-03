@@ -58,9 +58,9 @@ export const Tech = ({
   const src = customImage ? `/tech/${customImage}` : `/tech/${name}.svg`;
 
   return (
-    <S.TechWrapper rgb1={rgb1} rgb2={rgb2} core={core}>
-      <S.TechIcon textColor={textColor} width={200} height={200} src={src} alt={`${name} Icon`} />
-      <S.TechName textColor={textColor}>{name}</S.TechName>
+    <S.TechWrapper $rgb1={rgb1} $rgb2={rgb2} $core={core}>
+      <S.TechIcon $textColor={textColor} width={200} height={200} src={src} alt={`${name} Icon`} />
+      <S.TechName $textColor={textColor}>{name}</S.TechName>
       {core && <StarIcon />}
       {core && <GradientBackground />}
     </S.TechWrapper>

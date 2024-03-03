@@ -10,7 +10,7 @@ const ThemeModeButton = observer(() => {
   };
 
   return (
-    <S.ThemeModeButtonWrapper onClick={handleClick} show={store.isMenuOpened}>
+    <S.ThemeModeButtonWrapper onClick={handleClick} $show={store.isMenuOpened}>
       <S.ToggleSwitchWrapper>
         <S.ToggleSwitch />
       </S.ToggleSwitchWrapper>

@@ -16,7 +16,7 @@ export function StarIcon() {
   return (
     <S.StarIconWrapper>
       <S.StarIcon onMouseOver={handleMouseEnter} onMouseOut={handleMouseLeave} />
-      <S.Tooltip className={isHovered ? 'show' : 'hide'}>현재 개발 커리어에서 사용 중</S.Tooltip>
+      <S.Tooltip $isHovered={isHovered}>현재 개발 커리어에서 사용 중</S.Tooltip>
     </S.StarIconWrapper>
   );
 }

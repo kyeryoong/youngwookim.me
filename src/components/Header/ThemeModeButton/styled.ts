@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type ThemeModeButtonWrapperProps = {
-  show: boolean;
+  $show: boolean;
 };
 
 export const ThemeModeButtonWrapper = styled('button')<ThemeModeButtonWrapperProps>`
@@ -14,7 +14,7 @@ export const ThemeModeButtonWrapper = styled('button')<ThemeModeButtonWrapperPro
   transition: 0.5s;
   z-index: 12000;
   cursor: pointer;
-  opacity: ${({ show }) => (show ? 1 : 0)};
+  opacity: ${({ $show }) => ($show ? 1 : 0)};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 56px;

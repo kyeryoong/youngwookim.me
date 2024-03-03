@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 type ScrollToTopButtonWrapperProps = {
-  show: boolean;
+  $show: boolean;
 };
 
 export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrapperProps>`
@@ -14,7 +14,7 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.gray[800]};
   position: fixed;
-  bottom: ${({ show }) => (show ? '100px' : '-200px')};
+  bottom: ${({ $show }) => ($show ? '100px' : '-200px')};
   right: 100px;
   cursor: pointer;
   z-index: 1000;

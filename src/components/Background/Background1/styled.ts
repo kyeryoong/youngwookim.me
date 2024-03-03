@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type HeadingProps = {
-  delay?: number;
+  $delay?: number;
 };
 
 export const BackgroundWrapper = styled('div')`
@@ -54,7 +54,7 @@ export const Heading = styled('span')<HeadingProps>`
   -webkit-text-fill-color: transparent;
   animation: Float 1.5s;
   animation-fill-mode: forwards;
-  animation-delay: ${({ delay }) => (delay ? `${delay / 1000}s` : '0s')};
+  animation-delay: ${({ $delay }) => ($delay ? `${$delay / 1000}s` : '0s')};
   opacity: 0;
   transform: translateY(50px);
 

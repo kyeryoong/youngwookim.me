@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 type FooterWrapperProps = {
-  hide: boolean;
+  $hide: boolean;
 };
 
 export const FooterWrapper = styled('footer')<FooterWrapperProps>`
@@ -10,7 +10,7 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
   padding-right: 15vw;
   padding-bottom: 15vh;
   background-color: ${({ theme }) => theme.color.black};
-  display: ${({ hide }) => hide && 'none'};
+  display: ${({ $hide }) => $hide && 'none'};
   color: ${({ theme }) => theme.color.gray[500]};
 
   @media (pointer: coarse) or (max-width: 1000px) {

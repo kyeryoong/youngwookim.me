@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type TooltipProps = {
+  $isHovered: boolean;
+};
+
 export const StarIconWrapper = styled('div')`
   width: 10px;
   height: 10px;
@@ -29,7 +33,7 @@ export const StarIcon = styled('div')`
   }
 `;
 
-export const Tooltip = styled('div')`
+export const Tooltip = styled('div')<TooltipProps>`
   font-size: ${({ theme }) => theme.font.s};
   border-radius: 5px;
   padding: 10px;
@@ -40,14 +44,7 @@ export const Tooltip = styled('div')`
   color: ${({ theme }) => theme.color.gray[700]};
   transition: 0.5s;
   white-space: nowrap;
-
-  &.show {
-    opacity: 1;
-  }
-
-  &.hide {
-    opacity: 0;
-  }
+  opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.s};

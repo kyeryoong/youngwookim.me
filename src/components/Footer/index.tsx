@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <S.FooterWrapper hide={hide}>
+    <S.FooterWrapper $hide={hide}>
       <S.FooterTop>
         <S.FooterTopLeft>
           <S.Name>youngwookim.me</S.Name>

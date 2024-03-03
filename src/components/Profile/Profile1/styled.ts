@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 type LineProps = {
-  delay?: number;
+  $delay?: number;
 };
 
 type TextHoverProps = {
-  hover?: boolean;
+  $hover?: boolean;
 };
 
 export const ProfilePageWrapper = styled('div')`
@@ -27,7 +27,7 @@ export const YoungWoo = styled('div')``;
 export const Line = styled('div')<LineProps>`
   animation: Float 1.5s;
   animation-fill-mode: forwards;
-  animation-delay: ${({ delay }) => (delay ? `${delay / 1000}s` : '0s')};
+  animation-delay: ${({ $delay }) => ($delay ? `${$delay / 1000}s` : '0s')};
   opacity: 0;
   transform: translateY(50px);
 
@@ -63,8 +63,8 @@ export const Text = {
     color: #e6db74;
 
     &:hover {
-      color: ${({ hover }) => hover && 'aqua'};
-      cursor: ${({ hover }) => hover && 'pointer'};
+      color: ${({ $hover }) => $hover && 'aqua'};
+      cursor: ${({ $hover }) => $hover && 'pointer'};
     }
   `,
 

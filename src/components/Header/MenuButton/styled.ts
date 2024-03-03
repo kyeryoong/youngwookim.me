@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type MenuButtonsElementsProps = {
-  isMenuOpened: boolean;
+  $isMenuOpened: boolean;
 };
 
 export const MenuButtonWrapper = styled('div')`
@@ -27,21 +27,21 @@ export const MenuButtonsElements = styled('div')`
 
 export const MenuButtonsElements1 = styled(MenuButtonsElements)<MenuButtonsElementsProps>`
   position: absolute;
-  width: ${({ isMenuOpened }) => (isMenuOpened ? '100%' : '50%')};
-  top: ${({ isMenuOpened }) => (isMenuOpened ? '45%' : '15%')};
-  transform: ${({ isMenuOpened }) => isMenuOpened && 'rotate(45deg)'};
+  width: ${({ $isMenuOpened }) => ($isMenuOpened ? '100%' : '50%')};
+  top: ${({ $isMenuOpened }) => ($isMenuOpened ? '45%' : '15%')};
+  transform: ${({ $isMenuOpened }) => $isMenuOpened && 'rotate(45deg)'};
 `;
 
 export const MenuButtonsElements2 = styled(MenuButtonsElements)<MenuButtonsElementsProps>`
   position: absolute;
-  width: ${({ isMenuOpened }) => (isMenuOpened ? '0%' : '100%')};
+  width: ${({ $isMenuOpened }) => ($isMenuOpened ? '0%' : '100%')};
   top: 45%;
-  opacity: ${({ isMenuOpened }) => (isMenuOpened ? '0' : '1')};
+  opacity: ${({ $isMenuOpened }) => ($isMenuOpened ? '0' : '1')};
 `;
 
 export const MenuButtonsElements3 = styled(MenuButtonsElements)<MenuButtonsElementsProps>`
   position: absolute;
-  width: ${({ isMenuOpened }) => (isMenuOpened ? '100%' : '75%')};
-  bottom: ${({ isMenuOpened }) => (isMenuOpened ? '45%' : '15%')};
-  transform: ${({ isMenuOpened }) => isMenuOpened && 'rotate(-45deg)'};
+  width: ${({ $isMenuOpened }) => ($isMenuOpened ? '100%' : '75%')};
+  bottom: ${({ $isMenuOpened }) => ($isMenuOpened ? '45%' : '15%')};
+  transform: ${({ $isMenuOpened }) => $isMenuOpened && 'rotate(-45deg)'};
 `;

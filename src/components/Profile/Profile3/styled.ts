@@ -2,8 +2,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 type TableItemBaseProps = {
-  itemIndex: number;
-  hoveredIndex: number | null;
+  $itemIndex: number;
+  $hoveredIndex: number | null;
 };
 
 export const ProfilePageWrapper = styled('div')`
@@ -46,8 +46,8 @@ export const TableItemBase = styled(Image)<TableItemBaseProps>`
     filter: drop-shadow(0px 0px 20px aqua);
   }
 
-  opacity: ${({ itemIndex, hoveredIndex }) =>
-    hoveredIndex !== null && (itemIndex === hoveredIndex ? 1 : 0.3)};
+  opacity: ${({ $itemIndex, $hoveredIndex }) =>
+    $hoveredIndex !== null && ($itemIndex === $hoveredIndex ? 1 : 0.3)};
 `;
 
 export const TableItem = {

@@ -42,7 +42,7 @@ export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopBu
   });
 
   return (
-    <S.ScrollToTopButtonWrapper show={show ?? showButtonDefault} onClick={onClick ?? scrollToTop}>
+    <S.ScrollToTopButtonWrapper $show={show ?? showButtonDefault} onClick={onClick ?? scrollToTop}>
       <S.ScrollArrow width={30} height={30} src={'/arrow_up.svg'} alt="Arrow" />
     </S.ScrollToTopButtonWrapper>
   );
