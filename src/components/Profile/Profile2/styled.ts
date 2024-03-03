@@ -16,13 +16,21 @@ export const ProfilePageWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-left: 5vw;
     padding-right: 5vw;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
     flex-direction: column;
+    justify-content: space-between;
   }
 `;
 
 export const TitleWrapper = styled('div')`
-  width: 100%;
-  height: 100%;
+  width: 35vw;
+  height: 60vh;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 90vw;
+    height: 30vh;
+  }
 `;
 
 export const Title = styled('h1')`
@@ -36,12 +44,17 @@ export const Title = styled('h1')`
 `;
 
 export const ContentWrapper = styled('div')`
-  width: 100%;
-  height: 100%;
+  width: 35vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 50px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 90vw;
+    height: 30vh;
+  }
 `;
 
 export const Content = styled('div')`
