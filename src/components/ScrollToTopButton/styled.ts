@@ -24,10 +24,22 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
     background-color: ${({ theme }) => theme.color.gray[700]};
     transform: scale(1.2);
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 40px;
+    height: 40px;
+    right: 5vw;
+  }
 `;
 
 export const ScrollArrow = styled(Image)`
   width: 30px;
   height: 30px;
   filter: ${({ theme }) => (theme.mode === 'dark' ? 'invert(1)' : 'invert(0)')};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 20px;
+    height: 20px;
+    right: 5vw;
+  }
 `;
