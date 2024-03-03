@@ -29,16 +29,6 @@ const Background1 = observer(() => {
         muted
         loop
       />
-      <S.ArrowFunction
-        src={
-          store.theme === 'dark'
-            ? '/home/arrow_function_dark.mp4'
-            : '/home/arrow_function_light.mp4'
-        }
-        autoPlay
-        muted
-        loop
-      />
     </S.BackgroundWrapper>
   );
 });

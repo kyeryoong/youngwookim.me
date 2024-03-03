@@ -76,48 +76,37 @@ export const Heading = styled('span')<HeadingProps>`
 `;
 
 export const Asterisk = styled('video')`
-  width: 30vw;
-  height: 30vw;
+  width: 27vw;
+  height: 27vw;
+  min-width: 450px;
+  min-height: 450px;
   position: fixed;
-  bottom: 5vw;
-  left: -5vw;
+  bottom: 0vw;
+  left: -2.5vw;
   z-index: 1;
 
   @media (pointer: coarse) or (max-width: 800px) {
-    width: 50vw;
-    height: 50vw;
-    bottom: calc(50vh - 25vw);
-    left: -10vw;
+    width: 48vw;
+    height: 48vw;
+    min-width: 48vw;
+    height: 48vw;
   }
 `;
 
 export const ComponentSymbol = styled('video')`
-  width: 32vw;
-  height: 24vw;
+  width: 36vw;
+  height: 27vw;
+  min-width: 600px;
+  min-height: 450px;
   position: fixed;
   top: -5vw;
-  right: -5vw;
+  right: -7.5vw;
   z-index: 1;
 
   @media (pointer: coarse) or (max-width: 800px) {
-    width: 75vw;
-    height: 50vw;
-    top: 5vw;
-    right: -15vw;
-  }
-`;
-
-export const ArrowFunction = styled('video')`
-  width: 50vw;
-  height: 25vw;
-  position: fixed;
-  bottom: -5vw;
-  right: 5vw;
-  z-index: 1;
-
-  @media (pointer: coarse) or (max-width: 800px) {
-    width: 100vw;
-    height: 50vw;
-    right: -15vw;
+    width: 65vw;
+    height: 48vw;
+    min-width: 65vw;
+    height: 48vw;
   }
 `;
