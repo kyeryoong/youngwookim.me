@@ -16,7 +16,7 @@ class Store {
 
     if (value === false) {
       setTimeout(() => {
-        this.isMenuExpanded = false;
+        this.setIsMenuExpanded(false);
       }, 500);
     }
   };
