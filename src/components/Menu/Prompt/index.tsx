@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import store from '@/stores/store';
 
+import { isMobile } from '../../../../utils/isMobile';
 import * as S from './styled';
 import { fortuneTexts, helpText, initText } from './text';
 
@@ -19,7 +20,9 @@ const Prompt = observer(() => {
   const [resultLines, setResultLines] = useState<string[]>([]);
 
   useEffect(() => {
-    ref.current?.focus();
+    if (!isMobile()) {
+      ref.current?.focus();
+    }
 
     if (store.isMenuOpened) {
       setCurrentLine('');
@@ -44,15 +47,19 @@ const Prompt = observer(() => {
       } else if (suffix === 'home') {
         router.push('/');
         store.setIsMenuOpened(false);
+        ref.current?.blur();
       } else if (suffix === 'profile') {
         router.push('profile');
         store.setIsMenuOpened(false);
+        ref.current?.blur();
       } else if (suffix === 'tech') {
         router.push('tech');
         store.setIsMenuOpened(false);
+        ref.current?.blur();
       } else if (suffix === 'projects') {
         router.push('projects');
         store.setIsMenuOpened(false);
+        ref.current?.blur();
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: cd: ${suffix}: No such page`]);
       }
@@ -149,6 +156,7 @@ const Prompt = observer(() => {
         onChange={handleLineChange}
         ref={ref}
         spellCheck={false}
+        style={{ cursor: 'text' }}
       />
     </S.PromptWrapper>
   );
