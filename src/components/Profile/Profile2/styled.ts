@@ -1,68 +1,78 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
 export const ProfilePageWrapper = styled('div')`
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.color.black};
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-`;
-
-export const WorkingExperienceWrapper = styled('div')`
-  width: 50vw;
-  border-bottom: ${({ theme }) => `1px solid ${theme.color.white}`};
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-  position: relative;
-`;
-
-export const WorkingExperienceDays = styled('span')`
-  font-size: 12rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.color.white};
-`;
-
-export const WorkingExperienceLabel = styled('span')`
-  font-size: ${({ theme }) => theme.font.xxl};
-  position: absolute;
-  margin-top: 40px;
-  top: 0px;
-  right: 0px;
-  color: ${({ theme }) => theme.color.gray[500]};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xxl};
+    padding-left: 5vw;
+    padding-right: 5vw;
+    flex-direction: column;
   }
 `;
 
-export const CompanyWrapper = styled('div')`
-  width: 50vw;
-  display: grid;
-  align-items: center;
-  grid-template-columns: fit-content(100%) 1fr fit-content(100%);
-  gap: 20px;
+export const TitleWrapper = styled('div')`
+  width: 100%;
+  height: 100%;
 `;
 
-export const CompanyLogo = styled(Image)`
-  width: 320px;
-  height: 40px;
+export const Title = styled('h1')`
+  font-size: ${({ theme }) => theme.font.xxxxxxl};
+  font-weight: 500;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxxxxl};
+  }
 `;
 
-export const CompanyName = styled('span')`
+export const ContentWrapper = styled('div')`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 50px;
+`;
+
+export const Content = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const ContentTitle = styled('span')`
+  font-size: ${({ theme }) => theme.font.xxxxl};
+  font-weight: 600;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxxl};
+  }
+`;
+
+export const ContentSubtitle = styled('span')`
   font-size: ${({ theme }) => theme.font.xl};
-  color: ${({ theme }) => theme.color.gray[400]};
+  color: ${({ theme }) => theme.color.white};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
   }
 `;
 
-export const CompanyDays = styled('span')`
+export const ContentDays = styled('span')`
   font-size: ${({ theme }) => theme.font.xl};
   color: ${({ theme }) => theme.color.gray[500]};
+  margin-top: 10px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
