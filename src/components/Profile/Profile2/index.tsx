@@ -1,5 +1,7 @@
 import { observer } from 'mobx-react';
 
+import store from '@/stores/store';
+
 import * as S from './styled';
 
 const Profile2 = observer(() => {
@@ -11,6 +13,11 @@ const Profile2 = observer(() => {
           Experience
         </S.Title>
       </S.TitleWrapper>
+
+      <S.CardVideoWrapper>
+        <S.CardVideo src={`/profile/wapl_${store.theme}.mp4`} autoPlay muted loop />
+      </S.CardVideoWrapper>
+
       <S.ContentWrapper>
         <S.Content>
           <S.ContentTitle>홍익대학교</S.ContentTitle>

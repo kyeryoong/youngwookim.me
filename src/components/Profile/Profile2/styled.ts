@@ -26,6 +26,7 @@ export const ProfilePageWrapper = styled('div')`
 export const TitleWrapper = styled('div')`
   width: 35vw;
   height: 60vh;
+  z-index: 10;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 90vw;
@@ -34,12 +35,12 @@ export const TitleWrapper = styled('div')`
 `;
 
 export const Title = styled('h1')`
-  font-size: ${({ theme }) => theme.font.xxxxxxl};
+  font-size: ${({ theme }) => theme.font.xxxxxl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.white};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xxxxxxl};
+    font-size: ${({ theme }) => theme.font.mobile.xxxxxl};
   }
 `;
 
@@ -50,6 +51,7 @@ export const ContentWrapper = styled('div')`
   flex-direction: column;
   justify-content: flex-end;
   gap: 50px;
+  z-index: 10;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 90vw;
@@ -89,5 +91,28 @@ export const ContentDays = styled('span')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
+`;
+
+export const CardVideoWrapper = styled('div')`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const CardVideo = styled('video')`
+  width: 600px;
+  height: 600px;
+  max-width: 600px;
+  max-height: 600px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 80vw;
+    height: 80vw;
   }
 `;
