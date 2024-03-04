@@ -56,6 +56,7 @@ export const ContentWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 90vw;
     height: 30vh;
+    gap: 30px;
   }
 `;
 
@@ -91,6 +92,7 @@ export const ContentDays = styled('span')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
+    margin-top: 5px;
   }
 `;
 
@@ -112,7 +114,7 @@ export const CardVideo = styled('video')`
   max-height: 600px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: 80vw;
-    height: 80vw;
+    width: 70vw;
+    height: 70vw;
   }
 `;
