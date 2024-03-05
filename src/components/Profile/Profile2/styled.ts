@@ -96,25 +96,123 @@ export const ContentDays = styled('span')`
   }
 `;
 
-export const CardVideoWrapper = styled('div')`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const CardVideo = styled('video')`
   width: 600px;
   height: 600px;
   max-width: 600px;
   max-height: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: 70vw;
-    height: 70vw;
+    width: 80vw;
+    height: 80vw;
+  }
+`;
+
+export const CardVideo1 = styled(CardVideo)`
+  animation-name: Animation1;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+
+  @keyframes Animation1 {
+    0% {
+      opacity: 1;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    20% {
+      opacity: 1;
+    }
+
+    30% {
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 0;
+    }
+
+    70% {
+      opacity: 0;
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
+export const CardVideo2 = styled(CardVideo)`
+  animation-name: Animation2;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+
+  @keyframes Animation2 {
+    0% {
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 0;
+    }
+
+    30% {
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    70% {
+      opacity: 1;
+    }
+
+    80% {
+      opacity: 0;
+    }
+
+    90% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
   }
 `;

@@ -14,9 +14,8 @@ const Profile2 = observer(() => {
         </S.Title>
       </S.TitleWrapper>
 
-      <S.CardVideoWrapper>
-        <S.CardVideo src={`/profile/wapl_${store.theme}.mp4`} autoPlay muted loop />
-      </S.CardVideoWrapper>
+      <S.CardVideo1 src={`/profile/1_${store.theme}.mp4`} autoPlay muted loop />
+      <S.CardVideo2 src={`/profile/2_${store.theme}.mp4`} autoPlay muted loop />
 
       <S.ContentWrapper>
         <S.Content>
