@@ -1,4 +1,4 @@
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 
 import store from '../../../stores/store';
 import * as S from './styled';

@@ -1,6 +1,6 @@
 'use client';
 
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
 import Background1 from '@/components/Background/Background1';

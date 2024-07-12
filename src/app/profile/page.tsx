@@ -3,7 +3,7 @@
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import { useRef, useState } from 'react';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
