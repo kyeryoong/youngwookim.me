@@ -3,9 +3,6 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const LogoWrapper = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 20px;
   z-index: 12000;
 `;
 
