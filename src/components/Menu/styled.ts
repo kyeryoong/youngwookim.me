@@ -29,7 +29,7 @@ export const MenuBackground = styled('div')<MenuBackgroundProps>`
       ? `rgba(0, 0, 0, ${$isMenuOpened ? 0.5 : 0})`
       : `rgba(255, 255, 255, ${$isMenuOpened ? 0.5 : 0})`};
   z-index: ${({ $isMenuOpened, $isMenuExpanded }) =>
-    $isMenuOpened ? ($isMenuExpanded ? 110000 : 9000) : 0};
+    $isMenuOpened ? ($isMenuExpanded ? 110000 : 9000) : -1};
 `;
 
 export const MenuWrapper = styled('div')<MenuWrapperProps>`
