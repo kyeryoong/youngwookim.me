@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ChevronUp } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type ScrollToTopButtonWrapperProps = {
@@ -32,14 +33,12 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   }
 `;
 
-export const ScrollArrow = styled(Image)`
+export const ArrowUpIcon = styled(ChevronUp)`
   width: 30px;
   height: 30px;
-  filter: ${({ theme }) => (theme.mode === 'dark' ? 'invert(1)' : 'invert(0)')};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 20px;
     height: 20px;
-    right: 5vw;
   }
 `;
