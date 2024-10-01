@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ChevronUp } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
