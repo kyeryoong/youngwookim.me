@@ -3,7 +3,7 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
-import Background1 from '@/components/Background/Background1';
+import BackgroundNew from '@/components/Background/BackgroundNew';
 
 import * as S from './styled';
 
@@ -18,7 +18,8 @@ const Home = observer(() => {
 
   return (
     <S.Wrapper>
-      <Background1 />
+      {/* <Background1 /> */}
+      <BackgroundNew />
     </S.Wrapper>
   );
 });
