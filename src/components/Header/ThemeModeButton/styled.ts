@@ -12,8 +12,9 @@ export const ThemeModeButtonWrapper = styled('button')<ThemeModeButtonWrapperPro
   justify-self: end;
   margin-right: 30px;
   transition: 0.5s;
-  z-index: 12000;
-  cursor: pointer;
+  z-index: ${({ $show }) => ($show ? 12000 : -1)};
+  pointer-events: ${({ $show }) => ($show ? 'auto' : 'none')};
+  cursor: ${({ $show }) => ($show ? 'pointer' : 'default')};
   opacity: ${({ $show }) => ($show ? 1 : 0)};
 
   @media (pointer: coarse) or (max-width: 1000px) {
