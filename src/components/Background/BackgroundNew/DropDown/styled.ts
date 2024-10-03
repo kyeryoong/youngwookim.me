@@ -48,6 +48,7 @@ export const Option = styled('button')`
   height: 64px;
   text-align: left;
   padding-left: 24px;
+  color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.gray[800]};
   border: none;
   cursor: pointer;

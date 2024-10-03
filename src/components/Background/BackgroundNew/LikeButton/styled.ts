@@ -29,12 +29,14 @@ export const LikeButtonWrapper = styled('button')<LikeButtonWrapperProps>`
 export const HeartUnFilledIcon = styled(Heart)`
   width: 32px;
   height: 32px;
+  color: ${({ theme }) => theme.color.white};
   transition: 0.5s;
 `;
 
 export const HeartFilledIcon = styled(HeartFill)`
   width: 32px;
   height: 32px;
+  color: ${({ theme }) => theme.color.white};
   transition: 0.5s;
   animation-name: PopUp;
   animation-duration: 0.5s;
@@ -59,4 +61,5 @@ export const HeartFilledIcon = styled(HeartFill)`
 
 export const Count = styled('span')`
   font-size: 2rem;
+  color: ${({ theme }) => theme.color.white};
 `;
