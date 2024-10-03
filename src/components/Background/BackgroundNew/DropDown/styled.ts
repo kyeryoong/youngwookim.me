@@ -12,6 +12,7 @@ export const DropDownWrapper = styled('div')`
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 100;
 `;
 
 export const SelectedOption = styled('div')`
