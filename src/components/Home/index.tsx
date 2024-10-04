@@ -43,39 +43,39 @@ const Home = observer(() => {
 
   return (
     <S.BackgroundWrapper>
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[0]}
       </S.Text>
       <CheckBox />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[1]}
       </S.Text>
       <ToggleSwitch />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[2]}
       </S.Text>
       <DropDown />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[3]}
       </S.Text>
       <VolumeSlider />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[4]}
       </S.Text>
       <LikeButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[5]}
       </S.Text>
       <SearchField />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[6]}
       </S.Text>
       <LanguageRadioButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[7]}
       </S.Text>
       <FontStyleButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
         {message[8]}
       </S.Text>
     </S.BackgroundWrapper>

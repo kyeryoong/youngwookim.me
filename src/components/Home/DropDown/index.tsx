@@ -2,11 +2,12 @@ import { observer } from 'mobx-react-lite';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { useStore } from '@/stores';
+import { FontSizeType } from '@/stores/homeStore';
 
 import * as S from './styled';
 
 const DropDown = observer(() => {
-  const { themeStore } = useStore();
+  const { homeStore } = useStore();
 
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
@@ -16,11 +17,7 @@ const DropDown = observer(() => {
   };
 
   const handleColorClick = (event: MouseEvent<HTMLButtonElement>) => {
-    if (event.currentTarget.value === 'Light') {
-      themeStore.setTheme('light');
-    } else {
-      themeStore.setTheme('dark');
-    }
+    homeStore.setFontsize(Number(event.currentTarget.value) as FontSizeType);
   };
 
   useEffect(() => {
@@ -35,13 +32,22 @@ const DropDown = observer(() => {
 
   return (
     <S.DropDownWrapper onClick={handleDropDownClick} ref={dropDownRef}>
-      <S.SelectedOption>{themeStore.theme === 'dark' ? 'Dark' : 'Light'}</S.SelectedOption>
+      <S.SelectedOption>{homeStore.fontSize}pt</S.SelectedOption>
       <S.Options isOpened={isOpened}>
-        <S.Option onClick={handleColorClick} value="Light">
-          Light
+        <S.Option onClick={handleColorClick} value={8}>
+          8pt
         </S.Option>
-        <S.Option onClick={handleColorClick} value="Dark">
-          Dark
+        <S.Option onClick={handleColorClick} value={9}>
+          9pt
+        </S.Option>
+        <S.Option onClick={handleColorClick} value={10}>
+          10pt
+        </S.Option>
+        <S.Option onClick={handleColorClick} value={12}>
+          12pt
+        </S.Option>
+        <S.Option onClick={handleColorClick} value={15}>
+          15pt
         </S.Option>
       </S.Options>
 

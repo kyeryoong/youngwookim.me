@@ -1,8 +1,11 @@
 import { makeAutoObservable } from 'mobx';
 
-type LanguageType = 'en' | 'kr';
+export type FontSizeType = 8 | 9 | 10 | 12 | 15;
+
+export type LanguageType = 'en' | 'kr';
 
 export class HomeStore {
+  fontSize: FontSizeType = 10;
   language: LanguageType = 'en';
   bold: boolean = false;
   italic: boolean = false;
@@ -10,6 +13,10 @@ export class HomeStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  setFontsize = (value: FontSizeType) => {
+    this.fontSize = value;
+  };
 
   setLanguage = (value: LanguageType) => {
     this.language = value;

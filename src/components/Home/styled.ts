@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
+import { FontSizeType } from '@/stores/homeStore';
+
 type TextProps = {
   isBold: boolean;
   isItalic: boolean;
+  fontSize: FontSizeType;
 };
 
 export const BackgroundWrapper = styled('div')`
@@ -24,15 +27,16 @@ export const BackgroundWrapper = styled('div')`
 `;
 
 export const Text = styled('h1')<TextProps>`
-  font-size: 5rem;
+  font-size: ${({ fontSize }) => `${fontSize / 2}rem`};
   font-weight: ${({ isBold }) => (isBold ? 700 : 500)};
   font-style: ${({ isItalic }) => isItalic && 'italic'};
   height: 80px;
   line-height: 80px;
   color: ${({ theme }) => theme.color.white};
+  transition: 0.25s;
 
   @media (pointer: coarse) or (max-width: 800px) {
-    font-size: min(10vw, 5rem);
+    font-size: ${({ fontSize }) => `min(${fontSize}vw, ${fontSize / 2}rem)`};
     height: min(10vw, 80px);
     line-height: min(10vw, 80px);
   }
