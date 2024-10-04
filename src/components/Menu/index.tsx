@@ -66,7 +66,7 @@ const Menu = observer(() => {
           <MenuButton target="" />
           <MenuButton target="profile" />
           <MenuButton target="tech" />
-          <MenuButton target="projects" />
+          {/* <MenuButton target="projects" /> */}
           <Prompt />
         </S.MenuBottom>
       </S.MenuWrapper>
