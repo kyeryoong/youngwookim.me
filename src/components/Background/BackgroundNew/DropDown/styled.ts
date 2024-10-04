@@ -6,8 +6,6 @@ type DropDownWrapperProps = {
 };
 
 export const DropDownWrapper = styled('div')`
-  width: 240px;
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,18 +15,26 @@ export const DropDownWrapper = styled('div')`
 
 export const SelectedOption = styled('div')`
   font-size: 2rem;
-  width: 100%;
+  width: 240px;
   height: 80px;
   line-height: 80px;
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.gray[700]};
   border-radius: 12px;
-  padding-left: 24px;
+  padding-left: 10%;
   transition: 0.25s;
   cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.gray[600]};
+  }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    font-size: min(4vw, 2rem);
+    width: min(30vw, 240px);
+    height: min(10vw, 80px);
+    line-height: min(10vw, 80px);
+    border-radius: min(1.5vw, 12px);
   }
 `;
 
@@ -41,6 +47,12 @@ export const Options = styled('div')<DropDownWrapperProps>`
   top: 88px;
   overflow: hidden;
   display: ${({ isOpened }) => !isOpened && 'none'};
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    border-radius: min(1.5vw, 12px);
+    padding: min(2vw, 16px) 0px;
+    top: 11vw;
+  }
 `;
 
 export const Option = styled('button')`
@@ -48,7 +60,7 @@ export const Option = styled('button')`
   width: 100%;
   height: 64px;
   text-align: left;
-  padding-left: 24px;
+  padding-left: 10%;
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.gray[800]};
   border: none;
@@ -58,6 +70,11 @@ export const Option = styled('button')`
   &:hover {
     background-color: ${({ theme }) => theme.color.gray[700]};
   }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    font-size: min(3.2vw, 1.6rem);
+    height: min(8vw, 64px);
+  }
 `;
 
 export const DropDownArrow = styled(CaretDownFill)<DropDownWrapperProps>`
@@ -66,7 +83,13 @@ export const DropDownArrow = styled(CaretDownFill)<DropDownWrapperProps>`
   color: ${({ theme }) => theme.color.gray[500]};
   position: absolute;
   top: calc(50% - 12px);
-  right: 20px;
+  right: 10%;
   transform: ${({ isOpened }) => isOpened && 'rotate(180deg)'};
   cursor: pointer;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(3vw, 24px);
+    height: min(3vw, 24px);
+    top: calc(50% - min(1.5vw, 12px));
+  }
 `;

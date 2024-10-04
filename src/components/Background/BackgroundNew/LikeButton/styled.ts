@@ -24,6 +24,13 @@ export const LikeButtonWrapper = styled('button')<LikeButtonWrapperProps>`
     background-color: ${({ theme, isHeartFilled }) =>
       isHeartFilled ? '#ff6666' : theme.color.gray[600]};
   }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(20vw, 160px);
+    height: min(10vw, 80px);
+    border-radius: min(1.5vw, 12px);
+    gap: min(1.5vw, 12px);
+  }
 `;
 
 export const HeartUnFilledIcon = styled(Heart)`
@@ -31,6 +38,11 @@ export const HeartUnFilledIcon = styled(Heart)`
   height: 32px;
   color: ${({ theme }) => theme.color.white};
   transition: 0.5s;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(4vw, 32px);
+    height: min(4vw, 32px);
+  }
 `;
 
 export const HeartFilledIcon = styled(HeartFill)`
@@ -57,9 +69,18 @@ export const HeartFilledIcon = styled(HeartFill)`
       transform: scale(1);
     }
   }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(4vw, 32px);
+    height: min(4vw, 32px);
+  }
 `;
 
 export const Count = styled('span')`
   font-size: 2rem;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    font-size: min(4vw, 2rem);
+  }
 `;

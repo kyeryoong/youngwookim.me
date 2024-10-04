@@ -5,8 +5,8 @@ type ToggleSwitchWrapperProps = {
 };
 
 export const ToggleSwitchWrapper = styled('div')`
-  width: 140px;
   height: 80px;
+  aspect-ratio: 14 / 8;
   border-radius: 40px;
   background-color: ${({ theme }) => theme.color.gray[700]};
   padding: 10px;
@@ -15,6 +15,12 @@ export const ToggleSwitchWrapper = styled('div')`
 
   &:hover {
     background-color: ${({ theme }) => theme.color.gray[600]};
+  }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    height: min(10vw, 80px);
+    border-radius: min(5vw, 40px);
+    padding: min(1.25vw, 10px);
   }
 `;
 
@@ -26,4 +32,11 @@ export const ToggleSwitch = styled('div')<ToggleSwitchWrapperProps>`
     isTurnedOn ? theme.color.gray[300] : theme.color.gray[500]};
   transition: 0.5s;
   margin-left: ${({ isTurnedOn }) => (isTurnedOn ? '60px' : '0px')};
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(7.5vw, 60px);
+    height: min(7.5vw, 60px);
+    border-radius: min(3.75vw, 30px);
+    margin-left: ${({ isTurnedOn }) => (isTurnedOn ? 'min(7.5vw, 60px)' : '0px')};
+  }
 `;

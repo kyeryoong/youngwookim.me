@@ -9,6 +9,11 @@ export const FontStyleButtonWrapper = styled('div')`
   height: 80px;
   display: flex;
   gap: 2px;
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    height: min(10vw, 80px);
+    gap: min(0.25vw, 2px);
+  }
 `;
 
 export const BoldButton = styled(TypeBold)<StyleButtonProps>`
@@ -24,6 +29,12 @@ export const BoldButton = styled(TypeBold)<StyleButtonProps>`
     background-color: ${({ theme, isApplied }) =>
       isApplied ? theme.color.gray[400] : theme.color.gray[600]};
   }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(10vw, 80px);
+    height: min(10vw, 80px);
+    border-radius: min(1.5vw, 12px) 0px 0px min(1.5vw, 12px);
+  }
 `;
 
 export const ItalicButton = styled(TypeItalic)<StyleButtonProps>`
@@ -38,5 +49,11 @@ export const ItalicButton = styled(TypeItalic)<StyleButtonProps>`
   &:hover {
     background-color: ${({ theme, isApplied }) =>
       isApplied ? theme.color.gray[400] : theme.color.gray[600]};
+  }
+
+  @media (pointer: coarse) or (max-width: 800px) {
+    width: min(10vw, 80px);
+    height: min(10vw, 80px);
+    border-radius: 0px min(1.5vw, 12px) min(1.5vw, 12px) 0px;
   }
 `;
