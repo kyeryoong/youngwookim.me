@@ -1,17 +1,19 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const Switch = observer(() => {
+  const { themeStore } = useStore();
+
   const handleClick = () => {
-    store.toggleTheme();
+    themeStore.toggleTheme();
   };
 
   return (
     <S.SwitchWrapper onClick={handleClick}>
-      <S.Switch isTurnedOn={store.theme === 'light'} />
+      <S.Switch isTurnedOn={themeStore.theme === 'light'} />
     </S.SwitchWrapper>
   );
 });

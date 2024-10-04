@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import store from '@/stores/menuStore';
 
 import * as S from './styled';
 

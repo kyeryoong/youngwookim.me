@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 import dark from '@/theme/dark';
 import font from '@/theme/font';
 import light from '@/theme/light';
@@ -17,11 +17,13 @@ import * as S from './appStyled';
 type AppProps = { children: React.ReactNode };
 
 const App = observer(({ children }: AppProps) => {
+  const { menuStore, themeStore } = useStore();
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toUpperCase() === 'M') {
         event.preventDefault();
-        store.setIsMenuOpened(!store.isMenuOpened);
+        menuStore.setIsMenuOpened(!menuStore.isMenuOpened);
       }
     };
 
@@ -34,17 +36,17 @@ const App = observer(({ children }: AppProps) => {
       const themeMode = localStorage.getItem('youngwookim.me_theme');
 
       if (themeMode === 'dark') {
-        store.setTheme('dark');
+        themeStore.setTheme('dark');
       } else if (themeMode === 'light') {
-        store.setTheme('light');
+        themeStore.setTheme('light');
       } else {
-        store.setTheme('dark');
+        themeStore.setTheme('dark');
       }
     }
   }, []);
 
   return (
-    <ThemeProvider theme={store.theme === 'dark' ? { ...dark, font } : { ...light, font }}>
+    <ThemeProvider theme={themeStore.theme === 'dark' ? { ...dark, font } : { ...light, font }}>
       <S.AppWrapper>
         <Header />
         <Menu />
