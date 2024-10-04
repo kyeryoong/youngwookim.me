@@ -12,7 +12,7 @@ import * as S from './styled';
 import ToggleSwitch from './ToggleSwitch';
 import VolumeSlider from './VolumeSlider';
 
-const BackgroundNew = observer(() => {
+const HomePage = observer(() => {
   const englishMessage = [
     'Hello.',
     'My',
@@ -80,4 +80,4 @@ const BackgroundNew = observer(() => {
   );
 });
 
-export default BackgroundNew;
+export default HomePage;

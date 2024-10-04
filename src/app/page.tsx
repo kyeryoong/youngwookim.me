@@ -3,11 +3,11 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
-import BackgroundNew from '@/components/Background/BackgroundNew';
+import Home from '@/components/Home';
 
 import * as S from './styled';
 
-const Home = observer(() => {
+const Main = observer(() => {
   const [page, setPage] = useState<number>(0);
 
   useEffect(() => {
@@ -18,10 +18,9 @@ const Home = observer(() => {
 
   return (
     <S.Wrapper>
-      {/* <Background1 /> */}
-      <BackgroundNew />
+      <Home />
     </S.Wrapper>
   );
 });
 
-export default Home;
+export default Main;
