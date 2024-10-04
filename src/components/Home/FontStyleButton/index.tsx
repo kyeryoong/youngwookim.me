@@ -1,24 +1,22 @@
 import { observer } from 'mobx-react-lite';
 
-import { useStore } from '@/stores';
+import store from '@/stores/store';
 
 import * as S from './styled';
 
 const FontStyleButton = observer(() => {
-  const { homeStore } = useStore();
-
   const handleBoldButtonClick = () => {
-    homeStore.toggleBold();
+    store.toggleBold();
   };
 
   const handleItalicButtonClick = () => {
-    homeStore.toggleItalic();
+    store.toggleItalic();
   };
 
   return (
     <S.FontStyleButtonWrapper>
-      <S.BoldButton onClick={handleBoldButtonClick} isApplied={homeStore.bold} />
-      <S.ItalicButton onClick={handleItalicButtonClick} isApplied={homeStore.italic} />
+      <S.BoldButton onClick={handleBoldButtonClick} isApplied={store.bold} />
+      <S.ItalicButton onClick={handleItalicButtonClick} isApplied={store.italic} />
     </S.FontStyleButtonWrapper>
   );
 });

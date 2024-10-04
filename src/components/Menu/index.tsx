@@ -3,19 +3,17 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useRef } from 'react';
 
-import { useStore } from '@/stores';
+import store from '@/stores/store';
 
 import MenuButton from './MenuElement';
 import Prompt from './Prompt';
 import * as S from './styled';
 
 const Menu = observer(() => {
-  const { menuStore } = useStore();
-
   const ref = useRef<HTMLInputElement>(null);
 
   const handleBackgroundClick = () => {
-    menuStore.setIsMenuOpened(false);
+    store.setIsMenuOpened(false);
   };
 
   const handleMenuWrapperclick = (event: React.MouseEvent) => {
@@ -23,18 +21,18 @@ const Menu = observer(() => {
   };
 
   const handleCloseButtonClick = () => {
-    menuStore.setIsMenuOpened(false);
+    store.setIsMenuOpened(false);
   };
 
   const handleExpandButtonClick = () => {
-    menuStore.setIsMenuExpanded(!menuStore.isMenuExpanded);
+    store.setIsMenuExpanded(!store.isMenuExpanded);
   };
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Esc' || event.key === 'Escape') {
         event.preventDefault();
-        menuStore.setIsMenuOpened(false);
+        store.setIsMenuOpened(false);
       }
     };
 
@@ -46,20 +44,20 @@ const Menu = observer(() => {
     if (ref.current) {
       ref.current.scrollTop = ref.current.scrollHeight;
     }
-  }, [menuStore.promptEntered]);
+  }, [store.promptEntered]);
 
   return (
     <S.MenuBackground
-      $isMenuOpened={menuStore.isMenuOpened}
-      $isMenuExpanded={menuStore.isMenuExpanded}
+      $isMenuOpened={store.isMenuOpened}
+      $isMenuExpanded={store.isMenuExpanded}
       onClick={handleBackgroundClick}
     >
       <S.MenuWrapper
-        $isMenuOpened={menuStore.isMenuOpened}
-        $isMenuExpanded={menuStore.isMenuExpanded}
+        $isMenuOpened={store.isMenuOpened}
+        $isMenuExpanded={store.isMenuExpanded}
         onClick={handleMenuWrapperclick}
       >
-        <S.MenuTop $isMenuExpanded={menuStore.isMenuExpanded}>
+        <S.MenuTop $isMenuExpanded={store.isMenuExpanded}>
           <S.MenuTopButton.Red onClick={handleCloseButtonClick} />
           <S.MenuTopButton.Yellow />
           <S.MenuTopButton.Green onClick={handleExpandButtonClick} />

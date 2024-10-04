@@ -1,18 +1,16 @@
 import { observer } from 'mobx-react-lite';
 
-import { useStore } from '@/stores';
+import store from '@/stores/store';
 
 import * as S from './styled';
 
 const ThemeModeButton = observer(() => {
-  const { menuStore, themeStore } = useStore();
-
   const handleClick = () => {
-    themeStore.toggleTheme();
+    store.toggleTheme();
   };
 
   return (
-    <S.ThemeModeButtonWrapper onClick={handleClick} $show={menuStore.isMenuOpened}>
+    <S.ThemeModeButtonWrapper onClick={handleClick} $show={store.isMenuOpened}>
       <S.ToggleSwitchWrapper>
         <S.ToggleSwitch />
       </S.ToggleSwitchWrapper>

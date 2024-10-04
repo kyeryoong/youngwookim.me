@@ -4,15 +4,13 @@ import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-import { useStore } from '@/stores';
+import store from '@/stores/store';
 
 import { isMobile } from '../../../../utils/isMobile';
 import * as S from './styled';
 import { fortuneTexts, helpText, initText } from './text';
 
 const Prompt = observer(() => {
-  const { menuStore, themeStore } = useStore();
-
   const router = useRouter();
   const ref = useRef<HTMLInputElement>(null);
 
@@ -26,17 +24,17 @@ const Prompt = observer(() => {
       ref.current?.focus();
     }
 
-    if (menuStore.isMenuOpened) {
+    if (store.isMenuOpened) {
       setCurrentLine('');
       setPreviousLines([]);
       setResultLines([initText]);
     }
-  }, [menuStore.isMenuOpened]);
+  }, [store.isMenuOpened]);
 
   const processCommand = () => {
     event?.preventDefault();
 
-    menuStore.setPromptEntered();
+    store.setPromptEntered();
     setResultLines((prev: string[]) => [...prev, `> ${currentLine}`]);
 
     const [prefix, suffix] = currentLine.trim().toLowerCase().split(' ');
@@ -48,19 +46,19 @@ const Prompt = observer(() => {
         setCurrentLine('');
       } else if (suffix === 'home') {
         router.push('/');
-        menuStore.setIsMenuOpened(false);
+        store.setIsMenuOpened(false);
         ref.current?.blur();
       } else if (suffix === 'profile') {
         router.push('profile');
-        menuStore.setIsMenuOpened(false);
+        store.setIsMenuOpened(false);
         ref.current?.blur();
       } else if (suffix === 'tech') {
         router.push('tech');
-        menuStore.setIsMenuOpened(false);
+        store.setIsMenuOpened(false);
         ref.current?.blur();
       } else if (suffix === 'projects') {
         router.push('projects');
-        menuStore.setIsMenuOpened(false);
+        store.setIsMenuOpened(false);
         ref.current?.blur();
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: cd: ${suffix}: No such page`]);
@@ -79,15 +77,15 @@ const Prompt = observer(() => {
 
     // 메뉴 닫기
     else if (prefix === 'exit') {
-      menuStore.setIsMenuOpened(false);
+      store.setIsMenuOpened(false);
     }
 
     // 테마 변경
     else if (prefix === 'theme') {
       if (suffix === undefined) {
-        themeStore.toggleTheme();
+        store.toggleTheme();
       } else if (suffix === 'dark' || suffix === 'light') {
-        themeStore.setTheme(suffix);
+        store.setTheme(suffix);
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
       }
@@ -126,7 +124,7 @@ const Prompt = observer(() => {
 
     // 프롬프트 확장
     else if (prefix === 'expand') {
-      menuStore.setIsMenuExpanded(!menuStore.isMenuExpanded);
+      store.setIsMenuExpanded(!store.isMenuExpanded);
     }
 
     // 유효하지 않은 명령어
