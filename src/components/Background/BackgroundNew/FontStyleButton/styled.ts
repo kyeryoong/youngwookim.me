@@ -19,6 +19,7 @@ export const FontStyleButtonWrapper = styled('div')`
 export const BoldButton = styled(TypeBold)<StyleButtonProps>`
   width: 80px;
   height: 80px;
+  color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme, isApplied }) =>
     isApplied ? theme.color.gray[500] : theme.color.gray[700]};
   border-radius: 12px 0px 0px 12px;
@@ -40,6 +41,7 @@ export const BoldButton = styled(TypeBold)<StyleButtonProps>`
 export const ItalicButton = styled(TypeItalic)<StyleButtonProps>`
   width: 80px;
   height: 80px;
+  color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme, isApplied }) =>
     isApplied ? theme.color.gray[500] : theme.color.gray[700]};
   border-radius: 0px 12px 12px 0px;
