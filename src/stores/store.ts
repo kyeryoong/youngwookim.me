@@ -1,11 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 
 type ThemeType = 'light' | 'dark';
+
+type LanguageType = 'en' | 'kr';
+
 class Store {
   isMenuOpened: boolean = false;
   isMenuExpanded: boolean = false;
   theme: ThemeType = 'dark';
   promptEntered: number = 0;
+  language: LanguageType = 'en';
+  bold: boolean = false;
+  italic: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -44,6 +50,18 @@ class Store {
 
   setPromptEntered = () => {
     this.promptEntered++;
+  };
+
+  setLanguage = (value: LanguageType) => {
+    this.language = value;
+  };
+
+  toggleBold = () => {
+    this.bold = !this.bold;
+  };
+
+  toggleItalic = () => {
+    this.italic = !this.italic;
   };
 }
 
