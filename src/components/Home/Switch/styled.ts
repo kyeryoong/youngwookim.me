@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-type ToggleSwitchWrapperProps = {
+type SwitchWrapperProps = {
   isTurnedOn: boolean;
 };
 
-export const ToggleSwitchWrapper = styled('div')`
+export const SwitchWrapper = styled('div')`
   height: 80px;
   aspect-ratio: 14 / 8;
   border-radius: 40px;
@@ -24,7 +24,7 @@ export const ToggleSwitchWrapper = styled('div')`
   }
 `;
 
-export const ToggleSwitch = styled('div')<ToggleSwitchWrapperProps>`
+export const Switch = styled('div')<SwitchWrapperProps>`
   width: 60px;
   height: 60px;
   border-radius: 30px;

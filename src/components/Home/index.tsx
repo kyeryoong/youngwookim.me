@@ -9,7 +9,7 @@ import LanguageRadioButton from './LanguageRadioButton';
 import LikeButton from './LikeButton';
 import SearchField from './SearchField';
 import * as S from './styled';
-import ToggleSwitch from './ToggleSwitch';
+import ToggleSwitch from './Switch';
 import VolumeSlider from './VolumeSlider';
 
 const HomePage = observer(() => {
