@@ -1,32 +1,34 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const LanguageRadioButton = observer(() => {
+  const { homeStore } = useStore();
+
   const handleEnglishClick = () => {
-    store.setLanguage('en');
+    homeStore.setLanguage('en');
   };
 
   const handleKoreanClick = () => {
-    store.setLanguage('kr');
+    homeStore.setLanguage('kr');
   };
 
   return (
     <S.LanguageRadioButtonWrapper>
       <S.RadioButtonWrapper>
         <S.RadioButton onClick={handleEnglishClick}>
-          {store.language === 'en' && <S.Radio />}
+          {homeStore.language === 'en' && <S.Radio />}
         </S.RadioButton>
-        <S.Label>{store.language === 'en' ? 'English' : '영어'}</S.Label>
+        <S.Label>{homeStore.language === 'en' ? 'English' : '영어'}</S.Label>
       </S.RadioButtonWrapper>
 
       <S.RadioButtonWrapper>
         <S.RadioButton onClick={handleKoreanClick}>
-          {store.language === 'kr' && <S.Radio />}
+          {homeStore.language === 'kr' && <S.Radio />}
         </S.RadioButton>
-        <S.Label>{store.language === 'en' ? 'Korean' : '한국어'}</S.Label>
+        <S.Label>{homeStore.language === 'en' ? 'Korean' : '한국어'}</S.Label>
       </S.RadioButtonWrapper>
     </S.LanguageRadioButtonWrapper>
   );

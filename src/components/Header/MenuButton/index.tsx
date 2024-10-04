@@ -1,18 +1,21 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '../../../stores/store';
+import { useStore } from '@/stores';
+
 import * as S from './styled';
 
 const MenuButton = observer(() => {
+  const { menuStore } = useStore();
+
   const handleClick = () => {
-    store.setIsMenuOpened(!store.isMenuOpened);
+    menuStore.setIsMenuOpened(!menuStore.isMenuOpened);
   };
 
   return (
     <S.MenuButtonWrapper onClick={handleClick}>
-      <S.MenuButtonsElements1 $isMenuOpened={store.isMenuOpened} />
-      <S.MenuButtonsElements2 $isMenuOpened={store.isMenuOpened} />
-      <S.MenuButtonsElements3 $isMenuOpened={store.isMenuOpened} />
+      <S.MenuButtonsElements1 $isMenuOpened={menuStore.isMenuOpened} />
+      <S.MenuButtonsElements2 $isMenuOpened={menuStore.isMenuOpened} />
+      <S.MenuButtonsElements3 $isMenuOpened={menuStore.isMenuOpened} />
     </S.MenuButtonWrapper>
   );
 });

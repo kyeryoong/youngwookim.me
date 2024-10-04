@@ -1,12 +1,14 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const Logo = observer(() => {
+  const { menuStore } = useStore();
+
   const handleLogoClick = () => {
-    store.setIsMenuOpened(false);
+    menuStore.setIsMenuOpened(false);
   };
 
   return (

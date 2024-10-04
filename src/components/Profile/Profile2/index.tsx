@@ -1,10 +1,12 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const Profile2 = observer(() => {
+  const { themeStore } = useStore();
+
   return (
     <S.ProfilePageWrapper>
       <S.TitleWrapper>
@@ -14,8 +16,8 @@ const Profile2 = observer(() => {
         </S.Title>
       </S.TitleWrapper>
 
-      <S.CardVideo1 src={`/profile/1_${store.theme}.mp4`} autoPlay muted loop />
-      <S.CardVideo2 src={`/profile/2_${store.theme}.mp4`} autoPlay muted loop />
+      <S.CardVideo1 src={`/profile/1_${themeStore.theme}.mp4`} autoPlay muted loop />
+      <S.CardVideo2 src={`/profile/2_${themeStore.theme}.mp4`} autoPlay muted loop />
 
       <S.ContentWrapper>
         <S.Content>

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import CheckBox from './CheckBox';
 import DropDown from './DropDown';
@@ -13,6 +13,8 @@ import ToggleSwitch from './Switch';
 import VolumeSlider from './VolumeSlider';
 
 const Home = observer(() => {
+  const { homeStore } = useStore();
+
   const englishMessage = [
     'Hello.',
     'My',
@@ -37,43 +39,43 @@ const Home = observer(() => {
     '입니다.',
   ];
 
-  const message = store.language === 'en' ? englishMessage : koreanMessage;
+  const message = homeStore.language === 'en' ? englishMessage : koreanMessage;
 
   return (
     <S.BackgroundWrapper>
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[0]}
       </S.Text>
       <CheckBox />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[1]}
       </S.Text>
       <ToggleSwitch />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[2]}
       </S.Text>
       <DropDown />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[3]}
       </S.Text>
       <VolumeSlider />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[4]}
       </S.Text>
       <LikeButton />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[5]}
       </S.Text>
       <SearchField />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[6]}
       </S.Text>
       <LanguageRadioButton />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[7]}
       </S.Text>
       <FontStyleButton />
-      <S.Text isBold={store.bold} isItalic={store.italic}>
+      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic}>
         {message[8]}
       </S.Text>
     </S.BackgroundWrapper>

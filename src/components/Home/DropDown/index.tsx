@@ -1,11 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const DropDown = observer(() => {
+  const { themeStore } = useStore();
+
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
@@ -15,9 +17,9 @@ const DropDown = observer(() => {
 
   const handleColorClick = (event: MouseEvent<HTMLButtonElement>) => {
     if (event.currentTarget.value === 'Light') {
-      store.setTheme('light');
+      themeStore.setTheme('light');
     } else {
-      store.setTheme('dark');
+      themeStore.setTheme('dark');
     }
   };
 
@@ -33,7 +35,7 @@ const DropDown = observer(() => {
 
   return (
     <S.DropDownWrapper onClick={handleDropDownClick} ref={dropDownRef}>
-      <S.SelectedOption>{store.theme === 'dark' ? 'Dark' : 'Light'}</S.SelectedOption>
+      <S.SelectedOption>{themeStore.theme === 'dark' ? 'Dark' : 'Light'}</S.SelectedOption>
       <S.Options isOpened={isOpened}>
         <S.Option onClick={handleColorClick} value="Light">
           Light

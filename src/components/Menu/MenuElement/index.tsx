@@ -2,7 +2,7 @@
 
 import { observer } from 'mobx-react-lite';
 
-import store from '@/stores/store';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
@@ -11,8 +11,10 @@ type MeunElementProps = {
 };
 
 const MenuElement = observer(({ target }: MeunElementProps) => {
+  const { menuStore } = useStore();
+
   const handleMenuClick = () => {
-    store.setIsMenuOpened(false);
+    menuStore.setIsMenuOpened(false);
   };
 
   const capitalize = (name: string) => {
