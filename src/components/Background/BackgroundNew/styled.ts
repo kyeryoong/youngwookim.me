@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+type TextProps = {
+  isBold: boolean;
+  isItalic: boolean;
+};
+
 export const BackgroundWrapper = styled('div')`
   width: 100vw;
   height: 100vh;
@@ -12,9 +17,10 @@ export const BackgroundWrapper = styled('div')`
   padding-right: 100px;
 `;
 
-export const Text = styled('h1')`
+export const Text = styled('h1')<TextProps>`
   font-size: 5rem;
-  font-weight: 500;
+  font-weight: ${({ isBold }) => (isBold ? 700 : 500)};
+  font-style: ${({ isItalic }) => isItalic && 'italic'};
   height: 80px;
   line-height: 80px;
   color: ${({ theme }) => theme.color.white};

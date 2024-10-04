@@ -10,6 +10,8 @@ class Store {
   theme: ThemeType = 'dark';
   promptEntered: number = 0;
   language: LanguageType = 'en';
+  bold: boolean = false;
+  italic: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -52,6 +54,14 @@ class Store {
 
   setLanguage = (value: LanguageType) => {
     this.language = value;
+  };
+
+  toggleBold = () => {
+    this.bold = !this.bold;
+  };
+
+  toggleItalic = () => {
+    this.italic = !this.italic;
   };
 }
 

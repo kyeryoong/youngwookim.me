@@ -4,6 +4,7 @@ import store from '@/stores/store';
 
 import CheckBox from './CheckBox';
 import DropDown from './DropDown';
+import FontStyleButton from './FontStyleButton';
 import LanguageRadioButton from './LanguageRadioButton';
 import LikeButton from './LikeButton';
 import SearchField from './SearchField';
@@ -40,23 +41,41 @@ const BackgroundNew = observer(() => {
 
   return (
     <S.BackgroundWrapper>
-      <S.Text>{message[0]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[0]}
+      </S.Text>
       <CheckBox />
-      <S.Text>{message[1]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[1]}
+      </S.Text>
       <ToggleSwitch />
-      <S.Text>{message[2]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[2]}
+      </S.Text>
       <DropDown />
-      <S.Text>{message[3]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[3]}
+      </S.Text>
       <VolumeSlider />
-      <S.Text>{message[4]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[4]}
+      </S.Text>
       <LikeButton />
-      <S.Text>{message[5]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[5]}
+      </S.Text>
       <SearchField />
-      <S.Text>{message[6]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[6]}
+      </S.Text>
       <LanguageRadioButton />
-      <S.Text>{message[7]}</S.Text>
-      {/* <Pagination /> */}
-      <S.Text>{message[8]}</S.Text>
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[7]}
+      </S.Text>
+      <FontStyleButton />
+      <S.Text isBold={store.bold} isItalic={store.italic}>
+        {message[8]}
+      </S.Text>
     </S.BackgroundWrapper>
   );
 });
