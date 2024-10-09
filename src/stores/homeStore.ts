@@ -9,6 +9,8 @@ export class HomeStore {
   language: LanguageType = 'en';
   bold: boolean = false;
   italic: boolean = false;
+  textColor: string = 'white';
+  borderColor: string = 'transparent';
 
   constructor() {
     makeAutoObservable(this);
@@ -28,5 +30,13 @@ export class HomeStore {
 
   toggleItalic = () => {
     this.italic = !this.italic;
+  };
+
+  setTextColor = (value: string) => {
+    this.textColor = value;
+  };
+
+  setBorderColor = (value: string) => {
+    this.borderColor = value;
   };
 }

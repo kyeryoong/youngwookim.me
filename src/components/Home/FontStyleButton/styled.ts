@@ -24,6 +24,7 @@ export const BoldButton = styled(TypeBold)<StyleButtonProps>`
     isApplied ? theme.color.gray[500] : theme.color.gray[700]};
   border-radius: 12px 0px 0px 12px;
   padding: 12%;
+  transition: 0.25s;
   cursor: pointer;
 
   &:hover {
@@ -46,6 +47,7 @@ export const ItalicButton = styled(TypeItalic)<StyleButtonProps>`
     isApplied ? theme.color.gray[500] : theme.color.gray[700]};
   border-radius: 0px 12px 12px 0px;
   padding: 12%;
+  transition: 0.25s;
   cursor: pointer;
 
   &:hover {

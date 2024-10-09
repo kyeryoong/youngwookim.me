@@ -12,6 +12,7 @@ import * as S from './styled';
 import ToggleSwitch from './Switch';
 import Text from './Text';
 import VolumeSlider from './VolumeSlider';
+import FontColorButton from './FontColorButton';
 
 const Home = observer(() => {
   const { homeStore } = useStore();
@@ -55,7 +56,8 @@ const Home = observer(() => {
       <Text>{message[4]}</Text>
       <LikeButton />
       <Text>{message[5]}</Text>
-      <SearchField />
+      {/* <SearchField /> */}
+      <FontColorButton />
       <Text>{message[6]}</Text>
       <LanguageRadioButton />
       <Text>{message[7]}</Text>

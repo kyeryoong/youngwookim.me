@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { FontSizeType } from '@/stores/homeStore';
 
 type TextProps = {
+  fontSize: FontSizeType;
   isBold: boolean;
   isItalic: boolean;
-  fontSize: FontSizeType;
+  textColor: string;
+  borderColor: string;
 };
 
 export const Text = styled('h1')<TextProps>`
@@ -14,7 +16,12 @@ export const Text = styled('h1')<TextProps>`
   font-style: ${({ isItalic }) => isItalic && 'italic'};
   height: 80px;
   line-height: 80px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, textColor }) =>
+    textColor === 'white'
+      ? theme.color.white
+      : textColor === 'black'
+        ? theme.color.gray[800]
+        : textColor};
   transition: 0.25s;
 
   @media (pointer: coarse) or (max-width: 800px) {

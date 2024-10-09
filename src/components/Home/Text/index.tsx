@@ -9,7 +9,13 @@ const Text = observer(({ children }: { children: ReactNode }) => {
   const { homeStore } = useStore();
 
   return (
-    <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
+    <S.Text
+      fontSize={homeStore.fontSize}
+      isBold={homeStore.bold}
+      isItalic={homeStore.italic}
+      textColor={homeStore.textColor}
+      borderColor={'green'}
+    >
       {children}
     </S.Text>
   );
