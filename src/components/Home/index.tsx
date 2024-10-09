@@ -10,6 +10,7 @@ import LikeButton from './LikeButton';
 import SearchField from './SearchField';
 import * as S from './styled';
 import ToggleSwitch from './Switch';
+import Text from './Text';
 import VolumeSlider from './VolumeSlider';
 
 const Home = observer(() => {
@@ -43,41 +44,23 @@ const Home = observer(() => {
 
   return (
     <S.BackgroundWrapper>
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[0]}
-      </S.Text>
+      <Text>{message[0]}</Text>
       <CheckBox />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[1]}
-      </S.Text>
+      <Text>{message[1]}</Text>
       <ToggleSwitch />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[2]}
-      </S.Text>
+      <Text>{message[2]}</Text>
       <DropDown />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[3]}
-      </S.Text>
+      <Text>{message[3]}</Text>
       <VolumeSlider />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[4]}
-      </S.Text>
+      <Text>{message[4]}</Text>
       <LikeButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[5]}
-      </S.Text>
+      <Text>{message[5]}</Text>
       <SearchField />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[6]}
-      </S.Text>
+      <Text>{message[6]}</Text>
       <LanguageRadioButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[7]}
-      </S.Text>
+      <Text>{message[7]}</Text>
       <FontStyleButton />
-      <S.Text isBold={homeStore.bold} isItalic={homeStore.italic} fontSize={homeStore.fontSize}>
-        {message[8]}
-      </S.Text>
+      <Text>{message[8]}</Text>
     </S.BackgroundWrapper>
   );
 });
