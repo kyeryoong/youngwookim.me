@@ -13,6 +13,7 @@ const Text = observer(({ children }: { children: ReactNode }) => {
       fontSize={homeStore.fontSize}
       isBold={homeStore.bold}
       isItalic={homeStore.italic}
+      isUnderline={homeStore.underline}
       textColor={homeStore.textColor}
       borderColor={'green'}
     >

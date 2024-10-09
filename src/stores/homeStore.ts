@@ -9,6 +9,7 @@ export class HomeStore {
   language: LanguageType = 'en';
   bold: boolean = false;
   italic: boolean = false;
+  underline: boolean = false;
   textColor: string = 'white';
   borderColor: string = 'transparent';
 
@@ -30,6 +31,10 @@ export class HomeStore {
 
   toggleItalic = () => {
     this.italic = !this.italic;
+  };
+
+  toggleUnderline = () => {
+    this.underline = !this.underline;
   };
 
   setTextColor = (value: string) => {

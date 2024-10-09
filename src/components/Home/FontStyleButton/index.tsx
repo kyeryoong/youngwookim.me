@@ -15,10 +15,15 @@ const FontStyleButton = observer(() => {
     homeStore.toggleItalic();
   };
 
+  const handleUnderlineButtonClick = () => {
+    homeStore.toggleUnderline();
+  };
+
   return (
     <S.FontStyleButtonWrapper>
       <S.BoldButton onClick={handleBoldButtonClick} isApplied={homeStore.bold} />
       <S.ItalicButton onClick={handleItalicButtonClick} isApplied={homeStore.italic} />
+      <S.UnderlineButton onClick={handleUnderlineButtonClick} isApplied={homeStore.underline} />
     </S.FontStyleButtonWrapper>
   );
 });
