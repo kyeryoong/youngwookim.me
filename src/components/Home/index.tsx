@@ -4,15 +4,14 @@ import { useStore } from '@/stores';
 
 import CheckBox from './CheckBox';
 import DropDown from './DropDown';
+import FontColorButton from './FontColorButton';
 import FontStyleButton from './FontStyleButton';
 import LanguageRadioButton from './LanguageRadioButton';
 import LikeButton from './LikeButton';
-import SearchField from './SearchField';
 import * as S from './styled';
 import ToggleSwitch from './Switch';
 import Text from './Text';
 import VolumeSlider from './VolumeSlider';
-import FontColorButton from './FontColorButton';
 
 const Home = observer(() => {
   const { homeStore } = useStore();
