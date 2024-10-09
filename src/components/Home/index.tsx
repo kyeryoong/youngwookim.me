@@ -25,7 +25,7 @@ const Home = observer(() => {
     'Kim.',
     "I'm",
     'Front-end',
-    'Developer',
+    'Developer.',
   ];
 
   const koreanMessage = [
