@@ -8,8 +8,8 @@ export const BackgroundWrapper = styled('div')`
   align-content: center;
   flex-wrap: wrap;
   gap: 30px 40px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-left: 5vw;
