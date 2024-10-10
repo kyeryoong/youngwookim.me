@@ -19,7 +19,7 @@ export const FontColorButtonWrapper = styled('div')`
   display: flex;
   gap: 2px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     height: min(10vw, 80px);
     gap: min(0.25vw, 2px);
   }
@@ -44,7 +44,7 @@ export const TextColorButton = styled('button')`
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(10vw, 80px);
     height: min(10vw, 80px);
     border-radius: min(1.5vw, 12px);
@@ -75,7 +75,7 @@ export const ColorPicker = styled('div')<TextColorPickerProps>`
   grid-template-columns: repeat(5, 1fr);
   gap: 2px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     border-radius: min(1.5vw, 12px);
     padding: min(1.5vw, 12px);
     top: 11vw;
@@ -99,7 +99,7 @@ export const ColorElementButton = styled('button')<ColorElementButtonProps>`
     transform: scale(1.25);
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(5vw, 40px);
     height: min(5vw, 40px);
     border-radius: min(0.75vw, 6px);

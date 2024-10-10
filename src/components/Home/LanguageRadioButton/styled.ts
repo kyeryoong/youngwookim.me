@@ -6,7 +6,7 @@ export const LanguageRadioButtonWrapper = styled('div')`
   justify-content: center;
   gap: 20px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     gap: min(2.5vw, 20px);
   }
 `;
@@ -16,7 +16,7 @@ export const RadioButtonWrapper = styled('div')`
   align-items: center;
   gap: 8px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     gap: min(1vw, 8px);
   }
 `;
@@ -36,7 +36,7 @@ export const RadioButton = styled('div')`
     filter: brightness(1.1);
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(5vw, 40px);
     height: min(5vw, 40px);
   }
@@ -53,7 +53,7 @@ export const Label = styled('label')`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.color.white};
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(2.4vw, 1.2rem);
   }
 `;

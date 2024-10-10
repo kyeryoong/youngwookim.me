@@ -11,7 +11,7 @@ export const BackgroundWrapper = styled('div')`
   padding-left: 100px;
   padding-right: 100px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     padding-left: 5vw;
     padding-right: 5vw;
     gap: 3vw 4vw;

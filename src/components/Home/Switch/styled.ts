@@ -17,7 +17,7 @@ export const SwitchWrapper = styled('div')`
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     height: min(10vw, 80px);
     border-radius: min(5vw, 40px);
     padding: min(1.25vw, 10px);
@@ -33,7 +33,7 @@ export const Switch = styled('div')<SwitchWrapperProps>`
   transition: 0.5s;
   margin-left: ${({ isTurnedOn }) => (isTurnedOn ? '60px' : '0px')};
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(7.5vw, 60px);
     height: min(7.5vw, 60px);
     border-radius: min(3.75vw, 30px);

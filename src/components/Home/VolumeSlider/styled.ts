@@ -7,7 +7,7 @@ export const VolumeSliderWrapper = styled('div')`
   align-items: center;
   gap: 4px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     height: min(10vw, 80px);
   }
 `;
@@ -27,7 +27,7 @@ export const VolumeSlider = styled('input')`
     opacity: 1;
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(15vw, 120px);
     height: min(1.5vw, 12px);
   }
@@ -39,7 +39,7 @@ export const VolumeSlider = styled('input')`
     background-color: ${({ theme }) => theme.color.gray[600]};
     cursor: pointer;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       height: min(1.5vw, 12px);
     }
   }
@@ -49,7 +49,7 @@ export const VolumeSlider = styled('input')`
     background-color: ${({ theme }) => theme.color.gray[600]};
     cursor: pointer;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       height: min(1.5vw, 12px);
     }
   }
@@ -61,7 +61,7 @@ export const VolumeSlider = styled('input')`
     border-color: transparent;
     cursor: pointer;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       height: min(1.5vw, 12px);
     }
   }
@@ -79,7 +79,7 @@ export const VolumeSlider = styled('input')`
     transition: 0.25s;
     margin-top: -6px;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       width: min(3vw, 24px);
       height: min(3vw, 24px);
       margin-top: max(-0.75vw, -6px);
@@ -94,7 +94,7 @@ export const VolumeSlider = styled('input')`
     cursor: pointer;
     transition: 0.25s;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       width: min(3vw, 24px);
       height: min(3vw, 24px);
     }
@@ -108,7 +108,7 @@ export const VolumeSlider = styled('input')`
     cursor: pointer;
     transition: 0.25s;
 
-    @media (pointer: coarse) or (max-width: 800px) {
+    @media (pointer: coarse) or (max-width: 1000px) {
       width: min(3vw, 24px);
       height: min(3vw, 24px);
     }
@@ -151,7 +151,7 @@ export const VolumeButtonWrapper = styled('button')`
   justify-content: left;
   cursor: pointer;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(6vw, 48px);
     height: min(6vw, 48px);
   }
@@ -178,7 +178,7 @@ export const Level1Icon = styled('span')`
   margin-left: -4px;
   margin-right: 3px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     margin-left: max(-0.5vw, -4px);
     margin-right: min(0.375vw, 3px);
   }
@@ -191,7 +191,7 @@ export const Level2Icon = styled('span')`
   background-color: ${({ theme }) => theme.color.gray[300]};
   margin-right: 3px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     margin-right: min(0.375vw, 3px);
   }
 `;

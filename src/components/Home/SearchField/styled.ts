@@ -21,7 +21,7 @@ export const SearchFieldWrapper = styled('div')`
   gap: 12px;
   position: relative;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(50vw, 400px);
     height: min(10vw, 80px);
     border-radius: min(1.5vw, 12px);
@@ -40,7 +40,7 @@ export const SearchField = styled('input')`
   border: none;
   outline: none;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(3.2vw, 1.6rem);
     width: min(50vw, 400px);
     height: min(10vw, 80px);
@@ -58,7 +58,7 @@ export const Placeholder = styled('label')<PlaceholderProps>`
   top: ${({ isFocused }) => (isFocused ? '-16px' : 'calc(50% - 16px)')};
   transition: 0.25s;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ isFocused }) => (isFocused ? 'min(2vw, 1rem)' : 'min(3.2vw, 1.6rem)')};
     height: min(4vw, 32px);
     line-height: min(4vw, 32px);
@@ -75,7 +75,7 @@ export const SearchIcon = styled(Search)<SearchIconProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: 0.5s;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(4vw, 32px);
     height: min(4vw, 32px);
   }

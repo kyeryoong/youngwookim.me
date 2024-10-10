@@ -20,7 +20,7 @@ export const CheckBoxWrapper = styled('div')`
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(10vw, 80px);
     height: min(10vw, 80px);
     border-radius: min(1.5vw, 12px);

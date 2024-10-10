@@ -26,7 +26,7 @@ export const Text = styled('h1')<TextProps>`
   text-decoration: ${({ isUnderline }) => isUnderline && 'underline'};
   text-decoration-thickness: 4px;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ fontSize }) => `min(${fontSize}vw, ${fontSize / 2}rem)`};
     height: min(10vw, 80px);
     line-height: min(10vw, 80px);

@@ -29,7 +29,7 @@ export const SelectedOption = styled('div')`
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(4vw, 2rem);
     width: min(30vw, 240px);
     height: min(10vw, 80px);
@@ -48,7 +48,7 @@ export const Options = styled('div')<DropDownWrapperProps>`
   overflow: hidden;
   display: ${({ isOpened }) => !isOpened && 'none'};
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     border-radius: min(1.5vw, 12px);
     padding: min(2vw, 16px) 0px;
     top: 11vw;
@@ -71,7 +71,7 @@ export const Option = styled('button')`
     background-color: ${({ theme }) => theme.color.gray[700]};
   }
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(3.2vw, 1.6rem);
     height: min(8vw, 64px);
   }
@@ -87,7 +87,7 @@ export const DropDownArrow = styled(CaretDownFill)<DropDownWrapperProps>`
   transform: ${({ isOpened }) => isOpened && 'rotate(180deg)'};
   cursor: pointer;
 
-  @media (pointer: coarse) or (max-width: 800px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     width: min(3vw, 24px);
     height: min(3vw, 24px);
     top: calc(50% - min(1.5vw, 12px));
