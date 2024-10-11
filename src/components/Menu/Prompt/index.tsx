@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useStore } from '@/stores';
 
-import { isMobile } from '../../../../utils/isMobile';
+import { isMobile } from '../../../utils/isMobile';
 import * as S from './styled';
 import { fortuneTexts, helpText, initText } from './text';
 
