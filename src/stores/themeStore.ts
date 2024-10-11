@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-type ThemeType = 'light' | 'dark';
+export type ThemeType = 'light' | 'dark';
 
 export class ThemeStore {
   theme: ThemeType = 'dark';
