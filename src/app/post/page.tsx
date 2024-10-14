@@ -9,6 +9,8 @@ import ReadPage from '@/components/Post/ReadPage';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { useStore } from '@/stores';
 
+export const dynamic = 'force-dynamic';
+
 const PostPage = observer(() => {
   const { postStore } = useStore();
 
