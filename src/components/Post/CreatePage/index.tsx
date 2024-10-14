@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { ChangeEvent, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useStore } from '@/stores';
 
@@ -38,6 +39,10 @@ const CreatePage = observer(() => {
     postStore.setPageMode('list');
   };
 
+  const handleReCaptchaChanged = () => {
+    console.log('TESTED');
+  };
+
   return (
     <S.CreatePageWrapper>
       <PostHeader
@@ -60,6 +65,11 @@ const CreatePage = observer(() => {
       >
         작성
       </Button>
+
+      <ReCAPTCHA
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
+        onChange={handleReCaptchaChanged}
+      />
     </S.CreatePageWrapper>
   );
 });
