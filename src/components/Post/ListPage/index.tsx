@@ -9,8 +9,6 @@ import PostHeader from '../PostHeader';
 import PostItem from './PostItem';
 import * as S from './styled';
 
-export const dynamic = 'force-dynamic';
-
 const ListPage = observer(() => {
   const { postStore } = useStore();
 
