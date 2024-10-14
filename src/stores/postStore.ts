@@ -23,7 +23,7 @@ export class PostStore {
 
   fetchPosts = async () => {
     try {
-      const res = await fetch('/api/getPosts', { next: { revalidate: 1 } });
+      const res = await fetch('/api/getPosts');
 
       if (res) {
         const { data, error } = await res.json();
@@ -41,7 +41,7 @@ export class PostStore {
 
   fetchPost = async ({ _id }: { _id: string }) => {
     try {
-      const res = await fetch(`/api/getPost?_id=${_id}`, { next: { revalidate: 1 } });
+      const res = await fetch(`/api/getPost?_id=${_id}`);
 
       if (res) {
         const { status, data, error } = await res.json();
