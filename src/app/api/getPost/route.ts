@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { connectDB } from '../../../utils/database';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
