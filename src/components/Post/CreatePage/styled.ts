@@ -55,3 +55,7 @@ export const BackButton = styled(ChevronLeft)`
   color: ${({ theme }) => theme.color.white};
   cursor: pointer;
 `;
+
+export const ReCAPTCHAWrapper = styled('div')`
+  margin-top: 24px;
+`;

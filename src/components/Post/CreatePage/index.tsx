@@ -15,6 +15,8 @@ const CreatePage = observer(() => {
   const [userName, setUserName] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
+  const [isVerified, setIsVerified] = useState<boolean>(false);
+
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value);
   };
@@ -40,7 +42,7 @@ const CreatePage = observer(() => {
   };
 
   const handleReCaptchaChanged = () => {
-    console.log('TESTED');
+    setIsVerified(true);
   };
 
   return (
@@ -61,15 +63,17 @@ const CreatePage = observer(() => {
 
       <Button
         onClick={handleCreateButtonClick}
-        disabled={title === '' || userName === '' || content === ''}
+        disabled={title === '' || userName === '' || content === '' || !isVerified}
       >
         작성
       </Button>
 
-      <ReCAPTCHA
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
-        onChange={handleReCaptchaChanged}
-      />
+      <S.ReCAPTCHAWrapper>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
+          onChange={handleReCaptchaChanged}
+        />
+      </S.ReCAPTCHAWrapper>
     </S.CreatePageWrapper>
   );
 });
