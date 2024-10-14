@@ -45,10 +45,23 @@ const ReadPage = observer(() => {
 
       {isPostLoaded ? (
         <>
-          <S.LabelWrapper>
-            <S.Label>작성자</S.Label>
-            <S.UserName>{post?.userName}</S.UserName>
-          </S.LabelWrapper>
+          <S.InfoWrapper>
+            <S.Info>
+              <S.UserIcon />
+              <S.InfoLabel>작성자</S.InfoLabel>
+              <S.InfoValue>{post?.userName}</S.InfoValue>
+            </S.Info>
+
+            <S.Info>
+              <S.TimeIcon />
+              <S.InfoLabel>작성 시간</S.InfoLabel>
+              <S.InfoValue>
+                {new Date(post?.createdAt ?? '').toLocaleString('ko-KR', {
+                  timeZone: 'Asia/Seoul',
+                })}
+              </S.InfoValue>
+            </S.Info>
+          </S.InfoWrapper>
 
           <S.Content>{post?.content}</S.Content>
         </>

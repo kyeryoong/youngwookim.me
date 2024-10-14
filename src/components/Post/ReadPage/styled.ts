@@ -1,4 +1,4 @@
-import { ChevronLeft } from 'react-bootstrap-icons';
+import { ChevronLeft, ClockFill, PersonFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 export const ReadPageWrapper = styled('div')``;
@@ -16,30 +16,52 @@ export const Title = styled('h2')`
   color: ${({ theme }) => theme.color.white};
 `;
 
-export const LabelWrapper = styled('div')`
+export const InfoWrapper = styled('div')`
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const Info = styled('div')`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 16px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
 `;
 
-export const Label = styled('label')`
+export const InfoLabel = styled('label')`
   font-size: 1.2rem;
   font-weight: 300;
+  width: 100px;
+  height: 20px;
   color: ${({ theme }) => theme.color.gray[500]};
   display: block;
 `;
 
-export const UserName = styled('h3')`
+export const InfoValue = styled('h3')`
   font-size: 1.2rem;
   font-weight: 600;
+  height: 20px;
   color: ${({ theme }) => theme.color.white};
 `;
 
+export const UserIcon = styled(PersonFill)`
+  width: 20px;
+  height: 20px;
+  color: ${({ theme }) => theme.color.gray[500]};
+`;
+
+export const TimeIcon = styled(ClockFill)`
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  color: ${({ theme }) => theme.color.gray[500]};
+`;
+
 export const Content = styled('p')`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: ${({ theme }) => theme.color.white};
 `;

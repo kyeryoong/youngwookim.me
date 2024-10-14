@@ -2,6 +2,7 @@ export type PostModel = {
   _id: string;
   title: string;
   userName: string;
+  createdAt: string;
   content: string;
 };
 

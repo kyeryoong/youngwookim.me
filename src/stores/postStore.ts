@@ -64,7 +64,7 @@ export class PostStore {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, userName, content }),
+        body: JSON.stringify({ title, userName, createdAt: new Date(), content }),
       });
 
       if (res) {
