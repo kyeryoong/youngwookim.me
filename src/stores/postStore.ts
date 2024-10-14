@@ -26,10 +26,12 @@ export class PostStore {
       const res = await fetch('/api/getPosts');
 
       if (res) {
-        const { data } = await res.json();
+        const { data, error } = await res.json();
 
         if (data) {
           this.posts = data;
+        } else if (error) {
+          console.error(error);
         }
       }
     } catch (error) {
@@ -42,7 +44,11 @@ export class PostStore {
       const res = await fetch(`/api/getPost?_id=${_id}`);
 
       if (res) {
-        const { status, data } = await res.json();
+        const { status, data, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
 
         return { status, data };
       }
@@ -62,7 +68,11 @@ export class PostStore {
       });
 
       if (res) {
-        const { status } = await res.json();
+        const { status, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
 
         return { status };
       }

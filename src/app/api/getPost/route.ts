@@ -26,7 +26,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ status: 400 });
     }
   } catch (error) {
-    console.error('[mongoDB Error]:', error);
-    return NextResponse.json({ status: 500 });
+    return NextResponse.json({ status: 500, error });
   }
 }

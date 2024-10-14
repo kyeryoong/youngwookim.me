@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ status: 201, data: res });
   } catch (error) {
-    console.error('[mongoDB Error]:', error);
-    return NextResponse.json({ status: 500 });
+    return NextResponse.json({ status: 500, error });
   }
 }

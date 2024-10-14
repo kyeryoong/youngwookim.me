@@ -12,7 +12,6 @@ export async function GET() {
 
     return NextResponse.json({ status: 201, data: res.reverse() });
   } catch (error) {
-    console.error('[mongoDB Error]:', error);
-    return NextResponse.json({ status: 500 });
+    return NextResponse.json({ status: 500, error });
   }
 }
