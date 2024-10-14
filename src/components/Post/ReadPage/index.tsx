@@ -8,6 +8,8 @@ import LoadingSpinner from '@/theme/LoadingSpinner';
 import PostHeader from '../PostHeader';
 import * as S from './styled';
 
+export const dynamic = 'force-dynamic';
+
 const ReadPage = observer(() => {
   const { postStore } = useStore();
 
