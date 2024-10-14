@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
+import LoadingSpinner from '@/theme/LoadingSpinner';
 
 import Button from '../../../theme/Button';
 import PostHeader from '../PostHeader';
@@ -13,6 +14,7 @@ const ListPage = observer(() => {
   const { postStore } = useStore();
 
   const [posts, setPosts] = useState<PostModel[]>([]);
+  const [isPostsLoaded, setIsPostsLoaded] = useState<boolean>(false);
 
   const handleCreateButtonClick = () => {
     postStore.setPageMode('create');
@@ -23,6 +25,7 @@ const ListPage = observer(() => {
       await postStore.fetchPosts();
 
       setPosts(postStore.posts);
+      setIsPostsLoaded(true);
     }
 
     fetchPosts();
@@ -35,9 +38,15 @@ const ListPage = observer(() => {
         rightElements={<Button onClick={handleCreateButtonClick}>생성</Button>}
       />
 
-      {posts.map((post) => (
-        <PostItem key={post._id} _id={post._id} title={post.title} userName={post.userName} />
-      ))}
+      {isPostsLoaded ? (
+        posts.map((post) => (
+          <PostItem key={post._id} _id={post._id} title={post.title} userName={post.userName} />
+        ))
+      ) : (
+        <S.LoadingSpinnerWrapper>
+          <LoadingSpinner size={72} weight={3} />
+        </S.LoadingSpinnerWrapper>
+      )}
     </S.ListPageWrapper>
   );
 });
