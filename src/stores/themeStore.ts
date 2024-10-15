@@ -11,7 +11,7 @@ export class ThemeStore {
 
   setTheme = (value: ThemeType) => {
     this.theme = value;
-    localStorage.setItem('youngwookim.me_theme', String(value));
+    localStorage.setItem('theme', String(value));
   };
 
   toggleTheme = () => {
@@ -19,10 +19,10 @@ export class ThemeStore {
 
     if (prevTheme === 'dark') {
       this.theme = 'light';
-      localStorage.setItem('youngwookim.me_theme', String('light'));
+      localStorage.setItem('theme', String('light'));
     } else {
       this.theme = 'dark';
-      localStorage.setItem('youngwookim.me_theme', String('dark'));
+      localStorage.setItem('theme', String('dark'));
     }
   };
 }

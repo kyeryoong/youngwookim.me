@@ -39,11 +39,13 @@ const App = observer(({ children }: AppProps) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const themeMode = localStorage.getItem('youngwookim.me_theme');
+      const themeMode = localStorage.getItem('theme');
 
       if (themeMode) {
         themeStore.setTheme(themeMode as ThemeType);
         setIsThemeLoaded(true);
+      } else {
+        localStorage.setItem('theme', 'dark');
       }
     }
   }, []);
