@@ -80,4 +80,22 @@ export class PostStore {
       console.error(error);
     }
   };
+
+  deletePost = async ({ _id }: { _id: string }) => {
+    try {
+      const res = await fetch(`/api/deletePost?_id=${_id}`, { method: 'DELETE' });
+
+      if (res) {
+        const { status, data, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
+
+        return { status, data };
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }

@@ -32,6 +32,7 @@ export const ToastPopupWrapper = styled('div')<ToastPopupWrapperProps>`
   box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.25);
   transition-property: bottom;
   transition-duration: 0.5s;
+  z-index: 20000;
 
   @media (pointer: coarse) or (max-width: 300px) {
     font-size: ${({ theme }) => theme.font.mobile.m};

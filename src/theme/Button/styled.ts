@@ -8,7 +8,7 @@ export const ButtonWrapper = styled('button')`
   color: ${({ theme }) => theme.color.gray[100]};
   background-color: ${({ theme }) => theme.color.gray[600]};
   display: flex;
-  flex-direction: row;
+  align-items: center;
   cursor: pointer;
   transition: 0.5s;
 
@@ -23,7 +23,7 @@ export const ButtonWrapper = styled('button')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
-    padding: min(1.5vw, 12px) min(2vw, 16px);
+    padding: min(3vw, 12px) min(4vw, 16px);
   }
 `;
 
