@@ -1,3 +1,4 @@
+import { PencilFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 export const CreatePageWrapper = styled('div')``;
@@ -45,6 +46,12 @@ export const ContentInputBox = styled('textarea')`
   &:focus {
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
+`;
+
+export const WriteIcon = styled(PencilFill)`
+  width: 16px;
+  height: 16px;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const ReCAPTCHAWrapper = styled('div')`

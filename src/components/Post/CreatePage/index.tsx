@@ -64,6 +64,7 @@ const CreatePage = observer(() => {
 
       <Button
         onClick={handleCreateButtonClick}
+        icon={<S.WriteIcon />}
         disabled={title === '' || userName === '' || content === '' || !isVerified}
       >
         작성

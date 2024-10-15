@@ -35,7 +35,11 @@ const ListPage = observer(() => {
     <S.ListPageWrapper>
       <PostHeader
         title={'게시판'}
-        rightElements={<Button onClick={handleCreateButtonClick}>생성</Button>}
+        rightElements={
+          <Button onClick={handleCreateButtonClick} icon={<S.WriteIcon />}>
+            생성
+          </Button>
+        }
       />
 
       {isPostsLoaded ? (
