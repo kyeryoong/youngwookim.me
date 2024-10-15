@@ -43,9 +43,13 @@ const ListPage = observer(() => {
       />
 
       {isPostsLoaded ? (
-        posts.map((post) => (
-          <PostItem key={post._id} _id={post._id} title={post.title} userName={post.userName} />
-        ))
+        posts.length > 0 ? (
+          posts.map((post) => (
+            <PostItem key={post._id} _id={post._id} title={post.title} userName={post.userName} />
+          ))
+        ) : (
+          <S.LoadingSpinnerWrapper>게시판에 글이 없습니다.</S.LoadingSpinnerWrapper>
+        )
       ) : (
         <S.LoadingSpinnerWrapper>
           <LoadingSpinner size={72} weight={3} />
