@@ -10,7 +10,7 @@ import PostHeader from '../PostHeader';
 import * as S from './styled';
 
 const CreatePage = observer(() => {
-  const { postStore } = useStore();
+  const { postStore, uiStore } = useStore();
 
   const TITLE_MAX_LENGTH = 50;
   const USER_NAME_MAX_LENGTH = 30;
@@ -45,6 +45,7 @@ const CreatePage = observer(() => {
 
     if (res?.status === 201) {
       postStore.setPageMode('list');
+      uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
     }
   };
 

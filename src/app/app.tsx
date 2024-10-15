@@ -12,6 +12,7 @@ import { ThemeType } from '@/stores/themeStore';
 import dark from '@/theme/dark';
 import font from '@/theme/font';
 import light from '@/theme/light';
+import ToastPopup from '@/theme/ToastPopup';
 
 import * as S from './appStyled';
 
@@ -55,6 +56,7 @@ const App = observer(({ children }: AppProps) => {
           <Menu />
           {children}
           <Footer />
+          <ToastPopup />
         </S.AppWrapper>
       )}
     </ThemeProvider>
