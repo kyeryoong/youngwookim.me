@@ -18,16 +18,29 @@ export const PostItemWrapper = styled('div')`
   &:nth-of-type(2) {
     border-top: 1px solid ${({ theme }) => theme.color.gray[600]};
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    height: 48px;
+    padding: min(1.5vw, 12px);
+  }
 `;
 
 export const PostTitle = styled('h2')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.gray[100]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
 `;
 
 export const PostUserName = styled('h3')`
   font-size: ${({ theme }) => theme.font.m};
   font-weight: 400;
   color: ${({ theme }) => theme.color.gray[100]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.m};
+  }
 `;

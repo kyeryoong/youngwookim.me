@@ -56,13 +56,19 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
 `;
 
 export const MenuTop = styled('div')<MenuTopProps>`
-  height: 50px;
+  height: 48px;
   border-radius: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '15px 15px 0px 0px')};
   background-color: #282828;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 20px;
+  gap: 8px;
+  padding: 0px 20px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    height: min(12vw, 48px);
+    gap: min(2vw, 8px);
+    padding: min(5vw, 20px);
+  }
 `;
 
 export const MenuTopButtonBase = styled('button')`
@@ -70,6 +76,12 @@ export const MenuTopButtonBase = styled('button')`
   height: 16px;
   border-radius: 50%;
   border: none;
+  cursor: pointer;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: min(4vw, 16px);
+    height: min(4vw, 16px);
+  }
 `;
 
 export const MenuTopButton = {

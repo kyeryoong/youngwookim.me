@@ -12,6 +12,11 @@ export const Label = styled('label')`
   color: ${({ theme }) => theme.color.gray[300]};
   display: block;
   margin-bottom: 8px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+    margin-bottom: min(1vw, 8px);
+  }
 `;
 
 export const NameInputBox = styled('input')`
@@ -28,6 +33,11 @@ export const NameInputBox = styled('input')`
   &:hover,
   &:focus {
     background-color: ${({ theme }) => theme.color.gray[600]};
+  }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+    padding: min(2vw, 16px);
   }
 `;
 
@@ -48,6 +58,11 @@ export const ContentInputBox = styled('textarea')`
   &:focus {
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+    padding: min(2vw, 16px);
+  }
 `;
 
 export const TextLength = styled('span')<TextLengthProps>`
@@ -60,6 +75,12 @@ export const TextLength = styled('span')<TextLengthProps>`
   margin-top: 8px;
   margin-bottom: 12px;
   transition: 0.5s;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.m};
+    margin-top: min(1vw, 8px);
+    margin-bottom: min(1.5vw, 12px);
+  }
 `;
 
 export const WriteIcon = styled(PencilFill)`

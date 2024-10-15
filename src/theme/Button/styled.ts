@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonWrapper = styled('button')`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.font.mobile.xl};
   border: none;
   border-radius: 6px;
   padding: 12px 16px;
@@ -20,10 +20,19 @@ export const ButtonWrapper = styled('button')`
     filter: brightness(0.5);
     cursor: not-allowed;
   }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+    padding: min(1.5vw, 12px) min(2vw, 16px);
+  }
 `;
 
 export const IconWrapper = styled('div')`
-  margin-right: 10px;
+  margin-right: 8px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    margin-right: min(1vw, 8px);
+  }
 `;
 
 export const ChildrenWrapper = styled('div')``;

@@ -7,6 +7,7 @@ export const BackButtonWrapper = styled('button')`
   border: none;
   border-radius: 20px;
   margin: 0px;
+  margin-left: -12px;
   padding: 0px;
   background-color: transparent;
   cursor: pointer;

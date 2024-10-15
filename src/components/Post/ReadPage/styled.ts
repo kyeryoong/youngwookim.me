@@ -10,27 +10,48 @@ export const InfoWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    padding-bottom: min(4vw, 32px);
+    margin-bottom: min(4vw, 32px);
+    gap: min(2.5vw, 20px);
+  }
 `;
 
 export const Info = styled('div')`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    gap: min(0.75vw, 6px);
+  }
 `;
 
 export const InfoLabel = styled('label')`
   font-size: ${({ theme }) => theme.font.l};
-  width: 100px;
+  width: 80px;
   height: 20px;
+  line-height: 20px;
   color: ${({ theme }) => theme.color.gray[400]};
   display: block;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+    width: 60px;
+  }
 `;
 
 export const InfoValue = styled('h3')`
   font-size: ${({ theme }) => theme.font.l};
   font-weight: 600;
   height: 20px;
+  line-height: 20px;
   color: ${({ theme }) => theme.color.white};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
 `;
 
 export const UserIcon = styled(PersonFill)`
@@ -42,7 +63,7 @@ export const UserIcon = styled(PersonFill)`
 export const TimeIcon = styled(ClockFill)`
   width: 20px;
   height: 20px;
-  padding: 2px;
+  padding: 3px;
   color: ${({ theme }) => theme.color.gray[400]};
 `;
 

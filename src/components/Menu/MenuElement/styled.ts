@@ -22,6 +22,10 @@ export const MenuElementWrapper = styled('button')`
     font-size: ${({ theme }) => theme.font.mobile.xxxl};
     height: 40px;
     line-height: 40px;
+
+    &:hover > div {
+      width: min(5vw, 40px);
+    }
   }
 `;
 
