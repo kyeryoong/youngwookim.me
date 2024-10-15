@@ -1,4 +1,3 @@
-import { observer } from 'mobx-react-lite';
 import { ReactNode } from 'react';
 
 import * as S from './styled';
@@ -9,7 +8,7 @@ type PostHeaderProps = {
   rightElements?: ReactNode;
 };
 
-const PostHeader = observer(({ title, leftElements, rightElements }: PostHeaderProps) => {
+const PostHeader = ({ title, leftElements, rightElements }: PostHeaderProps) => {
   return (
     <S.PostHeaderWrapper>
       {leftElements}
@@ -17,6 +16,6 @@ const PostHeader = observer(({ title, leftElements, rightElements }: PostHeaderP
       {rightElements}
     </S.PostHeaderWrapper>
   );
-});
+};
 
 export default PostHeader;

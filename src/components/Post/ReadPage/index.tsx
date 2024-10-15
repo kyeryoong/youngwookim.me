@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
+import BackButton from '@/theme/BackButton';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 
 import PostHeader from '../PostHeader';
@@ -40,7 +41,7 @@ const ReadPage = observer(() => {
     <S.ReadPageWrapper>
       <PostHeader
         title={post?.title ?? ''}
-        leftElements={<S.BackButton onClick={handleBackButtonClick} />}
+        leftElements={<BackButton onClick={handleBackButtonClick} />}
       />
 
       {isPostLoaded ? (

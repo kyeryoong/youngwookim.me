@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const PostHeaderWrapper = styled('div')`
   width: 100%;
+  height: 40px;
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 40px;
   display: flex;
@@ -11,7 +12,8 @@ export const PostHeaderWrapper = styled('div')`
 `;
 
 export const PostHeaderTitle = styled('h1')`
-  font-size: 2.4rem;
+  font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 600;
+  line-height: 40px;
   margin-right: auto;
 `;

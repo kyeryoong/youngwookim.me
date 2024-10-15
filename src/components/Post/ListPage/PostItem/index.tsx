@@ -14,10 +14,10 @@ const PostItem = observer(({ _id, title, userName }: PostItemModel) => {
   };
 
   return (
-    <S.PostWrapper key={_id} onClick={handlePostItemClick}>
+    <S.PostItemWrapper key={_id} onClick={handlePostItemClick}>
       <S.PostTitle>{title}</S.PostTitle>
       <S.PostUserName>{userName}</S.PostUserName>
-    </S.PostWrapper>
+    </S.PostItemWrapper>
   );
 });
 

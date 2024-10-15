@@ -22,7 +22,7 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
 
 export const FooterTop = styled('div')`
   padding-top: 100px;
-  border-top: ${({ theme }) => `1px solid ${theme.color.white}`};
+  border-top: 1px solid ${({ theme }) => theme.color.gray[600]};
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.color.gray[500]};

@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useStore } from '@/stores';
+import BackButton from '@/theme/BackButton';
 
 import Button from '../../../theme/Button';
 import PostHeader from '../PostHeader';
@@ -49,7 +50,7 @@ const CreatePage = observer(() => {
     <S.CreatePageWrapper>
       <PostHeader
         title={'게시글 작성'}
-        leftElements={<S.BackButton onClick={handleBackButtonClick} />}
+        leftElements={<BackButton onClick={handleBackButtonClick} />}
       />
 
       <S.Label>제목</S.Label>
