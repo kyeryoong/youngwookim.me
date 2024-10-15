@@ -57,14 +57,14 @@ export class PostStore {
     }
   };
 
-  createPost = async ({ title, userName, content }: PostCreateModel) => {
+  createPost = async ({ title, userName, content, password }: PostCreateModel) => {
     try {
       const res = await fetch('/api/createPost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, userName, createdAt: new Date(), content }),
+        body: JSON.stringify({ title, userName, createdAt: new Date(), content, password }),
       });
 
       if (res) {

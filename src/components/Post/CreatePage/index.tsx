@@ -1,3 +1,4 @@
+import CryptoJS from 'crypto-js';
 import { observer } from 'mobx-react-lite';
 import { ChangeEvent, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -22,6 +23,9 @@ const CreatePage = observer(() => {
   const [userNameLength, setUserNameLength] = useState<number>(0);
   const [content, setContent] = useState<string>('');
   const [contentLength, setContentLength] = useState<number>(0);
+  const [password, setPassword] = useState<string>('');
+
+  const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
 
   const [isVerified, setIsVerified] = useState<boolean>(false);
 
@@ -40,8 +44,23 @@ const CreatePage = observer(() => {
     setContentLength(event.currentTarget.value.length);
   };
 
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.currentTarget.value);
+    setIsValidPassword(
+      event.currentTarget.value.length >= 6 && event.currentTarget.value.length <= 16,
+    );
+  };
+
   const handleCreateButtonClick = async () => {
-    const res = await postStore.createPost({ title, userName, content });
+    const res = await postStore.createPost({
+      title,
+      userName,
+      content,
+      password: CryptoJS.AES.encrypt(
+        password,
+        process.env.NEXT_PUBLIC_SECRET_KEY as string,
+      ).toString(),
+    });
 
     if (res?.status === 201) {
       postStore.setPageMode('list');
@@ -91,10 +110,24 @@ const CreatePage = observer(() => {
         {contentLength} / {CONTENT_MAX_LENGTH}
       </S.TextLength>
 
+      <S.Label>비밀번호</S.Label>
+      <S.PasswordInputBox
+        type={'password'}
+        value={password}
+        onChange={handlePasswordChange}
+        minLength={9}
+        maxLength={16}
+      />
+      <S.PasswordComment>
+        {password.length > 0 && !isValidPassword && '비밀번호는 6~16 자리여야 합니다.'}
+      </S.PasswordComment>
+
       <Button
         onClick={handleCreateButtonClick}
         icon={<S.WriteIcon />}
-        disabled={title === '' || userName === '' || content === '' || !isVerified}
+        disabled={
+          title === '' || userName === '' || content === '' || !isVerified || !isValidPassword
+        }
       >
         작성
       </Button>

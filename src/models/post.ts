@@ -4,12 +4,14 @@ export type PostModel = {
   userName: string;
   createdAt: string;
   content: string;
+  password: string;
 };
 
 export type PostCreateModel = {
   title: string;
   userName: string;
   content: string;
+  password: string;
 };
 
 export type PostItemModel = {
