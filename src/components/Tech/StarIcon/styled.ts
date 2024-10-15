@@ -7,11 +7,16 @@ type TooltipProps = {
 export const StarIconWrapper = styled('div')`
   width: 10px;
   height: 10px;
-  margin-top: 15px;
-  margin-left: 10px;
+  margin-top: 16px;
+  margin-left: 12px;
   align-self: flex-start;
   position: relative;
   z-index: 100;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    margin-top: min(2vw, 16px);
+    margin-left: min(1.5vw, 12px);
+  }
 `;
 
 export const StarIcon = styled('div')`

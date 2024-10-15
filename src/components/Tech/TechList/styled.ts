@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const TechListWrapper = styled('div')`
-  margin-bottom: 100px;
+  margin-bottom: 96px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
+    margin-bottom: min(12vw, 96px);
     gap: min(5vw, 10px);
   }
 `;
