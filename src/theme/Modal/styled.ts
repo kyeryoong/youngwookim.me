@@ -13,7 +13,7 @@ export const Background = styled('div')<ModalProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   z-index: ${({ isOpen }) => (isOpen ? 1000 : -1)};
   transition: 0.5s;
@@ -24,7 +24,8 @@ export const ModalWrapper = styled('div')<ModalProps>`
   height: fit-content;
   padding: 24px;
   border-radius: 12px;
-  background-color: ${({ theme }) => theme.color.gray[800]};
+  background-color: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgb(20, 20, 20)' : theme.color.black};
   transform: ${({ isOpen }) => (isOpen ? 'translateY(0px)' : 'translateY(100px)')};
   transition: 0.5s;
 

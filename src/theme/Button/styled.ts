@@ -1,38 +1,57 @@
 import styled from 'styled-components';
 
-export const ButtonWrapper = styled('button')`
-  font-size: ${({ theme }) => theme.font.mobile.xl};
+type ButtonWrapperProps = {
+  type?: 'default' | 'delete';
+};
+
+export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
+  font-size: ${({ theme }) => theme.font.mobile.xxl};
+  height: 48px;
   border: none;
   border-radius: 6px;
-  padding: 12px 16px;
-  color: ${({ theme }) => theme.color.gray[100]};
-  background-color: ${({ theme }) => theme.color.gray[600]};
+  padding: 0px 20px;
+  color: ${({ theme, type }) => (type === 'delete' ? 'white' : theme.color.gray[100])};
+  background-color: ${({ theme, type }) =>
+    type === 'delete'
+      ? theme.color.red[400]
+      : theme.mode === 'dark'
+        ? theme.color.gray[800]
+        : theme.color.gray[600]};
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.gray[500]};
+    background-color: ${({ theme, type }) =>
+      type === 'delete'
+        ? theme.color.red[300]
+        : theme.mode === 'dark'
+          ? theme.color.gray[700]
+          : theme.color.gray[500]};
   }
 
   &:disabled {
-    filter: brightness(0.5);
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
-    padding: min(3vw, 12px) min(4vw, 16px);
+    height: 40px;
+    padding: 0px min(4vw, 16px);
   }
 `;
 
 export const IconWrapper = styled('div')`
+  width: 16px;
+  height: 16px;
   margin-right: 8px;
-
-  @media (pointer: coarse) or (max-width: 1000px) {
-    margin-right: min(1vw, 8px);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const ChildrenWrapper = styled('div')``;
+export const ChildrenWrapper = styled('div')`
+  font-weight: 500;
+`;

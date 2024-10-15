@@ -18,12 +18,5 @@ export const LoadingSpinnerWrapper = styled('div')`
 `;
 
 export const WriteIcon = styled(PencilFill)`
-  width: 16px;
-  height: 16px;
   color: ${({ theme }) => theme.color.white};
-
-  @media (pointer: coarse) or (max-width: 1000px) {
-    width: min(2vw, 16px);
-    height: min(2vw, 16px);
-  }
 `;

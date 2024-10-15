@@ -8,6 +8,8 @@ import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
 import BackButton from '@/theme/BackButton';
 import Button from '@/theme/Button';
+import Buttons from '@/theme/Buttons';
+import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
 
@@ -105,7 +107,9 @@ const ReadPage = observer(() => {
 
           <S.Content>{post?.content}</S.Content>
 
-          <Button onClick={handleDeleteButtonClick}>삭제</Button>
+          <Buttons>
+            <Button onClick={handleDeleteButtonClick}>삭제</Button>
+          </Buttons>
         </>
       ) : (
         <S.LoadingSpinnerWrapper>
@@ -116,12 +120,23 @@ const ReadPage = observer(() => {
       <Modal isOpen={showDeleteModal}>
         <S.DeleteModalText>게시글을 삭제하려면 비밀번호를 입력하세요.</S.DeleteModalText>
 
-        <S.PasswordInputBox type={'password'} value={password} onChange={handlePasswordChange} />
+        <InputBox
+          type={'password'}
+          value={password}
+          onInputChange={handlePasswordChange}
+          style={{ marginTop: '16px', marginBottom: '16px' }}
+        />
 
-        <S.DeleteModalButtons>
-          <Button onClick={handleDeleteModalConfirmButtonClick}>삭제</Button>
+        <Buttons>
+          <Button
+            onClick={handleDeleteModalConfirmButtonClick}
+            type={'delete'}
+            disabled={!password}
+          >
+            삭제
+          </Button>
           <Button onClick={handleDeleteModalCancelButtonClick}>취소</Button>
-        </S.DeleteModalButtons>
+        </Buttons>
       </Modal>
     </S.ReadPageWrapper>
   );

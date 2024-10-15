@@ -6,8 +6,8 @@ export const PostHeaderWrapper = styled('div')`
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 40px;
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
   justify-content: space-between;
 
   @media (pointer: coarse) or (max-width: 1000px) {

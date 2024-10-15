@@ -7,14 +7,18 @@ export const BackButtonWrapper = styled('button')`
   border: none;
   border-radius: 20px;
   margin: 0px;
-  margin-left: -1%;
+  margin-left: -8px;
   padding: 0px;
   background-color: transparent;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   transition: 0.5s;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.color.gray[800]};
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: min(5vw, 40px);
+    height: min(5vw, 40px);
+    margin-left: calc(-1 * min(0.5vw, 8px));
   }
 `;
 

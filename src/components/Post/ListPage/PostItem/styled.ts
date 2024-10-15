@@ -14,7 +14,8 @@ export const PostItemWrapper = styled('div')`
   transition: 0.5s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.gray[800]};
+    background-color: ${({ theme }) =>
+      theme.mode === 'dark' ? theme.color.gray[900] : theme.color.gray[800]};
   }
 
   &:nth-of-type(2) {
