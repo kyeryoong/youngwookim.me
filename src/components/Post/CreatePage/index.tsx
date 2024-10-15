@@ -12,22 +12,32 @@ import * as S from './styled';
 const CreatePage = observer(() => {
   const { postStore } = useStore();
 
+  const TITLE_MAX_LENGTH = 50;
+  const USER_NAME_MAX_LENGTH = 30;
+  const CONTENT_MAX_LENGTH = 300;
+
   const [title, setTitle] = useState<string>('');
+  const [titleLength, setTitleLength] = useState<number>(0);
   const [userName, setUserName] = useState<string>('');
+  const [userNameLength, setUserNameLength] = useState<number>(0);
   const [content, setContent] = useState<string>('');
+  const [contentLength, setContentLength] = useState<number>(0);
 
   const [isVerified, setIsVerified] = useState<boolean>(false);
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.currentTarget.value);
+    setTitleLength(event.currentTarget.value.length);
   };
 
   const handleUserNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUserName(event.currentTarget.value);
+    setUserNameLength(event.currentTarget.value.length);
   };
 
   const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.currentTarget.value);
+    setContentLength(event.currentTarget.value.length);
   };
 
   const handleCreateButtonClick = async () => {
@@ -52,15 +62,33 @@ const CreatePage = observer(() => {
         title={'게시글 작성'}
         leftElements={<BackButton onClick={handleBackButtonClick} />}
       />
-
       <S.Label>제목</S.Label>
-      <S.NameInputBox type={'text'} value={title} onChange={handleTitleChange} />
+      <S.NameInputBox
+        type={'text'}
+        value={title}
+        onChange={handleTitleChange}
+        maxLength={TITLE_MAX_LENGTH}
+      />
+      <S.TextLength isMaxLength={titleLength === TITLE_MAX_LENGTH}>
+        {titleLength} / {TITLE_MAX_LENGTH}
+      </S.TextLength>
 
       <S.Label>이름</S.Label>
-      <S.NameInputBox type={'text'} value={userName} onChange={handleUserNameChange} />
+      <S.NameInputBox
+        type={'text'}
+        value={userName}
+        onChange={handleUserNameChange}
+        maxLength={USER_NAME_MAX_LENGTH}
+      />
+      <S.TextLength isMaxLength={userNameLength === USER_NAME_MAX_LENGTH}>
+        {userNameLength} / {USER_NAME_MAX_LENGTH}
+      </S.TextLength>
 
       <S.Label>내용</S.Label>
-      <S.ContentInputBox value={content} onChange={handleContentChange} />
+      <S.ContentInputBox value={content} onChange={handleContentChange} maxLength={300} />
+      <S.TextLength isMaxLength={contentLength === CONTENT_MAX_LENGTH}>
+        {contentLength} / {CONTENT_MAX_LENGTH}
+      </S.TextLength>
 
       <Button
         onClick={handleCreateButtonClick}
@@ -69,7 +97,6 @@ const CreatePage = observer(() => {
       >
         작성
       </Button>
-
       <S.ReCAPTCHAWrapper>
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}

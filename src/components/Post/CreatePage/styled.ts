@@ -1,6 +1,10 @@
 import { PencilFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
+type TextLengthProps = {
+  isMaxLength: boolean;
+};
+
 export const CreatePageWrapper = styled('div')``;
 
 export const Label = styled('label')`
@@ -17,7 +21,6 @@ export const NameInputBox = styled('input')`
   outline: none;
   border-radius: 6px;
   padding: 16px;
-  margin-bottom: 24px;
   color: ${({ theme }) => theme.color.gray[100]};
   background-color: ${({ theme }) => theme.color.gray[700]};
   transition: 0.5s;
@@ -36,7 +39,6 @@ export const ContentInputBox = styled('textarea')`
   outline: none;
   border-radius: 6px;
   padding: 16px;
-  margin-bottom: 24px;
   color: ${({ theme }) => theme.color.gray[100]};
   background-color: ${({ theme }) => theme.color.gray[700]};
   resize: none;
@@ -46,6 +48,18 @@ export const ContentInputBox = styled('textarea')`
   &:focus {
     background-color: ${({ theme }) => theme.color.gray[600]};
   }
+`;
+
+export const TextLength = styled('span')<TextLengthProps>`
+  font-size: ${({ theme }) => theme.font.m};
+  width: 100%;
+  text-align: right;
+  display: block;
+  color: ${({ theme, isMaxLength }) =>
+    isMaxLength ? theme.color.red[400] : theme.color.gray[500]};
+  margin-top: 8px;
+  margin-bottom: 12px;
+  transition: 0.5s;
 `;
 
 export const WriteIcon = styled(PencilFill)`
