@@ -64,6 +64,8 @@ const CreatePage = observer(() => {
 
     if (res?.status === 201) {
       postStore.setPageMode('list');
+      window.scrollTo({ top: 0 });
+
       uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
     }
   };

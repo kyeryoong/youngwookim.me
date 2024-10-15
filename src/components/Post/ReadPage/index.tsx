@@ -43,6 +43,8 @@ const ReadPage = observer(() => {
       const res = await postStore.deletePost({ _id: post?._id });
       if (res?.status === 201) {
         postStore.setPageMode('list');
+        window.scrollTo({ top: 0 });
+
         uiStore.openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
       }
     } else {
