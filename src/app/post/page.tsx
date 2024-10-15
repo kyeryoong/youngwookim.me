@@ -1,6 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
 
 import Page from '@/components/Page';
 import CreatePage from '@/components/Post/CreatePage';
@@ -11,6 +12,10 @@ import { useStore } from '@/stores';
 
 const PostPage = observer(() => {
   const { postStore } = useStore();
+
+  useEffect(() => {
+    postStore.setPageMode('list');
+  }, []);
 
   return (
     <Page>
