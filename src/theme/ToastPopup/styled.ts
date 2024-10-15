@@ -18,7 +18,7 @@ type CloseButtonProps = {
 export const ToastPopupWrapper = styled('div')<ToastPopupWrapperProps>`
   font-size: ${({ theme }) => theme.font.m};
   width: min(320px, 90vw);
-  height: 60px;
+  height: 64px;
   border-radius: 6px;
   color: ${({ textColor }) => textColor};
   background-color: ${({ backgroundColor }) => backgroundColor};
@@ -27,12 +27,16 @@ export const ToastPopupWrapper = styled('div')<ToastPopupWrapperProps>`
   align-items: center;
   padding: 0px 20px;
   position: fixed;
-  bottom: ${({ showToastPopup }) => (showToastPopup ? '50px' : '-70px')};
+  bottom: ${({ showToastPopup }) => (showToastPopup ? '48px' : '-72px')};
   left: calc(50vw - min(160px, 45vw));
   box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.25);
   transition-property: bottom;
   transition-duration: 0.5s;
   z-index: 20000;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    bottom: ${({ showToastPopup }) => (showToastPopup ? 'min(6vw, 48px)' : '-72px')};
+  }
 
   @media (pointer: coarse) or (max-width: 300px) {
     font-size: ${({ theme }) => theme.font.mobile.m};
