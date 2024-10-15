@@ -43,10 +43,11 @@ const App = observer(({ children }: AppProps) => {
 
       if (themeMode) {
         themeStore.setTheme(themeMode as ThemeType);
-        setIsThemeLoaded(true);
       } else {
         localStorage.setItem('theme', 'dark');
       }
+
+      setIsThemeLoaded(true);
     }
   }, []);
 
