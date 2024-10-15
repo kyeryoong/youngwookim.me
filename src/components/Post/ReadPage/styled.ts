@@ -19,7 +19,8 @@ export const InfoWrapper = styled('div')`
 `;
 
 export const Info = styled('div')`
-  display: flex;
+  display: grid;
+  grid-template-columns: fit-content(100%) fit-content(100%) 1fr;
   align-items: center;
   gap: 6px;
 
@@ -48,6 +49,10 @@ export const InfoValue = styled('h3')`
   height: 20px;
   line-height: 20px;
   color: ${({ theme }) => theme.color.white};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.l};

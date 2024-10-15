@@ -4,8 +4,10 @@ export const PostItemWrapper = styled('div')`
   width: 100%;
   height: 64px;
   padding: 12px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr fit-content(100%);
   align-items: center;
+  gap: 20px;
   justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
   cursor: pointer;
@@ -22,6 +24,7 @@ export const PostItemWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 48px;
     padding: min(1.5vw, 12px);
+    gap: min(2.5vw, 20px);
   }
 `;
 
@@ -29,6 +32,10 @@ export const PostTitle = styled('h2')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
   color: ${({ theme }) => theme.color.gray[100]};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xl};
@@ -38,9 +45,16 @@ export const PostTitle = styled('h2')`
 export const PostUserName = styled('h3')`
   font-size: ${({ theme }) => theme.font.m};
   font-weight: 400;
+  width: 120px;
+  text-align: center;
   color: ${({ theme }) => theme.color.gray[100]};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.m};
+    width: min(15vw, 120px);
   }
 `;

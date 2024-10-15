@@ -21,6 +21,10 @@ export const PostHeaderTitle = styled('h1')`
   font-weight: 600;
   line-height: 40px;
   margin-right: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.xxxl};

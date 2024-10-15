@@ -7,7 +7,7 @@ export const BackButtonWrapper = styled('button')`
   border: none;
   border-radius: 20px;
   margin: 0px;
-  margin-left: -12px;
+  margin-left: -1%;
   padding: 0px;
   background-color: transparent;
   cursor: pointer;
@@ -19,8 +19,12 @@ export const BackButtonWrapper = styled('button')`
 `;
 
 export const BackIcon = styled(ChevronLeft)`
-  width: 100%;
-  height: 100%;
-  padding: 15%;
+  width: 32px;
+  height: 32px;
   color: ${({ theme }) => theme.color.gray[300]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: min(6vw, 32px);
+    height: min(6vw, 32px);
+  }
 `;
