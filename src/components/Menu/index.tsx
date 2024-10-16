@@ -43,6 +43,14 @@ const Menu = observer(() => {
   }, []);
 
   useEffect(() => {
+    if (menuStore.isMenuOpened) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [menuStore.isMenuOpened]);
+
+  useEffect(() => {
     if (ref.current) {
       ref.current.scrollTop = ref.current.scrollHeight;
     }

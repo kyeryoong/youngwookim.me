@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 import * as S from './styled';
 
@@ -20,6 +20,14 @@ const Modal = ({ isOpened, title, text, children, onBackgroundClick }: ModalProp
   const handleModalClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  useEffect(() => {
+    if (isOpened) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpened]);
 
   return (
     <S.ModalBackground isOpened={isOpened} onClick={handleBackgroundClick}>
