@@ -22,4 +22,5 @@ export type PostItemModel = {
   _id: string;
   title: string;
   userName: string;
+  createdAt: string;
 };

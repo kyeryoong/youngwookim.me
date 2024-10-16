@@ -5,7 +5,7 @@ export const PostItemWrapper = styled('div')`
   height: 64px;
   padding: 12px;
   display: grid;
-  grid-template-columns: 1fr fit-content(100%);
+  grid-template-columns: fit-content(100%) 1fr fit-content(100%) fit-content(100%);
   align-items: center;
   gap: 20px;
   justify-content: space-between;
@@ -25,7 +25,19 @@ export const PostItemWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 48px;
     padding: min(1.5vw, 12px);
-    gap: min(2.5vw, 20px);
+    gap: 10px;
+  }
+`;
+
+export const PostIndex = styled('h3')`
+  font-size: ${({ theme }) => theme.font.m};
+  font-weight: 400;
+  width: 40px;
+  text-align: center;
+  color: ${({ theme }) => theme.color.gray[400]};
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.m};
   }
 `;
 
@@ -43,19 +55,38 @@ export const PostTitle = styled('h2')`
   }
 `;
 
+export const PostCreatedAt = styled('h3')`
+  font-size: ${({ theme }) => theme.font.m};
+  font-weight: 400;
+  width: 120px;
+  text-align: center;
+  color: ${({ theme }) => theme.color.gray[400]};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  margin-right: -10px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.m};
+    width: 80px;
+  }
+`;
+
 export const PostUserName = styled('h3')`
   font-size: ${({ theme }) => theme.font.m};
   font-weight: 400;
   width: 120px;
   text-align: center;
-  color: ${({ theme }) => theme.color.gray[100]};
+  color: ${({ theme }) => theme.color.gray[400]};
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
+  margin-right: -10px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.m};
-    width: min(15vw, 120px);
+    width: 100px;
   }
 `;
