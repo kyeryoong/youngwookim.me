@@ -24,7 +24,7 @@ export const PostItemWrapper = styled('div')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 48px;
-    padding: min(1.5vw, 12px);
+    padding: 0px;
     gap: 10px;
   }
 `;
@@ -87,6 +87,7 @@ export const PostUserName = styled('h3')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.m};
-    width: 100px;
+    width: 80px;
+    margin-right: 0px;
   }
 `;
