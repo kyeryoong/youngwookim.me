@@ -84,6 +84,10 @@ const CreatePage = observer(() => {
     setIsVerified(true);
   };
 
+  const handleReCaptchaExpired = () => {
+    setIsVerified(false);
+  };
+
   useEffect(() => {
     if (postStore.pageMode === 'create') {
       postStore.clearPost();
@@ -146,6 +150,7 @@ const CreatePage = observer(() => {
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
           onChange={handleReCaptchaChanged}
+          onExpired={handleReCaptchaExpired}
         />
       </S.ReCAPTCHAWrapper>
 
