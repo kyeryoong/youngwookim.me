@@ -1,7 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
@@ -73,6 +73,10 @@ const ReadPage = observer(() => {
   const handlePasswordModalCancelButtonClick = () => {
     setShowPasswordModal(false);
     setPassword('');
+  };
+
+  const handlePasswordModalEnter = (event: KeyboardEvent<HTMLFormElement>) => {
+    event.preventDefault();
   };
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -147,23 +151,25 @@ const ReadPage = observer(() => {
         }하려면 비밀번호를 입력하세요.`}
         onBackgroundClick={handleModalBackgroundClick}
       >
-        <InputBox
-          type={'password'}
-          value={password}
-          onInputChange={handlePasswordChange}
-          style={{ marginTop: '16px', marginBottom: '16px' }}
-        />
+        <S.ModalForm onSubmit={handlePasswordModalEnter}>
+          <InputBox
+            type={'password'}
+            value={password}
+            onInputChange={handlePasswordChange}
+            style={{ marginTop: '16px', marginBottom: '16px' }}
+          />
 
-        <Buttons>
-          <Button
-            onClick={handlePasswordModalConfirmButtonClick}
-            type={passwordModalMode === 'delete' ? 'delete' : 'default'}
-            disabled={!password}
-          >
-            {passwordModalMode === 'delete' ? '삭제' : '확인'}
-          </Button>
-          <Button onClick={handlePasswordModalCancelButtonClick}>취소</Button>
-        </Buttons>
+          <Buttons>
+            <Button
+              onClick={handlePasswordModalConfirmButtonClick}
+              type={passwordModalMode === 'delete' ? 'delete' : 'default'}
+              disabled={!password}
+            >
+              {passwordModalMode === 'delete' ? '삭제' : '확인'}
+            </Button>
+            <Button onClick={handlePasswordModalCancelButtonClick}>취소</Button>
+          </Buttons>
+        </S.ModalForm>
       </Modal>
     </S.ReadPageWrapper>
   );

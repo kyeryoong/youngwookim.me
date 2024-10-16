@@ -94,3 +94,7 @@ export const LoadingSpinnerWrapper = styled('div')`
   align-items: center;
   justify-content: center;
 `;
+
+export const ModalForm = styled('form')`
+
+`;
