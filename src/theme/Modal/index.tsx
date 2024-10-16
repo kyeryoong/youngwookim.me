@@ -3,15 +3,32 @@ import { ReactNode } from 'react';
 import * as S from './styled';
 
 type ModalProps = {
-  isOpen: boolean;
+  isOpened: boolean;
+  title?: string;
+  text?: string;
   children?: ReactNode;
+  onBackgroundClick?: () => void;
 };
 
-const Modal = ({ isOpen, children }: ModalProps) => {
+const Modal = ({ isOpened, title, text, children, onBackgroundClick }: ModalProps) => {
+  const handleBackgroundClick = () => {
+    if (onBackgroundClick) {
+      onBackgroundClick();
+    }
+  };
+
+  const handleModalClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
-    <S.Background isOpen={isOpen}>
-      <S.ModalWrapper isOpen={isOpen}>{children}</S.ModalWrapper>
-    </S.Background>
+    <S.ModalBackground isOpened={isOpened} onClick={handleBackgroundClick}>
+      <S.ModalWrapper isOpened={isOpened} onClick={handleModalClick}>
+        {title && <S.ModalTitle>{title}</S.ModalTitle>}
+        {text && <S.ModalText>{text}</S.ModalText>}
+        {children}
+      </S.ModalWrapper>
+    </S.ModalBackground>
   );
 };
 

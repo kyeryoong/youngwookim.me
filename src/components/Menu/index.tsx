@@ -18,7 +18,7 @@ const Menu = observer(() => {
     menuStore.setIsMenuOpened(false);
   };
 
-  const handleMenuWrapperclick = (event: React.MouseEvent) => {
+  const handleMenuWrapperClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
 
@@ -57,7 +57,7 @@ const Menu = observer(() => {
       <S.MenuWrapper
         $isMenuOpened={menuStore.isMenuOpened}
         $isMenuExpanded={menuStore.isMenuExpanded}
-        onClick={handleMenuWrapperclick}
+        onClick={handleMenuWrapperClick}
       >
         <S.MenuTop $isMenuExpanded={menuStore.isMenuExpanded}>
           <S.MenuTopButton.Red onClick={handleCloseButtonClick} />

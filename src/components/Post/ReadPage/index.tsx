@@ -79,6 +79,11 @@ const ReadPage = observer(() => {
     setPassword(event.currentTarget.value);
   };
 
+  const handleModalBackgroundClick = () => {
+    setShowPasswordModal(false);
+    setPassword('');
+  };
+
   useEffect(() => {
     async function fetchPost() {
       if (postStore.currentId) {
@@ -134,11 +139,14 @@ const ReadPage = observer(() => {
         </S.LoadingSpinnerWrapper>
       )}
 
-      <Modal isOpen={showPasswordModal}>
-        <S.DeleteModalText>
-          게시글을 {passwordModalMode === 'delete' ? '삭제' : '수정'}하려면 비밀번호를 입력하세요.
-        </S.DeleteModalText>
-
+      <Modal
+        isOpened={showPasswordModal}
+        title={`비밀번호 입력`}
+        text={`게시글을 ${
+          passwordModalMode === 'delete' ? '삭제' : '수정'
+        }하려면 비밀번호를 입력하세요.`}
+        onBackgroundClick={handleModalBackgroundClick}
+      >
         <InputBox
           type={'password'}
           value={password}

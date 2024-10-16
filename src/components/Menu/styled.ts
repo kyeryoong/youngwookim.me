@@ -27,7 +27,7 @@ export const MenuBackground = styled('div')<MenuBackgroundProps>`
   background-color: ${({ theme, $isMenuOpened }) =>
     theme.mode === 'dark'
       ? `rgba(0, 0, 0, ${$isMenuOpened ? 0.5 : 0})`
-      : `rgba(255, 255, 255, ${$isMenuOpened ? 0.5 : 0})`};
+      : `rgba(150, 150, 150, ${$isMenuOpened ? 0.5 : 0})`};
   z-index: ${({ $isMenuOpened, $isMenuExpanded }) =>
     $isMenuOpened ? ($isMenuExpanded ? 110000 : 9000) : -1};
 `;
