@@ -1,6 +1,5 @@
 'use client';
 
-import CryptoJS from 'crypto-js';
 import { observer } from 'mobx-react-lite';
 import { ChangeEvent, useEffect, useState } from 'react';
 
@@ -12,6 +11,7 @@ import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
+import { decryptPassword } from '@/utils/password';
 
 import PostHeader from '../PostHeader';
 import * as S from './styled';
@@ -36,11 +36,8 @@ const ReadPage = observer(() => {
   };
 
   const handleDeleteModalConfirmButtonClick = async () => {
-    const isPasswordCorrect =
-      CryptoJS.AES.decrypt(
-        post?.password as string,
-        process.env.NEXT_PUBLIC_SECRET_KEY as string,
-      ).toString(CryptoJS.enc.Utf8) === password;
+    const isPasswordCorrect = decryptPassword(post?.password ?? '') === password;
+
     if (isPasswordCorrect && post?._id) {
       const res = await postStore.deletePost({ _id: post?._id });
       if (res?.status === 201) {

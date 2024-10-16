@@ -1,4 +1,3 @@
-import CryptoJS from 'crypto-js';
 import { observer } from 'mobx-react-lite';
 import { ChangeEvent, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -7,6 +6,7 @@ import { useStore } from '@/stores';
 import BackButton from '@/theme/BackButton';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
+import { encryptPassword } from '@/utils/password';
 
 import Button from '../../../theme/Button';
 import PostHeader from '../PostHeader';
@@ -51,10 +51,7 @@ const CreatePage = observer(() => {
       title,
       userName,
       content,
-      password: CryptoJS.AES.encrypt(
-        password,
-        process.env.NEXT_PUBLIC_SECRET_KEY as string,
-      ).toString(),
+      password: encryptPassword(password),
     });
 
     if (res?.status === 201) {
