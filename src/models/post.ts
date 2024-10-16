@@ -14,6 +14,10 @@ export type PostCreateModel = {
   password: string;
 };
 
+export type PostEditModel = PostCreateModel & {
+  _id: string;
+};
+
 export type PostItemModel = {
   _id: string;
   title: string;

@@ -1,13 +1,18 @@
 import { makeAutoObservable } from 'mobx';
 
-import { PostCreateModel, PostModel } from '@/models/post';
+import { PostCreateModel, PostEditModel, PostModel } from '@/models/post';
 
-export type PostPageMode = 'list' | 'create' | 'read';
+export type PostPageMode = 'list' | 'create' | 'read' | 'edit';
 
 export class PostStore {
   posts: PostModel[] = [];
   pageMode: PostPageMode = 'list';
   currentId: string | null = null;
+
+  title: string = '';
+  userName: string = '';
+  content: string = '';
+  password: string = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -19,6 +24,29 @@ export class PostStore {
 
   setCurrentId = (value: string | null) => {
     this.currentId = value;
+  };
+
+  setTitle = (value: string) => {
+    this.title = value;
+  };
+
+  setUserName = (value: string) => {
+    this.userName = value;
+  };
+
+  setContent = (value: string) => {
+    this.content = value;
+  };
+
+  setPassword = (value: string) => {
+    this.password = value;
+  };
+
+  clearPost = () => {
+    this.title = '';
+    this.userName = '';
+    this.content = '';
+    this.password = '';
   };
 
   fetchPosts = async () => {
@@ -86,13 +114,37 @@ export class PostStore {
       const res = await fetch(`/api/deletePost?_id=${_id}`, { method: 'DELETE' });
 
       if (res) {
-        const { status, data, error } = await res.json();
+        const { status, error } = await res.json();
 
         if (error) {
           console.error(error);
         }
 
-        return { status, data };
+        return { status };
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  editPost = async ({ _id, title, userName, content, password }: PostEditModel) => {
+    try {
+      const res = await fetch(`/api/editPost?_id=${_id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, userName, content, password }),
+      });
+
+      if (res) {
+        const { status, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
+
+        return { status };
       }
     } catch (error) {
       console.error(error);

@@ -11,6 +11,7 @@ type InputBoxProps = {
   maxLength?: number;
   label?: string;
   showCounter?: boolean;
+  disabled?: boolean;
   style?: CSSProperties;
 };
 
@@ -23,6 +24,7 @@ const InputBox = ({
   maxLength,
   label,
   showCounter,
+  disabled,
   style,
 }: InputBoxProps) => {
   return (
@@ -36,6 +38,7 @@ const InputBox = ({
           minLength={minLength}
           maxLength={maxLength}
           spellCheck={false}
+          disabled={disabled}
           style={style}
         />
       ) : (
@@ -46,6 +49,7 @@ const InputBox = ({
           minLength={minLength}
           maxLength={maxLength}
           spellCheck={false}
+          disabled={disabled}
           style={style}
         />
       )}

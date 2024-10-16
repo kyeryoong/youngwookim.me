@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useStore } from '@/stores';
@@ -19,46 +19,60 @@ const CreatePage = observer(() => {
   const USER_NAME_MAX_LENGTH = 30;
   const CONTENT_MAX_LENGTH = 300;
 
-  const [title, setTitle] = useState<string>('');
-  const [userName, setUserName] = useState<string>('');
-  const [content, setContent] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-
   const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
   const [isVerified, setIsVerified] = useState<boolean>(false);
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.currentTarget.value);
+    postStore.setTitle(event.currentTarget.value);
   };
 
   const handleUserNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setUserName(event.currentTarget.value);
+    postStore.setUserName(event.currentTarget.value);
   };
 
   const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(event.currentTarget.value);
+    postStore.setContent(event.currentTarget.value);
   };
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.currentTarget.value);
+    postStore.setPassword(event.currentTarget.value);
     setIsValidPassword(
       event.currentTarget.value.length >= 6 && event.currentTarget.value.length <= 16,
     );
   };
 
-  const handleCreateButtonClick = async () => {
-    const res = await postStore.createPost({
-      title,
-      userName,
-      content,
-      password: encryptPassword(password),
-    });
+  const handleCreateEditButtonClick = async () => {
+    if (postStore.pageMode === 'create') {
+      const res = await postStore.createPost({
+        title: postStore.title,
+        userName: postStore.userName,
+        content: postStore.content,
+        password: encryptPassword(postStore.password),
+      });
 
-    if (res?.status === 201) {
-      postStore.setPageMode('list');
-      window.scrollTo({ top: 0 });
+      if (res?.status === 201) {
+        postStore.setPageMode('list');
+        window.scrollTo({ top: 0 });
 
-      uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
+        uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
+        postStore.clearPost();
+      }
+    } else if (postStore.pageMode === 'edit') {
+      const res = await postStore.editPost({
+        _id: postStore.currentId ?? '',
+        title: postStore.title,
+        userName: postStore.userName,
+        content: postStore.content,
+        password: encryptPassword(postStore.password),
+      });
+
+      if (res?.status === 201) {
+        postStore.setPageMode('list');
+        window.scrollTo({ top: 0 });
+
+        uiStore.openToastPopup({ toastString: '게시글이 수정되었습니다.', toastType: 'success' });
+        postStore.clearPost();
+      }
     }
   };
 
@@ -70,16 +84,24 @@ const CreatePage = observer(() => {
     setIsVerified(true);
   };
 
+  useEffect(() => {
+    if (postStore.pageMode === 'create') {
+      postStore.clearPost();
+    } else if (postStore.pageMode === 'edit') {
+      setIsValidPassword(postStore.password.length >= 6 && postStore.password.length <= 16);
+    }
+  }, [postStore.pageMode]);
+
   return (
     <S.CreatePageWrapper>
       <PostHeader
-        title={'게시글 작성'}
+        title={postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
         leftElements={<BackButton onClick={handleBackButtonClick} />}
       />
 
       <InputBox
         type={'text'}
-        value={title}
+        value={postStore.title}
         onInputChange={handleTitleChange}
         label={'제목'}
         maxLength={TITLE_MAX_LENGTH}
@@ -88,16 +110,17 @@ const CreatePage = observer(() => {
 
       <InputBox
         type={'text'}
-        value={userName}
+        value={postStore.userName}
         onInputChange={handleUserNameChange}
         label={'이름'}
         maxLength={USER_NAME_MAX_LENGTH}
         showCounter
+        disabled={postStore.pageMode === 'edit'}
       />
 
       <InputBox
         type={'textarea'}
-        value={content}
+        value={postStore.content}
         onTextAreaChange={handleContentChange}
         label={'내용'}
         maxLength={CONTENT_MAX_LENGTH}
@@ -107,7 +130,7 @@ const CreatePage = observer(() => {
 
       <InputBox
         type={'password'}
-        value={password}
+        value={postStore.password}
         onInputChange={handlePasswordChange}
         label={'비밀번호'}
         minLength={6}
@@ -116,7 +139,7 @@ const CreatePage = observer(() => {
       />
 
       <S.PasswordComment>
-        {password.length > 0 && !isValidPassword && '비밀번호는 6~16 자리여야 합니다.'}
+        {postStore.password.length > 0 && !isValidPassword && '비밀번호는 6~16 자리여야 합니다.'}
       </S.PasswordComment>
 
       <S.ReCAPTCHAWrapper>
@@ -128,13 +151,17 @@ const CreatePage = observer(() => {
 
       <Buttons>
         <Button
-          onClick={handleCreateButtonClick}
+          onClick={handleCreateEditButtonClick}
           icon={<S.WriteIcon />}
           disabled={
-            title === '' || userName === '' || content === '' || !isVerified || !isValidPassword
+            postStore.title === '' ||
+            postStore.userName === '' ||
+            postStore.content === '' ||
+            !isVerified ||
+            !isValidPassword
           }
         >
-          작성
+          {postStore.pageMode === 'create' ? '작성' : '수정'}
         </Button>
       </Buttons>
     </S.CreatePageWrapper>

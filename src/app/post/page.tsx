@@ -20,7 +20,7 @@ const PostPage = observer(() => {
   return (
     <Page>
       {postStore.pageMode === 'list' && <ListPage />}
-      {postStore.pageMode === 'create' && <CreatePage />}
+      {(postStore.pageMode === 'create' || postStore.pageMode === 'edit') && <CreatePage />}
       {postStore.pageMode === 'read' && postStore.currentId && <ReadPage />}
       <ScrollToTopButton />
     </Page>

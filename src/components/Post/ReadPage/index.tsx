@@ -22,7 +22,8 @@ const ReadPage = observer(() => {
   const [post, setPost] = useState<PostModel | null>(null);
   const [isPostLoaded, setIsPostLoaded] = useState<boolean>(false);
 
-  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
+  const [passwordModalMode, setPasswordModalMode] = useState<'delete' | 'edit' | null>(null);
   const [password, setPassword] = useState<string>('');
 
   const handleBackButtonClick = () => {
@@ -30,29 +31,47 @@ const ReadPage = observer(() => {
     postStore.setCurrentId(null);
   };
 
-  const handleDeleteButtonClick = () => {
-    setShowDeleteModal(true);
+  const handleEditButtonClick = () => {
+    setPasswordModalMode('edit');
+    setShowPasswordModal(true);
     setPassword('');
   };
 
-  const handleDeleteModalConfirmButtonClick = async () => {
+  const handleDeleteButtonClick = () => {
+    setPasswordModalMode('delete');
+    setShowPasswordModal(true);
+    setPassword('');
+  };
+
+  const handlePasswordModalConfirmButtonClick = async () => {
     const isPasswordCorrect = decryptPassword(post?.password ?? '') === password;
 
     if (isPasswordCorrect && post?._id) {
-      const res = await postStore.deletePost({ _id: post?._id });
-      if (res?.status === 201) {
-        postStore.setPageMode('list');
-        window.scrollTo({ top: 0 });
+      if (passwordModalMode === 'delete') {
+        const res = await postStore.deletePost({ _id: post?._id });
 
-        uiStore.openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
+        if (res?.status === 201) {
+          postStore.setPageMode('list');
+          window.scrollTo({ top: 0 });
+
+          uiStore.openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
+        }
+      } else if (passwordModalMode === 'edit') {
+        postStore.setPageMode('edit');
+
+        postStore.setCurrentId(post._id);
+        postStore.setTitle(post.title);
+        postStore.setUserName(post.userName);
+        postStore.setContent(post.content);
+        postStore.setPassword(decryptPassword(post.password));
       }
     } else {
       uiStore.openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
     }
   };
 
-  const handleDeleteModalCancelButtonClick = () => {
-    setShowDeleteModal(false);
+  const handlePasswordModalCancelButtonClick = () => {
+    setShowPasswordModal(false);
     setPassword('');
   };
 
@@ -105,6 +124,7 @@ const ReadPage = observer(() => {
           <S.Content>{post?.content}</S.Content>
 
           <Buttons>
+            <Button onClick={handleEditButtonClick}>수정</Button>
             <Button onClick={handleDeleteButtonClick}>삭제</Button>
           </Buttons>
         </>
@@ -114,8 +134,10 @@ const ReadPage = observer(() => {
         </S.LoadingSpinnerWrapper>
       )}
 
-      <Modal isOpen={showDeleteModal}>
-        <S.DeleteModalText>게시글을 삭제하려면 비밀번호를 입력하세요.</S.DeleteModalText>
+      <Modal isOpen={showPasswordModal}>
+        <S.DeleteModalText>
+          게시글을 {passwordModalMode === 'delete' ? '삭제' : '수정'}하려면 비밀번호를 입력하세요.
+        </S.DeleteModalText>
 
         <InputBox
           type={'password'}
@@ -126,13 +148,13 @@ const ReadPage = observer(() => {
 
         <Buttons>
           <Button
-            onClick={handleDeleteModalConfirmButtonClick}
-            type={'delete'}
+            onClick={handlePasswordModalConfirmButtonClick}
+            type={passwordModalMode === 'delete' ? 'delete' : 'default'}
             disabled={!password}
           >
-            삭제
+            {passwordModalMode === 'delete' ? '삭제' : '확인'}
           </Button>
-          <Button onClick={handleDeleteModalCancelButtonClick}>취소</Button>
+          <Button onClick={handlePasswordModalCancelButtonClick}>취소</Button>
         </Buttons>
       </Modal>
     </S.ReadPageWrapper>
