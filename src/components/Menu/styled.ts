@@ -38,8 +38,9 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
   height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vh' : '60vh')};
   min-height: 700px;
   border-radius: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '15px')};
-  border: #282828;
+  border: 1px solid #363636;
   background-color: #101010;
+  box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transition: 0.5s;
   display: grid;
   grid-template-rows: fit-content(100%) 1fr;
@@ -48,9 +49,9 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
   transform: ${({ $isMenuOpened }) => ($isMenuOpened ? 'translateY(0px)' : 'translateY(100px)')};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: 90vw;
+    width: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vw' : '90vw')};
     min-width: 90vw;
-    height: 75vh;
+    height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vh' : '75vh')};
     min-height: 75vh;
   }
 `;
@@ -61,26 +62,32 @@ export const MenuTop = styled('div')<MenuTopProps>`
   background-color: #282828;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   padding: 0px 20px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     height: min(12vw, 48px);
-    gap: min(2vw, 8px);
+    gap: min(2.5vw, 10px);
     padding: min(5vw, 20px);
   }
 `;
 
 export const MenuTopButtonBase = styled('button')`
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+  }
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: min(4vw, 16px);
-    height: min(4vw, 16px);
+    width: min(4.5vw, 18px);
+    height: min(4.5vw, 18px);
   }
 `;
 

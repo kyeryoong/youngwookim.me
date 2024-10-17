@@ -15,7 +15,7 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   background-color: ${({ theme }) => theme.color.gray[800]};
   position: fixed;
   bottom: ${({ $show }) => ($show ? '100px' : '-200px')};
-  box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.25);
+  box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   right: 100px;
   cursor: pointer;
   z-index: 1000;

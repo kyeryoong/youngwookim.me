@@ -29,7 +29,7 @@ export const ToastPopupWrapper = styled('div')<ToastPopupWrapperProps>`
   position: fixed;
   bottom: ${({ showToastPopup }) => (showToastPopup ? '48px' : '-72px')};
   left: calc(50vw - min(160px, 45vw));
-  box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.25);
+  box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transition-property: bottom;
   transition-duration: 0.5s;
   z-index: 20000;
