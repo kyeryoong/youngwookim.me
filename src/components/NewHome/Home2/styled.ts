@@ -19,7 +19,7 @@ export const SplineObject = styled(Spline)<SplineObjectProps>`
   background-color: transparent !important;
   position: absolute;
   top: calc(50vh - 13vw + 1.3vw);
-  left: 47vw;
+  left: 47.7vw;
   z-index: 100;
 
   canvas {
@@ -52,8 +52,8 @@ export const TextGradient = styled('div')`
   top: calc(50vh - 300px);
   background: ${({ theme }) =>
     theme.mode === 'dark'
-      ? `linear-gradient(120deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 80%)`
-      : `linear-gradient(120deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 80%)`};
+      ? `linear-gradient(120deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.1) 80%)`
+      : `linear-gradient(120deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.1) 80%)`};
 `;
 
 export const Highlight = styled('span')`
