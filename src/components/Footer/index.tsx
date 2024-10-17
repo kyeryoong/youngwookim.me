@@ -31,27 +31,9 @@ const Footer = () => {
         <S.FooterTopRight>
           <S.ContactLabel>contact</S.ContactLabel>
           <S.ContactButtonWrapper>
-            <S.ContactButton
-              width={40}
-              height={40}
-              src={'/footer/github.svg'}
-              alt="Go to GitHub Page"
-              onClick={handleGitHubClick}
-            />
-            <S.ContactButton
-              width={40}
-              height={40}
-              src={'/footer/linkedin.svg'}
-              alt="Go to LinkedIn Page"
-              onClick={handleLinkedInClick}
-            />
-            <S.ContactButton
-              width={40}
-              height={40}
-              src={'/footer/email.svg'}
-              alt="Send E-mail"
-              onClick={handleEmailClick}
-            />
+            <S.GitHubButton onClick={handleGitHubClick} />
+            <S.LinkedInButton onClick={handleLinkedInClick} />
+            <S.EmailButton onClick={handleEmailClick} />
           </S.ContactButtonWrapper>
         </S.FooterTopRight>
       </S.FooterTop>

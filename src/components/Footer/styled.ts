@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { EnvelopeFill, Github, Linkedin } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type FooterWrapperProps = {
@@ -68,16 +68,44 @@ export const ContactButtonWrapper = styled('div')`
   gap: 15px;
 `;
 
-export const ContactButton = styled(Image)`
+export const GitHubButton = styled(Github)`
   width: 40px;
   height: 40px;
+  padding: 2px;
   cursor: pointer;
   transition: 0.5s;
-  filter: ${({ theme }) =>
-    theme.mode === 'light' &&
-    'invert(100%) sepia(100%) saturate(0%) hue-rotate(218deg) brightness(104%) contrast(102%)'};
+  color: ${({ theme }) => theme.color.gray[400]};
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
+    color: ${({ theme }) => theme.color.white};
+  }
+`;
+
+export const LinkedInButton = styled(Linkedin)`
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+  color: ${({ theme }) => theme.color.gray[400]};
+
+  &:hover {
+    transform: scale(1.25);
+    color: ${({ theme }) => theme.color.white};
+  }
+`;
+
+export const EmailButton = styled(EnvelopeFill)`
+  width: 40px;
+  height: 40px;
+  padding: 1px;
+  cursor: pointer;
+  transition: 0.5s;
+  color: ${({ theme }) => theme.color.gray[400]};
+
+  &:hover {
+    transform: scale(1.25);
+    color: ${({ theme }) => theme.color.white};
   }
 `;
