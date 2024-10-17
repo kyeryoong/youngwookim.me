@@ -2,7 +2,7 @@
 
 import { observer } from 'mobx-react-lite';
 
-import NewHome from '@/components/NewHome';
+import { NewHome } from '@/components/NewHome';
 
 import * as S from './styled';
 
