@@ -13,6 +13,7 @@ import Profile1 from '@/components/Profile/Profile1';
 import Profile2 from '@/components/Profile/Profile2';
 import Profile3 from '@/components/Profile/Profile3';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import { isMobile } from '@/utils/isMobile';
 
 const Profile = observer(() => {
   const swiperRef = useRef<SwiperRef>(null);
@@ -66,7 +67,7 @@ const Profile = observer(() => {
         </SwiperSlide>
       </Swiper>
 
-      <ScrollToTopButton onClick={handleScrollToTopButtonClick} show={slide !== 0} />
+      <ScrollToTopButton onClick={handleScrollToTopButtonClick} show={!isMobile()} />
     </>
   );
 });

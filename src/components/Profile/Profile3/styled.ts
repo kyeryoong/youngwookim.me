@@ -73,40 +73,40 @@ export const ItemBase = styled(Image)<TableItemBaseProps>`
 `;
 
 export const Item = {
+  Laptop: styled(ItemBase)`
+    width: 56%;
+    height: 56%;
+    top: 20%;
+    left: 1%;
+    z-index: 1;
+  `,
   Keyboard: styled(ItemBase)`
-    width: 60%;
-    height: 40%;
-    top: 50%;
-    left: 0%;
-    z-index: 2;
+    width: 54%;
+    height: 36%;
+    bottom: 0%;
+    right: 15%;
+    z-index: 1;
   `,
   Mouse: styled(ItemBase)`
-    width: 18%;
-    height: 18%;
-    top: 82%;
-    left: 65%;
+    width: 16%;
+    height: 16%;
+    bottom: 5%;
+    right: 0%;
     z-index: 3;
   `,
   Monitor: styled(ItemBase)`
-    width: 68%;
-    height: 68%;
-    top: 0%;
-    left: 18%;
+    width: 70%;
+    height: 70%;
+    top: 4%;
+    right: -5%;
     z-index: 1;
   `,
   Coffee: styled(ItemBase)`
     width: 16%;
     height: 24%;
-    top: 25%;
-    left: 7%;
-    z-index: 1;
-  `,
-  Book: styled(ItemBase)`
-    width: 36%;
-    height: 24%;
-    top: 57%;
-    left: 64%;
-    z-index: 1;
+    bottom: 15%;
+    left: 3%;
+    z-index: 2;
   `,
 };
 
@@ -120,7 +120,7 @@ export const ListWrapper = styled('div')`
   gap: 20px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    bottom: 15dvh;
+    bottom: 7.5dvh;
     right: 5vw;
     gap: 5px;
   }

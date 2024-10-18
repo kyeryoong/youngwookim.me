@@ -38,7 +38,7 @@ export const ContentWrapper = styled('div')`
   gap: 50px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    bottom: 15dvh;
+    bottom: 7.5dvh;
     right: 5vw;
     gap: 30px;
   }

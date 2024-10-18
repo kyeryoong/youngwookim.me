@@ -11,23 +11,23 @@ const Profile3 = observer(() => {
     setHoveredIndex(null);
   };
 
-  const handleHoverKeyboard = () => {
+  const handleHoverLaptop = () => {
     setHoveredIndex(0);
   };
 
-  const handleHoverMouse = () => {
+  const handleHoverKeyboard = () => {
     setHoveredIndex(1);
   };
 
-  const handleHoverMonitor = () => {
+  const handleHoverMouse = () => {
     setHoveredIndex(2);
   };
 
-  const handleHoverCoffee = () => {
+  const handleHoverMonitor = () => {
     setHoveredIndex(3);
   };
 
-  const handleHoverBook = () => {
+  const handleHoverCoffee = () => {
     setHoveredIndex(4);
   };
 
@@ -40,6 +40,17 @@ const Profile3 = observer(() => {
       </S.Title>
 
       <S.ItemsWrapper>
+        <S.Item.Laptop
+          width={600}
+          height={600}
+          src={'/profile/macbook_graphic.png'}
+          alt="Laptop"
+          onMouseEnter={handleHoverLaptop}
+          onMouseLeave={handleMouseLeave}
+          $itemIndex={0}
+          $hoveredIndex={hoveredIndex}
+        />
+
         <S.Item.Keyboard
           width={1500}
           height={1000}
@@ -47,7 +58,7 @@ const Profile3 = observer(() => {
           alt="Keyboard"
           onMouseEnter={handleHoverKeyboard}
           onMouseLeave={handleMouseLeave}
-          $itemIndex={0}
+          $itemIndex={1}
           $hoveredIndex={hoveredIndex}
         />
         <S.Item.Mouse
@@ -57,7 +68,7 @@ const Profile3 = observer(() => {
           alt="Mouse"
           onMouseEnter={handleHoverMouse}
           onMouseLeave={handleMouseLeave}
-          $itemIndex={1}
+          $itemIndex={2}
           $hoveredIndex={hoveredIndex}
         />
         <S.Item.Monitor
@@ -67,7 +78,7 @@ const Profile3 = observer(() => {
           alt="Monitor"
           onMouseEnter={handleHoverMonitor}
           onMouseLeave={handleMouseLeave}
-          $itemIndex={2}
+          $itemIndex={3}
           $hoveredIndex={hoveredIndex}
         />
         <S.Item.Coffee
@@ -77,52 +88,42 @@ const Profile3 = observer(() => {
           alt="Coffee"
           onMouseEnter={handleHoverCoffee}
           onMouseLeave={handleMouseLeave}
-          $itemIndex={3}
-          $hoveredIndex={hoveredIndex}
-        />
-        <S.Item.Book
-          width={1000}
-          height={1500}
-          src={'/profile/book_graphic.png'}
-          alt="Book"
-          onMouseEnter={handleHoverBook}
-          onMouseLeave={handleMouseLeave}
           $itemIndex={4}
           $hoveredIndex={hoveredIndex}
         />
       </S.ItemsWrapper>
 
       <S.ListWrapper>
-        <S.ListElement onMouseEnter={handleHoverKeyboard} onMouseLeave={handleMouseLeave}>
-          <S.ListElementLabel $isHovered={hoveredIndex === 0}>Keyboard</S.ListElementLabel>
+        <S.ListElement onMouseEnter={handleHoverLaptop} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 0}>Laptop</S.ListElementLabel>
           <S.ListElementDescription $isHovered={hoveredIndex === 0}>
             {description[0].nameKor}
           </S.ListElementDescription>
         </S.ListElement>
 
-        <S.ListElement onMouseEnter={handleHoverMouse} onMouseLeave={handleMouseLeave}>
-          <S.ListElementLabel $isHovered={hoveredIndex === 1}>Mouse</S.ListElementLabel>
+        <S.ListElement onMouseEnter={handleHoverKeyboard} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 1}>Keyboard</S.ListElementLabel>
           <S.ListElementDescription $isHovered={hoveredIndex === 1}>
             {description[1].nameKor}
           </S.ListElementDescription>
         </S.ListElement>
 
-        <S.ListElement onMouseEnter={handleHoverMonitor} onMouseLeave={handleMouseLeave}>
-          <S.ListElementLabel $isHovered={hoveredIndex === 2}>Monitor</S.ListElementLabel>
+        <S.ListElement onMouseEnter={handleHoverMouse} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 2}>Mouse</S.ListElementLabel>
           <S.ListElementDescription $isHovered={hoveredIndex === 2}>
             {description[2].nameKor}
           </S.ListElementDescription>
         </S.ListElement>
 
-        <S.ListElement onMouseEnter={handleHoverCoffee} onMouseLeave={handleMouseLeave}>
-          <S.ListElementLabel $isHovered={hoveredIndex === 3}>Coffee</S.ListElementLabel>
+        <S.ListElement onMouseEnter={handleHoverMonitor} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 3}>Monitor</S.ListElementLabel>
           <S.ListElementDescription $isHovered={hoveredIndex === 3}>
             {description[3].nameKor}
           </S.ListElementDescription>
         </S.ListElement>
 
-        <S.ListElement onMouseEnter={handleHoverBook} onMouseLeave={handleMouseLeave}>
-          <S.ListElementLabel $isHovered={hoveredIndex === 4}>Book</S.ListElementLabel>
+        <S.ListElement onMouseEnter={handleHoverCoffee} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 4}>Coffee</S.ListElementLabel>
           <S.ListElementDescription $isHovered={hoveredIndex === 4}>
             {description[4].nameKor}
           </S.ListElementDescription>
