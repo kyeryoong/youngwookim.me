@@ -19,7 +19,7 @@ const Profile = observer(() => {
 
   const [slide, setSlide] = useState<number>(0);
 
-  const handleScroll = () => {
+  const handleSlideChange = () => {
     setSlide(swiperRef.current?.swiper.activeIndex as number);
   };
 
@@ -40,7 +40,8 @@ const Profile = observer(() => {
         autoHeight={true}
         speed={1000}
         ref={swiperRef}
-        onScroll={handleScroll}
+        // onScroll={handleScroll}
+        onSlideChange={handleSlideChange}
         style={{
           width: '100vw',
           height: '100vh',
