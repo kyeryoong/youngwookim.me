@@ -8,20 +8,20 @@ type TableItemBaseProps = {
 
 export const ProfilePageWrapper = styled('div')`
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: ${({ theme }) => theme.color.black};
   padding-left: 15vw;
   padding-right: 15vw;
-  padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding-top: 20dvh;
+  padding-bottom: 20dvh;
   display: grid;
   grid-template-columns: fit-content(100%) 1fr;
 
   @media (pointer: coarse) or (max-width: 1300px) {
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
+    padding-top: 15dvh;
+    padding-bottom: 15dvh;
     grid-template-columns: auto;
     grid-template-rows: fit-content(100%) 1fr;
   }

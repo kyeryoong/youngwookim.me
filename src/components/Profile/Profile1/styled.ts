@@ -11,7 +11,7 @@ type TextHoverProps = {
 export const ProfilePageWrapper = styled('div')`
   font-size: min(4.5vw, 2.5rem);
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
