@@ -43,7 +43,7 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
   box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transition: 0.5s;
   position: absolute;
-  top: 100px;
+  top: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '100px')};
   display: grid;
   grid-template-rows: fit-content(100%) 1fr;
   opacity: ${({ $isMenuOpened }) => ($isMenuOpened ? 1 : 0)};
