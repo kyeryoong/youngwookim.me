@@ -6,7 +6,7 @@ type ModalProps = {
 
 export const ModalBackground = styled('div')<ModalProps>`
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -19,6 +19,8 @@ export const ModalBackground = styled('div')<ModalProps>`
       ? `rgba(0, 0, 0, ${isOpened ? 0.5 : 0})`
       : `rgba(150, 150, 150, ${isOpened ? 0.5 : 0})`};
   z-index: ${({ isOpened }) => (isOpened ? 10000 : -1)};
+  transition-property: opacity;
+  transition-duration: 0.5s;
 `;
 
 export const ModalWrapper = styled('div')<ModalProps>`
@@ -26,8 +28,10 @@ export const ModalWrapper = styled('div')<ModalProps>`
   height: fit-content;
   padding: 24px;
   border-radius: 12px;
+  border: 1px solid ${({ theme }) => theme.color.gray[800]};
   background-color: ${({ theme }) =>
     theme.mode === 'dark' ? 'rgb(20, 20, 20)' : theme.color.black};
+  box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transform: ${({ isOpened }) => (isOpened ? 'translateY(0px)' : 'translateY(100px)')};
   opacity: ${({ isOpened }) => (isOpened ? 1 : 0)};
   transition: 0.5s;
