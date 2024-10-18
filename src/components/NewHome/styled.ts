@@ -28,7 +28,7 @@ export const SubText = styled('span')`
   line-height: 100px;
   text-align: center;
   position: fixed;
-  top: calc(50dvh - 50px + 25vw);
+  top: calc(50dvh + 15vw);
   left: 0px;
   color: ${({ theme }) => theme.color.gray[200]};
   z-index: 100;
