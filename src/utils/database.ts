@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MongoClient } from 'mongodb';
 
 const url = process.env.CONNECTION_STRING;
-const options: any = { useNewUrlParser: true };
 let connectDB: Promise<MongoClient>;
 
 if (url) {
@@ -12,11 +10,11 @@ if (url) {
     };
 
     if (!globalWithMongoClientPromise._mongo) {
-      globalWithMongoClientPromise._mongo = new MongoClient(url, options).connect();
+      globalWithMongoClientPromise._mongo = new MongoClient(url).connect();
     }
     connectDB = globalWithMongoClientPromise._mongo;
   } else {
-    connectDB = new MongoClient(url, options).connect();
+    connectDB = new MongoClient(url).connect();
   }
 }
 
