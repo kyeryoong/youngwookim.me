@@ -11,38 +11,41 @@ const Profile3 = observer(() => {
     setHoveredIndex(null);
   };
 
+  const handleHoverKeyboard = () => {
+    setHoveredIndex(0);
+  };
+
+  const handleHoverMouse = () => {
+    setHoveredIndex(1);
+  };
+
+  const handleHoverMonitor = () => {
+    setHoveredIndex(2);
+  };
+
+  const handleHoverCoffee = () => {
+    setHoveredIndex(3);
+  };
+
+  const handleHoverBook = () => {
+    setHoveredIndex(4);
+  };
+
   return (
     <S.ProfilePageWrapper>
-      <S.DescriptionWrapper>
-        <S.Title>
-          What&#39;s on
-          <br />
-          My Desk?
-        </S.Title>
+      <S.Title>
+        What&#39;s on
+        <br />
+        My Desk?
+      </S.Title>
 
-        {hoveredIndex !== null && (
-          <S.Description>
-            <S.DescriptionImage
-              width={1000}
-              height={1000}
-              src={description[hoveredIndex].imgSrc}
-              alt=""
-            />
-            <S.DescriptionNameEng>{description[hoveredIndex].nameEng}</S.DescriptionNameEng>
-            <S.DescriptionNameKor>{description[hoveredIndex].nameKor}</S.DescriptionNameKor>
-            <S.DescriptionPrice>
-              {`￦ ${description[hoveredIndex].price.toLocaleString('ko-KR')}`}
-            </S.DescriptionPrice>
-          </S.Description>
-        )}
-      </S.DescriptionWrapper>
       <S.ItemsWrapper>
         <S.Item.Keyboard
           width={1500}
           height={1000}
           src={'/profile/keyboard_graphic.png'}
           alt="Keyboard"
-          onMouseEnter={() => setHoveredIndex(0)}
+          onMouseEnter={handleHoverKeyboard}
           onMouseLeave={handleMouseLeave}
           $itemIndex={0}
           $hoveredIndex={hoveredIndex}
@@ -52,7 +55,7 @@ const Profile3 = observer(() => {
           height={1000}
           src={'/profile/mouse_graphic.png'}
           alt="Mouse"
-          onMouseEnter={() => setHoveredIndex(1)}
+          onMouseEnter={handleHoverMouse}
           onMouseLeave={handleMouseLeave}
           $itemIndex={1}
           $hoveredIndex={hoveredIndex}
@@ -62,7 +65,7 @@ const Profile3 = observer(() => {
           height={1500}
           src={'/profile/monitor_graphic.png'}
           alt="Monitor"
-          onMouseEnter={() => setHoveredIndex(2)}
+          onMouseEnter={handleHoverMonitor}
           onMouseLeave={handleMouseLeave}
           $itemIndex={2}
           $hoveredIndex={hoveredIndex}
@@ -72,7 +75,7 @@ const Profile3 = observer(() => {
           height={1500}
           src={'/profile/coffee_graphic.png'}
           alt="Coffee"
-          onMouseEnter={() => setHoveredIndex(3)}
+          onMouseEnter={handleHoverCoffee}
           onMouseLeave={handleMouseLeave}
           $itemIndex={3}
           $hoveredIndex={hoveredIndex}
@@ -82,12 +85,49 @@ const Profile3 = observer(() => {
           height={1500}
           src={'/profile/book_graphic.png'}
           alt="Book"
-          onMouseEnter={() => setHoveredIndex(4)}
+          onMouseEnter={handleHoverBook}
           onMouseLeave={handleMouseLeave}
           $itemIndex={4}
           $hoveredIndex={hoveredIndex}
         />
       </S.ItemsWrapper>
+
+      <S.ListWrapper>
+        <S.ListElement onMouseEnter={handleHoverKeyboard} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 0}>Keyboard</S.ListElementLabel>
+          <S.ListElementDescription $isHovered={hoveredIndex === 0}>
+            {description[0].nameKor}
+          </S.ListElementDescription>
+        </S.ListElement>
+
+        <S.ListElement onMouseEnter={handleHoverMouse} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 1}>Mouse</S.ListElementLabel>
+          <S.ListElementDescription $isHovered={hoveredIndex === 1}>
+            {description[1].nameKor}
+          </S.ListElementDescription>
+        </S.ListElement>
+
+        <S.ListElement onMouseEnter={handleHoverMonitor} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 2}>Monitor</S.ListElementLabel>
+          <S.ListElementDescription $isHovered={hoveredIndex === 2}>
+            {description[2].nameKor}
+          </S.ListElementDescription>
+        </S.ListElement>
+
+        <S.ListElement onMouseEnter={handleHoverCoffee} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 3}>Coffee</S.ListElementLabel>
+          <S.ListElementDescription $isHovered={hoveredIndex === 3}>
+            {description[3].nameKor}
+          </S.ListElementDescription>
+        </S.ListElement>
+
+        <S.ListElement onMouseEnter={handleHoverBook} onMouseLeave={handleMouseLeave}>
+          <S.ListElementLabel $isHovered={hoveredIndex === 4}>Book</S.ListElementLabel>
+          <S.ListElementDescription $isHovered={hoveredIndex === 4}>
+            {description[4].nameKor}
+          </S.ListElementDescription>
+        </S.ListElement>
+      </S.ListWrapper>
     </S.ProfilePageWrapper>
   );
 });

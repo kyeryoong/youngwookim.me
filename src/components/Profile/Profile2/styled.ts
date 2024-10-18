@@ -21,7 +21,7 @@ export const Title = styled('h1')`
   z-index: 10;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xxxxxl};
+    font-size: ${({ theme }) => theme.font.mobile.xxxxl};
     top: 15dvh;
     left: 5vw;
   }
