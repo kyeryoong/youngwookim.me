@@ -14,9 +14,10 @@ export const HeaderWrapper = styled('header')`
   padding-right: 100px;
   background: ${({ theme }) => `linear-gradient(180deg, ${theme.color.black}, transparent)`};
   z-index: 10000;
+  transition: 0.5s;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    height: 120px;
+    height: 100px;
     padding-left: 5vw;
     padding-right: 5vw;
   }

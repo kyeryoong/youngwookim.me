@@ -10,7 +10,7 @@ type CursorProps = {
 
 export const NewHomeWrapper = styled('div')<NewHomeWrapperProps>`
   width: 200vw;
-  height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 100vw 100vw;
   overflow: hidden;
@@ -25,12 +25,14 @@ export const SubText = styled('span')`
   font-weight: 400;
   width: 100vw;
   height: 100px;
+  line-height: 100px;
   text-align: center;
   position: fixed;
-  top: 78vh;
+  top: calc(50dvh - 50px + 25vw);
   left: 0px;
   color: ${({ theme }) => theme.color.gray[200]};
   z-index: 100;
+  transition: 0.5s;
 `;
 
 export const Cursor = styled('span')<CursorProps>`

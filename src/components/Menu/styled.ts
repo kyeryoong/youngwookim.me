@@ -16,7 +16,7 @@ type MenuTopProps = {
 
 export const MenuBackground = styled('div')<MenuBackgroundProps>`
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -35,13 +35,15 @@ export const MenuBackground = styled('div')<MenuBackgroundProps>`
 export const MenuWrapper = styled('div')<MenuWrapperProps>`
   width: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vw' : '50vw')};
   min-width: 1000px;
-  height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vh' : '60vh')};
+  height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100dvh' : '64dvh')};
   min-height: 700px;
   border-radius: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '0px' : '15px')};
   border: 1px solid #363636;
   background-color: #101010;
   box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transition: 0.5s;
+  position: absolute;
+  top: 100px;
   display: grid;
   grid-template-rows: fit-content(100%) 1fr;
   opacity: ${({ $isMenuOpened }) => ($isMenuOpened ? 1 : 0)};
@@ -51,8 +53,8 @@ export const MenuWrapper = styled('div')<MenuWrapperProps>`
   @media (pointer: coarse) or (max-width: 1000px) {
     width: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vw' : '90vw')};
     min-width: 90vw;
-    height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100vh' : '75vh')};
-    min-height: 75vh;
+    height: ${({ $isMenuExpanded }) => ($isMenuExpanded ? '100dvh' : '80dvh')};
+    min-height: 80dvh;
   }
 `;
 
