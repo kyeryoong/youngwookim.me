@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const MenuElementWrapper = styled('button')`
+export const MenuElementWrapper = styled(Link)`
   font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 500;
   height: 55px;
@@ -15,7 +15,7 @@ export const MenuElementWrapper = styled('button')`
   cursor: pointer;
 
   &:hover > div {
-    width: 40px;
+    width: 35px;
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
@@ -24,7 +24,7 @@ export const MenuElementWrapper = styled('button')`
     line-height: 40px;
 
     &:hover > div {
-      width: min(5vw, 40px);
+      width: min(5vw, 35px);
     }
   }
 `;
@@ -37,7 +37,7 @@ export const MenuElementCursor = styled('div')`
   overflow: hidden;
 
   &::before {
-    content: '> ';
+    content: '>';
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
