@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import poppins from '@/font/poppins';
+
 import * as S from './styled';
 
 const Home2 = () => {
@@ -13,7 +15,7 @@ const Home2 = () => {
         onLoad={() => setIsVisible(true)}
       />
 
-      <S.Text>
+      <S.Text className={poppins.className}>
         Devel<S.Highlight>o</S.Highlight>per
       </S.Text>
 

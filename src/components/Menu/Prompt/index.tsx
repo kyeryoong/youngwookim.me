@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
+import jetBrainsMono from '@/font/jetBrainsMono';
 import { useStore } from '@/stores';
 
 import { isMobile } from '../../../utils/isMobile';
@@ -149,16 +150,19 @@ const Prompt = observer(() => {
     <S.PromptWrapper onSubmit={processCommand}>
       <S.ResultLineWrapper>
         {resultLines.map((resultLine: string, index: number) => (
-          <S.ResultLine key={index}>{resultLine}</S.ResultLine>
+          <S.ResultLine key={index} className={jetBrainsMono.className}>
+            {resultLine}
+          </S.ResultLine>
         ))}
       </S.ResultLineWrapper>
-      <S.CurrentLineCursor />
+      <S.CurrentLineCursor className={jetBrainsMono.className} />
       <S.CurrentLineInput
         value={currentLine}
         onChange={handleLineChange}
         ref={ref}
         spellCheck={false}
         style={{ cursor: 'text' }}
+        className={jetBrainsMono.className}
       />
     </S.PromptWrapper>
   );

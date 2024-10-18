@@ -1,5 +1,7 @@
 import { observer } from 'mobx-react-lite';
 
+import jetBrainsMono from '@/font/jetBrainsMono';
+
 import * as S from './styled';
 
 const Profile1 = observer(() => {
@@ -15,7 +17,7 @@ const Profile1 = observer(() => {
 
   return (
     <S.ProfilePageWrapper>
-      <S.YoungWoo>
+      <S.YoungWoo className={jetBrainsMono.className}>
         <S.Line $delay={0}>
           <S.Text.DarkGray>&#47;&#47; Let me introduce myself.</S.Text.DarkGray>
         </S.Line>

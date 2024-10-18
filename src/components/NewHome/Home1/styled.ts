@@ -45,7 +45,6 @@ export const SplineObject = styled(Spline)<SplineObjectProps>`
 `;
 
 export const Text = styled('h1')`
-  font-family: 'Poppins';
   font-size: 24vw;
   font-weight: 600;
   width: 100vw;
@@ -86,7 +85,6 @@ export const TextGradient = styled('div')`
 `;
 
 export const Highlight = styled('span')`
-  font-family: 'Poppins';
   font-size: 24vw;
   font-weight: 600;
   letter-spacing: -0.92vw;

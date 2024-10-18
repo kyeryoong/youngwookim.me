@@ -9,20 +9,18 @@ type TextHoverProps = {
 };
 
 export const ProfilePageWrapper = styled('div')`
-  font-size: ${({ theme }) => theme.font.xxxl};
+  font-size: min(4.5vw, 2.5rem);
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xxxl};
-  }
 `;
 
-export const YoungWoo = styled('div')``;
+export const YoungWoo = styled('div')`
+  word-spacing: -0.4rem;
+`;
 
 export const Line = styled('div')<LineProps>`
   animation: Float 1.5s;
@@ -45,8 +43,6 @@ export const Line = styled('div')<LineProps>`
 `;
 
 export const TextBase = styled('span')`
-  font-family: 'JetBrains Mono';
-  font-weight: 600;
   transition: 0.5s;
 `;
 

@@ -2,6 +2,8 @@ import './layout.css';
 
 import type { Metadata } from 'next';
 
+import pretendard from '@/font/pretendard';
+
 import StyledComponentsRegistry from '../../lib/registry';
 import App from './app';
 
@@ -12,8 +14,8 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning>
+    <html lang="ko" className={pretendard.className}>
+      <body className={pretendard.className} suppressHydrationWarning>
         <StyledComponentsRegistry>
           <App>{children}</App>
         </StyledComponentsRegistry>
