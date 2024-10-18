@@ -67,7 +67,10 @@ const Profile = observer(() => {
         </SwiperSlide>
       </Swiper>
 
-      <ScrollToTopButton onClick={handleScrollToTopButtonClick} show={!isMobile()} />
+      <ScrollToTopButton
+        onClick={handleScrollToTopButtonClick}
+        show={isMobile() ? false : slide !== 0}
+      />
     </>
   );
 });
