@@ -1,7 +1,7 @@
 import * as S from './styled';
 
 const Background = () => {
-  return <S.ProfilePageWrapper></S.ProfilePageWrapper>;
+  return <S.Background />;
 };
 
 export default Background;
