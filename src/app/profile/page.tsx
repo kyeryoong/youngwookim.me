@@ -99,8 +99,8 @@ const Profile = observer(() => {
             freeMode={true}
             mousewheel={true}
             scrollbar={false}
-            onScroll={handleScroll}
-            onTouchMove={handleScroll}
+            onScroll={isMobile() ? undefined : handleScroll}
+            onTouchMove={isMobile() ? handleScroll : undefined}
             style={{
               width: '100vw',
               height: '100dvh',
