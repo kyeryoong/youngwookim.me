@@ -23,7 +23,7 @@ const Profile = observer(() => {
   const theme = useTheme();
 
   const swiperRef = useRef<SwiperRef>(null);
-  const slideRef = useRef<SwiperRef>(null);
+  const profile4Ref = useRef<SwiperRef>(null);
 
   const [slide, setSlide] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
@@ -54,22 +54,22 @@ const Profile = observer(() => {
 
   useEffect(() => {
     if (disableScroll) {
-      slideRef.current?.swiper.disable();
+      profile4Ref.current?.swiper.disable();
     } else {
-      slideRef.current?.swiper.enable();
+      profile4Ref.current?.swiper.enable();
     }
   }, [disableScroll]);
 
   return (
     <>
       <Swiper
+        ref={swiperRef}
         direction={'vertical'}
-        slidesPerView="auto"
-        mousewheel={true}
+        slidesPerView={'auto'}
         modules={[Mousewheel]}
+        mousewheel={true}
         autoHeight={true}
         speed={1000}
-        ref={swiperRef}
         onSlideChange={handleSlideChange}
         onTransitionStart={() => setDisableScroll(true)}
         onTransitionEnd={() => setDisableScroll(false)}
@@ -92,12 +92,11 @@ const Profile = observer(() => {
         </SwiperSlide>
         <SwiperSlide>
           <Swiper
-            ref={slideRef}
+            ref={profile4Ref}
             direction={'vertical'}
             slidesPerView={'auto'}
+            modules={[FreeMode, Mousewheel, Scrollbar]}
             freeMode={true}
-            modules={[FreeMode, Scrollbar, Mousewheel]}
-            scrollbar={true}
             mousewheel={true}
             scrollbar={false}
             onScroll={handleScroll}
