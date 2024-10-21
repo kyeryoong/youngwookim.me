@@ -41,8 +41,6 @@ const Profile = observer(() => {
     if (!disableScroll) {
       setProgress(swiper.progress * 100);
 
-      console.log(progress);
-
       if (swiper.isBeginning || swiper.isEnd) {
         swiperRef?.current?.swiper?.enable();
       }
