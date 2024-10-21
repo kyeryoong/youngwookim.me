@@ -9,16 +9,13 @@ type ScrollToTopButtonProps = {
 };
 
 export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopButtonProps) => {
-  const [scrollY, setScrollY] = useState<number>(0);
-  const [showButtonDefault, setShowButtonDefault] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const updateScrollY = () => {
-    setScrollY(window.pageYOffset);
-
-    if (scrollY > height) {
-      setShowButtonDefault(true);
+    if (window.scrollY > height) {
+      setShowButton(true);
     } else {
-      setShowButtonDefault(false);
+      setShowButton(false);
     }
   };
 
@@ -28,9 +25,7 @@ export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopBu
       behavior: 'smooth',
     });
 
-    setScrollY(0);
-
-    setShowButtonDefault(false);
+    setShowButton(false);
   };
 
   useEffect(() => {
@@ -42,7 +37,7 @@ export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopBu
   });
 
   return (
-    <S.ScrollToTopButtonWrapper $show={show ?? showButtonDefault} onClick={onClick ?? scrollToTop}>
+    <S.ScrollToTopButtonWrapper $show={show ?? showButton} onClick={onClick ?? scrollToTop}>
       <S.ArrowUpIcon />
     </S.ScrollToTopButtonWrapper>
   );
