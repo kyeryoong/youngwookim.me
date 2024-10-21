@@ -64,11 +64,13 @@ export const ItemBase = styled(Image)<TableItemBaseProps>`
     $hoveredIndex !== null && $itemIndex === $hoveredIndex
       ? 'drop-shadow(0px 0px 20px aqua)'
       : 'none'};
+  transform: ${({ $itemIndex, $hoveredIndex }) =>
+    $hoveredIndex !== null && $itemIndex === $hoveredIndex ? 'scale(1.1)' : 'scale(1)'};
 
   &:hover {
+    filter: drop-shadow(0px 0px 20px aqua);
     transform: scale(1.1);
     z-index: 10;
-    filter: drop-shadow(0px 0px 20px aqua);
   }
 `;
 
