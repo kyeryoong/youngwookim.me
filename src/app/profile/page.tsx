@@ -99,6 +99,7 @@ const Profile = observer(() => {
             modules={[FreeMode, Scrollbar, Mousewheel]}
             scrollbar={true}
             mousewheel={true}
+            scrollbar={false}
             onScroll={handleScroll}
             onTouchMove={handleScroll}
             style={{
