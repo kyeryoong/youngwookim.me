@@ -33,6 +33,8 @@ const Profile = observer(() => {
     setSlide(swiper.activeIndex as number);
 
     if (swiper.activeIndex === 2) {
+      setProgress(0);
+      profile4Ref.current?.swiper?.setProgress(0);
       swiper.disable();
     }
   };
