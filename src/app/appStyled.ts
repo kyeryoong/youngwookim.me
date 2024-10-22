@@ -18,7 +18,7 @@ export const AppWrapper = styled('body')`
     background-color: ${({ theme }) => theme.color.black};
   }
 
-  opacity: 0;
+  /* opacity: 0;
   animation-name: FadeIn;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -31,5 +31,5 @@ export const AppWrapper = styled('body')`
     100% {
       opacity: 1;
     }
-  }
+  } */
 `;
