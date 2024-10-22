@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const AppWrapper = styled('body')`
+export const AppWrapper = styled('div')`
   height: 100dvh;
-  background-color: ${({ theme }) => theme.color.black};
+  transition: 0.5s;
 
   &::-webkit-scrollbar {
     width: 15px;
