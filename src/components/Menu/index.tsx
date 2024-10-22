@@ -75,6 +75,7 @@ const Menu = observer(() => {
         <S.MenuBottom ref={ref}>
           <MenuButton target="" />
           <MenuButton target="profile" />
+          <MenuButton target="achievements" />
           <MenuButton target="tech" />
           <MenuButton target="post" />
           {/* <MenuButton target="projects" /> */}
