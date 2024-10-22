@@ -35,6 +35,13 @@ export const TitleWrapper = styled('div')<NavigationElementProps>`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 95%;
+
+    &:hover {
+      h2,
+      h3 {
+        opacity: ${({ isFocused }) => (isFocused ? 1 : 0)};
+      }
+    }
   }
 `;
 
@@ -80,7 +87,7 @@ export const EnglishTitle = styled('h3')<NavigationElementProps>`
   }
 `;
 
-export const Label = styled('h1')<NavigationElementProps>`
+export const Label = styled('h2')<NavigationElementProps>`
   font-size: ${({ isFocused }) => (isFocused ? '3.6rem' : '2rem')};
   font-weight: 600;
   color: ${({ theme }) => theme.color.white};
