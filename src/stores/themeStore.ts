@@ -15,14 +15,14 @@ export class ThemeStore {
   };
 
   toggleTheme = () => {
-    const prevTheme = this.theme;
-
-    if (prevTheme === 'dark') {
+    if (this.theme === 'dark') {
       this.theme = 'light';
       localStorage.setItem('theme', String('light'));
+      document.body.style.backgroundColor = 'white';
     } else {
       this.theme = 'dark';
       localStorage.setItem('theme', String('dark'));
+      document.body.style.backgroundColor = 'black';
     }
   };
 }
