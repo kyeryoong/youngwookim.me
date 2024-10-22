@@ -14,18 +14,17 @@ export const HomeWrapper = styled('div')`
 `;
 
 export const SplineObject = styled(Spline)<SplineObjectProps>`
-  width: 46vw !important;
-  height: 46vw !important;
+  width: 42vw !important;
+  height: 42vw !important;
   background-color: transparent !important;
   position: absolute;
-  top: calc(50dvh - 23vw + 2vw);
-  left: 3.5vw;
+  top: calc(50dvh - 21vw + 2vw);
+  left: 8.25vw;
   z-index: 100;
   opacity: 0;
   transform: scale(0);
   animation: fadeIn 2s forwards;
-  animation-delay: 1.5s;
-  transition: 0.5s;
+  animation-delay: 2.5s;
 
   @keyframes fadeIn {
     0% {
@@ -39,28 +38,27 @@ export const SplineObject = styled(Spline)<SplineObjectProps>`
   }
 
   canvas {
-    width: 46vw !important;
-    height: 46vw !important;
+    width: 42vw !important;
+    height: 42vw !important;
     background-color: transparent !important;
   }
 `;
 
 export const Text = styled('h1')`
-  font-size: 24vw;
+  font-size: 21vw;
   font-weight: 600;
   width: 100vw;
   height: 30vw;
   line-height: 30vw;
   text-align: center;
-  letter-spacing: -0.92vw;
-  margin-left: -1.7vw;
+  letter-spacing: -0.5vw;
   color: ${({ theme }) => theme.color.white};
   position: absolute;
   top: calc(50dvh - 15vw);
   transform: scale(2);
-  opacity: 1;
+  opacity: 0;
   animation: zoomIn 2s forwards;
-  transition: 0.5s;
+  animation-delay: 1s;
 
   @keyframes zoomIn {
     0% {
@@ -86,16 +84,15 @@ export const TextGradient = styled('div')`
       : `linear-gradient(120deg, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.98) 100%)`};
   transition: 0.5s;
 `;
-
 export const Highlight = styled('span')`
-  font-size: 24vw;
+  font-size: 21vw;
   font-weight: 600;
-  letter-spacing: -0.92vw;
+  letter-spacing: -0.5vw;
   opacity: 1;
-  animation: zoomOut 1s forwards;
-  animation-delay: 2s;
+  animation: fadeOut 1s forwards;
+  animation-delay: 3s;
 
-  @keyframes zoomOut {
+  @keyframes fadeOut {
     0% {
       opacity: 1;
     }
