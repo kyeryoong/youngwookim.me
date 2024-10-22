@@ -12,6 +12,12 @@ export const MenuButtonWrapper = styled('div')`
   z-index: 12000;
   cursor: pointer;
 
+  &:hover {
+    & > div {
+      background-color: ${({ theme }) => theme.color.gray[400]};
+    }
+  }
+
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 30px;
     height: 30px;
