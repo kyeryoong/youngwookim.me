@@ -17,8 +17,6 @@ import * as S from './appStyled';
 
 type AppProps = { children: React.ReactNode };
 
-export const dynamic = 'force-dynamic';
-
 const App = observer(({ children }: AppProps) => {
   const { menuStore, themeStore } = useStore();
 
