@@ -1,7 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '@/components/Footer';
@@ -22,8 +22,6 @@ export const dynamic = 'force-dynamic';
 
 const App = observer(({ children }: AppProps) => {
   const { menuStore, themeStore } = useStore();
-
-  const [isThemeLoaded, setIsThemeLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -46,22 +44,18 @@ const App = observer(({ children }: AppProps) => {
       } else {
         localStorage.setItem('theme', 'dark');
       }
-
-      setIsThemeLoaded(true);
     }
   }, []);
 
   return (
     <ThemeProvider theme={themeStore.theme === 'dark' ? { ...dark, font } : { ...light, font }}>
-      {isThemeLoaded && (
-        <S.AppWrapper>
-          <Header />
-          <Menu />
-          {children}
-          <Footer />
-          <ToastPopup />
-        </S.AppWrapper>
-      )}
+      <S.AppWrapper>
+        <Header />
+        <Menu />
+        {children}
+        <Footer />
+        <ToastPopup />
+      </S.AppWrapper>
     </ThemeProvider>
   );
 });
