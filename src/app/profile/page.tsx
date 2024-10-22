@@ -107,6 +107,7 @@ const Profile = observer(() => {
               width: '100vw',
               height: '100dvh',
               position: 'relative',
+              opacity: swiperRef.current?.swiper.activeIndex === 0 ? 0 : 1,
             }}
           >
             <Profile4.Title />
