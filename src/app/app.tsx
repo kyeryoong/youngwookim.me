@@ -1,7 +1,6 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
-import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '@/components/Footer';
@@ -18,19 +17,7 @@ import * as S from './appStyled';
 type AppProps = { children: React.ReactNode };
 
 const App = observer(({ children }: AppProps) => {
-  const { menuStore, themeStore } = useStore();
-
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key.toUpperCase() === 'M') {
-        event.preventDefault();
-        menuStore.setIsMenuOpened(!menuStore.isMenuOpened);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+  const { themeStore } = useStore();
 
   return (
     <ThemeProvider theme={themeStore.theme === 'dark' ? { ...dark, font } : { ...light, font }}>
