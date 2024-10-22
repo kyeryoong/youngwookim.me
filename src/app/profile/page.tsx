@@ -83,16 +83,16 @@ const Profile = observer(() => {
           top: '0px',
           left: '0px',
           backgroundColor: theme.color.black,
-          zIndex: '2',
+          zIndex: '5',
         }}
       >
-        <SwiperSlide>
+        <SwiperSlide style={{ zIndex: '4' }}>
           <Profile1 />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={{ zIndex: '3' }}>
           <Profile2 />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={{ zIndex: '2' }}>
           <Swiper
             ref={profile4Ref}
             direction={'vertical'}
@@ -117,7 +117,7 @@ const Profile = observer(() => {
             </SwiperSlide>
           </Swiper>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide style={{ zIndex: '1' }}>
           <Profile3 />
         </SwiperSlide>
         <SwiperSlide>
