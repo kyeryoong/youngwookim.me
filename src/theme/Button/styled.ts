@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 type ButtonWrapperProps = {
   type?: 'default' | 'delete';
+  backgroundColor?: string;
+  hoveredBackgroundColor?: string;
+  textColor?: string;
 };
 
 export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
@@ -11,12 +14,14 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   border-radius: 6px;
   padding: 0px 20px;
   color: ${({ theme, type }) => (type === 'delete' ? 'white' : theme.color.gray[100])};
+  color: ${({ textColor }) => textColor};
   background-color: ${({ theme, type }) =>
     type === 'delete'
       ? theme.color.red[400]
       : theme.mode === 'dark'
         ? theme.color.gray[800]
         : theme.color.gray[600]};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -29,6 +34,7 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
         : theme.mode === 'dark'
           ? theme.color.gray[700]
           : theme.color.gray[500]};
+    background-color: ${({ hoveredBackgroundColor }) => hoveredBackgroundColor};
   }
 
   &:disabled {
