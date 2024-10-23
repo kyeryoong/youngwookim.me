@@ -28,9 +28,9 @@ export const Info = styled('div')`
 export const TitleWrapper = styled('div')<NavigationElementProps>`
   width: 80%;
   cursor: ${({ isFocused }) => (isFocused ? 'default' : 'pointer')};
+  transition: 0.5s;
 
   &:hover {
-    h1,
     h2,
     h3 {
       opacity: 1;
@@ -39,6 +39,8 @@ export const TitleWrapper = styled('div')<NavigationElementProps>`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: 95%;
+    transform: ${({ isFocused }) => (isFocused ? 'scale(1)' : 'scale(0)')};
+    transform-origin: top left;
 
     &:hover {
       h2,
