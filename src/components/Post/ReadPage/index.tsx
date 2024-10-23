@@ -89,7 +89,7 @@ const ReadPage = observer(() => {
   };
 
   useEffect(() => {
-    async function fetchPost() {
+    const fetchPost = async () => {
       if (postStore.currentId) {
         const res = await postStore.fetchPost({ _id: postStore.currentId });
 
@@ -98,7 +98,7 @@ const ReadPage = observer(() => {
           setIsPostLoaded(true);
         }
       }
-    }
+    };
 
     fetchPost();
   }, []);

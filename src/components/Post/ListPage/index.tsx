@@ -21,12 +21,12 @@ const ListPage = observer(() => {
   };
 
   useEffect(() => {
-    async function fetchPosts() {
+    const fetchPosts = async () => {
       await postStore.fetchPosts();
 
       setPosts(postStore.posts);
       setIsPostsLoaded(true);
-    }
+    };
 
     fetchPosts();
   }, []);
