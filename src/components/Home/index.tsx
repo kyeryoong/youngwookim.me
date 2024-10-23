@@ -1,69 +1,74 @@
-import { observer } from 'mobx-react-lite';
+import { useEffect, useState } from 'react';
 
-import { useStore } from '@/stores';
-
-import CheckBox from './CheckBox';
-import DropDown from './DropDown';
-import FontColorButton from './FontColorButton';
-import FontStyleButton from './FontStyleButton';
-import LanguageRadioButton from './LanguageRadioButton';
-import LikeButton from './LikeButton';
+import Home1 from './Home1';
+import Home2 from './Home2';
 import * as S from './styled';
-import ToggleSwitch from './Switch';
-import Text from './Text';
-import VolumeSlider from './VolumeSlider';
 
-const Home = observer(() => {
-  const { homeStore } = useStore();
+const Home = () => {
+  const [page, setPage] = useState<number>(0);
 
-  const englishMessage = [
-    'Hello.',
-    'My',
-    'Name',
-    'Is',
-    'Young-Woo',
-    'Kim.',
-    "I'm",
-    'Front-end',
-    'Developer.',
-  ];
+  const text = '안녕하세요. 프론트엔드 개발자 김영우입니다.';
+  const [textIndex, setTextIndex] = useState<number>(0);
+  const [isTextIncreasing, setIsTextIncreasing] = useState<boolean>(true);
+  const [isTextPaused, setIsTextPaused] = useState<boolean>(false);
+  const [showCursor, setShowCursor] = useState<boolean>(false);
 
-  const koreanMessage = [
-    '안녕하세요.',
-    '제',
-    '이름은',
-    '김영우',
-    '입니다.',
-    '저는',
-    '프론트엔드',
-    '개발자',
-    '입니다.',
-  ];
+  useEffect(() => {
+    const pageInterval = setInterval(() => {
+      setPage((prev) => (prev === 0 ? 1 : 0));
+    }, 10000);
 
-  const message = homeStore.language === 'en' ? englishMessage : koreanMessage;
+    return () => clearInterval(pageInterval);
+  }, []);
+
+  useEffect(() => {
+    if (isTextPaused) return;
+
+    const textInterval = setInterval(() => {
+      setTextIndex((prevTextIndex) => {
+        if (isTextIncreasing) {
+          if (prevTextIndex === text.length + 1) {
+            setIsTextPaused(true);
+            clearInterval(textInterval);
+            setTimeout(() => {
+              setIsTextPaused(false);
+              setIsTextIncreasing(false);
+            }, 3000);
+            return prevTextIndex - 1;
+          }
+          return prevTextIndex + 1;
+        } else {
+          if (prevTextIndex === 0) {
+            setIsTextIncreasing(true);
+            return prevTextIndex + 1;
+          }
+          return prevTextIndex - 1;
+        }
+      });
+    }, 100);
+
+    return () => clearInterval(textInterval);
+  }, [isTextIncreasing]);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   return (
-    <S.BackgroundWrapper>
-      <Text>{message[0]}</Text>
-      <CheckBox />
-      <Text>{message[1]}</Text>
-      <ToggleSwitch />
-      <Text>{message[2]}</Text>
-      <DropDown />
-      <Text>{message[3]}</Text>
-      <VolumeSlider />
-      <Text>{message[4]}</Text>
-      <LikeButton />
-      <Text>{message[5]}</Text>
-      {/* <SearchField /> */}
-      <FontColorButton />
-      <Text>{message[6]}</Text>
-      <LanguageRadioButton />
-      <Text>{message[7]}</Text>
-      <FontStyleButton />
-      <Text>{message[8]}</Text>
-    </S.BackgroundWrapper>
+    <S.HomeWrapper page={page}>
+      <Home1 />
+      <Home2 />
+
+      <S.SubText>
+        {text.slice(0, textIndex)}
+        <S.Cursor show={showCursor}>|</S.Cursor>
+      </S.SubText>
+    </S.HomeWrapper>
   );
-});
+};
 
 export default Home;

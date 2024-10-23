@@ -2,10 +2,10 @@
 
 import { observer } from 'mobx-react-lite';
 
-import { NewHome } from '@/components/NewHome';
+import Home from '@/components/Home';
 
 const Main = observer(() => {
-  return <NewHome />;
+  return <Home />;
 });
 
 export default Main;
