@@ -31,6 +31,16 @@ const ListPage = observer(() => {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    const handleBroswerBackButtonClick = (event: PopStateEvent) => {
+      event.preventDefault();
+      history.back();
+    };
+
+    window.addEventListener('popstate', handleBroswerBackButtonClick);
+    return () => window.removeEventListener('popstate', handleBroswerBackButtonClick);
+  }, []);
+
   return (
     <S.ListPageWrapper>
       <PostHeader

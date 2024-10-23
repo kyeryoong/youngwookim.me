@@ -89,6 +89,18 @@ const CreatePage = observer(() => {
   };
 
   useEffect(() => {
+    history.pushState(null, '', location.href);
+
+    const handleBroswerBackButtonClick = (event: PopStateEvent) => {
+      event.preventDefault();
+      handleBackButtonClick();
+    };
+
+    window.addEventListener('popstate', handleBroswerBackButtonClick);
+    return () => window.removeEventListener('popstate', handleBroswerBackButtonClick);
+  }, []);
+
+  useEffect(() => {
     if (postStore.pageMode === 'create') {
       postStore.clearPost();
     } else if (postStore.pageMode === 'edit') {

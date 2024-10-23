@@ -103,6 +103,18 @@ const ReadPage = observer(() => {
     fetchPost();
   }, []);
 
+  useEffect(() => {
+    history.pushState(null, '', location.href);
+
+    const handleBroswerBackButtonClick = (event: PopStateEvent) => {
+      event.preventDefault();
+      handleBackButtonClick();
+    };
+
+    window.addEventListener('popstate', handleBroswerBackButtonClick);
+    return () => window.removeEventListener('popstate', handleBroswerBackButtonClick);
+  }, []);
+
   return (
     <S.ReadPageWrapper>
       <PostHeader
