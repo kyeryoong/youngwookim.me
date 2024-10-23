@@ -4,6 +4,10 @@ type NavigationElementProps = {
   isFocused: boolean;
 };
 
+type ButtonWrapperProps = {
+  isFocused: boolean;
+};
+
 type ProgressBarProps = {
   isFocused: boolean;
   progress: number;
@@ -100,6 +104,13 @@ export const Label = styled('h2')<NavigationElementProps>`
     font-size: ${({ isFocused }) => (isFocused ? 'min(7.2vw, 3.6rem)' : 'min(4vw, 2rem)')};
     opacity: ${({ isFocused }) => (isFocused ? 1 : 0)};
   }
+`;
+
+export const ButtonWrapper = styled('div')<ButtonWrapperProps>`
+  margin-top: 8px;
+  opacity: ${({ isFocused }) => (isFocused ? 1 : 0)};
+  pointer-events: ${({ isFocused }) => (isFocused ? 'default' : 'none')};
+  transition: 0.5s;
 `;
 
 export const ProgressBarWrapper = styled('div')`

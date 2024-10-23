@@ -1,17 +1,22 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-type ImageProps = {
+type ImageItemWrapperProps = {
+  width: string;
+  height: string;
+};
+
+type ImageItemProps = {
   isImageLoaded: boolean;
 };
 
-export const ImageWrapper = styled('div')`
-  width: 100vw;
-  height: 100dvh;
+export const ImageItemWrapper = styled('div')<ImageItemWrapperProps>`
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   position: relative;
 `;
 
-export const ImagePlaceholder = styled('div')<ImageProps>`
+export const ImageItemPlaceholder = styled('div')<ImageItemProps>`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.black};

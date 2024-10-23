@@ -1,3 +1,7 @@
+import { useTheme } from 'styled-components';
+
+import Button from '@/theme/Button';
+
 import * as S from './styled';
 
 type TitleProps = {
@@ -14,6 +18,7 @@ type NavigationElementProps = {
   onClick: () => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  onMoreButtonClick: () => void;
 };
 
 const NavigationElement = ({
@@ -24,7 +29,10 @@ const NavigationElement = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  onMoreButtonClick,
 }: NavigationElementProps) => {
+  const theme = useTheme();
+
   return (
     <S.NavigationElement isFocused={isFocused} onClick={onClick}>
       <S.TitleWrapper isFocused={isFocused} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -33,6 +41,19 @@ const NavigationElement = ({
         <S.EnglishTitle isFocused={isFocused}>{title.eng}</S.EnglishTitle>
         <S.Label isFocused={isFocused}>{title.label}</S.Label>
       </S.TitleWrapper>
+
+      <S.ButtonWrapper isFocused={isFocused}>
+        <Button
+          onClick={onMoreButtonClick}
+          customColor={{
+            backgroundColor: theme.color.white,
+            hoveredBackgroundColor: theme.color.gray[200],
+            textColor: theme.color.gray[800],
+          }}
+        >
+          사진 보기
+        </Button>
+      </S.ButtonWrapper>
 
       <S.ProgressBarWrapper>
         <S.ProgressBar isFocused={isFocused} progress={progress} />

@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-type ImageWrapperProps = {
-  achievementIndex: number;
-};
-
 type NavigationBarProps = {
   achievementIndex: number;
 };
@@ -17,19 +13,12 @@ export const AchievementsWrapper = styled('div')`
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
-`;
-
-export const ImageWrapper = styled('div')<ImageWrapperProps>`
-  height: 100dvh;
-  position: absolute;
-  display: flex;
-  left: ${({ achievementIndex }) => (achievementIndex === 0 ? '0px' : '-100vw')};
-  transition: 0.5s;
+  z-index: 1;
 `;
 
 export const NavigationBar = styled('div')<NavigationBarProps>`
   width: 100vw;
-  height: 32dvh;
+  height: 36dvh;
   background: ${({ theme }) => `linear-gradient(360deg, ${theme.color.black}, transparent)`};
   position: fixed;
   bottom: 0px;
@@ -43,7 +32,7 @@ export const NavigationBar = styled('div')<NavigationBarProps>`
   transition: 0.5s;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    height: 25dvh;
+    height: 30dvh;
     padding-left: 5vw;
     padding-right: 5vw;
     gap: min(8px, 1vw);
