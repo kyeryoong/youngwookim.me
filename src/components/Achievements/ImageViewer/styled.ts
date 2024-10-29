@@ -31,7 +31,8 @@ export const CloseButton = styled(X)`
   border-radius: 48px;
   padding: 0.4%;
   color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) => theme.color.gray[800]};
+  background-color: ${({ theme }) => theme.color.gray[950]};
+  box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   position: absolute;
   top: 48px;
   right: 48px;
@@ -39,8 +40,11 @@ export const CloseButton = styled(X)`
   transition: 0.5s;
 
   &:hover {
-    background-color: ${({ theme }) =>
-      theme.mode === 'dark' ? theme.color.gray[700] : theme.color.gray[500]};
+    background-color: ${({ theme }) => theme.color.gray[900]};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.color.gray[800]};
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {

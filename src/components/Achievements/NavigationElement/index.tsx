@@ -46,9 +46,9 @@ const NavigationElement = ({
           <Button
             onClick={onMoreButtonClick}
             customColor={{
-              backgroundColor: theme.color.white,
-              hoveredBackgroundColor: theme.color.gray[200],
-              textColor: theme.color.gray[800],
+              backgroundColor: theme.color.gray[200],
+              hoveredBackgroundColor: theme.color.gray[400],
+              textColor: theme.color.black,
             }}
           >
             사진 보기

@@ -12,7 +12,7 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   outline: none;
   border: none;
   color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) => theme.color.gray[800]};
+  background-color: ${({ theme }) => theme.color.gray[950]};
   position: fixed;
   bottom: ${({ $show }) => ($show ? '8dvh' : '-200px')};
   box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
@@ -22,7 +22,12 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   transition: 0.5s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.gray[700]};
+    background-color: ${({ theme }) => theme.color.gray[900]};
+    transform: scale(1.2);
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.color.gray[800]};
     transform: scale(1.2);
   }
 

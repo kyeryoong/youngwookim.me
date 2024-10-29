@@ -28,9 +28,7 @@ export const ModalWrapper = styled('div')<ModalProps>`
   height: fit-content;
   padding: 24px;
   border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.color.gray[800]};
-  background-color: ${({ theme }) =>
-    theme.mode === 'dark' ? 'rgb(20, 20, 20)' : theme.color.black};
+  background-color: ${({ theme }) => theme.color.gray[950]};
   box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
   transform: ${({ isOpened }) => (isOpened ? 'translateY(0px)' : 'translateY(100px)')};
   opacity: ${({ isOpened }) => (isOpened ? 1 : 0)};

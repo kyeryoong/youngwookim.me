@@ -19,7 +19,7 @@ export const MessengerWrapper = styled('div')`
   position: fixed;
   top: calc(50dvh - min(400px, 40dvh) + 5dvh);
   right: calc(50vw - min(240px, 45vw));
-  border: 1px solid ${({ theme }) => theme.color.gray[800]};
+  border: 1px solid ${({ theme }) => theme.color.gray[900]};
   box-shadow: 0px 0px 20px 8px rgba(50, 50, 50, 0.2);
   display: grid;
   grid-template-rows: fit-content(100%) 1fr fit-content(100%);
@@ -39,8 +39,7 @@ export const MessengerWrapper = styled('div')`
 
 export const Header = styled('header')`
   height: 72px;
-  background-color: ${({ theme }) => theme.color.gray[700]};
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
+  background-color: ${({ theme }) => theme.color.gray[900]};
   padding-left: 24px;
   display: flex;
   flex-direction: column;
@@ -79,8 +78,7 @@ export const HeaderIndicator = styled('label')`
 
 export const Footer = styled('footer')`
   height: 72px;
-  background-color: ${({ theme }) => theme.color.gray[700]};
-  border-top: 1px solid ${({ theme }) => theme.color.gray[800]};
+  background-color: ${({ theme }) => theme.color.gray[900]};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,7 +88,7 @@ export const FooterBox = styled('div')`
   width: calc(100% - 32px);
   height: 48px;
   border-radius: 40px;
-  background-color: ${({ theme }) => theme.color.gray[600]};
+  background-color: ${({ theme }) => theme.color.black};
   display: grid;
   grid-template-columns: 1fr fit-content(100%);
   align-items: center;
@@ -113,7 +111,7 @@ export const FooterSendIcon = styled(SendFill)`
 `;
 
 export const Messages = styled('div')`
-  background-color: ${({ theme }) => theme.color.gray[900]};
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -152,7 +150,7 @@ export const MessageText = styled('div')<MessageTextProps>`
   text-align: ${({ isMine }) => (isMine ? 'right' : 'left')};
   color: ${({ theme, isMine }) => (isMine ? 'white' : theme.color.gray[200])};
   background-color: ${({ theme, isMine }) =>
-    isMine ? theme.color.blue[600] : theme.color.gray[700]};
+    isMine ? theme.color.blue[600] : theme.color.gray[900]};
   word-break: keep-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {

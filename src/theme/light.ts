@@ -1,4 +1,5 @@
 import dark from './dark';
+import { base } from './dark';
 
 export default {
   mode: 'light',
@@ -6,16 +7,17 @@ export default {
     black: dark.color.white,
     white: dark.color.black,
     gray: {
-      [50]: dark.color.gray[900],
-      [100]: dark.color.gray[800],
-      [200]: dark.color.gray[700],
-      [300]: dark.color.gray[600],
-      [400]: dark.color.gray[500],
-      [500]: dark.color.gray[400],
-      [600]: dark.color.gray[300],
-      [700]: dark.color.gray[200],
-      [800]: dark.color.gray[100],
-      [900]: dark.color.gray[50],
+      [50]: base[950],
+      [100]: base[900],
+      [200]: base[800],
+      [300]: base[700],
+      [400]: base[600],
+      [500]: base[500],
+      [600]: base[400],
+      [700]: base[300],
+      [800]: base[200],
+      [900]: base[100],
+      [950]: base[50],
     },
     red: dark.color.red,
     pink: dark.color.pink,

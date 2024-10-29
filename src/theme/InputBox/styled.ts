@@ -28,24 +28,15 @@ export const InputBox = styled('input')`
   border-radius: 6px;
   padding: 12px;
   color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) =>
-    theme.mode === 'dark' ? theme.color.gray[900] : theme.color.gray[700]};
+  background-color: ${({ theme }) => theme.color.gray[900]};
   transition: 0.5s;
 
-  &:hover,
-  &:focus {
-    background-color: ${({ theme }) =>
-      theme.mode === 'dark' ? theme.color.gray[800] : theme.color.gray[600]};
+  &:hover {
+    background-color: ${({ theme }) => theme.color.gray[800]};
   }
 
   &:disabled {
-    color: ${({ theme }) =>
-      theme.mode === 'dark' ? theme.color.gray[600] : theme.color.gray[500]};
-
-    &:hover {
-      background-color: ${({ theme }) =>
-        theme.mode === 'dark' ? theme.color.gray[900] : theme.color.gray[700]};
-    }
+    background-color: ${({ theme }) => theme.color.gray[700]};
   }
 `;
 
@@ -59,19 +50,12 @@ export const TextArea = styled('textarea')`
   border-radius: 6px;
   padding: 12px;
   color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) =>
-    theme.mode === 'dark' ? theme.color.gray[900] : theme.color.gray[700]};
+  background-color: ${({ theme }) => theme.color.gray[900]};
   resize: none;
   transition: 0.5s;
 
   &:disabled {
-    color: ${({ theme }) =>
-      theme.mode === 'dark' ? theme.color.gray[600] : theme.color.gray[500]};
-
-    &:hover {
-      background-color: ${({ theme }) =>
-        theme.mode === 'dark' ? theme.color.gray[900] : theme.color.gray[700]};
-    }
+    background-color: ${({ theme }) => theme.color.gray[700]};
   }
 `;
 

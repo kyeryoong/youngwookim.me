@@ -14,8 +14,7 @@ export const TechListWrapper = styled('div')`
 
 export const TechListHeader = styled('span')`
   width: 100%;
-  color: white;
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
   padding-bottom: 32px;
   margin-bottom: 24px;
   display: flex;

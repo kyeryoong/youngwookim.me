@@ -16,11 +16,7 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   color: ${({ theme, type }) => (type === 'delete' ? 'white' : theme.color.gray[100])};
   color: ${({ textColor }) => textColor};
   background-color: ${({ theme, type }) =>
-    type === 'delete'
-      ? theme.color.red[400]
-      : theme.mode === 'dark'
-        ? theme.color.gray[800]
-        : theme.color.gray[600]};
+    type === 'delete' ? theme.color.red[400] : theme.color.gray[900]};
   background-color: ${({ backgroundColor }) => backgroundColor};
   display: flex;
   align-items: center;
@@ -29,12 +25,13 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
 
   &:hover {
     background-color: ${({ theme, type }) =>
-      type === 'delete'
-        ? theme.color.red[300]
-        : theme.mode === 'dark'
-          ? theme.color.gray[700]
-          : theme.color.gray[500]};
+      type === 'delete' ? theme.color.red[300] : theme.color.gray[800]};
     background-color: ${({ hoveredBackgroundColor }) => hoveredBackgroundColor};
+  }
+
+  &:active {
+    background-color: ${({ theme, type }) =>
+      type === 'delete' ? theme.color.red[200] : theme.color.gray[700]};
   }
 
   &:disabled {
