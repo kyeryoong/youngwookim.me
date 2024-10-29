@@ -1,10 +1,6 @@
 import Spline from '@splinetool/react-spline';
 import styled from 'styled-components';
 
-type SplineObjectProps = {
-  isVisible: boolean;
-};
-
 export const HomeWrapper = styled('div')`
   width: 100vw;
   height: 100dvh;
@@ -13,7 +9,7 @@ export const HomeWrapper = styled('div')`
   overflow: hidden;
 `;
 
-export const SplineObject = styled(Spline)<SplineObjectProps>`
+export const SplineObject = styled(Spline)`
   width: 42vw !important;
   height: 42vw !important;
   background-color: transparent !important;
@@ -24,7 +20,7 @@ export const SplineObject = styled(Spline)<SplineObjectProps>`
   opacity: 0;
   transform: scale(0);
   animation: fadeIn 2s forwards;
-  animation-delay: 2.5s;
+  animation-delay: 1.5s;
 
   @keyframes fadeIn {
     0% {
@@ -58,7 +54,6 @@ export const Text = styled('h1')`
   transform: scale(2);
   opacity: 0;
   animation: zoomIn 2s forwards;
-  animation-delay: 1s;
 
   @keyframes zoomIn {
     0% {
@@ -83,21 +78,4 @@ export const TextGradient = styled('div')`
       ? `linear-gradient(120deg, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.98) 100%)`
       : `linear-gradient(120deg, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.98) 100%)`};
   transition: 0.5s;
-`;
-export const Highlight = styled('span')`
-  font-size: 21vw;
-  font-weight: 600;
-  letter-spacing: -0.5vw;
-  opacity: 1;
-  animation: fadeOut 1s forwards;
-  animation-delay: 3s;
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
 `;

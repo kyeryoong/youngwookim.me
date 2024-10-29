@@ -1,10 +1,6 @@
 import Spline from '@splinetool/react-spline';
 import styled from 'styled-components';
 
-type SplineObjectProps = {
-  isVisible: boolean;
-};
-
 export const HomeWrapper = styled('div')`
   width: 100vw;
   height: 100dvh;
@@ -13,7 +9,7 @@ export const HomeWrapper = styled('div')`
   overflow: hidden;
 `;
 
-export const SplineObject = styled(Spline)<SplineObjectProps>`
+export const SplineObject = styled(Spline)`
   width: 24vw !important;
   height: 24vw !important;
   background-color: transparent !important;
@@ -22,6 +18,21 @@ export const SplineObject = styled(Spline)<SplineObjectProps>`
   left: 47.8vw;
   transition: 0.5s;
   z-index: 100;
+  opacity: 0;
+  transform: scale(0);
+  animation: fadeIn 2s forwards;
+  animation-delay: 1.5s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
   canvas {
     width: 24vw !important;
@@ -56,11 +67,4 @@ export const TextGradient = styled('div')`
       ? `linear-gradient(120deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.1) 80%)`
       : `linear-gradient(120deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.1) 80%)`};
   transition: 0.5s;
-`;
-
-export const Highlight = styled('span')`
-  font-size: 21vw;
-  font-weight: 600;
-  letter-spacing: -2vw;
-  opacity: 0;
 `;
