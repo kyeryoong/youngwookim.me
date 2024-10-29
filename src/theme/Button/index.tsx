@@ -34,7 +34,7 @@ const Button = ({
       hoveredBackgroundColor={customColor?.hoveredBackgroundColor}
       textColor={customColor?.textColor}
     >
-      {icon && <S.IconWrapper>{icon}</S.IconWrapper>}
+      {icon && <S.IconWrapper disabled={disabled ?? false}>{icon}</S.IconWrapper>}
       <S.ChildrenWrapper>{children}</S.ChildrenWrapper>
     </S.ButtonWrapper>
   );

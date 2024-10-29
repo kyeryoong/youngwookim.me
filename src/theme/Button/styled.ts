@@ -7,6 +7,10 @@ type ButtonWrapperProps = {
   textColor?: string;
 };
 
+type IconWrapperProps = {
+  disabled: boolean;
+};
+
 export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   font-size: ${({ theme }) => theme.font.mobile.xxl};
   height: 48px;
@@ -35,7 +39,9 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   }
 
   &:disabled {
-    opacity: 0.5;
+    color: ${({ theme }) => theme.color.gray[800]};
+    background-color: ${({ theme, type }) =>
+      type === 'delete' ? theme.color.red[0] : theme.color.gray[950]};
     cursor: not-allowed;
   }
 
@@ -46,13 +52,18 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   }
 `;
 
-export const IconWrapper = styled('div')`
+export const IconWrapper = styled('div')<IconWrapperProps>`
   width: 16px;
   height: 16px;
   margin-right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    fill: ${({ theme, disabled }) => disabled && theme.color.gray[800]};
+    transition: 0.5s;
+  }
 `;
 
 export const ChildrenWrapper = styled('div')`
