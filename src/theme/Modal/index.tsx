@@ -23,9 +23,11 @@ const Modal = ({ isOpened, title, text, children, onBackgroundClick }: ModalProp
 
   useEffect(() => {
     if (isOpened) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
+      document.body.style.paddingRight = '16px';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
+      document.body.style.paddingRight = '0px';
     }
   }, [isOpened]);
 
