@@ -29,7 +29,7 @@ export const CloseButton = styled(X)`
   width: 48px;
   height: 48px;
   border-radius: 48px;
-  padding: 0.4%;
+  padding: 8px;
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.gray[950]};
   box-shadow: 0px 0px 12px 5px rgba(50, 50, 50, 0.3);
@@ -48,8 +48,9 @@ export const CloseButton = styled(X)`
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: min(10vw, 48px);
-    height: min(10vw, 48px);
+    width: min(8vw, 48px);
+    height: min(8vw, 48px);
+    padding: min(1.33vw, 8px);
     top: min(5vw, 48px);
     right: min(5vw, 48px);
   }

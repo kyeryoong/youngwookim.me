@@ -26,13 +26,15 @@ const ImageViewer = ({ show, imageData, onClose }: ImageViewerProps) => {
   };
 
   useEffect(() => {
-    setImageIndex(0);
+    if (show) {
+      setImageIndex(0);
+    } else {
+      setTimeout(() => setImageIndex(0), 1000);
+    }
   }, [show]);
 
   return (
     <S.ImageViewerWrapper show={show}>
-      <S.CloseButton onClick={onClose} />
-
       <ImageCarousel width={WIDTH} height={HEIGHT} index={imageIndex}>
         {imageData?.images.map((image, index) => (
           <ImageItem
@@ -46,6 +48,7 @@ const ImageViewer = ({ show, imageData, onClose }: ImageViewerProps) => {
         ))}
       </ImageCarousel>
 
+      <S.CloseButton onClick={onClose} />
       <S.LeftButton onClick={handleLeftButtonClick} disabled={imageIndex === 0} />
       <S.RightButton
         onClick={handleRightButtonClick}
