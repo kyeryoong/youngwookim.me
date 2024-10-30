@@ -110,7 +110,6 @@ const Profile = observer(() => {
               opacity: swiperRef.current?.swiper.activeIndex === 0 ? 0 : 1,
             }}
           >
-            <Profile4.Title />
             <Profile4.Messenger progress={progress} />
             <SwiperSlide>
               <Profile4.Background />
