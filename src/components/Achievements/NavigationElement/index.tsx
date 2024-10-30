@@ -1,5 +1,3 @@
-import { useTheme } from 'styled-components';
-
 import Button from '@/theme/Button';
 
 import * as S from './styled';
@@ -31,8 +29,6 @@ const NavigationElement = ({
   onMouseLeave,
   onMoreButtonClick,
 }: NavigationElementProps) => {
-  const theme = useTheme();
-
   return (
     <S.NavigationElement isFocused={isFocused} onClick={onClick}>
       <S.Index isFocused={isFocused}>{index}</S.Index>
@@ -43,14 +39,7 @@ const NavigationElement = ({
         <S.Label isFocused={isFocused}>{title.label}</S.Label>
 
         <S.ButtonWrapper isFocused={isFocused}>
-          <Button
-            onClick={onMoreButtonClick}
-            customColor={{
-              backgroundColor: theme.color.gray[200],
-              hoveredBackgroundColor: theme.color.gray[400],
-              textColor: theme.color.black,
-            }}
-          >
+          <Button onClick={onMoreButtonClick} type={'success'}>
             사진 보기
           </Button>
         </S.ButtonWrapper>
