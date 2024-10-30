@@ -54,6 +54,10 @@ export const TextArea = styled('textarea')`
   resize: none;
   transition: 0.5s;
 
+  &:hover {
+    background-color: ${({ theme }) => theme.color.gray[800]};
+  }
+
   &:disabled {
     background-color: ${({ theme }) => theme.color.gray[700]};
   }
@@ -63,7 +67,7 @@ export const TextLength = styled('label')<TextLengthProps>`
   font-size: ${({ theme }) => theme.font.m};
   width: 100%;
   color: ${({ theme, isMaxLength }) =>
-    isMaxLength ? theme.color.red[300] : theme.color.gray[400]};
+    isMaxLength ? theme.color.red[300] : theme.color.gray[600]};
   text-align: right;
   display: block;
   margin-top: 8px;

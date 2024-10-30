@@ -174,12 +174,14 @@ const ReadPage = observer(() => {
           <Buttons>
             <Button
               onClick={handlePasswordModalConfirmButtonClick}
-              type={passwordModalMode === 'delete' ? 'delete' : 'default'}
+              type={passwordModalMode === 'delete' ? 'warning' : 'secondary'}
               disabled={!password}
             >
               {passwordModalMode === 'delete' ? '삭제' : '확인'}
             </Button>
-            <Button onClick={handlePasswordModalCancelButtonClick}>취소</Button>
+            <Button onClick={handlePasswordModalCancelButtonClick} type={'secondary'}>
+              취소
+            </Button>
           </Buttons>
         </S.ModalForm>
       </Modal>

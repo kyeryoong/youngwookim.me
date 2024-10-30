@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 
+import { ButtonTypes } from '.';
+
 type ButtonWrapperProps = {
-  type?: 'default' | 'delete';
-  backgroundColor?: string;
-  hoveredBackgroundColor?: string;
-  textColor?: string;
+  type?: ButtonTypes;
+  textColor: string;
+  backgroundColor: string;
+  hoveredTextColor: string;
+  hoveredBackgroundColor: string;
+  pressedTextColor: string;
+  pressedBackgroundColor: string;
+  disabledTextColor: string;
+  disabledBackgroundColor: string;
 };
 
 type IconWrapperProps = {
   disabled: boolean;
+  disabledIconColor: string;
 };
 
 export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
@@ -17,31 +25,27 @@ export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   border: none;
   border-radius: 6px;
   padding: 0px 20px;
-  color: ${({ theme, type }) => (type === 'delete' ? 'white' : theme.color.gray[100])};
   color: ${({ textColor }) => textColor};
-  background-color: ${({ theme, type }) =>
-    type === 'delete' ? theme.color.red[400] : theme.color.gray[900]};
   background-color: ${({ backgroundColor }) => backgroundColor};
+
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    background-color: ${({ theme, type }) =>
-      type === 'delete' ? theme.color.red[300] : theme.color.gray[800]};
+    color: ${({ hoveredTextColor }) => hoveredTextColor};
     background-color: ${({ hoveredBackgroundColor }) => hoveredBackgroundColor};
   }
 
   &:active {
-    background-color: ${({ theme, type }) =>
-      type === 'delete' ? theme.color.red[200] : theme.color.gray[700]};
+    color: ${({ pressedTextColor }) => pressedTextColor};
+    background-color: ${({ pressedBackgroundColor }) => pressedBackgroundColor};
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.color.gray[800]};
-    background-color: ${({ theme, type }) =>
-      type === 'delete' ? theme.color.red[0] : theme.color.gray[950]};
+    color: ${({ disabledTextColor }) => disabledTextColor};
+    background-color: ${({ disabledBackgroundColor }) => disabledBackgroundColor};
     cursor: not-allowed;
   }
 
@@ -61,7 +65,7 @@ export const IconWrapper = styled('div')<IconWrapperProps>`
   justify-content: center;
 
   svg {
-    fill: ${({ theme, disabled }) => disabled && theme.color.gray[800]};
+    fill: ${({ disabled, disabledIconColor }) => disabled && disabledIconColor};
     transition: 0.5s;
   }
 `;
