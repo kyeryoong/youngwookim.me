@@ -10,12 +10,12 @@ export const HomeWrapper = styled('div')`
 `;
 
 export const SplineObject = styled(Spline)`
-  width: 42vw !important;
-  height: 42vw !important;
+  width: 34vw !important;
+  height: 34vw !important;
   background-color: transparent !important;
   position: absolute;
-  top: calc(50dvh - 21vw + 2vw);
-  left: 8.25vw;
+  top: calc(50dvh - 17vw + 2vw);
+  left: 12.3vw;
   z-index: 100;
   opacity: 0;
   transform: scale(0);
@@ -34,8 +34,8 @@ export const SplineObject = styled(Spline)`
   }
 
   canvas {
-    width: 42vw !important;
-    height: 42vw !important;
+    width: 34vw !important;
+    height: 34vw !important;
     background-color: transparent !important;
   }
 `;
