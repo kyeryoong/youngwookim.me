@@ -1,31 +1,31 @@
 'use client';
 
+import TechList from '@/components/Badge/BadgeList';
+import CustomBadge from '@/components/Badge/CustomBadge';
 import Page from '@/components/Page';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
-import { Tech } from '@/components/Tech/Tech';
-import { TechList } from '@/components/Tech/TechList';
 
 const TechPage = () => {
   return (
     <Page>
-      <TechList categoryName="Front-end">
-        <Tech name="JavaScript" textColor="black" backgroundColor1="#F7DF1E" />
-        <Tech name="TypeScript" textColor="white" backgroundColor1="#3178C6" core />
-        <Tech name="React" textColor="white" backgroundColor1="#61DAFB" core />
-        <Tech name="MobX" textColor="white" backgroundColor1="#EA6618" core />
-        <Tech
+      <TechList name="Front-end">
+        <CustomBadge name="JavaScript" textColor="black" backgroundColor1="#F7DF1E" />
+        <CustomBadge name="TypeScript" textColor="white" backgroundColor1="#3178C6" core />
+        <CustomBadge name="React" textColor="white" backgroundColor1="#61DAFB" core />
+        <CustomBadge name="MobX" textColor="white" backgroundColor1="#EA6618" core />
+        <CustomBadge
           name="Next.js"
           textColor="white"
           backgroundColor1="#484848"
           customImage="Nextjs.svg"
         />
 
-        <Tech name="Vercel" textColor="white" backgroundColor1="#484848" />
+        <CustomBadge name="Vercel" textColor="white" backgroundColor1="#484848" />
       </TechList>
 
-      <TechList categoryName="Style Sheet & Design">
-        <Tech name="CSS3" textColor="white" backgroundColor1="#2965F1" />
-        <Tech
+      <TechList name="Style Sheet & Design">
+        <CustomBadge name="CSS3" textColor="white" backgroundColor1="#2965F1" />
+        <CustomBadge
           name="styled components"
           textColor="white"
           backgroundColor1="#F3B661"
@@ -33,18 +33,18 @@ const TechPage = () => {
           customImage="styled components.png"
           core
         />
-        <Tech name="Figma" textColor="white" backgroundColor1="#2E3038" core />
+        <CustomBadge name="Figma" textColor="white" backgroundColor1="#2E3038" core />
       </TechList>
 
-      <TechList categoryName="Database">
-        <Tech name="MongoDB" textColor="white" backgroundColor1="#00684A" />
-        <Tech
+      <TechList name="Database">
+        <CustomBadge name="MongoDB" textColor="white" backgroundColor1="#00684A" />
+        <CustomBadge
           name="MySQL"
           textColor="white"
           backgroundColor1="#00758F"
           backgroundColor2="#F29111"
         />
-        <Tech
+        <CustomBadge
           name="Firebase"
           textColor="white"
           backgroundColor1="#1E88E5"
@@ -52,10 +52,10 @@ const TechPage = () => {
         />
       </TechList>
 
-      <TechList categoryName="Version Control">
-        <Tech name="Git" textColor="white" backgroundColor1="#F05133" core />
-        <Tech name="GitHub" textColor="white" backgroundColor1="#444c54" />
-        <Tech name="GitLab" textColor="white" backgroundColor1="#FC6D26" core />
+      <TechList name="Version Control">
+        <CustomBadge name="Git" textColor="white" backgroundColor1="#F05133" core />
+        <CustomBadge name="GitHub" textColor="white" backgroundColor1="#444c54" />
+        <CustomBadge name="GitLab" textColor="white" backgroundColor1="#FC6D26" core />
       </TechList>
 
       <ScrollToTopButton />

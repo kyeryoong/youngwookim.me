@@ -4,7 +4,7 @@ type TechListWrapperProps = {
   $gap: number;
 };
 
-export const TechListWrapper = styled('div')<TechListWrapperProps>`
+export const BadgeListWrapper = styled('div')<TechListWrapperProps>`
   margin-bottom: 96px;
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +16,7 @@ export const TechListWrapper = styled('div')<TechListWrapperProps>`
   }
 `;
 
-export const TechListHeader = styled('span')`
+export const BadgeListHeader = styled('span')`
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
   padding-bottom: 32px;
@@ -31,7 +31,7 @@ export const TechListHeader = styled('span')`
   }
 `;
 
-export const TechListCategoryName = styled('span')`
+export const BadgeListCategoryName = styled('span')`
   font-size: ${({ theme }) => theme.font.xxxl};
   font-weight: 600;
   color: ${({ theme }) => theme.color.white};
@@ -41,7 +41,7 @@ export const TechListCategoryName = styled('span')`
   }
 `;
 
-export const TechListCount = styled('span')`
+export const BadgeListCount = styled('span')`
   font-size: ${({ theme }) => theme.font.xxxxl};
   font-weight: 700;
   color: ${({ theme }) => theme.color.white};

@@ -1,7 +1,7 @@
 import { GradientBackground } from './GradientBackground';
 import * as S from './styled';
 
-type TechProps = {
+type CustomBadgeProps = {
   name: string;
   size?: number;
   customImage?: string;
@@ -28,7 +28,7 @@ const hexToRgb = (hex: string | undefined) => {
   }
 };
 
-export const Tech = ({
+const CustomBadge = ({
   name,
   size = 40,
   customImage,
@@ -38,7 +38,7 @@ export const Tech = ({
   backgroundColorOffset1 = 20,
   backgroundColorOffset2 = 60,
   core,
-}: TechProps) => {
+}: CustomBadgeProps) => {
   const rgbObject1 = hexToRgb(backgroundColor1);
   const rgbObject2 = hexToRgb(backgroundColor2);
 
@@ -59,8 +59,8 @@ export const Tech = ({
   const src = customImage ? `/tech/${customImage}` : `/tech/${name}.svg`;
 
   return (
-    <S.TechWrapper $size={size} $rgb1={rgb1} $rgb2={rgb2} $core={core}>
-      <S.TechIcon
+    <S.CustomBadgeWrapper $size={size} $rgb1={rgb1} $rgb2={rgb2} $core={core}>
+      <S.CustomBadgeIcon
         $size={size}
         $textColor={textColor}
         width={size}
@@ -68,10 +68,12 @@ export const Tech = ({
         src={src}
         alt={`${name} Icon`}
       />
-      <S.TechName $size={size} $textColor={textColor}>
+      <S.CustomBadgeName $size={size} $textColor={textColor}>
         {name}
-      </S.TechName>
+      </S.CustomBadgeName>
       {core && <GradientBackground />}
-    </S.TechWrapper>
+    </S.CustomBadgeWrapper>
   );
 };
+
+export default CustomBadge;

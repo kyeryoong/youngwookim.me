@@ -1,24 +1,24 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-type TechWrapperProps = {
+type CustomBadgeWrapperProps = {
   $size: number;
   $rgb1: string;
   $rgb2?: string;
   $core?: boolean;
 };
 
-type TechIconProps = {
+type CustomBadgeIconProps = {
   $size: number;
   $textColor: string;
 };
 
-type TechNameProps = {
+type CustomBadgeNameProps = {
   $size: number;
   $textColor: string;
 };
 
-export const TechWrapper = styled('div')<TechWrapperProps>`
+export const CustomBadgeWrapper = styled('div')<CustomBadgeWrapperProps>`
   font-weight: 600;
   width: fit-content;
   height: ${({ $size }) => `${$size * 1.8}px`};
@@ -38,7 +38,7 @@ export const TechWrapper = styled('div')<TechWrapperProps>`
   }
 `;
 
-export const TechIcon = styled(Image)<TechIconProps>`
+export const CustomBadgeIcon = styled(Image)<CustomBadgeIconProps>`
   width: ${({ $size }) => `${$size * 1.25}px`};
   height: ${({ $size }) => `${$size * 1.25}px`};
   margin-right: ${({ $size }) => `${$size / 5}px`};
@@ -53,7 +53,7 @@ export const TechIcon = styled(Image)<TechIconProps>`
   }
 `;
 
-export const TechName = styled('div')<TechNameProps>`
+export const CustomBadgeName = styled('div')<CustomBadgeNameProps>`
   font-size: ${({ $size }) => `${$size / 1.5}px`};
   color: ${({ $textColor }) => $textColor};
 
