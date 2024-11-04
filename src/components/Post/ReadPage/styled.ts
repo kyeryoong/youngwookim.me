@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const ReadPageWrapper = styled('div')``;
 
 export const InfoWrapper = styled('div')`
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
   padding-bottom: 32px;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@ export const Content = styled('p')`
   font-weight: 600;
   min-height: 300px;
   color: ${({ theme }) => theme.color.white};
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray[600]};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
   padding-top: 32px;
   padding-bottom: 32px;
   margin-bottom: 32px;
@@ -95,6 +95,4 @@ export const LoadingSpinnerWrapper = styled('div')`
   justify-content: center;
 `;
 
-export const ModalForm = styled('form')`
-
-`;
+export const ModalForm = styled('form')``;
