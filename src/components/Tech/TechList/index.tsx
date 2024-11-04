@@ -3,15 +3,16 @@ import { Children, ReactNode } from 'react';
 import * as S from './styled';
 
 type TechListProps = {
-  categoryName: string;
+  name: string;
+  gap?: number;
   children?: ReactNode;
 };
 
-export const TechList = ({ categoryName, children }: TechListProps) => {
+export const TechList = ({ name, gap = 20, children }: TechListProps) => {
   return (
-    <S.TechListWrapper>
+    <S.TechListWrapper $gap={gap}>
       <S.TechListHeader>
-        <S.TechListCategoryName>{categoryName}</S.TechListCategoryName>
+        <S.TechListCategoryName>{name}</S.TechListCategoryName>
         <S.TechListCount>{Children.count(children)}</S.TechListCount>
       </S.TechListHeader>
       {children}

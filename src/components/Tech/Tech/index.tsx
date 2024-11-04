@@ -1,9 +1,9 @@
-import { GradientBackground } from '../GradientBackground';
-import { StarIcon } from '../StarIcon';
+import { GradientBackground } from './GradientBackground';
 import * as S from './styled';
 
 type TechProps = {
   name: string;
+  size?: number;
   customImage?: string;
   textColor: string;
   backgroundColor1: string;
@@ -30,6 +30,7 @@ const hexToRgb = (hex: string | undefined) => {
 
 export const Tech = ({
   name,
+  size = 40,
   customImage,
   textColor,
   backgroundColor1,
@@ -58,10 +59,18 @@ export const Tech = ({
   const src = customImage ? `/tech/${customImage}` : `/tech/${name}.svg`;
 
   return (
-    <S.TechWrapper $rgb1={rgb1} $rgb2={rgb2} $core={core}>
-      <S.TechIcon $textColor={textColor} width={200} height={200} src={src} alt={`${name} Icon`} />
-      <S.TechName $textColor={textColor}>{name}</S.TechName>
-      {core && <StarIcon />}
+    <S.TechWrapper $size={size} $rgb1={rgb1} $rgb2={rgb2} $core={core}>
+      <S.TechIcon
+        $size={size}
+        $textColor={textColor}
+        width={size}
+        height={size}
+        src={src}
+        alt={`${name} Icon`}
+      />
+      <S.TechName $size={size} $textColor={textColor}>
+        {name}
+      </S.TechName>
       {core && <GradientBackground />}
     </S.TechWrapper>
   );
