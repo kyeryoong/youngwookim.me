@@ -1,13 +1,11 @@
 'use client';
 
-import { observer } from 'mobx-react-lite';
-
 import Page from '@/components/Page';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { Tech } from '@/components/Tech/Tech';
 import { TechList } from '@/components/Tech/TechList';
 
-const TechPage = observer(() => {
+const TechPage = () => {
   return (
     <Page>
       <TechList categoryName="Front-end">
@@ -63,6 +61,6 @@ const TechPage = observer(() => {
       <ScrollToTopButton />
     </Page>
   );
-});
+};
 
 export default TechPage;

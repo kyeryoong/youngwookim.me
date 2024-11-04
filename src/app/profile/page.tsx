@@ -4,7 +4,6 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
 
-import { observer } from 'mobx-react-lite';
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 import SwiperCore from 'swiper';
@@ -19,7 +18,7 @@ import Profile4 from '@/components/Profile/Profile4';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { isMobile } from '@/utils/isMobile';
 
-const Profile = observer(() => {
+const Profile = () => {
   const theme = useTheme();
 
   const swiperRef = useRef<SwiperRef>(null);
@@ -130,6 +129,6 @@ const Profile = observer(() => {
       />
     </>
   );
-});
+};
 
 export default Profile;

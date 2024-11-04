@@ -1,11 +1,9 @@
 'use client';
 
-import { observer } from 'mobx-react-lite';
-
 import Achievements from '@/components/Achievements';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
-const AchievementsPage = observer(() => {
+const AchievementsPage = () => {
   return (
     <>
       <Achievements />
@@ -13,6 +11,6 @@ const AchievementsPage = observer(() => {
       <ScrollToTopButton />
     </>
   );
-});
+};
 
 export default AchievementsPage;
