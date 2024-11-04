@@ -11,7 +11,7 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
   padding-bottom: 15vh;
   background-color: ${({ theme }) => theme.color.black};
   display: ${({ $hide }) => $hide && 'none'};
-  color: ${({ theme }) => theme.color.gray[500]};
+  color: ${({ theme }) => theme.color.gray[700]};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-left: 5vw;
@@ -22,10 +22,10 @@ export const FooterWrapper = styled('footer')<FooterWrapperProps>`
 
 export const FooterTop = styled('div')`
   padding-top: 100px;
-  border-top: 1px solid ${({ theme }) => theme.color.gray[600]};
+  border-top: 1px solid ${({ theme }) => theme.color.gray[800]};
   display: flex;
   justify-content: space-between;
-  color: ${({ theme }) => theme.color.gray[500]};
+  color: ${({ theme }) => theme.color.gray[700]};
 `;
 
 export const FooterTopLeft = styled('div')`
@@ -69,43 +69,43 @@ export const ContactButtonWrapper = styled('div')`
 `;
 
 export const GitHubButton = styled(Github)`
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: 2px;
   cursor: pointer;
   transition: 0.5s;
-  color: ${({ theme }) => theme.color.gray[400]};
+  color: ${({ theme }) => theme.color.gray[700]};
 
   &:hover {
-    transform: scale(1.25);
+    transform: scale(1.2);
     color: ${({ theme }) => theme.color.white};
   }
 `;
 
 export const LinkedInButton = styled(Linkedin)`
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: 3px;
   cursor: pointer;
   transition: 0.5s;
-  color: ${({ theme }) => theme.color.gray[400]};
+  color: ${({ theme }) => theme.color.gray[700]};
 
   &:hover {
-    transform: scale(1.25);
+    transform: scale(1.2);
     color: ${({ theme }) => theme.color.white};
   }
 `;
 
 export const EmailButton = styled(EnvelopeFill)`
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: 1px;
   cursor: pointer;
   transition: 0.5s;
-  color: ${({ theme }) => theme.color.gray[400]};
+  color: ${({ theme }) => theme.color.gray[700]};
 
   &:hover {
-    transform: scale(1.25);
+    transform: scale(1.2);
     color: ${({ theme }) => theme.color.white};
   }
 `;
