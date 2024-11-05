@@ -1,7 +1,7 @@
 import * as S from './styled';
 
 type LabelProps = {
-  children: string;
+  children?: string;
 };
 
 const Label = ({ children }: LabelProps) => {

@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 export class MenuStore {
+  showHeader: boolean = true;
   isMenuOpened: boolean = false;
   isMenuExpanded: boolean = false;
   promptEntered: number = 0;
@@ -8,6 +9,10 @@ export class MenuStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  setShowHeader = (value: boolean) => {
+    this.showHeader = value;
+  };
 
   setIsMenuOpened = (value: boolean) => {
     this.isMenuOpened = value;

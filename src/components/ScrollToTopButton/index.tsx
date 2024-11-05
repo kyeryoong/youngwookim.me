@@ -11,14 +11,6 @@ type ScrollToTopButtonProps = {
 export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopButtonProps) => {
   const [showButton, setShowButton] = useState(false);
 
-  const updateScrollY = () => {
-    if (window.scrollY > height) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -29,10 +21,18 @@ export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopBu
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', updateScrollY);
+    const handleScroll = () => {
+      if (window.scrollY > height) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', updateScrollY);
+      window.removeEventListener('scroll', handleScroll);
     };
   });
 
