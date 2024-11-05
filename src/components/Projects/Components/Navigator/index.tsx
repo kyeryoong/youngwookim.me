@@ -1,17 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import * as S from './styled';
 
-const Navigator = () => {
-  const [isNavigatorFixed, setIsNavigatorFixed] = useState<boolean>(false);
+type ButtonProps = {
+  name: string;
+  onClick: () => void;
+};
+
+type NavigatorProps = {
+  focusedIndex: number;
+  buttons?: ButtonProps[];
+};
+
+const Navigator = ({ focusedIndex, buttons }: NavigatorProps) => {
+  const [positionY, setPositionY] = useState<number>(0);
+
+  const getIcon = useCallback(
+    (name: string, index: number) => {
+      switch (name) {
+        case '개요':
+          return <S.OverviewIcon isFocused={index === focusedIndex} />;
+        case '개발 인원':
+          return <S.TeamMembersIcon isFocused={index === focusedIndex} />;
+        case '기술 스택':
+          return <S.TechIcon isFocused={index === focusedIndex} />;
+      }
+    },
+    [focusedIndex],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight + 200) {
-        setIsNavigatorFixed(true);
-      } else {
-        setIsNavigatorFixed(false);
-      }
+      setPositionY(window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -19,9 +39,20 @@ const Navigator = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
-  return <S.NavigatorWrapper isNavigatorFixed={isNavigatorFixed}></S.NavigatorWrapper>;
+  return (
+    <S.NavigatorWrapper
+      top={positionY > window.innerHeight ? '150px' : `calc(100dvh - ${positionY}px + 150px)`}
+    >
+      {buttons?.map((button, index) => (
+        <S.NavigatorButton key={index} onClick={button.onClick} isFocused={index === focusedIndex}>
+          {getIcon(button.name, index)}
+          {button.name}
+        </S.NavigatorButton>
+      ))}
+    </S.NavigatorWrapper>
+  );
 };
 
 export default Navigator;

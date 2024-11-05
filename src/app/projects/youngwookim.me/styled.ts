@@ -14,6 +14,7 @@ export const Label = styled('h3')`
   font-size: min(7vw, 3.5rem);
   font-weight: 200;
   color: ${({ theme }) => theme.color.gray[400]};
+  letter-spacing: min(3vw, 1.5rem);
 `;
 
 export const Title = styled('h1')`
