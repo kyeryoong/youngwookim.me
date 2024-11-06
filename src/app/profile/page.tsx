@@ -15,8 +15,8 @@ import Profile1 from '@/components/Pages/Profile/Profile1';
 import Profile2 from '@/components/Pages/Profile/Profile2';
 import Profile3 from '@/components/Pages/Profile/Profile3';
 import Profile4 from '@/components/Pages/Profile/Profile4';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
-import { isMobile } from '@/utils/isMobile';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import isMobile from '@/utils/isMobile';
 
 const Profile = () => {
   const theme = useTheme();

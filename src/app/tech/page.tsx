@@ -17,7 +17,7 @@ import ReactBadge from '@/components/Badge/Premade/ReactBadge';
 import StyledComponentsBadge from '@/components/Badge/Premade/StyledComponentsBadge';
 import TypeScriptBadge from '@/components/Badge/Premade/TypeScriptBadge';
 import VercelBadge from '@/components/Badge/Premade/VercelBadge';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 import Page from '@/theme/Page';
 
 const TechPage = () => {

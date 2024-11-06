@@ -17,6 +17,7 @@ import Member from '@/components/Pages/Projects/Components/Member';
 import MemberList from '@/components/Pages/Projects/Components/MemberList';
 import Navigator from '@/components/Pages/Projects/Components/Navigator';
 import Text from '@/components/Pages/Projects/Components/Text';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 import * as S from './styled';
 

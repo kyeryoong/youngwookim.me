@@ -8,7 +8,7 @@ type ScrollToTopButtonProps = {
   height?: number;
 };
 
-export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopButtonProps) => {
+const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopButtonProps) => {
   const [showButton, setShowButton] = useState(false);
 
   const scrollToTop = () => {
@@ -42,3 +42,5 @@ export const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopBu
     </S.ScrollToTopButtonWrapper>
   );
 };
+
+export default ScrollToTopButton;

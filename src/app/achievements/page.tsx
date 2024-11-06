@@ -1,7 +1,7 @@
 'use client';
 
 import Achievements from '@/components/Pages/Achievements';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 const AchievementsPage = () => {
   return (
