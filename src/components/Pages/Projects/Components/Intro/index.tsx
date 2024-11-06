@@ -24,7 +24,7 @@ const Intro = ({ children, mouseScrollColor = 'white' }: IntroProps) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
   return (
     <S.IntroWrapper>
