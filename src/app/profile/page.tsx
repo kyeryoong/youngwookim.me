@@ -11,10 +11,10 @@ import { FreeMode, Mousewheel, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 
 import Footer from '@/components/Footer';
-import Profile1 from '@/components/Profile/Profile1';
-import Profile2 from '@/components/Profile/Profile2';
-import Profile3 from '@/components/Profile/Profile3';
-import Profile4 from '@/components/Profile/Profile4';
+import Profile1 from '@/components/Pages/Profile/Profile1';
+import Profile2 from '@/components/Pages/Profile/Profile2';
+import Profile3 from '@/components/Pages/Profile/Profile3';
+import Profile4 from '@/components/Pages/Profile/Profile4';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { isMobile } from '@/utils/isMobile';
 

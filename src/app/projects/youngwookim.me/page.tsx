@@ -10,13 +10,13 @@ import MongoDBBadge from '@/components/Badge/Premade/MongoDBBadge';
 import NextJSBadge from '@/components/Badge/Premade/NextJSBadge';
 import StyledComponentsBadge from '@/components/Badge/Premade/StyledComponentsBadge';
 import VercelBadge from '@/components/Badge/Premade/VercelBadge';
-import Intro from '@/components/Projects/Components/Intro';
-import Label from '@/components/Projects/Components/Label';
-import Layout from '@/components/Projects/Components/Layout';
-import Member from '@/components/Projects/Components/Member';
-import MemberList from '@/components/Projects/Components/MemberList';
-import Navigator from '@/components/Projects/Components/Navigator';
-import Text from '@/components/Projects/Components/Text';
+import Intro from '@/components/Pages/Projects/Components/Intro';
+import Label from '@/components/Pages/Projects/Components/Label';
+import Layout from '@/components/Pages/Projects/Components/Layout';
+import Member from '@/components/Pages/Projects/Components/Member';
+import MemberList from '@/components/Pages/Projects/Components/MemberList';
+import Navigator from '@/components/Pages/Projects/Components/Navigator';
+import Text from '@/components/Pages/Projects/Components/Text';
 
 import * as S from './styled';
 

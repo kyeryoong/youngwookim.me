@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
+import Button from '@/theme/Button';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 
-import Button from '../../../theme/Button';
 import PostHeader from '../PostHeader';
 import PostItem from './PostItem';
 import * as S from './styled';

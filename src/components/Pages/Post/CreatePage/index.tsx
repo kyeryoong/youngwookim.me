@@ -4,11 +4,11 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useStore } from '@/stores';
 import BackButton from '@/theme/BackButton';
+import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
 import { encryptPassword } from '@/utils/password';
 
-import Button from '../../../theme/Button';
 import PostHeader from '../PostHeader';
 import * as S from './styled';
 
