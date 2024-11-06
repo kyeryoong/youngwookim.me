@@ -22,6 +22,8 @@ const Navigator = ({ focusedIndex, buttons }: NavigatorProps) => {
           return <S.OverviewIcon isFocused={index === focusedIndex} />;
         case '개발 인원':
           return <S.TeamMembersIcon isFocused={index === focusedIndex} />;
+        case '소스 코드':
+          return <S.SourceCodeIcon isFocused={index === focusedIndex} />;
         case '기술 스택':
           return <S.TechIcon isFocused={index === focusedIndex} />;
       }

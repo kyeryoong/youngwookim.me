@@ -1,4 +1,4 @@
-import { PeopleFill, TerminalFill, TextLeft } from 'react-bootstrap-icons';
+import { FileEarmarkCodeFill, PeopleFill, TerminalFill, TextLeft } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type NavigatorWrapper = {
@@ -69,6 +69,15 @@ export const OverviewIcon = styled(TextLeft)<NavigatorIconProps>`
 `;
 
 export const TeamMembersIcon = styled(PeopleFill)<NavigatorIconProps>`
+  width: 24px;
+  height: 24px;
+  max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
+  margin-right: ${({ isFocused }) => (isFocused ? '12px' : '0px')};
+  color: ${({ theme }) => theme.color.white};
+  transition: 0.5s;
+`;
+
+export const SourceCodeIcon = styled(FileEarmarkCodeFill)<NavigatorIconProps>`
   width: 24px;
   height: 24px;
   max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};

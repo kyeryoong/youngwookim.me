@@ -54,10 +54,10 @@ export const CustomBadgeIcon = styled(Image)<CustomBadgeIconProps>`
 `;
 
 export const CustomBadgeName = styled('div')<CustomBadgeNameProps>`
-  font-size: ${({ $size }) => `${$size / 1.5}px`};
+  font-size: ${({ $size }) => `${$size / 1.6}px`};
   color: ${({ $textColor }) => $textColor};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ $size }) => `min(${$size / 12}vw, ${$size / 1.5}px)`};
+    font-size: ${({ $size }) => `min(${$size / 12}vw, ${$size / 1.6}px)`};
   }
 `;

@@ -3,12 +3,12 @@ import * as S from './styled';
 type MemberProps = {
   name: string;
   position?: string;
-  profileImage?: string;
+  imageUrl?: string;
   linkUrl?: string;
 };
 
-const Member = ({ name, position, profileImage, linkUrl }: MemberProps) => {
-  const handleMemberNameClick = () => {
+const Member = ({ name, position, imageUrl, linkUrl }: MemberProps) => {
+  const handleClick = () => {
     if (linkUrl) {
       window.open(linkUrl);
     }
@@ -16,14 +16,14 @@ const Member = ({ name, position, profileImage, linkUrl }: MemberProps) => {
 
   return (
     <S.MemberWrapper>
-      {profileImage ? (
-        <S.MemberImage width={48} height={48} src={profileImage} alt={`${name}'s Profile Image`} />
+      {imageUrl ? (
+        <S.MemberImage width={48} height={48} src={imageUrl} alt={`${name}'s Profile Image`} />
       ) : (
         <S.MemberNoImage />
       )}
 
       <S.MemberInfo>
-        <S.MemberName linkUrl={linkUrl} onClick={handleMemberNameClick}>
+        <S.MemberName linkUrl={linkUrl} onClick={handleClick}>
           {name}
         </S.MemberName>
         <S.MemberPosition>{position}</S.MemberPosition>

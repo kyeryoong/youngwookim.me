@@ -16,6 +16,7 @@ import Layout from '@/components/Pages/Projects/Components/Layout';
 import Member from '@/components/Pages/Projects/Components/Member';
 import MemberList from '@/components/Pages/Projects/Components/MemberList';
 import Navigator from '@/components/Pages/Projects/Components/Navigator';
+import SourceCodeButton from '@/components/Pages/Projects/Components/SourceCodeButton';
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 
@@ -27,13 +28,14 @@ const YoungWooKimMe = () => {
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
+  const ref4 = useRef<HTMLDivElement>(null);
 
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
 
   const scrollOffset = 150;
 
   const handleClickLabel1 = useCallback(() => {
-    const offsetTop = ref1.current?.getBoundingClientRect().top || 0;
+    const offsetTop = ref1.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
       top: window.scrollY + offsetTop - scrollOffset,
@@ -42,7 +44,7 @@ const YoungWooKimMe = () => {
   }, []);
 
   const handleClickLabel2 = useCallback(() => {
-    const offsetTop = ref2.current?.getBoundingClientRect().top || 0;
+    const offsetTop = ref2.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
       top: window.scrollY + offsetTop - scrollOffset,
@@ -51,7 +53,16 @@ const YoungWooKimMe = () => {
   }, []);
 
   const handleClickLabel3 = useCallback(() => {
-    const offsetTop = ref3.current?.getBoundingClientRect().top || 0;
+    const offsetTop = ref3.current?.getBoundingClientRect().top ?? 0;
+
+    window.scrollTo({
+      top: window.scrollY + offsetTop - scrollOffset,
+      behavior: 'smooth',
+    });
+  }, []);
+
+  const handleClickLabel4 = useCallback(() => {
+    const offsetTop = ref4.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
       top: window.scrollY + offsetTop - scrollOffset,
@@ -65,6 +76,7 @@ const YoungWooKimMe = () => {
         Math.abs((ref1.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
         Math.abs((ref2.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
         Math.abs((ref3.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
+        Math.abs((ref4.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
       ];
 
       setFocusedIndex(refPositions.indexOf(Math.min(...refPositions)));
@@ -96,12 +108,17 @@ const YoungWooKimMe = () => {
           <Member
             name={'kyeryoong'}
             position={'Developer'}
-            profileImage={'https://avatars.githubusercontent.com/u/98510309?v=4&size=64'}
+            imageUrl={'https://avatars.githubusercontent.com/u/98510309?v=4&size=64'}
             linkUrl={'https://github.com/kyeryoong'}
           />
         </MemberList>
 
-        <Label ref={ref3}>기술 스택</Label>
+        <Label ref={ref3}>소스 코드</Label>
+        <Text>
+          <SourceCodeButton linkUrl={'https://github.com/kyeryoong/youngwookim.me'} />
+        </Text>
+
+        <Label ref={ref4}>기술 스택</Label>
         <BadgeList gap={16}>
           <NextJSBadge size={32} core />
           <VercelBadge size={32} core />
@@ -117,9 +134,12 @@ const YoungWooKimMe = () => {
         buttons={[
           { name: '개요', onClick: handleClickLabel1 },
           { name: '개발 인원', onClick: handleClickLabel2 },
-          { name: '기술 스택', onClick: handleClickLabel3 },
+          { name: '소스 코드', onClick: handleClickLabel3 },
+          { name: '기술 스택', onClick: handleClickLabel4 },
         ]}
       />
+
+      <ScrollToTopButton />
     </>
   );
 };
