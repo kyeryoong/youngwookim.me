@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
-import { achievementData } from './data';
+import achievementData from './data';
 import ImageCarousel from './ImageCarousel';
 import ImageItem from './ImageCarousel/ImageItem';
 import ImageViewer from './ImageViewer';

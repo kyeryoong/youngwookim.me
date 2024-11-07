@@ -21,6 +21,7 @@ type IconWrapperProps = {
 
 export const ButtonWrapper = styled('button')<ButtonWrapperProps>`
   font-size: ${({ theme }) => theme.font.mobile.xxl};
+  width: fit-content;
   height: 48px;
   border: none;
   border-radius: 6px;
