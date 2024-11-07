@@ -4,7 +4,7 @@ export type achievementDataType = {
   images: string[];
 };
 
-export const achievementData = [
+const achievementData: achievementDataType[] = [
   {
     kor: '홍익대학교 컴퓨터공학과 졸업 전시회',
     alt: 'Graduation Project',
@@ -31,3 +31,5 @@ export const achievementData = [
     ],
   },
 ];
+
+export default achievementData;
