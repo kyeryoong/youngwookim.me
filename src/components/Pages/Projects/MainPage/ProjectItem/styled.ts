@@ -25,19 +25,23 @@ type ProjectMoreButtonProps = {
   disabled?: boolean;
 };
 
+const selectedWidth = 'min(480px, 64vw)';
+const halfSelectedWidth = `calc(${selectedWidth} / 2)`;
+const defaultWidth = 'min(320px, 32vw)';
+
 export const ProjectItemWrapper = styled('div')<ProjectItemWrapperProps>`
-  width: ${({ isSelected }) => (isSelected ? 'min(490px, 70vw)' : 'min(350px, 50vw)')};
+  width: ${({ isSelected }) => (isSelected ? selectedWidth : defaultWidth)};
   height: fit-content;
   display: grid;
   transform: ${({ currentIndex }) =>
-    `translateX(calc(50vw - min(245px, 35vw) - ${currentIndex} * min(350px, 50vw)))`};
+    `translateX(calc(50vw - ${halfSelectedWidth} - ${currentIndex} * ${defaultWidth}))`};
   transition: 0.5s;
   z-index: ${({ isSelected }) => (isSelected ? 10 : 0)};
 `;
 
 export const ProjectLogoWrapper = styled('div')<ProjectLogoWrapperProps>`
-  width: ${({ isSelected }) => (isSelected ? 'min(490px, 70vw)' : 'min(350px, 50vw)')};
-  height: min(490px, 70vw);
+  width: ${({ isSelected }) => (isSelected ? selectedWidth : defaultWidth)};
+  height: ${selectedWidth};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,13 +58,14 @@ export const ProjectLogoWrapper = styled('div')<ProjectLogoWrapperProps>`
 `;
 
 export const ProjectLogo = styled(Image)<ProjectLogoProps>`
-  width: ${({ isSelected }) => (isSelected ? 'min(490px, 70vw)' : 'min(350px, 50vw)')};
-  height: ${({ isSelected }) => (isSelected ? 'min(490px, 70vw)' : 'min(350px, 50vw)')};
+  width: ${({ isSelected }) => (isSelected ? selectedWidth : defaultWidth)};
+  height: ${({ isSelected }) => (isSelected ? selectedWidth : defaultWidth)};
   object-fit: contain;
   transition: 0.5s;
 `;
 
 export const ProjectName = styled('div')<ProjectNameProps>`
+  width: ${selectedWidth};
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -70,21 +75,22 @@ export const ProjectName = styled('div')<ProjectNameProps>`
 `;
 
 export const ProjectTitle = styled('h2')`
-  font-size: 2.4rem;
+  font-size: 2.8rem;
+  font-weight: 600;
   color: ${({ theme }) => theme.color.white};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: min(7.2vw, 2.5rem);
+    font-size: min(7vw, 2.8rem);
   }
 `;
 
 export const ProjectSubtitle = styled('h3')`
   font-size: 1.2rem;
   color: ${({ theme }) => theme.color.gray[300]};
-  margin-top: 8px;
+  margin-top: 4px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: min(3.6vw, 1.2rem);
+    font-size: min(3vw, 1.2rem);
   }
 `;
 
@@ -95,7 +101,7 @@ export const ProjectMoreButton = styled(Link)<ProjectMoreButtonProps>`
   pointer-events: ${({ isSelected, disabled }) =>
     disabled ? 'none' : isSelected ? 'default' : 'none'};
   transition: 0.5s;
-  margin-top: 32px;
+  margin-top: 36px;
 `;
 
 export const MoreButtonIcon = styled(BoxArrowUpRight)`
