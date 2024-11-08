@@ -16,7 +16,7 @@ export const LayoutWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
   }
 `;

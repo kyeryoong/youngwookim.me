@@ -20,12 +20,20 @@ const Navigator = ({ focusedIndex, buttons }: NavigatorProps) => {
       switch (name) {
         case '개요':
           return <S.OverviewIcon isFocused={index === focusedIndex} />;
+        case '성과':
+          return <S.AchievementIcon isFocused={index === focusedIndex} />;
         case '개발 인원':
           return <S.TeamMembersIcon isFocused={index === focusedIndex} />;
+        case '구조':
+          return <S.ArchitectureIcon isFocused={index === focusedIndex} />;
         case '소스 코드':
           return <S.SourceCodeIcon isFocused={index === focusedIndex} />;
         case '기술 스택':
           return <S.TechIcon isFocused={index === focusedIndex} />;
+        case '스크린샷':
+          return <S.ScreenshotIcon isFocused={index === focusedIndex} />;
+        case '영상':
+          return <S.VideoIcon isFocused={index === focusedIndex} />;
       }
     },
     [focusedIndex],

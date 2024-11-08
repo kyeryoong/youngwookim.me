@@ -1,13 +1,14 @@
 import * as S from './styled';
 
 type MemberProps = {
-  name: string;
+  name?: string;
+  id?: string;
   position?: string;
   imageUrl?: string;
   linkUrl?: string;
 };
 
-const Member = ({ name, position, imageUrl, linkUrl }: MemberProps) => {
+const Member = ({ name, id, position, imageUrl, linkUrl }: MemberProps) => {
   const handleClick = () => {
     if (linkUrl) {
       window.open(linkUrl);
@@ -23,8 +24,13 @@ const Member = ({ name, position, imageUrl, linkUrl }: MemberProps) => {
       )}
 
       <S.MemberInfo>
-        <S.MemberName linkUrl={linkUrl} onClick={handleClick}>
+        <S.MemberName>
           {name}
+          {id && (
+            <S.MemberId linkUrl={linkUrl} onClick={handleClick}>
+              @{id}
+            </S.MemberId>
+          )}
         </S.MemberName>
         <S.MemberPosition>{position}</S.MemberPosition>
       </S.MemberInfo>

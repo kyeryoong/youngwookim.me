@@ -24,7 +24,7 @@ const ProjectItem = ({
   };
 
   const handleMoreButtonClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (title === 'cardvisor' || title === 'react-tech-badge') {
+    if (title === 'react-tech-badge') {
       event?.preventDefault();
       alert('Coming Up!');
     }

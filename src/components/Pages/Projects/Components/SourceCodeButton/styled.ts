@@ -2,9 +2,10 @@ import { Github } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 export const SourceCodeButtonWrapper = styled('button')`
-  height: 57.6px;
+  height: 48px;
   background-color: ${({ theme }) => theme.color.gray[50]};
-  padding: 0px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   border: none;
   border-radius: 28px;
   display: flex;
@@ -20,7 +21,10 @@ export const SourceCodeButtonWrapper = styled('button')`
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    height: min(7.2vw, 57.6px);
+    height: min(6vw, 48px);
+    padding-left: min(2.5vw, 20px);
+    padding-right: min(2.5vw, 20px);
+    gap: min(1vw, 8px);
   }
 `;
 

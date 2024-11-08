@@ -1,4 +1,13 @@
-import { FileEarmarkCodeFill, PeopleFill, TerminalFill, TextLeft } from 'react-bootstrap-icons';
+import {
+  CameraReelsFill,
+  Diagram3Fill,
+  FileEarmarkCodeFill,
+  ImageFill,
+  PeopleFill,
+  TerminalFill,
+  TextLeft,
+  TrophyFill,
+} from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type NavigatorWrapper = {
@@ -68,7 +77,25 @@ export const OverviewIcon = styled(TextLeft)<NavigatorIconProps>`
   transition: 0.5s;
 `;
 
+export const AchievementIcon = styled(TrophyFill)<NavigatorIconProps>`
+  width: 24px;
+  height: 24px;
+  max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
+  margin-right: ${({ isFocused }) => (isFocused ? '12px' : '0px')};
+  color: ${({ theme }) => theme.color.white};
+  transition: 0.5s;
+`;
+
 export const TeamMembersIcon = styled(PeopleFill)<NavigatorIconProps>`
+  width: 24px;
+  height: 24px;
+  max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
+  margin-right: ${({ isFocused }) => (isFocused ? '12px' : '0px')};
+  color: ${({ theme }) => theme.color.white};
+  transition: 0.5s;
+`;
+
+export const ArchitectureIcon = styled(Diagram3Fill)<NavigatorIconProps>`
   width: 24px;
   height: 24px;
   max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
@@ -87,6 +114,24 @@ export const SourceCodeIcon = styled(FileEarmarkCodeFill)<NavigatorIconProps>`
 `;
 
 export const TechIcon = styled(TerminalFill)<NavigatorIconProps>`
+  width: 24px;
+  height: 24px;
+  max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
+  margin-right: ${({ isFocused }) => (isFocused ? '12px' : '0px')};
+  color: ${({ theme }) => theme.color.white};
+  transition: 0.5s;
+`;
+
+export const ScreenshotIcon = styled(ImageFill)<NavigatorIconProps>`
+  width: 24px;
+  height: 24px;
+  max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};
+  margin-right: ${({ isFocused }) => (isFocused ? '12px' : '0px')};
+  color: ${({ theme }) => theme.color.white};
+  transition: 0.5s;
+`;
+
+export const VideoIcon = styled(CameraReelsFill)<NavigatorIconProps>`
   width: 24px;
   height: 24px;
   max-width: ${({ isFocused }) => (isFocused ? '24px' : '0px')};

@@ -7,7 +7,7 @@ type TextWrapperProps = {
 export const TextWrapper = styled('p')<TextWrapperProps>`
   font-size: ${({ theme }) => theme.font.xl};
   width: 100%;
-  color: ${({ theme }) => theme.color.gray[200]};
+  color: ${({ theme }) => theme.color.gray[400]};
   text-align: justify;
   word-break: keep-all;
   margin-bottom: ${({ marginBottom }) => `${marginBottom}px`};

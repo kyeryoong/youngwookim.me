@@ -106,7 +106,7 @@ const YoungWooKimMe = () => {
         <Label ref={ref2}>개발 인원</Label>
         <MemberList>
           <Member
-            name={'kyeryoong'}
+            id={'kyeryoong'}
             position={'Developer'}
             imageUrl={'https://avatars.githubusercontent.com/u/98510309?v=4&size=64'}
             linkUrl={'https://github.com/kyeryoong'}
@@ -115,7 +115,11 @@ const YoungWooKimMe = () => {
 
         <Label ref={ref3}>소스 코드</Label>
         <Text>
-          <SourceCodeButton linkUrl={'https://github.com/kyeryoong/youngwookim.me'} />
+          <SourceCodeButton
+            userName={'kyeryoong'}
+            repositoryName={'youngwookim.me'}
+            linkUrl={'https://github.com/kyeryoong/youngwookim.me'}
+          />
         </Text>
 
         <Label ref={ref4}>기술 스택</Label>

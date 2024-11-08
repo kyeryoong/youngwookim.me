@@ -1,10 +1,12 @@
 import * as S from './styled';
 
 type SourceCodeButtonProps = {
+  userName: string;
+  repositoryName: string;
   linkUrl: string;
 };
 
-const SourceCodeButton = ({ linkUrl }: SourceCodeButtonProps) => {
+const SourceCodeButton = ({ userName, repositoryName, linkUrl }: SourceCodeButtonProps) => {
   const handleClick = () => {
     if (linkUrl) {
       window.open(linkUrl);
@@ -14,9 +16,9 @@ const SourceCodeButton = ({ linkUrl }: SourceCodeButtonProps) => {
   return (
     <S.SourceCodeButtonWrapper onClick={handleClick}>
       <S.GitHubIcon />
-      <S.Prefix>kyeryoong</S.Prefix>
+      <S.Prefix>{userName}</S.Prefix>
       <S.Slash>&#47;</S.Slash>
-      <S.Suffix>youngwookim.me</S.Suffix>
+      <S.Suffix>{repositoryName}</S.Suffix>
     </S.SourceCodeButtonWrapper>
   );
 };
