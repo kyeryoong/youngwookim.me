@@ -1,5 +1,7 @@
 import { ReactNode, useEffect } from 'react';
 
+import isMobile from '@/utils/isMobile';
+
 import * as S from './styled';
 
 type ModalProps = {
@@ -24,10 +26,16 @@ const Modal = ({ isOpened, title, text, children, onBackgroundClick }: ModalProp
   useEffect(() => {
     if (isOpened) {
       document.body.style.overflowY = 'hidden';
-      document.body.style.paddingRight = '16px';
+
+      if (!isMobile()) {
+        document.body.style.paddingRight = '16px';
+      }
     } else {
       document.body.style.overflowY = 'auto';
-      document.body.style.paddingRight = '0px';
+
+      if (!isMobile()) {
+        document.body.style.paddingRight = '0px';
+      }
     }
   }, [isOpened]);
 
