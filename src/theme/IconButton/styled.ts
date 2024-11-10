@@ -28,7 +28,7 @@ export const IconButtonWrapper = styled('button')<IconButtonWrapperProps>`
     cursor: default;
 
     svg {
-      fill: ${({ theme }) => theme.color.gray[600]};
+      fill: ${({ theme }) => theme.color.gray[700]};
     }
 
     &:hover {
@@ -45,17 +45,17 @@ export const IconButtonWrapper = styled('button')<IconButtonWrapperProps>`
 export const LeftIcon = styled(ChevronLeft)`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.color.gray[300]};
+  color: ${({ theme }) => theme.color.gray[200]};
 `;
 
 export const RightIcon = styled(ChevronRight)`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.color.gray[300]};
+  color: ${({ theme }) => theme.color.gray[200]};
 `;
 
 export const CloseIcon = styled(XLg)`
   width: 75%;
   height: 75%;
-  color: ${({ theme }) => theme.color.gray[300]};
+  color: ${({ theme }) => theme.color.gray[200]};
 `;
