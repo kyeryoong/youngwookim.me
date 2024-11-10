@@ -8,7 +8,7 @@ type MouseScrollDownWrapperProps = {
 
 export const IntroWrapper = styled('div')`
   width: 100%;
-  height: 100dvh;
+  height: 100svh;
   position: relative;
 `;
 
