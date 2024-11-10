@@ -1,6 +1,7 @@
 import { TouchEvent, useCallback, useState } from 'react';
 
 import IconButton from '@/theme/IconButton';
+import Pagination from '@/theme/Pagination';
 
 import projectsData from './data';
 import ProjectItem from './ProjectItem';
@@ -79,15 +80,13 @@ const MainPage = () => {
         />
       </S.ArrowButtonWrapper>
 
-      <S.Pagination>
-        {projectsData.map((project, index) => (
-          <S.Dot
-            key={project.title}
-            isSelcted={index === currentIndex}
-            onClick={() => handleProjectItemClick(index)}
-          />
-        ))}
-      </S.Pagination>
+      <S.PaginationWrapper>
+        <Pagination
+          currentIndex={currentIndex}
+          totalIndex={projectsData.length}
+          onClick={handleProjectItemClick}
+        />
+      </S.PaginationWrapper>
     </S.MainPageWrapper>
   );
 };
