@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import IconButton from '@/theme/IconButton';
+
 import { achievementDataType } from '../data';
 import ImageCarousel from '../ImageCarousel';
 import ImageItem from '../ImageCarousel/ImageItem';
@@ -48,12 +50,21 @@ const ImageViewer = ({ show, imageData, onClose }: ImageViewerProps) => {
         ))}
       </ImageCarousel>
 
-      <S.CloseButton onClick={onClose} />
-      <S.LeftButton onClick={handleLeftButtonClick} disabled={imageIndex === 0} />
-      <S.RightButton
-        onClick={handleRightButtonClick}
-        disabled={imageIndex === imageData?.images?.length - 1}
-      />
+      <S.CloseButtonWrapper>
+        <IconButton type={'close'} onClick={onClose} />
+      </S.CloseButtonWrapper>
+
+      <S.LeftButtonWrapper>
+        <IconButton type={'left'} onClick={handleLeftButtonClick} disabled={imageIndex === 0} />
+      </S.LeftButtonWrapper>
+
+      <S.RightButtonWrapper>
+        <IconButton
+          type={'right'}
+          onClick={handleRightButtonClick}
+          disabled={imageIndex === imageData?.images?.length - 1}
+        />
+      </S.RightButtonWrapper>
     </S.ImageViewerWrapper>
   );
 };

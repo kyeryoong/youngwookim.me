@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type DotProps = {
@@ -34,51 +33,6 @@ export const ArrowButtonWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-export const ArrowButton = styled('button')`
-  color: ${({ theme }) => theme.color.white};
-  background-color: transparent;
-  border: none;
-  margin: 0px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.5s;
-
-  &:hover {
-    transform: scale(1.5);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    color: ${({ theme }) => theme.color.gray[500]};
-    cursor: default;
-
-    &:hover {
-      transform: scale(1);
-    }
-  }
-`;
-
-export const LeftButton = styled(ArrowButton)`
-  justify-content: flex-start;
-  margin-left: 3vw;
-`;
-
-export const RightButton = styled(ArrowButton)`
-  justify-content: flex-end;
-  margin-right: 3vw;
-`;
-
-export const LeftIcon = styled(ChevronLeft)`
-  width: min(6vw, 32px);
-  height: min(6vw, 32px);
-`;
-
-export const RightIcon = styled(ChevronRight)`
-  width: min(6vw, 32px);
-  height: min(6vw, 32px);
 `;
 
 export const Pagination = styled('div')`

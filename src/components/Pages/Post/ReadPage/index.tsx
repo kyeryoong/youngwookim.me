@@ -5,9 +5,9 @@ import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
-import BackButton from '@/theme/BackButton';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
+import IconButton from '@/theme/IconButton';
 import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
@@ -119,7 +119,14 @@ const ReadPage = observer(() => {
     <S.ReadPageWrapper>
       <PostHeader
         title={post?.title ?? ''}
-        leftElements={<BackButton onClick={handleBackButtonClick} />}
+        leftElements={
+          <IconButton
+            type={'left'}
+            size={32}
+            onClick={handleBackButtonClick}
+            style={{ marginLeft: 'calc(-1 * min(1vw, 8px))' }}
+          />
+        }
       />
 
       {isPostLoaded ? (

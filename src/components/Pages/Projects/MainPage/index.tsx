@@ -1,5 +1,7 @@
 import { TouchEvent, useCallback, useState } from 'react';
 
+import IconButton from '@/theme/IconButton';
+
 import projectsData from './data';
 import ProjectItem from './ProjectItem';
 import * as S from './styled';
@@ -69,15 +71,12 @@ const MainPage = () => {
       </S.ProjectItemsWrapper>
 
       <S.ArrowButtonWrapper>
-        <S.LeftButton onClick={handleLeftButtonClick} disabled={currentIndex === 0}>
-          <S.LeftIcon />
-        </S.LeftButton>
-        <S.RightButton
+        <IconButton type={'left'} onClick={handleLeftButtonClick} disabled={currentIndex === 0} />
+        <IconButton
+          type={'right'}
           onClick={handleRightButtonClick}
           disabled={currentIndex === projectsData.length - 1}
-        >
-          <S.RightIcon />
-        </S.RightButton>
+        />
       </S.ArrowButtonWrapper>
 
       <S.Pagination>
