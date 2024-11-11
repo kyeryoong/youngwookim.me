@@ -1,37 +1,52 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export const CardvisorIntroWrapper = styled('div')`
-  width: 100%;
-  height: 100%;
-  background-color: #00c8c8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+export const Title = styled('h1')`
+  font-size: 7.2rem;
+  font-weight: 700;
+  color: white;
+  word-break: keep-all;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(14.4vw, 7.2rem);
+  }
+`;
+
+export const Subtitle = styled('h2')`
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: white;
+  word-break: keep-all;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(4.8vw, 2.4rem);
+  }
+`;
+
+export const CardvisorLogo = styled(Image)`
+  width: 240px;
+  height: 48px;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    width: min(30vw, 240px);
+    height: min(6vw, 48px);
+  }
 `;
 
 export const Label = styled('h3')`
-  font-size: min(3.6vw, 2.4rem);
-  font-weight: 600;
-  width: 84vw;
-  text-align: left;
-  color: white;
-  margin-bottom: -3vw;
-`;
-
-export const Title = styled(Image)`
-  width: 84vw;
-  height: 28vw;
-`;
-
-export const SubTitle = styled('h2')`
-  font-size: min(3vw, 2rem);
+  font-size: 1.8rem;
   font-weight: 300;
-  width: 84vw;
-  text-align: right;
-  color: white;
-  margin-top: -5vw;
+  color: ${({ theme }) => theme.color.gray[500]};
+  word-break: keep-all;
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: min(3.6vw, 1.8rem);
+    bottom: min(10vw, 80px);
+    left: min(5vw, 80px);
+  }
 `;
 
 export const DiagramImage = styled(Image)`

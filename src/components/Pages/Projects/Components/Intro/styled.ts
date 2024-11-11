@@ -1,52 +1,58 @@
-import { ChevronDown, Mouse } from 'react-bootstrap-icons';
+import Image from 'next/image';
 import styled from 'styled-components';
 
-type MouseScrollDownWrapperProps = {
-  showMouseScroll: boolean;
-  mouseScrollColor: string;
+type IntroRightWrapperProps = {
+  color: string;
 };
 
 export const IntroWrapper = styled('div')`
   width: 100%;
   height: 100svh;
   position: relative;
+  display: flex;
+  flex-direction: row;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
 `;
 
-export const MouseScrollDownWrapper = styled('div')<MouseScrollDownWrapperProps>`
-  width: 32px;
-  position: absolute;
-  bottom: 64px;
-  left: calc(50vw - 16px);
+export const IntroLeftWrapper = styled('div')`
+  width: 50%;
+  height: 100svh;
+  background-color: rgb(15, 15, 15);
+  padding: 80px;
   display: flex;
   flex-direction: column;
-  opacity: ${({ showMouseScroll }) => (showMouseScroll ? 1 : 0)};
-  color: ${({ mouseScrollColor }) => mouseScrollColor};
-  gap: 16px;
-  align-items: center;
-  transition: 1s;
+  position: relative;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    width: 100%;
+    height: 50svh;
+    padding: min(10vw, 80px) min(5vw, 80px);
+  }
 `;
 
-export const MouseScrollIcon = styled(Mouse)`
-  width: 32px;
-  height: 32px;
-  opacity: 0.75;
+export const IntroRightWrapper = styled('div')<IntroRightWrapperProps>`
+  width: 50%;
+  height: 100svh;
+  background-color: ${({ color }) => color};
+  position: relative;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    width: 100%;
+    height: 50svh;
+  }
 `;
 
-export const ArrowDownIcon = styled(ChevronDown)`
-  width: 20px;
-  height: 20px;
-  opacity: 0.75;
-  animation: floating 2s infinite;
+export const IntroGraphic = styled(Image)`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
 
-  @keyframes floating {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+  @media (pointer: coarse) or (max-width: 1200px) {
+    width: 100vw;
+    height: 50svh;
   }
 `;

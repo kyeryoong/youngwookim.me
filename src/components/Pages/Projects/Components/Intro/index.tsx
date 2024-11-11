@@ -1,41 +1,20 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 
 import * as S from './styled';
 
 type IntroProps = {
+  color: string;
+  imgSrc: string;
   children?: ReactNode;
-  mouseScrollColor?: string;
 };
 
-const Intro = ({ children, mouseScrollColor = 'white' }: IntroProps) => {
-  const [showMouseScroll, setShowMouseScroll] = useState<boolean>(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowMouseScroll(false);
-      } else {
-        setShowMouseScroll(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+const Intro = ({ color, imgSrc, children }: IntroProps) => {
   return (
     <S.IntroWrapper>
-      {children}
-      <S.MouseScrollDownWrapper
-        showMouseScroll={showMouseScroll}
-        mouseScrollColor={mouseScrollColor}
-      >
-        <S.MouseScrollIcon />
-        <S.ArrowDownIcon />
-      </S.MouseScrollDownWrapper>
+      <S.IntroLeftWrapper>{children}</S.IntroLeftWrapper>
+      <S.IntroRightWrapper color={color}>
+        <S.IntroGraphic width={0} height={0} sizes={'100%'} src={imgSrc} alt={'image'} />
+      </S.IntroRightWrapper>
     </S.IntroWrapper>
   );
 };

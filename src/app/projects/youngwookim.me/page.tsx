@@ -1,7 +1,6 @@
 'use client';
 
 import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { useTheme } from 'styled-components';
 
 import BadgeList from '@/components/Badge/BadgeList';
 import GitBadge from '@/components/Badge/Premade/GitBadge';
@@ -25,7 +24,6 @@ import * as S from './styled';
 
 const YoungWooKimMe = () => {
   const { menuStore } = useStore();
-  const theme = useTheme();
 
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
@@ -67,12 +65,9 @@ const YoungWooKimMe = () => {
 
   return (
     <>
-      <Intro mouseScrollColor={theme.color.gray[500]}>
-        <S.YoungWooKimMeIntroWrapper>
-          <S.Label>project</S.Label>
-          <S.Title>youngwookim.me</S.Title>
-          <S.SubTitle>나를 나타낼 수 있는 포트폴리오 웹페이지</S.SubTitle>
-        </S.YoungWooKimMeIntroWrapper>
+      <Intro color={'white'} imgSrc={'/projects/youngwookim.me/graphic.webp'}>
+        <S.Subtitle>나를 나타낼 수 있는 포트폴리오 웹페이지</S.Subtitle>
+        <S.Title>youngwookim.me</S.Title>
       </Intro>
 
       <Layout>

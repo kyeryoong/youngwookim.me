@@ -63,22 +63,21 @@ const Cardvisor = () => {
 
   return (
     <>
-      <Intro>
-        <S.CardvisorIntroWrapper>
-          <S.Label>사용자 소비 패턴 기반 카드 추천 서비스</S.Label>
-          <S.Title
-            width={0}
-            height={0}
-            src={'/projects/cardvisor/logo.png'}
-            sizes={'100%'}
-            alt={'cardvisor'}
-          />
-          <S.SubTitle>
-            2022년도 홍익대학교 컴퓨터공학과
-            <br />
-            졸업 프로젝트 작품
-          </S.SubTitle>
-        </S.CardvisorIntroWrapper>
+      <Intro color={'#00C8C8'} imgSrc={'/projects/cardvisor/graphic.webp'}>
+        <S.Subtitle>사용자 소비 패턴 기반 카드 추천 서비스</S.Subtitle>
+        <S.Title>카드바이저</S.Title>
+        <S.CardvisorLogo
+          width={0}
+          height={0}
+          sizes={'100%'}
+          alt={'cardvisor logo'}
+          src={'/projects/cardvisor/cardvisor_logo.svg'}
+        />
+        <S.Label>
+          2022년 홍익대학교 컴퓨터공학과
+          <br />
+          졸업 프로젝트 작품
+        </S.Label>
       </Intro>
 
       <Layout>
@@ -148,7 +147,7 @@ const Cardvisor = () => {
             width={0}
             height={0}
             sizes={'100%'}
-            src={'/projects/cardvisor/diagram.webp'}
+            src={'/projects/cardvisor/diagram_dark.webp'}
             alt={'cardvisor'}
           />
         </Text>
