@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const selectedWidth = 'min(480px, 64vw)';
-const arrowButtonWidth = 'min(100vw, 800px)';
+const arrowButtonWidth = 'min(92vw, 720px)';
 const halfArrowButtonWidth = `calc(${arrowButtonWidth} / 2)`;
 
 export const MainPageWrapper = styled('div')`
