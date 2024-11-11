@@ -123,14 +123,16 @@ const YoungWooKimMe = () => {
         </Text>
 
         <Heading1 ref={ref4}>기술 스택</Heading1>
-        <BadgeList gap={16}>
-          <NextJSBadge size={32} core />
-          <VercelBadge size={32} core />
-          <StyledComponentsBadge size={32} core />
-          <MongoDBBadge size={32} core />
-          <GitBadge size={32} core />
-          <GitHubBadge size={32} core />
-        </BadgeList>
+        <Text>
+          <BadgeList gap={16}>
+            <NextJSBadge size={32} core />
+            <VercelBadge size={32} core />
+            <StyledComponentsBadge size={32} core />
+            <MongoDBBadge size={32} core />
+            <GitBadge size={32} core />
+            <GitHubBadge size={32} core />
+          </BadgeList>
+        </Text>
       </Layout>
 
       <Navigator
