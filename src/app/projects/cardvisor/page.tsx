@@ -13,10 +13,13 @@ import SourceCodeButton from '@/components/Pages/Projects/Components/SourceCodeB
 import SourceCodeButtonList from '@/components/Pages/Projects/Components/SourceCodeButtonList';
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const Cardvisor = () => {
+  const { menuStore } = useStore();
+
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
@@ -50,9 +53,11 @@ const Cardvisor = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    menuStore.setShowHeader(false);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      menuStore.setShowHeader(true);
     };
   }, []);
 

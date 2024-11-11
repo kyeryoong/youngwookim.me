@@ -19,10 +19,12 @@ import Navigator from '@/components/Pages/Projects/Components/Navigator';
 import SourceCodeButton from '@/components/Pages/Projects/Components/SourceCodeButton';
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import { useStore } from '@/stores';
 
 import * as S from './styled';
 
 const YoungWooKimMe = () => {
+  const { menuStore } = useStore();
   const theme = useTheme();
 
   const ref1 = useRef<HTMLDivElement>(null);
@@ -55,9 +57,11 @@ const YoungWooKimMe = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    menuStore.setShowHeader(false);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      menuStore.setShowHeader(true);
     };
   }, []);
 
