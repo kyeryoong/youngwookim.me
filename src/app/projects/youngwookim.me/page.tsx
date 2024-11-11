@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 
 import BadgeList from '@/components/Badge/BadgeList';
@@ -30,39 +30,14 @@ const YoungWooKimMe = () => {
   const ref3 = useRef<HTMLDivElement>(null);
   const ref4 = useRef<HTMLDivElement>(null);
 
+  const refArray = [ref1, ref2, ref3, ref4];
+
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
 
   const scrollOffset = 150;
 
-  const handleClickLabel1 = useCallback(() => {
-    const offsetTop = ref1.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickLabel2 = useCallback(() => {
-    const offsetTop = ref2.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickLabel3 = useCallback(() => {
-    const offsetTop = ref3.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickLabel4 = useCallback(() => {
-    const offsetTop = ref4.current?.getBoundingClientRect().top ?? 0;
+  const handleHeading1Click = useCallback((ref: RefObject<HTMLDivElement>) => {
+    const offsetTop = ref.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
       top: window.scrollY + offsetTop - scrollOffset,
@@ -72,12 +47,9 @@ const YoungWooKimMe = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const refPositions = [
-        Math.abs((ref1.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref2.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref3.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref4.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-      ];
+      const refPositions = refArray.map((ref: RefObject<HTMLDivElement>) =>
+        Math.abs((ref.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
+      );
 
       setFocusedIndex(refPositions.indexOf(Math.min(...refPositions)));
     };
@@ -137,12 +109,10 @@ const YoungWooKimMe = () => {
 
       <Navigator
         focusedIndex={focusedIndex}
-        buttons={[
-          { name: '개요', onClick: handleClickLabel1 },
-          { name: '개발 인원', onClick: handleClickLabel2 },
-          { name: '소스 코드', onClick: handleClickLabel3 },
-          { name: '기술 스택', onClick: handleClickLabel4 },
-        ]}
+        buttons={['개요', '개발 인원', '소스 코드', '기술 스택'].map((name, index) => ({
+          name,
+          onClick: () => handleHeading1Click(refArray[index]),
+        }))}
       />
 
       <ScrollToTopButton />

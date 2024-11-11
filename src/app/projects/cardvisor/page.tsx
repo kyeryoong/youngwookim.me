@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 import Heading1 from '@/components/Pages/Projects/Components/Heading/Heading1';
 import ImageCarousel from '@/components/Pages/Projects/Components/ImageCarousel';
@@ -25,66 +25,14 @@ const Cardvisor = () => {
   const ref6 = useRef<HTMLDivElement>(null);
   const ref7 = useRef<HTMLDivElement>(null);
 
+  const refArray = [ref1, ref2, ref3, ref4, ref5, ref6, ref7];
+
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
 
   const scrollOffset = 150;
 
-  const handleClickHeading11 = useCallback(() => {
-    const offsetTop = ref1.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading12 = useCallback(() => {
-    const offsetTop = ref2.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading13 = useCallback(() => {
-    const offsetTop = ref3.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading14 = useCallback(() => {
-    const offsetTop = ref4.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading15 = useCallback(() => {
-    const offsetTop = ref5.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading16 = useCallback(() => {
-    const offsetTop = ref6.current?.getBoundingClientRect().top ?? 0;
-
-    window.scrollTo({
-      top: window.scrollY + offsetTop - scrollOffset,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  const handleClickHeading17 = useCallback(() => {
-    const offsetTop = ref7.current?.getBoundingClientRect().top ?? 0;
+  const handleHeading1Click = useCallback((ref: RefObject<HTMLDivElement>) => {
+    const offsetTop = ref.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
       top: window.scrollY + offsetTop - scrollOffset,
@@ -94,15 +42,9 @@ const Cardvisor = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const refPositions = [
-        Math.abs((ref1.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref2.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref3.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref4.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref5.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref6.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-        Math.abs((ref7.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
-      ];
+      const refPositions = refArray.map((ref: RefObject<HTMLDivElement>) =>
+        Math.abs((ref.current?.getBoundingClientRect().top ?? 0) - scrollOffset),
+      );
 
       setFocusedIndex(refPositions.indexOf(Math.min(...refPositions)));
     };
@@ -238,15 +180,9 @@ const Cardvisor = () => {
 
       <Navigator
         focusedIndex={focusedIndex}
-        buttons={[
-          { name: '개요', onClick: handleClickHeading11 },
-          { name: '성과', onClick: handleClickHeading12 },
-          { name: '개발 인원', onClick: handleClickHeading13 },
-          { name: '소스 코드', onClick: handleClickHeading14 },
-          { name: '구조', onClick: handleClickHeading15 },
-          { name: '스크린샷', onClick: handleClickHeading16 },
-          { name: '영상', onClick: handleClickHeading17 },
-        ]}
+        buttons={['개요', '성과', '개발 인원', '소스 코드', '구조', '스크린샷', '영상'].map(
+          (name, index) => ({ name, onClick: () => handleHeading1Click(refArray[index]) }),
+        )}
       />
       <ScrollToTopButton />
     </>
