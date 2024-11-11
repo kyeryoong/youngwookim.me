@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import Heading1 from '@/components/Pages/Projects/Components/Heading/Heading1';
 import ImageCarousel from '@/components/Pages/Projects/Components/ImageCarousel';
 import Intro from '@/components/Pages/Projects/Components/Intro';
-import Label from '@/components/Pages/Projects/Components/Label';
 import Layout from '@/components/Pages/Projects/Components/Layout';
 import Member from '@/components/Pages/Projects/Components/Member';
 import MemberList from '@/components/Pages/Projects/Components/MemberList';
@@ -29,7 +29,7 @@ const Cardvisor = () => {
 
   const scrollOffset = 150;
 
-  const handleClickLabel1 = useCallback(() => {
+  const handleClickHeading11 = useCallback(() => {
     const offsetTop = ref1.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -38,7 +38,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel2 = useCallback(() => {
+  const handleClickHeading12 = useCallback(() => {
     const offsetTop = ref2.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -47,7 +47,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel3 = useCallback(() => {
+  const handleClickHeading13 = useCallback(() => {
     const offsetTop = ref3.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -56,7 +56,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel4 = useCallback(() => {
+  const handleClickHeading14 = useCallback(() => {
     const offsetTop = ref4.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -65,7 +65,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel5 = useCallback(() => {
+  const handleClickHeading15 = useCallback(() => {
     const offsetTop = ref5.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -74,7 +74,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel6 = useCallback(() => {
+  const handleClickHeading16 = useCallback(() => {
     const offsetTop = ref6.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -83,7 +83,7 @@ const Cardvisor = () => {
     });
   }, []);
 
-  const handleClickLabel7 = useCallback(() => {
+  const handleClickHeading17 = useCallback(() => {
     const offsetTop = ref7.current?.getBoundingClientRect().top ?? 0;
 
     window.scrollTo({
@@ -135,7 +135,7 @@ const Cardvisor = () => {
       </Intro>
 
       <Layout>
-        <Label ref={ref1}>개요</Label>
+        <Heading1 ref={ref1}>개요</Heading1>
         <Text>
           대한민국은 연간 카드 승인 금액이 약 200조원이 넘을 만큼, 카드 사용량이 많은 나라입니다.
           사용자 본인에게 적합한 카드를 사용하게되면, 효율적인 경제 활동을 할 수 있습니다. 그래서,
@@ -143,7 +143,7 @@ const Cardvisor = () => {
           서비스를 개발하였습니다.
         </Text>
 
-        <Label ref={ref2}>성과</Label>
+        <Heading1 ref={ref2}>성과</Heading1>
         <Text>
           - 2022년도 홍익대학교 컴퓨터공학과 졸업 전시회 - 최우수상
           <br />
@@ -151,7 +151,7 @@ const Cardvisor = () => {
           <br />- 2022년도 창작종합설계프로젝트 1, 2 - 지도 교수 선정 우수 작품
         </Text>
 
-        <Label ref={ref3}>개발 인원</Label>
+        <Heading1 ref={ref3}>개발 인원</Heading1>
         <MemberList>
           <Member
             name={'김민석'}
@@ -178,7 +178,7 @@ const Cardvisor = () => {
           />
         </MemberList>
 
-        <Label ref={ref4}>소스 코드</Label>
+        <Heading1 ref={ref4}>소스 코드</Heading1>
         <Text>
           <SourceCodeButtonList>
             <SourceCodeButton
@@ -195,7 +195,7 @@ const Cardvisor = () => {
           </SourceCodeButtonList>
         </Text>
 
-        <Label ref={ref5}>구조</Label>
+        <Heading1 ref={ref5}>구조</Heading1>
         <Text>
           <S.DiagramImage
             width={0}
@@ -206,7 +206,7 @@ const Cardvisor = () => {
           />
         </Text>
 
-        <Label ref={ref6}>스크린샷</Label>
+        <Heading1 ref={ref6}>스크린샷</Heading1>
         <Text>
           <ImageCarousel
             images={[
@@ -223,7 +223,7 @@ const Cardvisor = () => {
           />
         </Text>
 
-        <Label ref={ref7}>영상</Label>
+        <Heading1 ref={ref7}>영상</Heading1>
         <S.YouTubePlayerWrapper>
           <S.YouTubePlayer
             width={'100%'}
@@ -239,13 +239,13 @@ const Cardvisor = () => {
       <Navigator
         focusedIndex={focusedIndex}
         buttons={[
-          { name: '개요', onClick: handleClickLabel1 },
-          { name: '성과', onClick: handleClickLabel2 },
-          { name: '개발 인원', onClick: handleClickLabel3 },
-          { name: '소스 코드', onClick: handleClickLabel4 },
-          { name: '구조', onClick: handleClickLabel5 },
-          { name: '스크린샷', onClick: handleClickLabel6 },
-          { name: '영상', onClick: handleClickLabel7 },
+          { name: '개요', onClick: handleClickHeading11 },
+          { name: '성과', onClick: handleClickHeading12 },
+          { name: '개발 인원', onClick: handleClickHeading13 },
+          { name: '소스 코드', onClick: handleClickHeading14 },
+          { name: '구조', onClick: handleClickHeading15 },
+          { name: '스크린샷', onClick: handleClickHeading16 },
+          { name: '영상', onClick: handleClickHeading17 },
         ]}
       />
       <ScrollToTopButton />

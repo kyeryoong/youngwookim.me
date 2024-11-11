@@ -8,10 +8,10 @@ type MemberIdProps = {
 
 export const MemberWrapper = styled('div')`
   display: flex;
-  gap: 16px;
+  gap: 12px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    gap: min(2vw, 16px);
+    gap: min(3vw, 12px);
   }
 `;
 
@@ -21,16 +21,16 @@ export const MemberImage = styled(Image)`
   border-radius: 28px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: min(8vw, 56px);
-    height: min(8vw, 56px);
-    border-radius: min(4vw, 28px);
+    width: min(10vw, 56px);
+    height: min(10vw, 56px);
+    border-radius: min(5vw, 28px);
   }
 `;
 
 export const MemberNoImage = styled(PersonCircle)`
   width: min(8vw, 56px);
   height: min(8vw, 56px);
-  color: ${({ theme }) => theme.color.gray[500]};
+  color: ${({ theme }) => theme.color.gray[600]};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: min(8vw, 56px);
@@ -45,12 +45,12 @@ export const MemberInfo = styled('div')`
   gap: 4px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    gap: min(0.5vw, 4px);
+    gap: min(1vw, 4px);
   }
 `;
 
 export const MemberName = styled('div')`
-  font-size: ${({ theme }) => theme.font.xl};
+  font-size: 1.2rem;
   font-weight: 500;
   word-break: keep-all;
   color: ${({ theme }) => theme.color.white};
@@ -58,7 +58,8 @@ export const MemberName = styled('div')`
   gap: 8px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xl};
+    font-size: min(3.6vw, 1.2rem);
+    gap: min(2vw, 8px);
   }
 `;
 
@@ -72,12 +73,12 @@ export const MemberId = styled('span')<MemberIdProps>`
 `;
 
 export const MemberPosition = styled('span')`
-  font-size: ${({ theme }) => theme.font.m};
+  font-size: 0.9rem;
   max-width: calc(90vw - 64px);
   word-break: keep-all;
-  color: ${({ theme }) => theme.color.gray[500]};
+  color: ${({ theme }) => theme.color.gray[600]};
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.m};
+    font-size: min(2.7vw, 0.9rem);
   }
 `;
