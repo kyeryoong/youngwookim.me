@@ -39,7 +39,6 @@ export const MemberNoImage = styled(PersonCircle)`
 `;
 
 export const MemberInfo = styled('div')`
-  min-width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +52,6 @@ export const MemberInfo = styled('div')`
 export const MemberName = styled('div')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
-  max-width: calc(90vw - 60px);
   word-break: keep-all;
   color: ${({ theme }) => theme.color.white};
   display: flex;
