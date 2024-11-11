@@ -156,7 +156,7 @@ const Cardvisor = () => {
           <Member
             name={'김민석'}
             id={'min-0404'}
-            position={'Team Leader, Backend Devloper (데이터 분석, 알고리즘 설계)'}
+            position={'Team Leader, Backend Devloper'}
             imageUrl={'https://avatars.githubusercontent.com/u/78293352?v=4size=64'}
             linkUrl={'https://github.com/min-0404'}
           />
@@ -164,7 +164,7 @@ const Cardvisor = () => {
           <Member
             name={'조융'}
             id={'yung5060'}
-            position={'Backend Developer (API 설계, 알고리즘 설계)'}
+            position={'Backend Developer'}
             imageUrl={'https://avatars.githubusercontent.com/u/80459033?v=4&size=64'}
             linkUrl={'https://github.com/yung5060'}
           />
