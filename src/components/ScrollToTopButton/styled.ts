@@ -32,18 +32,13 @@ export const ScrollToTopButtonWrapper = styled('button')<ScrollToTopButtonWrappe
   }
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    width: 40px;
-    height: 40px;
+    width: min(10vw, 60px);
+    height: min(10vw, 60px);
     right: 5vw;
   }
 `;
 
 export const ArrowUpIcon = styled(ChevronUp)`
-  width: 30px;
-  height: 30px;
-
-  @media (pointer: coarse) or (max-width: 1000px) {
-    width: 20px;
-    height: 20px;
-  }
+  width: 50%;
+  height: 50%;
 `;
