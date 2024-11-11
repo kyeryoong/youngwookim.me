@@ -76,7 +76,7 @@ export const MemberPosition = styled('span')`
   font-size: 0.9rem;
   max-width: calc(90vw - 64px);
   word-break: keep-all;
-  color: ${({ theme }) => theme.color.gray[600]};
+  color: ${({ theme }) => theme.color.gray[500]};
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(2.7vw, 0.9rem);
