@@ -44,7 +44,7 @@ export const YouTubePlayerWrapper = styled('div')`
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 25px;
-  border-radius: 12px;
+  border-radius: 8px;
   float: none;
   clear: both;
 `;
@@ -55,5 +55,5 @@ export const YouTubePlayer = styled('iframe')`
   position: absolute;
   top: 0px;
   left: 0px;
-  border-radius: 12px;
+  border-radius: 8px;
 `;
