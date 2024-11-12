@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { CSSProperties } from 'styled-components';
 
 import * as S from './styled';
 
@@ -10,9 +11,10 @@ type IconButtonProps = {
   color?: string;
   onClick?: () => void;
   disabled?: boolean;
+  style?: CSSProperties;
 };
 
-const IconButton = ({ type, size = 40, color, onClick, disabled }: IconButtonProps) => {
+const IconButton = ({ type, size = 40, color, onClick, disabled, style }: IconButtonProps) => {
   const getIcon = useCallback(() => {
     switch (type) {
       case 'left':
@@ -25,7 +27,7 @@ const IconButton = ({ type, size = 40, color, onClick, disabled }: IconButtonPro
   }, []);
 
   return (
-    <S.IconButtonWrapper size={size} onClick={onClick} disabled={disabled}>
+    <S.IconButtonWrapper size={size} onClick={onClick} disabled={disabled} style={style}>
       {getIcon()}
     </S.IconButtonWrapper>
   );
