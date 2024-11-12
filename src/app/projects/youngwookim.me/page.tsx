@@ -9,6 +9,7 @@ import MongoDBBadge from '@/components/Badge/Premade/MongoDBBadge';
 import NextJSBadge from '@/components/Badge/Premade/NextJSBadge';
 import StyledComponentsBadge from '@/components/Badge/Premade/StyledComponentsBadge';
 import VercelBadge from '@/components/Badge/Premade/VercelBadge';
+import Header from '@/components/Pages/Projects/Components/Header';
 import Heading1 from '@/components/Pages/Projects/Components/Heading/Heading1';
 import Intro from '@/components/Pages/Projects/Components/Intro';
 import Layout from '@/components/Pages/Projects/Components/Layout';
@@ -34,7 +35,7 @@ const YoungWooKimMe = () => {
 
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
 
-  const scrollOffset = 150;
+  const scrollOffset = 120;
 
   const handleHeading1Click = useCallback((ref: RefObject<HTMLDivElement>) => {
     const offsetTop = ref.current?.getBoundingClientRect().top ?? 0;
@@ -65,6 +66,8 @@ const YoungWooKimMe = () => {
 
   return (
     <>
+      <Header name={'youngwookim.me'} />
+
       <Intro color={'white'} imgSrc={'/projects/youngwookim.me/graphic.webp'}>
         <S.Subtitle>나를 나타낼 수 있는 포트폴리오 웹페이지</S.Subtitle>
         <S.Title>youngwookim.me</S.Title>

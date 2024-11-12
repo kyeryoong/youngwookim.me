@@ -2,6 +2,7 @@
 
 import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
+import Header from '@/components/Pages/Projects/Components/Header';
 import Heading1 from '@/components/Pages/Projects/Components/Heading/Heading1';
 import ImageCarousel from '@/components/Pages/Projects/Components/ImageCarousel';
 import Intro from '@/components/Pages/Projects/Components/Intro';
@@ -32,7 +33,7 @@ const Cardvisor = () => {
 
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
 
-  const scrollOffset = 150;
+  const scrollOffset = 120;
 
   const handleHeading1Click = useCallback((ref: RefObject<HTMLDivElement>) => {
     const offsetTop = ref.current?.getBoundingClientRect().top ?? 0;
@@ -63,6 +64,8 @@ const Cardvisor = () => {
 
   return (
     <>
+      <Header name={'카드바이저'} />
+
       <Intro color={'#00C8C8'} imgSrc={'/projects/cardvisor/graphic.webp'}>
         <S.Subtitle>사용자 소비 패턴 기반 카드 추천 서비스</S.Subtitle>
         <S.Title>카드바이저</S.Title>
