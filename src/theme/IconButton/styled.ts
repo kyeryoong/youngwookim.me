@@ -5,6 +5,10 @@ type IconButtonWrapperProps = {
   size: number;
 };
 
+type IconButtonProps = {
+  color?: string;
+};
+
 export const IconButtonWrapper = styled('button')<IconButtonWrapperProps>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
@@ -42,20 +46,20 @@ export const IconButtonWrapper = styled('button')<IconButtonWrapperProps>`
   }
 `;
 
-export const LeftIcon = styled(ChevronLeft)`
+export const LeftIcon = styled(ChevronLeft)<IconButtonProps>`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, color }) => color ?? theme.color.white};
 `;
 
-export const RightIcon = styled(ChevronRight)`
+export const RightIcon = styled(ChevronRight)<IconButtonProps>`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, color }) => color ?? theme.color.white};
 `;
 
-export const CloseIcon = styled(XLg)`
+export const CloseIcon = styled(XLg)<IconButtonProps>`
   width: 75%;
   height: 75%;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, color }) => color ?? theme.color.white};
 `;
