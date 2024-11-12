@@ -1,81 +1,111 @@
 import Spline from '@splinetool/react-spline';
 import styled from 'styled-components';
 
+type SplineObjectWrapper = {
+  show: boolean;
+};
+
+type HighlightProps = {
+  degree: number;
+};
+
 export const HomeWrapper = styled('div')`
   width: 100vw;
   height: 100dvh;
   position: relative;
   background-color: ${({ theme }) => theme.color.black};
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const SplineObject = styled(Spline)`
-  width: 34vw !important;
-  height: 34vw !important;
+export const SplineObject = styled(Spline)<SplineObjectWrapper>`
+  width: 1000px !important;
+  height: 1000px !important;
   background-color: transparent !important;
   position: absolute;
-  top: calc(50dvh - 17vw + 2vw);
-  left: 12.3vw;
   z-index: 100;
   opacity: 0;
   transform: scale(0);
-  animation: fadeIn 2s forwards;
-  animation-delay: 1.5s;
+  animation: ${({ show }) => show && 'fadeIn 2s forwards'};
+  animation-delay: 1s;
 
   @keyframes fadeIn {
     0% {
       opacity: 0;
       transform: scale(0);
+      background-color: green;
     }
     100% {
       opacity: 1;
       transform: scale(1);
+      background-color: red;
     }
   }
 
   canvas {
-    width: 34vw !important;
-    height: 34vw !important;
+    width: 1000px !important;
+    height: 1000px !important;
     background-color: transparent !important;
   }
-`;
 
-export const Text = styled('h1')`
-  font-size: 21vw;
-  font-weight: 600;
-  width: 100vw;
-  height: 30vw;
-  line-height: 30vw;
-  text-align: center;
-  letter-spacing: -0.5vw;
-  color: ${({ theme }) => theme.color.white};
-  position: absolute;
-  top: calc(50dvh - 15vw);
-  transform: scale(2);
-  opacity: 0;
-  animation: zoomIn 2s forwards;
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: min(120vw, 1000px) !important;
+    height: min(120vw, 1000px) !important;
 
-  @keyframes zoomIn {
-    0% {
-      transform: scale(2);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
+    canvas {
+      width: min(120vw, 1000px) !important;
+      height: min(120vw, 1000px) !important;
     }
   }
 `;
 
-export const TextGradient = styled('div')`
-  width: calc(100vw);
-  height: 30vw;
-  line-height: 30vw;
-  position: absolute;
-  top: calc(50dvh - 15vw);
+export const TitleTop = styled('h1')`
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: transparent;
   background: ${({ theme }) =>
-    theme.mode === 'dark'
-      ? `linear-gradient(120deg, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.98) 100%)`
-      : `linear-gradient(120deg, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.98) 100%)`};
-  transition: 0.5s;
+    `linear-gradient(90deg, ${theme.color.gray[500]}, ${theme.color.white})`};
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  top: 15dvh;
+  left: 100px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: min(9.6vw, 4.8rem);
+    left: 5vw;
+  }
+`;
+
+export const TitleBottom = styled('h1')`
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: transparent;
+  background: ${({ theme }) =>
+    `linear-gradient(90deg, ${theme.color.white}, ${theme.color.gray[500]})`};
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: right;
+  position: absolute;
+  bottom: 12dvh;
+  right: 100px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: min(9.6vw, 4.8rem);
+    right: 5vw;
+  }
+`;
+
+export const Highlight = styled('span')<HighlightProps>`
+  font-size: 4.8rem;
+  font-weight: 600;
+  color: transparent;
+  background: ${({ degree }) => `linear-gradient(${degree}deg, #00beff, #0038d7)`};
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: min(9.6vw, 4.8rem);
+  }
 `;
