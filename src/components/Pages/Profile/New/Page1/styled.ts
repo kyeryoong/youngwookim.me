@@ -19,7 +19,7 @@ type KeywordProps = {
 
 export const Page1Wrapper = styled('div')`
   width: 100%;
-  height: 500dvh;
+  height: 550dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,8 @@ export const Page1Background = styled('div')<Page1BackgroundProps>`
   height: 100dvh;
   position: fixed;
   top: 0px;
-  background: linear-gradient(270deg, #00beff, #0038d7);
+  background: ${({ theme }) =>
+    `linear-gradient(270deg, ${theme.color.youngBlue}, ${theme.color.youngLightBlue})`};
   opacity: ${({ showBackground }) => (showBackground ? 1 : 0)};
   transition: 0.5s;
 `;

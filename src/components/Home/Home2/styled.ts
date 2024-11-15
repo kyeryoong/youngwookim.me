@@ -83,7 +83,8 @@ export const Highlight = styled('span')<HighlightProps>`
   font-size: 4.8rem;
   font-weight: 600;
   color: transparent;
-  background: ${({ degree }) => `linear-gradient(${degree}deg, #00beff, #0038d7)`};
+  background: ${({ theme, degree }) =>
+    `linear-gradient(${degree}deg, ${theme.color.youngBlue}, ${theme.color.youngLightBlue})`};
   background-clip: text;
   -webkit-background-clip: text;
 
