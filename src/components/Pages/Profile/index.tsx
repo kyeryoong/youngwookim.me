@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Page1 from './Page1';
 import Page3 from './Page3';
 import Page4 from './Page4';
-import * as S from './styled';
+import Page5 from './Page5';
 
 const New = () => {
   const [positionY, setPositionY] = useState<number>(0);
@@ -21,13 +21,12 @@ const New = () => {
   }, []);
 
   return (
-    <S.NewProfileWrapper>
+    <>
       <Page1 positionY={positionY} />
-      {/* <Page2 positionY={positionY} /> */}
       <Page3 positionY={positionY} />
       <Page4 positionY={positionY} />
-      <S.PageTemp />
-    </S.NewProfileWrapper>
+      <Page5 positionY={positionY} />
+    </>
   );
 };
 

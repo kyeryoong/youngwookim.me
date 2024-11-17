@@ -1,6 +1,6 @@
 'use client';
 
-import New from '@/components/Pages/Profile/New';
+import New from '@/components/Pages/Profile';
 
 const Profile = () => {
   return <New />;

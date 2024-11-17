@@ -24,8 +24,8 @@ export const Page1Wrapper = styled('div')`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.color.black};
-  top: 0px;
   position: sticky;
+  top: 0px;
 `;
 
 export const Page1Background = styled('div')<Page1BackgroundProps>`
@@ -34,7 +34,7 @@ export const Page1Background = styled('div')<Page1BackgroundProps>`
   position: fixed;
   top: 0px;
   background: ${({ theme }) =>
-    `linear-gradient(270deg, ${theme.color.youngBlue}, ${theme.color.youngLightBlue})`};
+    `linear-gradient(270deg, ${theme.color.cyan[300]}, ${theme.color.blue[700]})`};
   opacity: ${({ showBackground }) => (showBackground ? 1 : 0)};
   transition: 0.5s;
 `;
@@ -56,7 +56,7 @@ export const TextWrapper = styled('div')<TextWrapperProps>`
   transition: 0.5s;
 
   @media (pointer: coarse) or (max-width: 1600px) {
-    font-size: min(9.6vw, 3.6rem);
+    font-size: min(11vw, 3.6rem);
     line-height: min(12vw, 75px);
     flex-direction: column;
   }
@@ -106,7 +106,7 @@ export const Keyword = styled('h1')<KeywordProps>`
   }
 
   @media (pointer: coarse) or (max-width: 1600px) {
-    font-size: min(9.6vw, 3.6rem);
+    font-size: min(11vw, 3.6rem);
     height: min(24vw, 150px);
     line-height: min(12vw, 75px);
 
