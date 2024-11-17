@@ -22,7 +22,7 @@ const MenuElement = observer(({ target }: MeunElementProps) => {
   };
 
   return (
-    <S.MenuElementWrapper onClick={handleMenuClick} href={`/${target}`}>
+    <S.MenuElementWrapper onClick={handleMenuClick} href={`/${target}`} scroll={false}>
       <S.MenuElementCursor />
       {target !== '' ? capitalize(target) : 'Home'}
     </S.MenuElementWrapper>
