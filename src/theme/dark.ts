@@ -178,5 +178,7 @@ export default {
       [800]: '#4527a0',
       [900]: '#311b92',
     },
+    youngBlue: '#0038d7',
+    youngLightBlue: '#00beff',
   },
 };

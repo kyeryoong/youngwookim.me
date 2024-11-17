@@ -31,5 +31,7 @@ export default {
     indigo: dark.color.indigo,
     purple: dark.color.purple,
     deepPurple: dark.color.deepPurple,
+    youngBlue: '#0038d7',
+    youngLightBlue: '#00beff',
   },
 };
