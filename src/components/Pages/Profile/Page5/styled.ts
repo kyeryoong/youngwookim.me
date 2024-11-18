@@ -6,7 +6,7 @@ type TitleProps = {
 
 export const Page5Wrapper = styled('section')`
   width: 100%;
-  height: 300vh;
+  height: 400vh;
   background-color: red;
 `;
 
@@ -54,7 +54,7 @@ export const Title1 = styled('h1')<TitleProps>`
 
 export const Scene2 = styled('section')`
   width: 100%;
-  height: 300vh;
+  height: 400vh;
   position: sticky;
   top: 0px;
   color: white;

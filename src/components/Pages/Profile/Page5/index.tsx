@@ -12,14 +12,16 @@ const Page5 = ({ positionY }: Page5Props) => {
 
   const translateXArray = isMobile()
     ? [
-        [0, 0, 0],
-        [-100, 0, 0],
-        [-100, -100, 0],
+        [0, 0, 0, 0],
+        [-100, 0, 0, 0],
+        [-100, -100, 0, 0],
+        [-100, -100, -100, 0],
       ]
     : [
-        [-10, 0, 10],
-        [-150, -5, 5],
-        [-150, -150, 0],
+        [-15, -5, 5, 15],
+        [-150, -10, 0, 10],
+        [-150, -150, -5, 5],
+        [-150, -150, -150, 0],
       ];
 
   const getDescriptionIndex = () => {
@@ -27,8 +29,10 @@ const Page5 = ({ positionY }: Page5Props) => {
       return 0;
     } else if (positionY >= 14 * vh && positionY < 15 * vh) {
       return 1;
-    } else if (positionY >= 15 * vh) {
+    } else if (positionY >= 15 * vh && positionY < 16 * vh) {
       return 2;
+    } else if (positionY >= 16 * vh) {
+      return 3;
     } else {
       return 0;
     }
@@ -57,7 +61,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           <S.DescriptionWrapper
             style={{
               transform: `translateX(${translateXArray[getDescriptionIndex()][0]}%)`,
-              zIndex: 3,
+              zIndex: 4,
             }}
           >
             <S.PhoneWrapper>
@@ -75,7 +79,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           <S.DescriptionWrapper
             style={{
               transform: `translateX(${translateXArray[getDescriptionIndex()][1]}%)`,
-              zIndex: 2,
+              zIndex: 3,
             }}
           >
             <S.PhoneWrapper>
@@ -91,7 +95,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           <S.DescriptionWrapper
             style={{
               transform: `translateX(${translateXArray[getDescriptionIndex()][2]}%)`,
-              zIndex: 1,
+              zIndex: 2,
             }}
           >
             <S.PhoneWrapper>
@@ -102,6 +106,25 @@ const Page5 = ({ positionY }: Page5Props) => {
               <S.DescriptionTitle>이미지 일괄 다운로드</S.DescriptionTitle>
               <S.DescriptionText>
                 모든 이미지를 하나하나 다운로드할 필요 없이 한 번에 다운로드하게 해드릴게요.
+              </S.DescriptionText>
+            </S.Description>
+          </S.DescriptionWrapper>
+
+          <S.DescriptionWrapper
+            style={{
+              transform: `translateX(${translateXArray[getDescriptionIndex()][3]}%)`,
+              zIndex: 1,
+            }}
+          >
+            <S.PhoneWrapper>
+              <Phone videoSrc={'/profile/swipe_zoomin.mp4'} />
+            </S.PhoneWrapper>
+
+            <S.Description>
+              <S.DescriptionTitle>스와이프 & 줌/인 뷰어</S.DescriptionTitle>
+              <S.DescriptionText>
+                스와이프 제스처로 손쉽게 이미지를 이동할 수 있고, 핀치 줌 제스처로 더 큰 크기로
+                이미지를 볼 수 있도록 했어요.
               </S.DescriptionText>
             </S.Description>
           </S.DescriptionWrapper>
