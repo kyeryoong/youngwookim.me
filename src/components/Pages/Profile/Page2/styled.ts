@@ -64,7 +64,7 @@ export const DaysLabel = styled('h2')<DaysLabelProps>`
   opacity: ${({ isFinished }) => (isFinished ? 1 : 0)};
   transition: 1.5s;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(3vw, 3rem);
   }
 `;

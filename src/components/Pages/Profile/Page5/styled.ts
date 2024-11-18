@@ -12,9 +12,9 @@ export const Page5Wrapper = styled('section')`
 
 export const Scene1 = styled('div')`
   width: 100%;
-  height: 200dvh;
+  height: 250dvh;
   background: ${({ theme }) =>
-    `linear-gradient(90deg, ${theme.color.deepPurple[800]}, ${theme.color.indigo[400]})`};
+    `linear-gradient(270deg, ${theme.color.cyan[300]}, ${theme.color.green[300]})`};
   position: sticky;
   top: 0px;
 `;
@@ -30,7 +30,7 @@ export const TitleWrapper = styled('div')`
   top: 0px;
 `;
 
-export const Title = styled('h1')<TitleProps>`
+export const Title1 = styled('h1')<TitleProps>`
   font-size: 6rem;
   font-weight: 700;
   width: fit-content;
@@ -54,60 +54,120 @@ export const Title = styled('h1')<TitleProps>`
 
 export const Scene2 = styled('div')`
   width: 100%;
-  height: fit-content;
+  height: 300dvh;
   position: sticky;
   top: 0px;
   color: white;
   background-color: ${({ theme }) => theme.color.black};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 100px;
-  padding-top: 100px;
-  padding-bottom: 100px;
 `;
 
-export const DescriptionWrapper = styled('div')`
-  width: min(90vw, 1200px);
+export const DescriptionListWrapper = styled('ul')`
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Title2 = styled('div')`
+  color: ${({ theme }) => theme.color.white};
+  width: 100%;
+  height: calc(32dvh - 160px);
+  padding: 0px 100px;
+  position: absolute;
+  top: 160px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
-    flex-direction: column;
+  @media (pointer: coarse) or (max-width: 1000px) {
+    height: calc(24dvh - 100px);
+    top: 100px;
+    padding: 0px 5vw;
+  }
+`;
+
+export const Title2Text = styled('h2')`
+  font-size: min(4.5vw, 3rem);
+  font-weight: 600;
+`;
+
+export const Title2Index = styled('h2')`
+  font-size: min(6vw, 4rem);
+  color: ${({ theme }) => theme.color.gray[700]};
+`;
+
+export const Title2IndexHighlight = styled('strong')`
+  color: ${({ theme }) => theme.color.cyan[500]};
+`;
+
+export const DescriptionWrapper = styled('li')`
+  display: none;
+  width: min(100%, 1280px);
+  height: 68dvh;
+  position: absolute;
+  top: 32dvh;
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr;
+  gap: 60px;
+  padding: 80px 80px 0px 80px;
+  border-radius: 16px 16px 0px 0px;
+  background: ${({ theme }) =>
+    `linear-gradient(270deg, ${theme.color.cyan[300]}, ${theme.color.green[300]})`};
+  box-shadow: 0px 0px 20px 10px rgba(50, 50, 50, 0.1);
+  transition: 0.5s;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    height: 76dvh;
+    top: 24dvh;
+    grid-template-columns: none;
+    grid-template-rows: fit-content(100%) 1fr;
+    gap: min(7.5vw, 60px);
+    padding: min(10vw, 80px) min(5vw, 80px) 0px min(5vw, 80px);
+  }
+`;
+
+export const PhoneWrapper = styled('div')`
+  @media (pointer: coarse) or (max-width: 1000px) {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: -40px;
+    order: 1;
   }
 `;
 
 export const Description = styled('article')`
-  width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  gap: 32px;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    width: 100%;
-    gap: min(2.5vw, 20px);
+    gap: min(2vw, 32px);
+    order: -1;
   }
 `;
 
 export const DescriptionTitle = styled('h2')`
-  font-size: 4rem;
+  font-size: 3.2rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.color.white};
+  color: white;
   word-break: keep-all;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(10vw, 4rem);
+    font-size: min(8vw, 3.2rem);
   }
 `;
 
 export const DescriptionText = styled('p')`
   font-size: 1.6rem;
-  color: ${({ theme }) => theme.color.gray[600]};
+  font-weight: 400;
+  color: white;
   word-break: keep-all;
 
   @media (pointer: coarse) or (max-width: 1200px) {

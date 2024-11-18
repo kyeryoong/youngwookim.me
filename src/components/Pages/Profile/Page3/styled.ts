@@ -39,7 +39,7 @@ export const Title1Top = styled('h1')<Title1Props>`
     progress < 100 ? `translateX(calc(-100% + ${progress}%))` : '0px'};
   transition: 0.1s;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(10vw, 6rem);
   }
 `;
@@ -55,7 +55,7 @@ export const Title1Bottom = styled('h1')<Title1Props>`
     progress < 100 ? `translateX(calc(100% - ${progress}%))` : '0px'};
   transition: 0.1s;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(10vw, 6rem);
   }
 `;
@@ -75,7 +75,7 @@ export const Scene2 = styled('div')`
   transition: 0.5s;
   background-color: ${({ theme }) => theme.color.black};
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(10vw, 6rem);
   }
 `;
@@ -86,7 +86,7 @@ export const Title2Begin = styled('h1')<Title2Props>`
   height: 400px;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.color.black};
+  color: white;
   transform: ${({ show }) =>
     show ? 'translateY(-25dvh) scale(0.8)' : 'translateY(0dvh) scale(1)'};
   opacity: ${({ show }) => (!show ? 1 : 0)};
@@ -95,7 +95,7 @@ export const Title2Begin = styled('h1')<Title2Props>`
   z-index: 1;
   transition: 0.5s;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(10vw, 6rem);
   }
 `;
@@ -120,7 +120,7 @@ export const Title2End = styled('h1')<Title2Props>`
   z-index: 1;
   transition: 0.5s;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(10vw, 6rem);
   }
 `;

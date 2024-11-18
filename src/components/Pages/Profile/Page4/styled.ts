@@ -67,7 +67,7 @@ export const Description = styled('figure')`
   display: flex;
   flex-direction: column;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     padding: min(5vw, 40px);
     border-radius: min(2.5vw, 20px);
   }
@@ -78,7 +78,7 @@ export const DescriptionTitle = styled('h2')`
   font-weight: 600;
   color: ${({ theme }) => theme.color.gray[200]};
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(6vw, 3rem);
   }
 `;
@@ -89,7 +89,7 @@ export const DescriptionSubtitle = styled('h3')`
   color: ${({ theme }) => theme.color.gray[500]};
   margin-bottom: 32px;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(3.2vw, 1.6rem);
     margin-bottom: min(4vw, 32px);
   }
@@ -101,7 +101,7 @@ export const DescriptionContentList = styled('ul')`
   flex-direction: column;
   gap: 16px;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     gap: min(2vw, 16px);
   }
 `;
@@ -117,7 +117,7 @@ export const DescriptionContent = styled('li')`
   list-style: none;
   word-break: keep-all;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(3.2vw, 1.6rem);
     border-radius: min(1vw, 8px);
     padding: min(3vw, 24px);
