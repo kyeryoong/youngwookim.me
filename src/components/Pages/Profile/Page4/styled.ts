@@ -50,8 +50,8 @@ export const DescriptionList = styled('li')`
 `;
 
 export const DescriptionWrapper = styled('div')`
-  width: min(72vw, 560px);
-  height: min(72vw, 560px);
+  width: min(90vw, 560px);
+  height: min(90vw, 560px);
   padding: 20px;
 `;
 
