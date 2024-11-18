@@ -137,7 +137,7 @@ export const PhoneWrapper = styled('div')`
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-bottom: -40px;
+    margin-bottom: 0px;
     order: 1;
   }
 `;

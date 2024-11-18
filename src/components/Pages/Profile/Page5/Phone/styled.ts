@@ -3,12 +3,11 @@ import styled from 'styled-components';
 
 export const PhoneWrapper = styled('section')`
   width: 400px;
-  height: 760px;
+  aspect-ratio: 9 / 17;
   position: relative;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: min(80vw, 400px);
-    height: min(152vw, 760px);
   }
 `;
 
