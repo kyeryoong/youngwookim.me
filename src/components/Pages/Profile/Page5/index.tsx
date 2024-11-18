@@ -23,11 +23,11 @@ const Page5 = ({ positionY }: Page5Props) => {
       ];
 
   const getDescriptionIndex = () => {
-    if (positionY < 13.5 * vh) {
+    if (positionY < 14 * vh) {
       return 0;
-    } else if (positionY >= 13.5 * vh && positionY < 14.5 * vh) {
+    } else if (positionY >= 14 * vh && positionY < 15 * vh) {
       return 1;
-    } else if (positionY >= 14.5 * vh) {
+    } else if (positionY >= 15 * vh) {
       return 2;
     } else {
       return 0;
@@ -38,7 +38,7 @@ const Page5 = ({ positionY }: Page5Props) => {
     <S.Page5Wrapper>
       <S.Scene1>
         <S.TitleWrapper>
-          <S.Title1 progress={((positionY - 10.5 * vh) / vh) * 100}>
+          <S.Title1 progress={((positionY - 11 * vh) / vh) * 100}>
             사용자 경험을 생각하며 개발합니다.
           </S.Title1>
         </S.TitleWrapper>
