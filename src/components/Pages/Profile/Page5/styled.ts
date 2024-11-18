@@ -110,7 +110,7 @@ export const DescriptionWrapper = styled('li')`
   width: min(100%, 1280px);
   height: 68vh;
   position: absolute;
-  top: 32vh;
+  bottom: 0vh;
   display: grid;
   grid-template-columns: fit-content(100%) 1fr;
   gap: 60px;
@@ -123,7 +123,6 @@ export const DescriptionWrapper = styled('li')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 76vh;
-    top: 24vh;
     grid-template-columns: none;
     grid-template-rows: fit-content(100%) 1fr;
     gap: min(7.5vw, 60px);
@@ -147,7 +146,7 @@ export const Description = styled('div')`
   flex-direction: column;
   gap: 32px;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     gap: min(2vw, 32px);
     order: -1;
   }
@@ -159,7 +158,7 @@ export const DescriptionTitle = styled('h2')`
   color: white;
   word-break: keep-all;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(8vw, 3.2rem);
   }
 `;
@@ -170,7 +169,7 @@ export const DescriptionText = styled('p')`
   color: white;
   word-break: keep-all;
 
-  @media (pointer: coarse) or (max-width: 1200px) {
+  @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(4vw, 1.6rem);
   }
 `;
