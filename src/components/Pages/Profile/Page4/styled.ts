@@ -6,7 +6,7 @@ type DescriptionsWrapperProps = {
 
 export const Page4Wrapper = styled('section')`
   width: 100%;
-  height: 400dvh;
+  height: 400vh;
   display: flex;
   flex-direction: row;
   top: 0px;
@@ -16,7 +16,7 @@ export const Page4Wrapper = styled('section')`
 
 export const DescriptionsCarouselWrapper = styled('article')<DescriptionsWrapperProps>`
   width: 100%;
-  height: 70dvh;
+  height: 70vh;
   overflow: hidden;
   display: flex;
   align-items: center;

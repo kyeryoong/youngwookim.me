@@ -6,13 +6,13 @@ type TitleProps = {
 
 export const Page5Wrapper = styled('section')`
   width: 100%;
-  height: 300dvh;
+  height: 400vh;
   background-color: red;
 `;
 
 export const Scene1 = styled('div')`
   width: 100%;
-  height: 250dvh;
+  height: 250vh;
   background: ${({ theme }) =>
     `linear-gradient(270deg, ${theme.color.cyan[300]}, ${theme.color.green[300]})`};
   position: sticky;
@@ -21,7 +21,7 @@ export const Scene1 = styled('div')`
 
 export const TitleWrapper = styled('div')`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@ export const Title1 = styled('h1')<TitleProps>`
 
 export const Scene2 = styled('div')`
   width: 100%;
-  height: 300dvh;
+  height: 300vh;
   position: sticky;
   top: 0px;
   color: white;
@@ -63,7 +63,7 @@ export const Scene2 = styled('div')`
 
 export const DescriptionListWrapper = styled('ul')`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   overflow: hidden;
   position: sticky;
   top: 0px;
@@ -75,7 +75,7 @@ export const DescriptionListWrapper = styled('ul')`
 export const Title2 = styled('div')`
   color: ${({ theme }) => theme.color.white};
   width: 100%;
-  height: calc(32dvh - 160px);
+  height: calc(32vh - 160px);
   padding: 0px 100px;
   position: absolute;
   top: 160px;
@@ -85,7 +85,7 @@ export const Title2 = styled('div')`
   justify-content: space-between;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    height: calc(24dvh - 100px);
+    height: calc(24vh - 100px);
     top: 100px;
     padding: 0px 5vw;
   }
@@ -108,9 +108,9 @@ export const Title2IndexHighlight = styled('strong')`
 export const DescriptionWrapper = styled('li')`
   display: none;
   width: min(100%, 1280px);
-  height: 68dvh;
+  height: 68vh;
   position: absolute;
-  top: 32dvh;
+  top: 32vh;
   display: grid;
   grid-template-columns: fit-content(100%) 1fr;
   gap: 60px;
@@ -122,8 +122,8 @@ export const DescriptionWrapper = styled('li')`
   transition: 0.5s;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    height: 76dvh;
-    top: 24dvh;
+    height: 76vh;
+    top: 24vh;
     grid-template-columns: none;
     grid-template-rows: fit-content(100%) 1fr;
     gap: min(7.5vw, 60px);

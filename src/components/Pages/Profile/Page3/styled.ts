@@ -10,14 +10,14 @@ type Title2Props = {
 
 export const Page3Wrapper = styled('sec')`
   width: 100%;
-  height: 400dvh;
+  height: 400vh;
   position: sticky;
   top: 0px;
 `;
 
 export const Scene1 = styled('div')`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
   flex-direction: column;
@@ -62,9 +62,9 @@ export const Title1Bottom = styled('h1')<Title1Props>`
 
 export const Scene2 = styled('div')`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   position: fixed;
-  top: 50dvh;
+  top: 50vh;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   overflow: hidden;
@@ -87,11 +87,10 @@ export const Title2Begin = styled('h1')<Title2Props>`
   display: flex;
   align-items: center;
   color: white;
-  transform: ${({ show }) =>
-    show ? 'translateY(-25dvh) scale(0.8)' : 'translateY(0dvh) scale(1)'};
+  transform: ${({ show }) => (show ? 'translateY(-25vh) scale(0.8)' : 'translateY(0vh) scale(1)')};
   opacity: ${({ show }) => (!show ? 1 : 0)};
   position: absolute;
-  top: calc(50dvh - 200px);
+  top: calc(50vh - 200px);
   z-index: 1;
   transition: 0.5s;
 
@@ -112,11 +111,10 @@ export const Title2End = styled('h1')<Title2Props>`
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  transform: ${({ show }) =>
-    show ? 'translateY(-25dvh) scale(0.8)' : 'translateY(0dvh) scale(1)'};
+  transform: ${({ show }) => (show ? 'translateY(-25vh) scale(0.8)' : 'translateY(0vh) scale(1)')};
   opacity: ${({ show }) => (show ? 1 : 0)};
   position: absolute;
-  top: calc(50dvh - 200px);
+  top: calc(50vh - 200px);
   z-index: 1;
   transition: 0.5s;
 
@@ -127,7 +125,7 @@ export const Title2End = styled('h1')<Title2Props>`
 
 export const Scene2Background = styled('div')<Title2Props>`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   background: ${({ theme }) =>
     `linear-gradient(90deg, ${theme.color.cyan[300]}, ${theme.color.green[300]})`};
   position: absolute;

@@ -15,7 +15,7 @@ type ProgressBarProps = {
 
 export const Page2Wrapper = styled('div')`
   width: 100%;
-  height: 300dvh;
+  height: 300vh;
   background-color: ${({ theme }) => theme.color.black};
   top: 0px;
   position: sticky;
@@ -23,7 +23,7 @@ export const Page2Wrapper = styled('div')`
 
 export const DaysWrapper = styled('div')`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, fit-content(100%));
   align-content: center;
@@ -72,7 +72,7 @@ export const DaysLabel = styled('h2')<DaysLabelProps>`
 export const ProgressWrapper = styled('div')<ProgressBarProps>`
   width: ${({ progress }) => `${progress}%`};
   position: fixed;
-  bottom: 10dvh;
+  bottom: 10vh;
 `;
 
 export const ProgressBar = styled('div')`

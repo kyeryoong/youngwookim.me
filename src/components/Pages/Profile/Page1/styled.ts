@@ -19,7 +19,7 @@ type KeywordProps = {
 
 export const Page1Wrapper = styled('div')`
   width: 100%;
-  height: 550dvh;
+  height: 550vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ export const Page1Wrapper = styled('div')`
 
 export const Page1Background = styled('div')<Page1BackgroundProps>`
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   position: fixed;
   top: 0px;
   background: ${({ theme }) =>
@@ -43,7 +43,7 @@ export const TextWrapper = styled('div')<TextWrapperProps>`
   font-size: 3.6rem;
   font-weight: ${({ showBackground }) => (showBackground ? 200 : 500)};
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   line-height: 75px;
   color: ${({ theme, showBackground }) =>
     showBackground ? 'rgba(255, 255, 255, 0.85)' : theme.color.white};
