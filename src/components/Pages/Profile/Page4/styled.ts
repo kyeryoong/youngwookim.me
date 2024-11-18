@@ -14,7 +14,7 @@ export const Page4Wrapper = styled('section')`
   transition: 0.5s;
 `;
 
-export const DescriptionsCarouselWrapper = styled('article')<DescriptionsWrapperProps>`
+export const DescriptionsCarouselWrapper = styled('div')<DescriptionsWrapperProps>`
   width: 100%;
   height: 70vh;
   overflow: hidden;
@@ -27,7 +27,7 @@ export const DescriptionsCarouselWrapper = styled('article')<DescriptionsWrapper
   transition: 0.5s;
 `;
 
-export const DescriptionCarousel = styled('div')<DescriptionsWrapperProps>`
+export const DescriptionCarousel = styled('article')<DescriptionsWrapperProps>`
   display: flex;
   align-items: center;
   animation: ${({ show }) => show && 'scroll 15s infinite'};

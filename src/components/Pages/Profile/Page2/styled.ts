@@ -13,7 +13,7 @@ type ProgressBarProps = {
   progress: number;
 };
 
-export const Page2Wrapper = styled('div')`
+export const Page2Wrapper = styled('section')`
   width: 100%;
   height: 300vh;
   background-color: ${({ theme }) => theme.color.black};

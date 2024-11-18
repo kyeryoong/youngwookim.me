@@ -17,7 +17,7 @@ type KeywordProps = {
   progress: number;
 };
 
-export const Page1Wrapper = styled('div')`
+export const Page1Wrapper = styled('section')`
   width: 100%;
   height: 550vh;
   display: flex;

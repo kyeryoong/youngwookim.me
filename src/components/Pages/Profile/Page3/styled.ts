@@ -8,14 +8,14 @@ type Title2Props = {
   show: boolean;
 };
 
-export const Page3Wrapper = styled('sec')`
+export const Page3Wrapper = styled('section')`
   width: 100%;
   height: 400vh;
   position: sticky;
   top: 0px;
 `;
 
-export const Scene1 = styled('div')`
+export const Scene1 = styled('section')`
   width: 100%;
   height: 100vh;
   background-color: ${({ theme }) => theme.color.black};
@@ -60,7 +60,7 @@ export const Title1Bottom = styled('h1')<Title1Props>`
   }
 `;
 
-export const Scene2 = styled('div')`
+export const Scene2 = styled('section')`
   width: 100%;
   height: 100vh;
   position: fixed;

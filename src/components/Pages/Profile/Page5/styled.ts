@@ -10,7 +10,7 @@ export const Page5Wrapper = styled('section')`
   background-color: red;
 `;
 
-export const Scene1 = styled('div')`
+export const Scene1 = styled('section')`
   width: 100%;
   height: 250vh;
   background: ${({ theme }) =>
@@ -52,7 +52,7 @@ export const Title1 = styled('h1')<TitleProps>`
   }
 `;
 
-export const Scene2 = styled('div')`
+export const Scene2 = styled('section')`
   width: 100%;
   height: 300vh;
   position: sticky;
@@ -142,7 +142,7 @@ export const PhoneWrapper = styled('div')`
   }
 `;
 
-export const Description = styled('article')`
+export const Description = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 32px;
