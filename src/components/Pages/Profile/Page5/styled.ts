@@ -12,7 +12,7 @@ export const Page5Wrapper = styled('section')`
 
 export const Scene1 = styled('section')`
   width: 100%;
-  height: 200vh;
+  height: 225vh;
   background: ${({ theme }) =>
     `linear-gradient(270deg, ${theme.color.cyan[300]}, ${theme.color.green[300]})`};
   position: sticky;
