@@ -12,7 +12,7 @@ type Page5Props = {
 const Page5 = ({ positionY }: Page5Props) => {
   const vh = window.innerHeight;
 
-  const [descriptionIndex, setDescriptionIndex] = useState<number | null>(null);
+  const [descriptionIndex, setDescriptionIndex] = useState<number>(0);
 
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
@@ -88,7 +88,7 @@ const Page5 = ({ positionY }: Page5Props) => {
         }
       }, 500);
     } else {
-      setDescriptionIndex(null);
+      setDescriptionIndex(0);
     }
   }, [positionY]);
 
@@ -98,6 +98,8 @@ const Page5 = ({ positionY }: Page5Props) => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [positionY]);
+
+  console.log(translateXArray[descriptionIndex]);
 
   return (
     <S.Page5Wrapper>
@@ -121,9 +123,7 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: descriptionIndex
-                ? `translateX(${translateXArray[descriptionIndex][0]}%)`
-                : '',
+              transform: `translateX(${translateXArray[descriptionIndex][0]}%)`,
               zIndex: 4,
             }}
           >
@@ -141,9 +141,7 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: descriptionIndex
-                ? `translateX(${translateXArray[descriptionIndex][1]}%)`
-                : '',
+              transform: `translateX(${translateXArray[descriptionIndex][1]}%)`,
               zIndex: 3,
             }}
           >
@@ -159,9 +157,7 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: descriptionIndex
-                ? `translateX(${translateXArray[descriptionIndex][2]}%)`
-                : '',
+              transform: `translateX(${translateXArray[descriptionIndex][2]}%)`,
               zIndex: 2,
             }}
           >
@@ -179,9 +175,7 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: descriptionIndex
-                ? `translateX(${translateXArray[descriptionIndex][3]}%)`
-                : '',
+              transform: `translateX(${translateXArray[descriptionIndex][3]}%)`,
               zIndex: 1,
             }}
           >
