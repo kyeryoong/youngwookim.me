@@ -7,7 +7,7 @@ type PhoneProps = {
 const Phone = ({ videoSrc }: PhoneProps) => {
   return (
     <S.PhoneWrapper>
-      <S.PhoneMockup width={450} height={900} src={'/profile/phone.png'} alt={'Phone'} />
+      <S.PhoneMockup width={450} height={900} src={'/profile/phone.webp'} alt={'Phone'} />
       <S.VideoPlayer src={videoSrc} autoPlay loop muted />
     </S.PhoneWrapper>
   );
