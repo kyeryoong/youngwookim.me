@@ -1,3 +1,4 @@
+import { throttle } from 'lodash';
 import { useEffect, useState } from 'react';
 
 import Page1 from './Page1';
@@ -5,18 +6,19 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 import Page5 from './Page5';
 
-const New = () => {
+const Profile = () => {
   const [positionY, setPositionY] = useState<number>(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setPositionY(window.scrollY);
-    };
+    }, 100);
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      handleScroll.cancel();
     };
   }, []);
 
@@ -30,4 +32,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default Profile;
