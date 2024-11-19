@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 import isMobile from '@/utils/isMobile';
 
 import Phone from './Phone';
@@ -9,6 +11,13 @@ type Page5Props = {
 
 const Page5 = ({ positionY }: Page5Props) => {
   const vh = window.innerHeight;
+
+  const [descriptionIndex, setDescriptionIndex] = useState<number | null>(null);
+
+  const videoRef1 = useRef<HTMLVideoElement>(null);
+  const videoRef2 = useRef<HTMLVideoElement>(null);
+  const videoRef3 = useRef<HTMLVideoElement>(null);
+  const videoRef4 = useRef<HTMLVideoElement>(null);
 
   const translateXArray = isMobile()
     ? [
@@ -24,19 +33,71 @@ const Page5 = ({ positionY }: Page5Props) => {
         [-150, -150, -150, 0],
       ];
 
-  const getDescriptionIndex = () => {
-    if (positionY < 14 * vh) {
-      return 0;
+  const handleScroll = useCallback(() => {
+    if (positionY >= 12.25 * vh && positionY < 14 * vh) {
+      setDescriptionIndex(0);
+      videoRef1.current?.play();
+      videoRef2.current?.pause();
+      videoRef3.current?.pause();
+      videoRef4.current?.pause();
+
+      setTimeout(() => {
+        if (videoRef2.current && videoRef3.current && videoRef4.current) {
+          videoRef2.current.currentTime = 0;
+          videoRef3.current.currentTime = 0;
+          videoRef4.current.currentTime = 0;
+        }
+      }, 500);
     } else if (positionY >= 14 * vh && positionY < 15 * vh) {
-      return 1;
+      setDescriptionIndex(1);
+      videoRef1.current?.pause();
+      videoRef2.current?.play();
+      videoRef3.current?.pause();
+      videoRef4.current?.pause();
+      setTimeout(() => {
+        if (videoRef1.current && videoRef3.current && videoRef4.current) {
+          videoRef1.current.currentTime = 0;
+          videoRef3.current.currentTime = 0;
+          videoRef4.current.currentTime = 0;
+        }
+      }, 500);
     } else if (positionY >= 15 * vh && positionY < 16 * vh) {
-      return 2;
+      setDescriptionIndex(2);
+      videoRef1.current?.pause();
+      videoRef2.current?.pause();
+      videoRef3.current?.play();
+      videoRef4.current?.pause();
+      setTimeout(() => {
+        if (videoRef1.current && videoRef2.current && videoRef4.current) {
+          videoRef1.current.currentTime = 0;
+          videoRef2.current.currentTime = 0;
+          videoRef4.current.currentTime = 0;
+        }
+      }, 500);
     } else if (positionY >= 16 * vh) {
-      return 3;
+      setDescriptionIndex(3);
+      videoRef1.current?.pause();
+      videoRef2.current?.pause();
+      videoRef3.current?.pause();
+      videoRef4.current?.play();
+      setTimeout(() => {
+        if (videoRef1.current && videoRef2.current && videoRef3.current) {
+          videoRef1.current.currentTime = 0;
+          videoRef2.current.currentTime = 0;
+          videoRef3.current.currentTime = 0;
+        }
+      }, 500);
     } else {
-      return 0;
+      setDescriptionIndex(null);
     }
-  };
+  }, [positionY]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [positionY]);
 
   return (
     <S.Page5Wrapper>
@@ -53,19 +114,21 @@ const Page5 = ({ positionY }: Page5Props) => {
           <S.Title2>
             <S.Title2Text>사용자 경험을 생각하며 개발합니다.</S.Title2Text>
             <S.Title2Index>
-              <S.Title2IndexHighlight>{getDescriptionIndex() + 1}</S.Title2IndexHighlight> /{' '}
+              <S.Title2IndexHighlight>{(descriptionIndex ?? -99) + 1}</S.Title2IndexHighlight> /{' '}
               {translateXArray.length}
             </S.Title2Index>
           </S.Title2>
 
           <S.DescriptionWrapper
             style={{
-              transform: `translateX(${translateXArray[getDescriptionIndex()][0]}%)`,
+              transform: descriptionIndex
+                ? `translateX(${translateXArray[descriptionIndex][0]}%)`
+                : '',
               zIndex: 4,
             }}
           >
             <S.PhoneWrapper>
-              <Phone videoSrc={'/profile/language.mp4'} />
+              <Phone videoSrc={'/profile/language.mp4'} videoRef={videoRef1} />
             </S.PhoneWrapper>
 
             <S.Description>
@@ -78,12 +141,14 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: `translateX(${translateXArray[getDescriptionIndex()][1]}%)`,
+              transform: descriptionIndex
+                ? `translateX(${translateXArray[descriptionIndex][1]}%)`
+                : '',
               zIndex: 3,
             }}
           >
             <S.PhoneWrapper>
-              <Phone videoSrc={'/profile/theme.mp4'} />
+              <Phone videoSrc={'/profile/theme.mp4'} videoRef={videoRef2} />
             </S.PhoneWrapper>
 
             <S.Description>
@@ -94,12 +159,14 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: `translateX(${translateXArray[getDescriptionIndex()][2]}%)`,
+              transform: descriptionIndex
+                ? `translateX(${translateXArray[descriptionIndex][2]}%)`
+                : '',
               zIndex: 2,
             }}
           >
             <S.PhoneWrapper>
-              <Phone videoSrc={'/profile/zip_download.mp4'} />
+              <Phone videoSrc={'/profile/zip_download.mp4'} videoRef={videoRef3} />
             </S.PhoneWrapper>
 
             <S.Description>
@@ -112,12 +179,14 @@ const Page5 = ({ positionY }: Page5Props) => {
 
           <S.DescriptionWrapper
             style={{
-              transform: `translateX(${translateXArray[getDescriptionIndex()][3]}%)`,
+              transform: descriptionIndex
+                ? `translateX(${translateXArray[descriptionIndex][3]}%)`
+                : '',
               zIndex: 1,
             }}
           >
             <S.PhoneWrapper>
-              <Phone videoSrc={'/profile/swipe_zoomin.mp4'} />
+              <Phone videoSrc={'/profile/swipe_zoomin.mp4'} videoRef={videoRef4} />
             </S.PhoneWrapper>
 
             <S.Description>
