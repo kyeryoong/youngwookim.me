@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect, useRef } from 'react';
 
 import { useStore } from '@/stores';
+import isMobile from '@/utils/isMobile';
 
 import MenuButton from './MenuElement';
 import Prompt from './Prompt';
@@ -45,10 +46,16 @@ const Menu = observer(() => {
   useEffect(() => {
     if (menuStore.isMenuOpened) {
       document.body.style.overflowY = 'hidden';
-      document.body.style.paddingRight = '16px';
+
+      if (!isMobile()) {
+        document.body.style.paddingRight = '16px';
+      }
     } else {
       document.body.style.overflowY = 'auto';
-      document.body.style.paddingRight = '0px';
+
+      if (!isMobile()) {
+        document.body.style.paddingRight = '0px';
+      }
     }
   }, [menuStore.isMenuOpened]);
 
