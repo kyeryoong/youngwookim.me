@@ -1,67 +1,105 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+
+import jetBrainsMono from '@/font/jetBrainsMono';
 
 import * as S from './styled';
 
-type Page2Props = {
-  positionY: number;
-};
+const Page2 = () => {
+  const ref1 = useRef<HTMLLIElement>(null);
+  const ref2 = useRef<HTMLLIElement>(null);
 
-const Page2 = ({ positionY }: Page2Props) => {
-  const vh = window.innerHeight;
+  const [show1, setShow1] = useState<boolean>(false);
+  const [show2, setShow2] = useState<boolean>(false);
 
-  const [count, setCount] = useState<number>(0);
-  const ref = useRef<HTMLDivElement>(null);
+  const workingYears = useMemo(() => {
+    const now = new Date();
+    const date = new Date('2023-07-03');
+    const years = (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
 
-  const daysBetween = useCallback(() => {
-    const today: Date = new Date();
-    const targetDate: Date = new Date('2023-07-03');
-
-    return Math.ceil(Math.abs(targetDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    return parseFloat(years.toFixed(1));
   }, []);
 
-  const number = daysBetween();
-  const frameRate = 1000 / 60;
-  const duration = 2000;
-  const totalFrame = Math.round(duration / frameRate);
-
-  const show = positionY > 5 * vh && positionY < 7.5 * vh;
-
-  const easeOutExpo = (t: number) => {
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-  };
-
   useEffect(() => {
-    let currentNumber = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === ref1.current) {
+              setShow1(true);
+            } else if (entry.target === ref2.current) {
+              setShow2(true);
+            }
+          } else {
+            if (entry.target === ref1.current) {
+              setShow1(false);
+            } else if (entry.target === ref2.current) {
+              setShow2(false);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
-    if (show) {
-      const counter = setInterval(() => {
-        const progressRate = easeOutExpo(++currentNumber / totalFrame);
-        setCount(Math.round(number * progressRate));
-
-        if (progressRate === 1) {
-          clearInterval(counter);
-        }
-      }, frameRate);
+    if (ref1.current && ref2.current) {
+      observer.observe(ref1.current);
+      observer.observe(ref2.current);
     }
-  }, [show]);
+
+    return () => {
+      if (ref1.current && ref2.current) {
+        observer.unobserve(ref1.current);
+        observer.unobserve(ref2.current);
+      }
+    };
+  }, []);
 
   return (
     <S.Page2Wrapper>
-      <S.DaysWrapper>
-        <S.DaysValue ref={ref} show={show}>
-          {count}
-        </S.DaysValue>
-        <S.DaysLabel isFinished={show && count === number}>
-          days of
-          <br />
-          working experience
-        </S.DaysLabel>
-      </S.DaysWrapper>
+      <S.ItemsWrapper>
+        <S.Name ref={ref1} show={show1}>
+          <S.NameLabel>Name</S.NameLabel>
+          <S.ProfileImage width={300} height={300} src={'/profile/profile.webp'} alt={'Profile'} />
+          <S.NameValueWrapper>
+            <S.NameKorean>김영우</S.NameKorean>
+            <S.NameEnglish>Kim Young-Woo</S.NameEnglish>
+          </S.NameValueWrapper>
+        </S.Name>
 
-      <S.ProgressWrapper progress={((positionY - 5 * vh) / (2 * vh)) * 100}>
-        <S.ProgressBar />
-        <S.ProgressIcon />
-      </S.ProgressWrapper>
+        <S.Position show={show1} delay={100}>
+          <S.PositionLabel>Position</S.PositionLabel>
+          <S.PositionValue className={jetBrainsMono.className}>front-end</S.PositionValue>
+        </S.Position>
+
+        <S.Education show={show1} delay={200}>
+          <S.EducationLabel>Education</S.EducationLabel>
+          <S.EducationImage
+            width={0}
+            height={0}
+            sizes={'100%'}
+            src={'/profile/education.webp'}
+            alt={'Hongik University'}
+          />
+
+          <S.EducationValueWrapper>
+            <S.EducationUniveristy>
+              홍익대학교
+              <br />
+              컴퓨터공학전공
+            </S.EducationUniveristy>
+            <S.EducationPeriod>2017.03 ~ 2023.02</S.EducationPeriod>
+          </S.EducationValueWrapper>
+        </S.Education>
+
+        <S.WorkingExperience ref={ref2} show={show2}>
+          <S.WorkingExperienceLabel>Working Experience</S.WorkingExperienceLabel>
+          <S.WorkingYears>{workingYears}</S.WorkingYears>
+        </S.WorkingExperience>
+
+        <S.Tech show={show2} delay={100}>
+          <S.ItemLabel>Tech</S.ItemLabel>
+        </S.Tech>
+      </S.ItemsWrapper>
     </S.Page2Wrapper>
   );
 };
