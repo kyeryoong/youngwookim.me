@@ -125,6 +125,24 @@ const Page2 = () => {
           </S.EducationValueWrapper>
         </S.Education>
 
+        <S.Awards show={show}>
+          <S.AwardsLabel>Awards</S.AwardsLabel>
+          <S.AwardsBorder />
+          <S.AwardsCount>2</S.AwardsCount>
+          <S.AwardsList>
+            <S.AwardsItem>
+              <S.AwardsTitle>홍익대학교 컴퓨터공학과 졸업 전시회</S.AwardsTitle>
+              <S.AwardsContent>최우수상</S.AwardsContent>
+              <S.AwardsDate>2022.11</S.AwardsDate>
+            </S.AwardsItem>
+            <S.AwardsItem>
+              <S.AwardsTitle>마이 핀테크 서비스 해커톤</S.AwardsTitle>
+              <S.AwardsContent>우수상(학생부)</S.AwardsContent>
+              <S.AwardsDate>2022.07</S.AwardsDate>
+            </S.AwardsItem>
+          </S.AwardsList>
+        </S.Awards>
+
         <S.WorkingExperience show={show} delay={300}>
           <S.WorkingExperienceLabel>Working Experience</S.WorkingExperienceLabel>
           <S.WorkingYearsWrapper>

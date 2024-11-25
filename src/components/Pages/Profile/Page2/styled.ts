@@ -48,7 +48,7 @@ export const SingleItem = styled('li')<ItemProps>`
   @media (pointer: coarse) or (max-width: 1200px) {
     flex: 0 1 calc((100% - ${gapSize}) / 2);
     border-radius: min(2vw, 8px);
-    padding: min(4vw, 24px);
+    padding: min(3vw, 24px);
   }
 `;
 
@@ -70,13 +70,14 @@ export const DoubleItem = styled('li')<ItemProps>`
   @media (pointer: coarse) or (max-width: 1200px) {
     flex: 0 1 100%;
     border-radius: min(2vw, 8px);
-    padding: min(6vw, 24px);
+    padding: min(3vw, 24px);
   }
 `;
 
 export const ItemLabel = styled('h2')`
   font-size: max(2vw, 1rem);
   font-weight: 300;
+  line-height: max(2vw, 1rem);
 `;
 
 export const Name = styled(SingleItem)`
@@ -89,8 +90,8 @@ export const NameLabel = styled(ItemLabel)`
 `;
 
 export const ProfileImage = styled(Image)`
-  width: min(16vw, 300px);
-  height: min(16vw, 300px);
+  width: min(20vw, 300px);
+  height: min(20vw, 300px);
   border-radius: min(16vw, 300px);
   object-fit: cover;
   object-position: 0px 0px;
@@ -106,12 +107,12 @@ export const NameValueWrapper = styled('div')`
 `;
 
 export const NameKorean = styled('p')`
-  font-size: max(3.6vw, 1rem);
-  font-weight: 600;
+  font-size: max(3.6vw, 1.2rem);
+  font-weight: 700;
 `;
 
 export const NameEnglish = styled('p')`
-  font-size: max(2vw, 1rem);
+  font-size: max(3vw, 1rem);
 `;
 
 export const Position = styled(SingleItem)`
@@ -123,7 +124,7 @@ export const PositionLabel = styled(ItemLabel)`
 `;
 
 export const PositionValue = styled('p')`
-  font-size: max(4vw, 1rem);
+  font-size: max(3vw, 1rem);
   font-weight: 700;
   font-style: italic;
   width: 100%;
@@ -137,6 +138,7 @@ export const PositionValue = styled('p')`
 
 export const Education = styled(SingleItem)`
   background-color: #0d0b9d;
+  color: white;
   overflow: hidden;
 `;
 
@@ -181,9 +183,107 @@ export const EducationPeriod = styled('p')`
   }
 `;
 
-export const WorkingExperience = styled(SingleItem)`
+export const Awards = styled(SingleItem)`
+  background-color: #fff5cc;
+`;
+
+export const AwardsLabel = styled(ItemLabel)`
+  width: fit-content;
+  color: #e6b800;
+  background-color: #fff5cc;
+  outline: 6px solid #fff5cc;
+  z-index: 1;
+`;
+
+export const AwardsCount = styled('h2')`
+  font-size: 8.8rem;
+  font-weight: 700;
+  line-height: 6.6rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  transform: translate(-48px, 48px);
+  background: linear-gradient(135deg, #fff0b3, #cca300);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(13.22vw, 8.8rem);
+    line-height: min(9.9vw, 6.6rem);
+    transform: translate(calc(-1 * min(6vw, 48px)), min(6vw, 48px));
+  }
+`;
+
+export const AwardsBorder = styled('div')`
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  border: 1px solid #e6b800;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    width: calc(100% - min(6vw, 48px));
+    height: calc(100% - min(6vw, 48px));
+    border-radius: min(2vw, 8px);
+  }
+`;
+
+export const AwardsList = styled('ul')`
+  width: 100%;
+  list-style: none;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    padding: min(3vw, 24px);
+    gap: min(2.5vw, 20px);
+  }
+`;
+
+export const AwardsItem = styled('li')`
+  list-style: none;
+  color: #e6b800;
+  word-break: keep-all;
+`;
+
+export const AwardsTitle = styled('p')`
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(1.8vw, 1.2rem);
+  }
+`;
+
+export const AwardsContent = styled('p')`
+  font-size: 2rem;
+  font-weight: 700;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(3vw, 2rem);
+  }
+`;
+
+export const AwardsDate = styled('p')`
+  font-size: 1rem;
+  font-weight: 300;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(1.5vw, 1rem);
+  }
+`;
+
+export const WorkingExperience = styled(DoubleItem)`
   background: ${({ theme }) =>
     `linear-gradient(0deg, ${theme.color.green[300]}, ${theme.color.cyan[300]})`};
+  color: white;
 `;
 
 export const WorkingExperienceLabel = styled(ItemLabel)`
@@ -267,7 +367,7 @@ export const TechLabel = styled(ItemLabel)`
   transform: translate(24px, 24px);
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: translateY(min(4vw, 24px), min(4vw, 24px));
+    transform: translate(min(3vw, 24px), min(3vw, 24px));
   }
 `;
 
