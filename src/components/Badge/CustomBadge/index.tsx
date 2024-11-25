@@ -4,6 +4,7 @@ import * as S from './styled';
 type CustomBadgeProps = {
   name: string;
   size?: number;
+  showName?: boolean;
   customImage?: string;
   textColor: string;
   backgroundColor1: string;
@@ -31,6 +32,7 @@ const hexToRgb = (hex: string | undefined) => {
 const CustomBadge = ({
   name,
   size = 40,
+  showName = true,
   customImage,
   textColor,
   backgroundColor1,
@@ -58,7 +60,7 @@ const CustomBadge = ({
 
   const src = customImage ? `/tech/${customImage}` : `/tech/${name}.svg`;
 
-  return (
+  return showName ? (
     <S.CustomBadgeWrapper $size={size} $rgb1={rgb1} $rgb2={rgb2} $core={core}>
       <S.CustomBadgeIcon
         $size={size}
@@ -68,11 +70,24 @@ const CustomBadge = ({
         src={src}
         alt={`${name} Icon`}
       />
+
       <S.CustomBadgeName $size={size} $textColor={textColor}>
         {name}
       </S.CustomBadgeName>
+
       {core && <GradientBackground />}
     </S.CustomBadgeWrapper>
+  ) : (
+    <S.IconOnlyBadgeWrapper $size={size} $rgb1={rgb1} $rgb2={rgb2} $core={core}>
+      <S.IconOnlyBadgeIcon
+        $size={size}
+        $textColor={textColor}
+        width={size}
+        height={size}
+        src={src}
+        alt={`${name} Icon`}
+      />
+    </S.IconOnlyBadgeWrapper>
   );
 };
 

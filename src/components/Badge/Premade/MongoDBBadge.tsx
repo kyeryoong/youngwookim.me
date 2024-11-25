@@ -1,10 +1,11 @@
 import CustomBadge from '../CustomBadge';
 import { PremadeBadgeProps } from './props';
 
-const MongoDBBadge = ({ size = 40, core = false }: PremadeBadgeProps) => {
+const MongoDBBadge = ({ size = 40, showName = true, core = false }: PremadeBadgeProps) => {
   return (
     <CustomBadge
       size={size}
+      showName={showName}
       core={core}
       name="MongoDB"
       textColor="white"
