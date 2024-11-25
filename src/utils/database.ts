@@ -15,8 +15,6 @@ if (url) {
     connectDB = globalWithMongoClientPromise._mongo;
   } else {
     connectDB = new MongoClient(url).connect();
-
-    console.log('CONNECTED TO DATABASE');
   }
 }
 

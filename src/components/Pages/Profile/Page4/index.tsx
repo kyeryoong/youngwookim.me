@@ -68,9 +68,8 @@ const Page4 = ({ positionY }: Page4Props) => {
 
   return (
     <S.Page4Wrapper>
-      <S.DescriptionsCarouselWrapper show={(positionY - 8 * vh) / vh > 0}>
-        <S.DescriptionCarousel show={(positionY - 8 * vh) / vh > 0}>
-          <DescriptionList />
+      <S.DescriptionsCarouselWrapper show={(positionY - 10 * vh) / vh > 0}>
+        <S.DescriptionCarousel>
           <DescriptionList />
           <DescriptionList />
         </S.DescriptionCarousel>

@@ -34,7 +34,7 @@ const Page5 = ({ positionY }: Page5Props) => {
       ];
 
   const handleScroll = useCallback(() => {
-    if (positionY >= 12.25 * vh && positionY < 14 * vh) {
+    if (positionY >= 14.25 * vh && positionY < 16 * vh) {
       setDescriptionIndex(0);
       videoRef1.current?.play();
       videoRef2.current?.pause();
@@ -48,7 +48,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           videoRef4.current.currentTime = 0;
         }
       }, 500);
-    } else if (positionY >= 14 * vh && positionY < 15 * vh) {
+    } else if (positionY >= 16 * vh && positionY < 17 * vh) {
       setDescriptionIndex(1);
       videoRef1.current?.pause();
       videoRef2.current?.play();
@@ -61,7 +61,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           videoRef4.current.currentTime = 0;
         }
       }, 500);
-    } else if (positionY >= 15 * vh && positionY < 16 * vh) {
+    } else if (positionY >= 17 * vh && positionY < 18 * vh) {
       setDescriptionIndex(2);
       videoRef1.current?.pause();
       videoRef2.current?.pause();
@@ -74,7 +74,7 @@ const Page5 = ({ positionY }: Page5Props) => {
           videoRef4.current.currentTime = 0;
         }
       }, 500);
-    } else if (positionY >= 16 * vh) {
+    } else if (positionY >= 18 * vh) {
       setDescriptionIndex(3);
       videoRef1.current?.pause();
       videoRef2.current?.pause();
@@ -99,13 +99,11 @@ const Page5 = ({ positionY }: Page5Props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [positionY]);
 
-  console.log(translateXArray[descriptionIndex]);
-
   return (
     <S.Page5Wrapper>
       <S.Scene1>
         <S.TitleWrapper>
-          <S.Title1 progress={((positionY - 11 * vh) / vh) * 100}>
+          <S.Title1 progress={((positionY - 13 * vh) / vh) * 100}>
             사용자 경험을 생각하며 개발합니다.
           </S.Title1>
         </S.TitleWrapper>

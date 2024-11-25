@@ -27,26 +27,26 @@ export const DescriptionsCarouselWrapper = styled('div')<DescriptionsWrapperProp
   transition: 0.5s;
 `;
 
-export const DescriptionCarousel = styled('article')<DescriptionsWrapperProps>`
+export const DescriptionCarousel = styled('article')`
   display: flex;
   align-items: center;
-  animation: ${({ show }) => show && 'scroll 15s infinite'};
-  animation-timing-function: linear;
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-
-    100% {
-      transform: translateX(calc(-4 * min(72vw, 560px)));
-    }
-  }
 `;
 
 export const DescriptionList = styled('li')`
   list-style: none;
   display: flex;
+  animation: descriptionCarouselscroll 15s infinite;
+  animation-timing-function: linear;
+
+  @keyframes descriptionCarouselscroll {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 `;
 
 export const DescriptionWrapper = styled('div')`
