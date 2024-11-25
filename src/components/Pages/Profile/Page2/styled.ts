@@ -85,7 +85,7 @@ export const Name = styled(SingleItem)`
 `;
 
 export const NameLabel = styled(ItemLabel)`
-  color: ${({ theme }) => theme.color.gray[400]};
+  color: ${({ theme }) => theme.color.gray[500]};
 `;
 
 export const ProfileImage = styled(Image)`
@@ -94,7 +94,7 @@ export const ProfileImage = styled(Image)`
   border-radius: min(16vw, 300px);
   object-fit: cover;
   object-position: 0px 0px;
-  background-color: ${({ theme }) => theme.color.gray[100]};
+  background-color: ${({ theme }) => theme.color.gray[200]};
   position: absolute;
   top: 50%;
   left: 50%;
@@ -187,7 +187,7 @@ export const WorkingExperience = styled(SingleItem)`
 `;
 
 export const WorkingExperienceLabel = styled(ItemLabel)`
-  ${({ theme }) => theme.color.cyan[300]};
+  color: white;
 `;
 
 export const WorkingExperienceValueWrapper = styled('div')`
@@ -263,6 +263,7 @@ export const Tech = styled(DoubleItem)`
 `;
 
 export const TechLabel = styled(ItemLabel)`
+  color: ${({ theme }) => theme.color.gray[500]};
   transform: translate(24px, 24px);
 
   @media (pointer: coarse) or (max-width: 1200px) {
@@ -319,8 +320,10 @@ export const TechWrapper = styled('ul')`
 
 export const TechName = styled('p')`
   font-size: 1.6rem;
+  font-weight: 300;
   width: 100%;
   text-align: center;
+  color: ${({ theme }) => theme.color.gray[300]};
   word-break: keep-all;
 
   @media (pointer: coarse) or (max-width: 1200px) {
