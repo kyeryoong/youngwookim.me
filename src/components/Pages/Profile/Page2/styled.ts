@@ -230,7 +230,7 @@ export const WorkingYearsWrapper = styled('p')`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -65%);
   display: flex;
 `;
 
@@ -247,8 +247,8 @@ export const WorkingYearsValue = styled('h2')`
 
 export const WorkingYearsLabel = styled('h3')`
   font-size: 1.6rem;
-  font-weight: 300;
   line-height: 1.2rem;
+  transform: translateX(-30%);
 
   @media (pointer: coarse) or (max-width: 1200px) {
     font-size: min(2.4vw, 1.6rem);
