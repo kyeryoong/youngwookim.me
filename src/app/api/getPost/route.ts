@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
         .findOne({ _id: objectId });
 
       if (res) {
-        return NextResponse.json({ status: 201, data: res });
+        return NextResponse.json({ status: 200, data: res });
       } else {
         return NextResponse.json({ status: 404 });
       }

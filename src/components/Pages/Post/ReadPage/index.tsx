@@ -50,7 +50,7 @@ const ReadPage = observer(() => {
       if (passwordModalMode === 'delete') {
         const res = await postStore.deletePost({ _id: post?._id });
 
-        if (res?.status === 201) {
+        if (res?.status === 200) {
           postStore.setPageMode('list');
           window.scrollTo({ top: 0 });
 

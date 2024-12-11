@@ -50,7 +50,7 @@ const CreatePage = observer(() => {
         password: encryptPassword(postStore.password),
       });
 
-      if (res?.status === 201) {
+      if (res?.status === 200) {
         postStore.setPageMode('list');
         window.scrollTo({ top: 0 });
 
@@ -66,7 +66,7 @@ const CreatePage = observer(() => {
         password: encryptPassword(postStore.password),
       });
 
-      if (res?.status === 201) {
+      if (res?.status === 200) {
         postStore.setPageMode('list');
         window.scrollTo({ top: 0 });
 

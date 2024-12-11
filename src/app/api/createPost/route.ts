@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     const res = await database.collection(process.env.COLLECTION_NAME as string).insertOne(body);
 
     if (res) {
-      return NextResponse.json({ status: 201, data: res });
+      return NextResponse.json({ status: 200, data: res });
     } else {
       return NextResponse.json({ status: 404 });
     }

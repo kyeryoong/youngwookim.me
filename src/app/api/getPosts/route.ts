@@ -12,7 +12,7 @@ export async function GET() {
       .find()
       .toArray();
 
-    return NextResponse.json({ status: 201, data: res.reverse() });
+    return NextResponse.json({ status: 200, data: res.reverse() });
   } catch (error) {
     return NextResponse.json({ status: 500, error });
   }
