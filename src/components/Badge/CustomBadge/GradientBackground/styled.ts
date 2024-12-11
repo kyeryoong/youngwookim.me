@@ -10,12 +10,12 @@ export const GradientBackgroundWrapper = styled('div')`
   background: linear-gradient(135deg, transparent 30%, white 50%, transparent 70%);
   opacity: 0.3;
   background-size: 200% 200%;
-  animation-name: Gradient;
+  animation-name: gradient;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 
-  @keyframes Gradient {
+  @keyframes gradient {
     0% {
       background-position: 200% 50%;
     }

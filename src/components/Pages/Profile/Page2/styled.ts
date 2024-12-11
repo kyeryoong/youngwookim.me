@@ -391,6 +391,7 @@ export const TechList = styled('li')`
   flex: 1;
   animation: techCarouselScroll 12s infinite;
   animation-timing-function: linear;
+
   @keyframes techCarouselScroll {
     0% {
       transform: translate(0%, 7.5%);

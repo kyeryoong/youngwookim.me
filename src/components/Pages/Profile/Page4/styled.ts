@@ -35,10 +35,10 @@ export const DescriptionCarousel = styled('article')`
 export const DescriptionList = styled('li')`
   list-style: none;
   display: flex;
-  animation: descriptionCarouselscroll 15s infinite;
+  animation: descriptionCarouselScroll 15s infinite;
   animation-timing-function: linear;
 
-  @keyframes descriptionCarouselscroll {
+  @keyframes descriptionCarouselScroll {
     0% {
       transform: translateX(0%);
     }
