@@ -1,9 +1,4 @@
-import Spline from '@splinetool/react-spline';
 import styled from 'styled-components';
-
-type SplineObjectWrapper = {
-  show: boolean;
-};
 
 type HighlightProps = {
   degree: number;
@@ -13,33 +8,9 @@ export const HomeWrapper = styled('div')`
   width: 100vw;
   height: 100dvh;
   position: relative;
-  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const SplineObject = styled(Spline)<SplineObjectWrapper>`
-  width: 800px !important;
-  height: 800px !important;
-  background-color: transparent !important;
-  z-index: 100;
-
-  canvas {
-    width: 800px !important;
-    height: 800px !important;
-    background-color: transparent !important;
-  }
-
-  @media (pointer: coarse) or (max-width: 1000px) {
-    width: min(80vw, 800px) !important;
-    height: min(80vw, 800px) !important;
-
-    canvas {
-      width: min(80vw, 800px) !important;
-      height: min(80vw, 800px) !important;
-    }
-  }
 `;
 
 export const TitleTop = styled('h1')`
@@ -55,7 +26,7 @@ export const TitleTop = styled('h1')`
   left: 100px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: min(9.6vw, 4.8rem);
+    font-size: min(7.2vw, 4.8rem);
     left: 5vw;
   }
 `;
@@ -74,7 +45,7 @@ export const TitleBottom = styled('h1')`
   right: 100px;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: min(9.6vw, 4.8rem);
+    font-size: min(7.2vw, 4.8rem);
     right: 5vw;
   }
 `;
@@ -89,6 +60,6 @@ export const Highlight = styled('span')<HighlightProps>`
   -webkit-background-clip: text;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: min(9.6vw, 4.8rem);
+    font-size: min(7.2vw, 4.8rem);
   }
 `;
