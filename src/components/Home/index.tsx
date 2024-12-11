@@ -7,6 +7,12 @@ import * as S from './styled';
 const Home = () => {
   const [page, setPage] = useState<number>(0);
 
+  const [showVideo, setShowVideo] = useState<boolean>(false);
+
+  const handleLoadedData = () => {
+    setShowVideo(true);
+  };
+
   useEffect(() => {
     const pageInterval = setInterval(() => {
       setPage((prev) => (prev === 0 ? 1 : 0));
@@ -16,10 +22,22 @@ const Home = () => {
   }, []);
 
   return (
-    <S.HomeWrapper page={page}>
-      <Home1 />
-      <Home2 />
-    </S.HomeWrapper>
+    <>
+      <S.HomeWrapper page={page}>
+        <Home1 />
+        <Home2 />
+      </S.HomeWrapper>
+
+      <S.Video
+        src={'/home/1.webm'}
+        onLoadedData={handleLoadedData}
+        showVideo={showVideo}
+        playsInline
+        autoPlay
+        loop
+        muted
+      />
+    </>
   );
 };
 
