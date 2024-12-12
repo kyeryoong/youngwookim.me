@@ -4,7 +4,6 @@ import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 
 import Header from '@/components/Pages/Projects/Components/Header';
 import Heading1 from '@/components/Pages/Projects/Components/Heading/Heading1';
-import ImageCarousel from '@/components/Pages/Projects/Components/ImageCarousel';
 import Intro from '@/components/Pages/Projects/Components/Intro';
 import Layout from '@/components/Pages/Projects/Components/Layout';
 import Member from '@/components/Pages/Projects/Components/Member';
@@ -15,6 +14,7 @@ import SourceCodeButtonList from '@/components/Pages/Projects/Components/SourceC
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import { useStore } from '@/stores';
+import ImageCarousel from '@/theme/ImageCarousel';
 
 import * as S from './styled';
 
@@ -169,7 +169,25 @@ const Cardvisor = () => {
               '/projects/cardvisor/8.webp',
               '/projects/cardvisor/9.webp',
             ]}
+            carouselOptions={{
+              showPagination: true,
+              showPrevNextButtons: true,
+            }}
+            carouselStyle={{ borderRadius: '8px' }}
           />
+          {/* <ImageCarousel
+            images={[
+              '/projects/cardvisor/1.webp',
+              '/projects/cardvisor/2.webp',
+              '/projects/cardvisor/3.webp',
+              '/projects/cardvisor/4.webp',
+              '/projects/cardvisor/5.webp',
+              '/projects/cardvisor/6.webp',
+              '/projects/cardvisor/7.webp',
+              '/projects/cardvisor/8.webp',
+              '/projects/cardvisor/9.webp',
+            ]}
+          /> */}
         </Text>
 
         <Heading1 ref={ref7}>영상</Heading1>

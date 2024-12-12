@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
+import ImageCarousel from '@/theme/ImageCarousel';
+
 import achievementData from './data';
-import ImageCarousel from './ImageCarousel';
-import ImageItem from './ImageCarousel/ImageItem';
 import ImageViewer from './ImageViewer';
 import NavigationElement from './NavigationElement';
 import * as S from './styled';
@@ -76,23 +76,23 @@ const Achievements = observer(() => {
     setShowImageViewer(true);
   };
 
+  const handleImageViewerClose = () => {
+    setShowImageViewer(false);
+  };
+
   return (
     <>
       <S.AchievementsWrapper>
-        <ImageCarousel width={'100vw'} height={'100dvh'} index={achievementIndex}>
-          <ImageItem
-            width={'100vw'}
-            height={'100dvh'}
-            imgSrc={'/achievements/graduation_project/main.jpg'}
-            alt={'홍익대학교 컴퓨터공학과 졸업 전시회'}
-          />
-          <ImageItem
-            width={'100vw'}
-            height={'100dvh'}
-            imgSrc={'/achievements/fintech_hackerton/main.jpg'}
-            alt={'마이 핀테크 서비스 해커톤'}
-          />
-        </ImageCarousel>
+        <ImageCarousel
+          images={[
+            '/achievements/graduation_project/main.jpg',
+            '/achievements/fintech_hackerton/main.jpg',
+          ]}
+          imageIndex={achievementIndex}
+          carouselOptions={{ allowMouseDrag: false }}
+          carouselStyle={{ width: '100%', height: '100%' }}
+          imageStyle={{ objectFit: 'cover' }}
+        />
 
         <S.NavigationBar achievementIndex={achievementIndex}>
           <NavigationElement
@@ -129,7 +129,7 @@ const Achievements = observer(() => {
       <ImageViewer
         show={showImageViewer}
         imageData={achievementData[selectedAchievementIndex]}
-        onClose={() => setShowImageViewer(false)}
+        onClose={handleImageViewerClose}
       />
     </>
   );

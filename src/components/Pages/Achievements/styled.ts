@@ -30,6 +30,7 @@ export const NavigationBar = styled('div')<NavigationBarProps>`
     achievementIndex === 0 ? '3fr 1fr' : '1fr 3fr'};
   gap: 8px;
   transition: 0.5s;
+  z-index: 1;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 30dvh;
