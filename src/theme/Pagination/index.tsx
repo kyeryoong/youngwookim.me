@@ -19,12 +19,9 @@ const Pagination = ({ size = 12, currentIndex, totalIndex, onClick }: Pagination
   return (
     <S.PaginationWrapper size={size}>
       {Array.from({ length: totalIndex }, (_, i) => i).map((index) => (
-        <S.Dot
-          key={index}
-          size={size}
-          isSelcted={index === currentIndex}
-          onClick={() => handleDotClick(index)}
-        />
+        <S.DotButton key={index} size={size} onClick={() => handleDotClick(index)}>
+          <S.Dot size={size} isSelcted={index === currentIndex} />
+        </S.DotButton>
       ))}
     </S.PaginationWrapper>
   );

@@ -4,15 +4,40 @@ type PaginationWrapperProps = {
   size: number;
 };
 
-type DotProps = { size: number; isSelcted: boolean };
+type DotButtonProps = {
+  size: number;
+};
 
-export const PaginationWrapper = styled('div')<PaginationWrapperProps>`
+type DotProps = {
+  size: number;
+  isSelcted: boolean;
+};
+
+export const PaginationWrapper = styled('section')<PaginationWrapperProps>`
   width: fit-content;
   height: ${({ size }) => `${size}px`};
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ size }) => `min(${size * 0.25}vw, ${size * 1.5}px)`};
+  gap: ${({ size }) => `min(${size * 0.125}vw, ${size * 0.75}px)`};
+`;
+
+export const DotButton = styled('button')<DotButtonProps>`
+  width: ${({ size }) => `${size * 2}px`};
+  height: ${({ size }) => `${size * 2}px`};
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    div {
+      background-color: ${({ theme }) => theme.color.white};
+      opacity: 1;
+    }
+  }
 `;
 
 export const Dot = styled('div')<DotProps>`
@@ -23,11 +48,5 @@ export const Dot = styled('div')<DotProps>`
     isSelcted ? theme.color.gray[200] : theme.color.gray[700]};
   opacity: ${({ isSelcted }) => (isSelcted ? 1 : 0.5)};
   box-shadow: 0px 2px 4px 1px rgba(50, 50, 50, 0.5);
-  transition: 0.5s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.color.white};
-    opacity: 1;
-  }
+  transition: 0.2s;
 `;
