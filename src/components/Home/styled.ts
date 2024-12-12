@@ -31,6 +31,7 @@ export const Video = styled('video')<VideoWrapperProps>`
   transition-property: opacity transform;
   transition-duration: 1.5s;
   transition-delay: 0.5s;
+  z-index: 1;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     width: min(80vw, 720px);
