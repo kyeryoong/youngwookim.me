@@ -71,7 +71,7 @@ export const TimeIcon = styled(ClockFill)`
 `;
 
 export const Content = styled('p')`
-  font-size: ${({ theme }) => theme.font.l};
+  font-size: ${({ theme }) => theme.font.xl};
   font-weight: 600;
   min-height: 300px;
   color: ${({ theme }) => theme.color.white};

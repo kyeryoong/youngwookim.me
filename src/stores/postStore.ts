@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-import { PostCreateModel, PostEditModel, PostModel } from '@/models/post';
+import { PostCreateModel, PostEditModel, PostModel, ReplyCreateModel } from '@/models/post';
 
 export type PostPageMode = 'list' | 'create' | 'read' | 'edit';
 
@@ -85,14 +85,22 @@ export class PostStore {
     }
   };
 
-  createPost = async ({ title, userName, content, password }: PostCreateModel) => {
+  createPost = async ({ title, userName, createdAt, content, password }: PostCreateModel) => {
     try {
       const res = await fetch('/api/createPost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, userName, createdAt: new Date(), content, password }),
+        body: JSON.stringify({
+          title,
+          userName,
+          createdAt,
+          content,
+          password,
+          replies: [],
+          isAdmin: false,
+        }),
       });
 
       if (res) {
@@ -135,6 +143,37 @@ export class PostStore {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ title, userName, content, password }),
+      });
+
+      if (res) {
+        const { status, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
+
+        return { status };
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  createReply = async ({
+    _id,
+    userName,
+    createdAt,
+    content,
+    password,
+    isAdmin,
+  }: ReplyCreateModel) => {
+    try {
+      const res = await fetch(`/api/createReply?_id=${_id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userName, content, createdAt, password, isAdmin }),
       });
 
       if (res) {

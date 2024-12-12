@@ -12,12 +12,12 @@ import { encryptPassword } from '@/utils/password';
 import PostHeader from '../PostHeader';
 import * as S from './styled';
 
+const TITLE_MAX_LENGTH = 50;
+const USER_NAME_MAX_LENGTH = 30;
+const CONTENT_MAX_LENGTH = 300;
+
 const CreatePage = observer(() => {
   const { postStore, uiStore } = useStore();
-
-  const TITLE_MAX_LENGTH = 50;
-  const USER_NAME_MAX_LENGTH = 30;
-  const CONTENT_MAX_LENGTH = 300;
 
   const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
   const [isVerified, setIsVerified] = useState<boolean>(false);
@@ -46,8 +46,10 @@ const CreatePage = observer(() => {
       const res = await postStore.createPost({
         title: postStore.title,
         userName: postStore.userName,
+        createdAt: new Date(),
         content: postStore.content,
         password: encryptPassword(postStore.password),
+        isAdmin: false,
       });
 
       if (res?.status === 200) {
@@ -64,6 +66,7 @@ const CreatePage = observer(() => {
         userName: postStore.userName,
         content: postStore.content,
         password: encryptPassword(postStore.password),
+        isAdmin: false,
       });
 
       if (res?.status === 200) {
