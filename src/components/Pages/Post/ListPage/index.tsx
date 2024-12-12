@@ -62,6 +62,7 @@ const ListPage = observer(() => {
               title={post.title}
               userName={post.userName}
               createdAt={post.createdAt}
+              isAdmin={post.isAdmin}
             />
           ))
         ) : (
