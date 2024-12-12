@@ -25,7 +25,10 @@ export const TitleTop = styled('h1')`
   position: absolute;
   top: 15dvh;
   left: 100px;
+  opacity: 0;
   animation: fadeInTop 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(7.2vw, 4.8rem);
@@ -35,12 +38,12 @@ export const TitleTop = styled('h1')`
   @keyframes fadeInTop {
     0% {
       opacity: 0;
-      transform: translateX(300px);
+      transform: translateX(50%);
     }
 
     100% {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0%);
     }
   }
 `;
@@ -57,7 +60,10 @@ export const TitleBottom = styled('h1')`
   position: absolute;
   bottom: 12dvh;
   right: 100px;
+  opacity: 0;
   animation: fadeInBottom 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: min(7.2vw, 4.8rem);
@@ -67,12 +73,12 @@ export const TitleBottom = styled('h1')`
   @keyframes fadeInBottom {
     0% {
       opacity: 0;
-      transform: translateX(-300px);
+      transform: translateX(-50%);
     }
 
     100% {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0%);
     }
   }
 `;
