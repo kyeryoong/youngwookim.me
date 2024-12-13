@@ -4,7 +4,7 @@ type ModalProps = {
   isOpened: boolean;
 };
 
-export const ModalBackground = styled('div')<ModalProps>`
+export const ModalBackground = styled('section')<ModalProps>`
   width: 100vw;
   height: 100dvh;
   position: fixed;
@@ -23,7 +23,7 @@ export const ModalBackground = styled('div')<ModalProps>`
   transition-duration: 0.5s;
 `;
 
-export const ModalWrapper = styled('div')<ModalProps>`
+export const ModalWrapper = styled('section')<ModalProps>`
   width: 400px;
   height: fit-content;
   padding: 24px;
