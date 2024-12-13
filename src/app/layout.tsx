@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import pretendard from '@/font/pretendard';
 
-import StyledComponentsRegistry from '../../lib/registry';
+import StyledComponentsRegistry from '../lib/registry';
 import App from './app';
 import ClientSessionProvider from './sessionProvider';
 
