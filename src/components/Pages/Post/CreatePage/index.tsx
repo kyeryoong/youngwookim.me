@@ -166,8 +166,8 @@ const CreatePage = observer(() => {
         value={postStore.content}
         onTextAreaChange={handleContentChange}
         label={'내용'}
-        maxLength={CONTENT_MAX_LENGTH}
-        showCounter
+        maxLength={session ? undefined : CONTENT_MAX_LENGTH}
+        showCounter={!session}
         style={{ height: '200px' }}
       />
 
