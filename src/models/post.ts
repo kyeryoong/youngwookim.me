@@ -10,12 +10,13 @@ export type PostModel = {
 };
 
 export type ReplyModel = {
-  _id: string;
+  replyId: string;
   userName: string;
   createdAt: Date;
   content: string;
   password: string;
   isAdmin: boolean;
+  isDeleted: boolean;
 };
 
 export type PostCreateModel = {

@@ -4,19 +4,35 @@ type ReplyInputWrapperProps = {
   isFocused: boolean;
 };
 
+type ReplyContentProps = {
+  isDeleted: boolean;
+};
+
 type PasswordCommentProps = {
   isValidPassword: boolean;
 };
 
-export const CreateReplyWrapper = styled('section')`
+export const ReplyWrapper = styled('section')`
   display: flex;
   flex-direction: column;
   gap: 40px;
 `;
 
-export const ReplyTitle = styled('h2')`
+export const ReplyTitle = styled('div')`
   font-size: ${({ theme }) => theme.font.xl};
   margin-top: 24px;
+  display: flex;
+  gap: 6px;
+`;
+
+export const ReplyTitleLabel = styled('span')`
+  font-weight: 300;
+  color: ${({ theme }) => theme.color.gray[400]};
+`;
+
+export const ReplyTitleValue = styled('span')`
+  font-weight: 600;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const RepliesWrapper = styled('ul')`
@@ -32,21 +48,42 @@ export const ReplyItem = styled('li')`
 export const ReplyItemHeader = styled('div')`
   display: flex;
   align-items: flex-end;
-  gap: 12px;
   margin-bottom: 8px;
 `;
 
 export const ReplyUserName = styled('p')`
   font-size: ${({ theme }) => theme.font.m};
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const ReplyCreatedAt = styled('p')`
   font-size: ${({ theme }) => theme.font.s};
   color: ${({ theme }) => theme.color.gray[400]};
+  margin-left: 16px;
 `;
 
-export const ReplyContent = styled('p')`
+export const ReplyContent = styled('p')<ReplyContentProps>`
   font-size: ${({ theme }) => theme.font.l};
+  width: 100%;
+  word-break: break-all;
+  color: ${({ theme, isDeleted }) => (isDeleted ? theme.color.gray[700] : theme.color.white)};
+`;
+
+export const DeleteReplyButton = styled('button')`
+  font-size: ${({ theme }) => theme.font.s};
+  color: ${({ theme }) => theme.color.gray[400]};
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 8px;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.gray[300]};
+  }
 `;
 
 export const ReplyInputWrapper = styled('div')<ReplyInputWrapperProps>`
@@ -121,7 +158,7 @@ export const ReplyButtonWrapper = styled('div')`
   justify-content: flex-end;
 `;
 
-export const ReplyButton = styled('button')`
+export const CreateReplyButton = styled('button')`
   font-size: ${({ theme }) => theme.font.mobile.l};
   width: fit-content;
   border: none;
@@ -151,3 +188,5 @@ export const ReplyButton = styled('button')`
     cursor: not-allowed;
   }
 `;
+
+export const ModalForm = styled('form')``;

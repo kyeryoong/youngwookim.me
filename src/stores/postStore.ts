@@ -173,7 +173,31 @@ export class PostStore {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userName, content, createdAt, password, isAdmin }),
+        body: JSON.stringify({ userName, content, createdAt, password, isAdmin, isDeleted: false }),
+      });
+
+      if (res) {
+        const { status, replyId, error } = await res.json();
+
+        if (error) {
+          console.error(error);
+        }
+
+        return { status, replyId };
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  deleteReply = async ({ _id, replyId }: { _id: string; replyId: string }) => {
+    try {
+      const res = await fetch(`/api/deleteReply?_id=${_id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ _id, replyId }),
       });
 
       if (res) {

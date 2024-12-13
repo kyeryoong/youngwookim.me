@@ -14,15 +14,17 @@ export async function PUT(req: NextRequest) {
       const objectId = new ObjectId(_id);
 
       const body = await req.json();
+      const replyId = new ObjectId();
+
       const res = await database.collection(process.env.COLLECTION_NAME as string).updateOne(
         { _id: objectId },
         {
-          $push: { replies: { _id: new ObjectId(), ...body } },
+          $push: { replies: { replyId, ...body } },
         },
       );
 
       if (res) {
-        return NextResponse.json({ status: 200, data: res });
+        return NextResponse.json({ status: 200, replyId });
       } else {
         return NextResponse.json({ status: 404 });
       }

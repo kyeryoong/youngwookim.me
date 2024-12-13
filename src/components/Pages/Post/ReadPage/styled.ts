@@ -29,6 +29,7 @@ export const Info = styled('div')`
 
 export const InfoLabel = styled('label')`
   font-size: ${({ theme }) => theme.font.l};
+  font-weight: 300;
   width: 80px;
   height: 20px;
   line-height: 20px;
@@ -79,6 +80,7 @@ export const Content = styled('p')`
   padding-top: 32px;
   padding-bottom: 32px;
   margin-bottom: 32px;
+  word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-top: min(4vw, 32px);

@@ -14,7 +14,7 @@ import Modal from '@/theme/Modal';
 import { decryptPassword } from '@/utils/password';
 
 import PostHeader from '../PostHeader';
-import CreateReply from './CreateReply';
+import Reply from './Reply';
 import * as S from './styled';
 
 const ReadPage = observer(() => {
@@ -157,7 +157,7 @@ const ReadPage = observer(() => {
             <Button onClick={handleDeleteButtonClick}>삭제</Button>
           </Buttons>
 
-          <CreateReply post={post} setPost={setPost} />
+          <Reply post={post} setPost={setPost} />
         </>
       ) : (
         <S.LoadingSpinnerWrapper>

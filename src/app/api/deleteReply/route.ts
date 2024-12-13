@@ -3,9 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { connectDB } from '../../../utils/database';
 
-export const dynamic = 'force-dynamic';
-
-export async function DELETE(req: NextRequest) {
+export async function PUT(req: NextRequest) {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
 
@@ -15,9 +13,16 @@ export async function DELETE(req: NextRequest) {
     if (_id) {
       const objectId = new ObjectId(_id);
 
-      const res = await database
-        .collection(process.env.COLLECTION_NAME as string)
-        .deleteOne({ _id: objectId });
+      const body = await req.json();
+      const res = await database.collection(process.env.COLLECTION_NAME as string).updateOne(
+        { _id: objectId },
+        {
+          $set: { 'replies.$[reply].isDeleted': true },
+        },
+        {
+          arrayFilters: [{ 'reply.replyId': new ObjectId(body.replyId) }],
+        },
+      );
 
       if (res) {
         return NextResponse.json({ status: 200 });
