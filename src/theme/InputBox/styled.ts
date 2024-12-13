@@ -44,6 +44,7 @@ export const TextArea = styled('textarea')`
   font-size: ${({ theme }) => theme.font.l};
   font-weight: 400;
   width: 100%;
+  min-height: 300px;
   line-height: 24px;
   border: none;
   outline: none;
@@ -60,6 +61,21 @@ export const TextArea = styled('textarea')`
 
   &:disabled {
     background-color: ${({ theme }) => theme.color.gray[700]};
+  }
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    border: 5px solid transparent;
+    background-color: rgba(120, 120, 120, 0.25);
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 `;
 
