@@ -9,4 +9,8 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GITHUB_SECRET || '',
     }),
   ],
+  session: {
+    strategy: 'jwt',
+    maxAge: 1800,
+  },
 };
