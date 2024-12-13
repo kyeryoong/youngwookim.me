@@ -1,7 +1,7 @@
 import { PencilFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
-export const CreatePageWrapper = styled('div')``;
+export const CreatePageWrapper = styled('section')``;
 
 export const PasswordComment = styled('span')`
   font-size: ${({ theme }) => theme.font.m};

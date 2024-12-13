@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import { useSession } from 'next-auth/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -18,6 +19,7 @@ const CONTENT_MAX_LENGTH = 300;
 
 const CreatePage = observer(() => {
   const { postStore, uiStore } = useStore();
+  const { data: session } = useSession();
 
   const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
   const [isVerified, setIsVerified] = useState<boolean>(false);
@@ -48,8 +50,8 @@ const CreatePage = observer(() => {
         userName: postStore.userName,
         createdAt: new Date(),
         content: postStore.content,
-        password: encryptPassword(postStore.password),
-        isAdmin: false,
+        password: session ? null : encryptPassword(postStore.password),
+        isAdmin: !!session,
       });
 
       if (res?.status === 200) {
@@ -65,8 +67,8 @@ const CreatePage = observer(() => {
         title: postStore.title,
         userName: postStore.userName,
         content: postStore.content,
-        password: encryptPassword(postStore.password),
-        isAdmin: false,
+        password: session ? null : encryptPassword(postStore.password),
+        isAdmin: !!session,
       });
 
       if (res?.status === 200) {
@@ -104,10 +106,25 @@ const CreatePage = observer(() => {
   }, []);
 
   useEffect(() => {
+    if (session) {
+      setIsValidPassword(true);
+      setIsVerified(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (postStore.pageMode === 'create') {
       postStore.clearPost();
+
+      if (session) {
+        postStore.setUserName('김영우');
+      }
     } else if (postStore.pageMode === 'edit') {
-      setIsValidPassword(postStore.password.length >= 6 && postStore.password.length <= 16);
+      if (session) {
+        setIsValidPassword(true);
+      } else {
+        setIsValidPassword(postStore.password.length >= 6 && postStore.password.length <= 16);
+      }
     }
   }, [postStore.pageMode]);
 
@@ -141,7 +158,7 @@ const CreatePage = observer(() => {
         label={'이름'}
         maxLength={USER_NAME_MAX_LENGTH}
         showCounter
-        disabled={postStore.pageMode === 'edit'}
+        disabled={postStore.pageMode === 'edit' || !!session}
       />
 
       <InputBox
@@ -154,27 +171,39 @@ const CreatePage = observer(() => {
         style={{ height: '200px' }}
       />
 
-      <InputBox
-        type={'password'}
-        value={postStore.password}
-        onInputChange={handlePasswordChange}
-        label={'비밀번호'}
-        minLength={6}
-        maxLength={16}
-        style={{ width: '180px' }}
-      />
+      {session ? (
+        <>
+          <br />
+          <br />
+          <br />
+        </>
+      ) : (
+        <>
+          <InputBox
+            type={'password'}
+            value={postStore.password}
+            onInputChange={handlePasswordChange}
+            label={'비밀번호'}
+            minLength={6}
+            maxLength={16}
+            style={{ width: '180px' }}
+          />
 
-      <S.PasswordComment>
-        {postStore.password.length > 0 && !isValidPassword && '비밀번호는 6~16 자리여야 합니다.'}
-      </S.PasswordComment>
+          <S.PasswordComment>
+            {postStore.password.length > 0 &&
+              !isValidPassword &&
+              '비밀번호는 6~16 자리여야 합니다.'}
+          </S.PasswordComment>
 
-      <S.ReCAPTCHAWrapper>
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
-          onChange={handleReCaptchaChanged}
-          onExpired={handleReCaptchaExpired}
-        />
-      </S.ReCAPTCHAWrapper>
+          <S.ReCAPTCHAWrapper>
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
+              onChange={handleReCaptchaChanged}
+              onExpired={handleReCaptchaExpired}
+            />
+          </S.ReCAPTCHAWrapper>
+        </>
+      )}
 
       <Buttons>
         <Button

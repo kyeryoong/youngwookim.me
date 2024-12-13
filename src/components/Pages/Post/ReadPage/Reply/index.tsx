@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import { useSession } from 'next-auth/react';
 import {
   ChangeEvent,
   Dispatch,
@@ -44,8 +45,8 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
 
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
-  const [deleteReplyId, setDeleteReplyId] = useState<string | null>(null);
-  const [deleteReplyPassword, setDeleteReplyPassword] = useState<string | null>(null);
+
+  const [deleteReply, setDeleteReply] = useState<ReplyModel | null>(null);
 
   const handleReplyInputInsideClick = useCallback(() => {
     setIsReplyInputFocused(true);
@@ -86,8 +87,8 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
       userName: replyUserName,
       createdAt: new Date(),
       content: replyContent,
-      password: encryptPassword(replyPassword),
-      isAdmin: false,
+      password: session ? null : encryptPassword(replyPassword),
+      isAdmin: !!session,
     };
 
     const res = await postStore.createReply(replyBody);
@@ -110,14 +111,15 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
   };
 
   const handlePasswordModalConfirmButtonClick = async () => {
-    const isPasswordCorrect = decryptPassword(deleteReplyPassword ?? '') === password;
+    const isPasswordCorrect =
+      decryptPassword(deleteReply?.password ?? '') === password || !!session;
 
-    if (isPasswordCorrect && post?._id && deleteReplyId) {
-      const res = await postStore.deleteReply({ _id: post?._id, replyId: deleteReplyId });
+    if (isPasswordCorrect && post?._id && deleteReply?.replyId) {
+      const res = await postStore.deleteReply({ _id: post?._id, replyId: deleteReply.replyId });
 
       if (res?.status === 200) {
         const newReplies = post.replies.map((reply) => {
-          if (reply.replyId === deleteReplyId) {
+          if (reply.replyId === deleteReply.replyId) {
             return { ...reply, isDeleted: true };
           } else {
             return reply;
@@ -163,8 +165,20 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
   }, []);
 
   useEffect(() => {
+    if (session) {
+      setReplyUserName('김영우');
+      setIsValidPassword(true);
+      setIsVerified(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (!isReplyInputFocused) {
+      if (session) {
+        setIsVerified(true);
+      } else {
       setIsVerified(false);
+      }
     }
   }, [isReplyInputFocused]);
 
@@ -188,12 +202,11 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
                   })}
                 </S.ReplyCreatedAt>
 
-                {!reply.isDeleted && (
+                {!reply.isDeleted && (reply.isAdmin ? session : true) && (
                   <S.DeleteReplyButton
                     onClick={() => {
                       setShowPasswordModal(true);
-                      setDeleteReplyId(reply.replyId);
-                      setDeleteReplyPassword(reply.password);
+                      setDeleteReply(reply);
                     }}
                   >
                     삭제
@@ -223,6 +236,7 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
               maxLength={USER_NAME_MAX_LENGTH}
               spellCheck={false}
               placeholder={'이름'}
+              disabled={!!session}
             />
 
             <S.ReplyContentInputBox
@@ -233,6 +247,8 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
               placeholder={'내용'}
             />
 
+            {!session && (
+              <>
             <S.ReplyInputBox
               type={'password'}
               value={replyPassword}
@@ -243,10 +259,15 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
               placeholder={'비밀번호'}
               style={{ width: '180px' }}
             />
-
-            <S.PasswordComment isValidPassword={!(replyPassword.length > 0 && !isValidPassword)}>
-              {replyPassword.length > 0 && !isValidPassword && '비밀번호는 6~16 자리여야 합니다.'}
+                <S.PasswordComment
+                  isValidPassword={!(replyPassword.length > 0 && !isValidPassword)}
+                >
+                  {replyPassword.length > 0 &&
+                    !isValidPassword &&
+                    '비밀번호는 6~16 자리여야 합니다.'}
             </S.PasswordComment>
+              </>
+            )}
 
             <S.ReplyButtonWrapper>
               <S.CreateReplyButton
@@ -264,7 +285,7 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
         )}
       </S.ReplyInputWrapper>
 
-      {isReplyInputFocused && (
+      {isReplyInputFocused && !session && (
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
           onChange={handleReCaptchaChanged}
@@ -274,22 +295,26 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
 
       <Modal
         isOpened={showPasswordModal}
-        title={`비밀번호 입력`}
-        text={'댓글을 삭제하려면 비밀번호를 입력하세요.'}
+        title={session ? '관리자 삭제' : '비밀번호 입력'}
+        text={session ? '댓글을 삭제하시겠습니까?' : '게시글을 삭제하려면 비밀번호를 입력하세요.'}
         onBackgroundClick={handleModalBackgroundClick}
       >
         <S.ModalForm onSubmit={handlePasswordModalEnter}>
+          {session ? (
+            <br />
+          ) : (
           <InputBox
             type={'password'}
             value={password}
             onInputChange={handlePasswordChange}
             style={{ marginTop: '16px', marginBottom: '16px' }}
           />
+          )}
           <Buttons>
             <Button
               onClick={handlePasswordModalConfirmButtonClick}
               type={'warning'}
-              disabled={!password}
+              disabled={!session && !password}
             >
               삭제
             </Button>

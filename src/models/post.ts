@@ -4,7 +4,7 @@ export type PostModel = {
   userName: string;
   createdAt: string;
   content: string;
-  password: string;
+  password: string | null;
   replies: ReplyModel[];
   isAdmin: boolean;
 };
@@ -14,7 +14,7 @@ export type ReplyModel = {
   userName: string;
   createdAt: Date;
   content: string;
-  password: string;
+  password: string | null;
   isAdmin: boolean;
   isDeleted: boolean;
 };
@@ -24,7 +24,7 @@ export type PostCreateModel = {
   userName: string;
   createdAt: Date;
   content: string;
-  password: string;
+  password: string | null;
   isAdmin: boolean;
 };
 
@@ -33,7 +33,7 @@ export type ReplyCreateModel = {
   userName: string;
   createdAt: Date;
   content: string;
-  password: string;
+  password: string | null;
   isAdmin: boolean;
 };
 
@@ -42,7 +42,7 @@ export type PostEditModel = {
   title: string;
   userName: string;
   content: string;
-  password: string;
+  password: string | null;
   isAdmin: boolean;
 };
 

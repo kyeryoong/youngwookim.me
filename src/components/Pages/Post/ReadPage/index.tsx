@@ -19,6 +19,7 @@ import * as S from './styled';
 
 const ReadPage = observer(() => {
   const { postStore, uiStore } = useStore();
+  const { data: session } = useSession();
 
   const [post, setPost] = useState<PostModel | null>(null);
   const [isPostLoaded, setIsPostLoaded] = useState<boolean>(false);
@@ -45,7 +46,7 @@ const ReadPage = observer(() => {
   };
 
   const handlePasswordModalConfirmButtonClick = async () => {
-    const isPasswordCorrect = decryptPassword(post?.password ?? '') === password;
+    const isPasswordCorrect = decryptPassword(post?.password ?? '') === password || !!session;
 
     if (isPasswordCorrect && post?._id) {
       if (passwordModalMode === 'delete') {
@@ -64,7 +65,7 @@ const ReadPage = observer(() => {
         postStore.setTitle(post.title);
         postStore.setUserName(post.userName);
         postStore.setContent(post.content);
-        postStore.setPassword(decryptPassword(post.password));
+        postStore.setPassword(decryptPassword(post.password ?? ''));
       }
     } else {
       uiStore.openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
@@ -153,8 +154,22 @@ const ReadPage = observer(() => {
           <S.Content>{post?.content}</S.Content>
 
           <Buttons>
-            <Button onClick={handleEditButtonClick}>수정</Button>
+            {(() => {
+              if (session) {
+                if (post?.isAdmin) {
+                  return true;
+                }
+              } else {
+                if (post?.isAdmin) {
+                  return false;
+                } else {
+                  return true;
+                }
+              }
+            })() && <Button onClick={handleEditButtonClick}>수정</Button>}
+            {(post?.isAdmin ? session : true) && (
             <Button onClick={handleDeleteButtonClick}>삭제</Button>
+            )}
           </Buttons>
 
           <Reply post={post} setPost={setPost} />
@@ -167,25 +182,39 @@ const ReadPage = observer(() => {
 
       <Modal
         isOpened={showPasswordModal}
-        title={`비밀번호 입력`}
-        text={`게시글을 ${
+        title={
+          post?.isAdmin || !!session
+            ? passwordModalMode === 'delete'
+              ? '관리자 삭제'
+              : '관리자 수정'
+            : '비밀번호 입력'
+        }
+        text={
+          post?.isAdmin || !!session
+            ? `게시글을 ${passwordModalMode === 'delete' ? '삭제' : '수정'}하시겠습니까?`
+            : `게시글을 ${
           passwordModalMode === 'delete' ? '삭제' : '수정'
-        }하려면 비밀번호를 입력하세요.`}
+              }하려면 비밀번호를 입력하세요.`
+        }
         onBackgroundClick={handleModalBackgroundClick}
       >
         <S.ModalForm onSubmit={handlePasswordModalEnter}>
+          {post?.isAdmin || !!session ? (
+            <br />
+          ) : (
           <InputBox
             type={'password'}
             value={password}
             onInputChange={handlePasswordChange}
             style={{ marginTop: '16px', marginBottom: '16px' }}
           />
+          )}
 
           <Buttons>
             <Button
               onClick={handlePasswordModalConfirmButtonClick}
               type={passwordModalMode === 'delete' ? 'warning' : 'secondary'}
-              disabled={!password}
+              disabled={!session && !password}
             >
               {passwordModalMode === 'delete' ? '삭제' : '확인'}
             </Button>

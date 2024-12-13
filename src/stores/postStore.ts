@@ -85,7 +85,14 @@ export class PostStore {
     }
   };
 
-  createPost = async ({ title, userName, createdAt, content, password }: PostCreateModel) => {
+  createPost = async ({
+    title,
+    userName,
+    createdAt,
+    content,
+    password,
+    isAdmin,
+  }: PostCreateModel) => {
     try {
       const res = await fetch('/api/createPost', {
         method: 'POST',
@@ -99,7 +106,7 @@ export class PostStore {
           content,
           password,
           replies: [],
-          isAdmin: false,
+          isAdmin,
         }),
       });
 
