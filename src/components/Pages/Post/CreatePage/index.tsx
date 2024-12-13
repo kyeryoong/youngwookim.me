@@ -55,7 +55,8 @@ const CreatePage = observer(() => {
       });
 
       if (res?.status === 200) {
-        postStore.setPageMode('list');
+        postStore.setPageMode('read');
+        postStore.setCurrentId(res?._id);
         window.scrollTo({ top: 0 });
 
         uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
@@ -72,7 +73,8 @@ const CreatePage = observer(() => {
       });
 
       if (res?.status === 200) {
-        postStore.setPageMode('list');
+        postStore.setPageMode('read');
+        postStore.setCurrentId(postStore.currentId);
         window.scrollTo({ top: 0 });
 
         uiStore.openToastPopup({ toastString: '게시글이 수정되었습니다.', toastType: 'success' });

@@ -111,13 +111,13 @@ export class PostStore {
       });
 
       if (res) {
-        const { status, error } = await res.json();
+        const { status, _id, error } = await res.json();
 
         if (error) {
           console.error(error);
         }
 
-        return { status };
+        return { status, _id };
       }
     } catch (error) {
       console.error(error);
