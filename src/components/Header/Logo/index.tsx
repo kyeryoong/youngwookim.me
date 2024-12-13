@@ -12,9 +12,9 @@ const Logo = observer(() => {
   };
 
   return (
-    <S.LogoWrapper onClick={handleLogoClick} href="/">
-      <S.LogoTitle>youngwookim.me</S.LogoTitle>
-    </S.LogoWrapper>
+    <S.LogoTitle onClick={handleLogoClick} href="/">
+      youngwookim.me
+    </S.LogoTitle>
   );
 });
 
