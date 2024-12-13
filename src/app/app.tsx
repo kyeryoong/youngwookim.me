@@ -1,7 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '@/components/Footer';
@@ -14,24 +14,14 @@ import font from '@/theme/font';
 import light from '@/theme/light';
 import ToastPopup from '@/theme/ToastPopup';
 
-type AppProps = { children: React.ReactNode };
+type AppProps = {
+  children: ReactNode;
+};
 
 const App = observer(({ children }: AppProps) => {
-  const { menuStore, themeStore } = useStore();
+  const { themeStore } = useStore();
 
   const [isThemeLoaded, setIsThemeLoaded] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key.toUpperCase() === 'M') {
-        event.preventDefault();
-        menuStore.setIsMenuOpened(!menuStore.isMenuOpened);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
