@@ -143,7 +143,7 @@ const ReadPage = observer(() => {
             <S.Info>
               <S.UserIcon />
               <S.InfoLabel>작성자</S.InfoLabel>
-              <S.InfoValue isAdmin>
+              <S.InfoValue isAdmin={post?.isAdmin}>
                 {post?.userName}
                 {post?.isAdmin && '(관리자)'}
               </S.InfoValue>
