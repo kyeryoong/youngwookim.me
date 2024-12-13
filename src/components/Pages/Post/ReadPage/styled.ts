@@ -90,6 +90,7 @@ export const Content = styled('p')`
   padding-bottom: 32px;
   margin-bottom: 32px;
   word-break: break-all;
+  white-space: pre-line;
 
   @media (pointer: coarse) or (max-width: 1000px) {
     padding-top: min(4vw, 32px);
