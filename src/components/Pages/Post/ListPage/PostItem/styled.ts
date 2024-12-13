@@ -23,7 +23,7 @@ export const PostItemWrapper = styled('div')`
   @media (pointer: coarse) or (max-width: 1000px) {
     height: 48px;
     padding: 0px;
-    gap: 10px;
+    gap: 8px;
   }
 `;
 
@@ -36,6 +36,7 @@ export const PostIndex = styled('h3')`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.m};
+    width: 30px;
   }
 `;
 
@@ -50,7 +51,7 @@ export const PostTitle = styled('h2')`
   word-break: break-all;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xl};
+    font-size: ${({ theme }) => theme.font.mobile.l};
   }
 `;
 
@@ -61,7 +62,18 @@ export const PostTitleAdminPrefix = styled('p')`
   display: inline;
 
   @media (pointer: coarse) or (max-width: 1000px) {
-    font-size: ${({ theme }) => theme.font.mobile.xl};
+    font-size: ${({ theme }) => theme.font.mobile.l};
+  }
+`;
+
+export const PostTitleRepliesSuffix = styled('p')`
+  font-size: ${({ theme }) => theme.font.m};
+  font-weight: 500;
+  color: ${({ theme }) => theme.color.gray[500]};
+  display: inline;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.m};
   }
 `;
 

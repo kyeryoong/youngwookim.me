@@ -48,8 +48,10 @@ export type PostEditModel = {
 
 export type PostItemModel = {
   _id: string;
+  index: number;
   title: string;
   userName: string;
   createdAt: string;
   isAdmin: boolean;
+  repliesLength: number;
 };
