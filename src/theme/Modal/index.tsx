@@ -37,6 +37,14 @@ const Modal = ({ isOpened, title, text, children, onBackgroundClick }: ModalProp
         document.body.style.paddingRight = '0px';
       }
     }
+
+    return () => {
+      document.body.style.overflowY = 'auto';
+
+      if (!isMobile()) {
+        document.body.style.paddingRight = '0px';
+      }
+    };
   }, [isOpened]);
 
   return (
