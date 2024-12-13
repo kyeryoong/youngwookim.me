@@ -2,6 +2,7 @@
 
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 
 import jetBrainsMono from '@/font/jetBrainsMono';
@@ -13,6 +14,7 @@ import { fortuneTexts, helpText, initText } from './text';
 
 const Prompt = observer(() => {
   const { menuStore, themeStore } = useStore();
+  const { data: session } = useSession();
 
   const router = useRouter();
   const ref = useRef<HTMLInputElement>(null);
@@ -128,6 +130,27 @@ const Prompt = observer(() => {
     // 프롬프트 확장
     else if (prefix === 'expand') {
       menuStore.setIsMenuExpanded(!menuStore.isMenuExpanded);
+    }
+
+    // 관리자 로그인
+    else if (prefix === 'login') {
+      if (session) {
+        setResultLines((prev: string[]) => [
+          ...prev,
+          "bash: login: you're already logged in as admin",
+        ]);
+      } else {
+        signIn('github');
+      }
+    }
+
+    // 관리자 로그아웃
+    else if (prefix === 'logout') {
+      if (session) {
+        signOut();
+      } else {
+        setResultLines((prev: string[]) => [...prev, "bash: logout: you're not logged in"]);
+      }
     }
 
     // 유효하지 않은 명령어

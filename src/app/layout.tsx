@@ -6,6 +6,7 @@ import pretendard from '@/font/pretendard';
 
 import StyledComponentsRegistry from '../../lib/registry';
 import App from './app';
+import ClientSessionProvider from './sessionProvider';
 
 export const metadata: Metadata = {
   title: 'youngwookim.me',
@@ -17,7 +18,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="ko" className={pretendard.className}>
       <body className={pretendard.className} suppressHydrationWarning>
         <StyledComponentsRegistry>
-          <App>{children}</App>
+          <ClientSessionProvider>
+            <App>{children}</App>
+          </ClientSessionProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

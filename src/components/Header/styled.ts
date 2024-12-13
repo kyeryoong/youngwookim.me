@@ -1,3 +1,4 @@
+import { KeyFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type HeaderWrapperProps = {
@@ -26,4 +27,22 @@ export const HeaderWrapper = styled('header')<HeaderWrapperProps>`
     padding-left: 5vw;
     padding-right: 5vw;
   }
+`;
+
+export const AdminBanner = styled('section')`
+  font-size: 0.85rem;
+  width: 100vw;
+  height: 24px;
+  position: fixed;
+  top: 0px;
+  background-color: ${({ theme }) => theme.color.green[400]};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+`;
+
+export const AdminIcon = styled(KeyFill)`
+  width: 20px;
+  height: 20px;
 `;
