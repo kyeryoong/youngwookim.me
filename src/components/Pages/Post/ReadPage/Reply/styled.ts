@@ -4,6 +4,10 @@ type ReplyInputWrapperProps = {
   isFocused: boolean;
 };
 
+type ReplyUserNameProps = {
+  isAdmin: boolean;
+};
+
 type ReplyContentProps = {
   isDeleted: boolean;
 };
@@ -51,9 +55,9 @@ export const ReplyItemHeader = styled('div')`
   margin-bottom: 8px;
 `;
 
-export const ReplyUserName = styled('p')`
+export const ReplyUserName = styled('p')<ReplyUserNameProps>`
   font-size: ${({ theme }) => theme.font.m};
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, isAdmin }) => (isAdmin ? theme.color.blue[500] : theme.color.white)};
 `;
 
 export const ReplyCreatedAt = styled('p')`

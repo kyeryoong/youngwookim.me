@@ -1,6 +1,10 @@
 import { ClockFill, PersonFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
+type InfoValueProps = {
+  isAdmin?: boolean;
+};
+
 export const ReadPageWrapper = styled('div')``;
 
 export const InfoWrapper = styled('div')`
@@ -42,12 +46,12 @@ export const InfoLabel = styled('label')`
   }
 `;
 
-export const InfoValue = styled('h3')`
+export const InfoValue = styled('h3')<InfoValueProps>`
   font-size: ${({ theme }) => theme.font.l};
   font-weight: 600;
   height: 20px;
   line-height: 20px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme, isAdmin }) => (isAdmin ? theme.color.blue[500] : theme.color.white)};
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -56,6 +60,11 @@ export const InfoValue = styled('h3')`
   @media (pointer: coarse) or (max-width: 1000px) {
     font-size: ${({ theme }) => theme.font.mobile.l};
   }
+`;
+
+export const PostTitleAdminPrefix = styled('p')`
+  color: ${({ theme }) => theme.color.blue[500]};
+  display: inline;
 `;
 
 export const UserIcon = styled(PersonFill)`

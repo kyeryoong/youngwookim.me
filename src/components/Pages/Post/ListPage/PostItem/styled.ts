@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const PostItemWrapper = styled('div')`
   width: 100%;
-  height: 64px;
-  padding: 12px;
+  padding: 20px 12px;
   display: grid;
   grid-template-columns: fit-content(100%) 1fr fit-content(100%) fit-content(100%);
   align-items: center;
@@ -43,6 +42,7 @@ export const PostIndex = styled('h3')`
 export const PostTitle = styled('h2')`
   font-size: ${({ theme }) => theme.font.xl};
   font-weight: 500;
+  width: 100%;
   color: ${({ theme }) => theme.color.gray[100]};
   overflow: hidden;
   white-space: nowrap;
@@ -54,10 +54,23 @@ export const PostTitle = styled('h2')`
   }
 `;
 
+export const PostTitleAdminPrefix = styled('p')`
+  font-size: ${({ theme }) => theme.font.xl};
+  font-weight: 500;
+  color: ${({ theme }) => theme.color.blue[500]};
+  display: inline;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xl};
+  }
+`;
+
 export const PostCreatedAt = styled('h3')`
   font-size: ${({ theme }) => theme.font.m};
   font-weight: 400;
   width: 120px;
+  height: 24px;
+  line-height: 24px;
   text-align: center;
   color: ${({ theme }) => theme.color.gray[400]};
   overflow: hidden;

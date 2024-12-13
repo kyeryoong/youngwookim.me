@@ -32,6 +32,7 @@ const CONTENT_MAX_LENGTH = 100;
 
 const Reply = observer(({ post, setPost }: ReplyProps) => {
   const { postStore, uiStore } = useStore();
+  const { data: session } = useSession();
 
   const replyInputRef = useRef<HTMLDivElement>(null);
   const [isReplyInputFocused, setIsReplyInputFocused] = useState<boolean>(false);
@@ -177,7 +178,7 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
       if (session) {
         setIsVerified(true);
       } else {
-      setIsVerified(false);
+        setIsVerified(false);
       }
     }
   }, [isReplyInputFocused]);
@@ -194,7 +195,10 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
           {post?.replies?.map((reply: ReplyModel, index: number) => (
             <S.ReplyItem key={index}>
               <S.ReplyItemHeader>
-                <S.ReplyUserName>{reply.userName}</S.ReplyUserName>
+                <S.ReplyUserName isAdmin={reply.isAdmin}>
+                  {reply.userName}
+                  {reply.isAdmin && '(관리자)'}
+                </S.ReplyUserName>
 
                 <S.ReplyCreatedAt>
                   {new Date(reply.createdAt ?? '').toLocaleString('ko-KR', {
@@ -249,23 +253,23 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
 
             {!session && (
               <>
-            <S.ReplyInputBox
-              type={'password'}
-              value={replyPassword}
-              onChange={handleReplyPasswordChange}
-              minLength={6}
-              maxLength={16}
-              spellCheck={false}
-              placeholder={'비밀번호'}
-              style={{ width: '180px' }}
-            />
+                <S.ReplyInputBox
+                  type={'password'}
+                  value={replyPassword}
+                  onChange={handleReplyPasswordChange}
+                  minLength={6}
+                  maxLength={16}
+                  spellCheck={false}
+                  placeholder={'비밀번호'}
+                  style={{ width: '180px' }}
+                />
                 <S.PasswordComment
                   isValidPassword={!(replyPassword.length > 0 && !isValidPassword)}
                 >
                   {replyPassword.length > 0 &&
                     !isValidPassword &&
                     '비밀번호는 6~16 자리여야 합니다.'}
-            </S.PasswordComment>
+                </S.PasswordComment>
               </>
             )}
 
@@ -303,12 +307,12 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
           {session ? (
             <br />
           ) : (
-          <InputBox
-            type={'password'}
-            value={password}
-            onInputChange={handlePasswordChange}
-            style={{ marginTop: '16px', marginBottom: '16px' }}
-          />
+            <InputBox
+              type={'password'}
+              value={password}
+              onInputChange={handlePasswordChange}
+              style={{ marginTop: '16px', marginBottom: '16px' }}
+            />
           )}
           <Buttons>
             <Button

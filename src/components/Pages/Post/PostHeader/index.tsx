@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import * as S from './styled';
 
 type PostHeaderProps = {
-  title: string;
+  title: ReactNode;
   leftElements?: ReactNode;
   rightElements?: ReactNode;
 };

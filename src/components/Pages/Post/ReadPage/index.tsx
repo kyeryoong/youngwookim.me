@@ -1,6 +1,7 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
+import { useSession } from 'next-auth/react';
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
@@ -120,7 +121,12 @@ const ReadPage = observer(() => {
   return (
     <S.ReadPageWrapper>
       <PostHeader
-        title={post?.title ?? ''}
+        title={
+          <>
+            {post?.isAdmin && <S.PostTitleAdminPrefix>[관리자] </S.PostTitleAdminPrefix>}
+            {post?.title}
+          </>
+        }
         leftElements={
           <IconButton
             type={'left'}
@@ -137,7 +143,10 @@ const ReadPage = observer(() => {
             <S.Info>
               <S.UserIcon />
               <S.InfoLabel>작성자</S.InfoLabel>
-              <S.InfoValue>{post?.userName}</S.InfoValue>
+              <S.InfoValue isAdmin>
+                {post?.userName}
+                {post?.isAdmin && '(관리자)'}
+              </S.InfoValue>
             </S.Info>
 
             <S.Info>
@@ -168,7 +177,7 @@ const ReadPage = observer(() => {
               }
             })() && <Button onClick={handleEditButtonClick}>수정</Button>}
             {(post?.isAdmin ? session : true) && (
-            <Button onClick={handleDeleteButtonClick}>삭제</Button>
+              <Button onClick={handleDeleteButtonClick}>삭제</Button>
             )}
           </Buttons>
 
@@ -193,7 +202,7 @@ const ReadPage = observer(() => {
           post?.isAdmin || !!session
             ? `게시글을 ${passwordModalMode === 'delete' ? '삭제' : '수정'}하시겠습니까?`
             : `게시글을 ${
-          passwordModalMode === 'delete' ? '삭제' : '수정'
+                passwordModalMode === 'delete' ? '삭제' : '수정'
               }하려면 비밀번호를 입력하세요.`
         }
         onBackgroundClick={handleModalBackgroundClick}
@@ -202,12 +211,12 @@ const ReadPage = observer(() => {
           {post?.isAdmin || !!session ? (
             <br />
           ) : (
-          <InputBox
-            type={'password'}
-            value={password}
-            onInputChange={handlePasswordChange}
-            style={{ marginTop: '16px', marginBottom: '16px' }}
-          />
+            <InputBox
+              type={'password'}
+              value={password}
+              onInputChange={handlePasswordChange}
+              style={{ marginTop: '16px', marginBottom: '16px' }}
+            />
           )}
 
           <Buttons>

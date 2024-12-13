@@ -6,7 +6,7 @@ import { useStore } from '@/stores';
 import * as S from './styled';
 
 const PostItem = observer(
-  ({ _id, index, title, userName, createdAt }: PostItemModel & { index: number }) => {
+  ({ _id, index, title, userName, createdAt, isAdmin }: PostItemModel & { index: number }) => {
     const { postStore } = useStore();
 
     const handlePostItemClick = () => {
@@ -44,9 +44,15 @@ const PostItem = observer(
     return (
       <S.PostItemWrapper key={_id} onClick={handlePostItemClick}>
         <S.PostIndex>{index}</S.PostIndex>
-        <S.PostTitle>{title}</S.PostTitle>
+        <S.PostTitle>
+          {isAdmin && <S.PostTitleAdminPrefix>[관리자] </S.PostTitleAdminPrefix>}
+          {title}
+        </S.PostTitle>
         <S.PostCreatedAt>{timeToString(createdAt)}</S.PostCreatedAt>
-        <S.PostUserName>{userName}</S.PostUserName>
+        <S.PostUserName>
+          {userName}
+          {isAdmin && '(관리자)'}
+        </S.PostUserName>
       </S.PostItemWrapper>
     );
   },
