@@ -8,13 +8,11 @@ import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
-import IconButton from '@/theme/IconButton';
 import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
 import { decryptPassword } from '@/utils/password';
 
-import PostHeader from '../PostHeader';
 import Reply from './Reply';
 import * as S from './styled';
 
@@ -120,22 +118,13 @@ const ReadPage = observer(() => {
 
   return (
     <S.ReadPageWrapper>
-      <PostHeader
-        title={
-          <>
-            {post?.isAdmin && <S.PostTitleAdminPrefix>[관리자] </S.PostTitleAdminPrefix>}
-            {post?.title}
-          </>
-        }
-        leftElements={
-          <IconButton
-            type={'left'}
-            size={32}
-            onClick={handleBackButtonClick}
-            style={{ marginLeft: 'calc(-1 * min(1vw, 8px))' }}
-          />
-        }
-      />
+      <S.ReadPageHeader>
+        <S.BackButton onClick={handleBackButtonClick} />
+        <S.TitleWrapper>
+          {post?.isAdmin && <S.TitleAdminPrefix>[관리자] </S.TitleAdminPrefix>}
+          {post?.title}
+        </S.TitleWrapper>
+      </S.ReadPageHeader>
 
       {isPostLoaded ? (
         <>

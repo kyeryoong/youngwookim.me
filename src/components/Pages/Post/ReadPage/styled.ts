@@ -1,11 +1,61 @@
-import { ClockFill, PersonFill } from 'react-bootstrap-icons';
+import { ChevronLeft, ClockFill, PersonFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
 type InfoValueProps = {
   isAdmin?: boolean;
 };
 
-export const ReadPageWrapper = styled('div')``;
+export const ReadPageWrapper = styled('section')``;
+
+export const ReadPageHeader = styled('div')`
+  font-size: ${({ theme }) => theme.font.xxxl};
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: fit-content(100%) 1fr;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 8px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    font-size: ${({ theme }) => theme.font.mobile.xxxl};
+    margin-bottom: min(12vw, 48px);
+    gap: min(1vw, 8px);
+  }
+`;
+
+export const BackButton = styled(ChevronLeft)`
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  margin-left: -12px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.25);
+  }
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    margin-left: calc(-1 * min(3vw, 12px));
+  }
+`;
+
+export const TitleWrapper = styled('div')`
+  line-height: 36px;
+  margin-top: 6px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    line-height: 28px;
+    margin-top: 10px;
+  }
+`;
+
+export const TitleAdminPrefix = styled('p')`
+  color: ${({ theme }) => theme.color.blue[500]};
+  display: inline;
+`;
 
 export const InfoWrapper = styled('div')`
   border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};
@@ -62,11 +112,6 @@ export const InfoValue = styled('h3')<InfoValueProps>`
   }
 `;
 
-export const PostTitleAdminPrefix = styled('p')`
-  color: ${({ theme }) => theme.color.blue[500]};
-  display: inline;
-`;
-
 export const UserIcon = styled(PersonFill)`
   width: 20px;
   height: 20px;
@@ -81,8 +126,8 @@ export const TimeIcon = styled(ClockFill)`
 `;
 
 export const Content = styled('p')`
-  font-size: ${({ theme }) => theme.font.xl};
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.font.l};
+  font-weight: 400;
   min-height: 300px;
   color: ${({ theme }) => theme.color.white};
   border-bottom: 1px solid ${({ theme }) => theme.color.gray[800]};

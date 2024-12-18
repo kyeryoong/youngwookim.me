@@ -6,7 +6,6 @@ import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 
-import PostHeader from '../PostHeader';
 import PostItem from './PostItem';
 import * as S from './styled';
 
@@ -43,14 +42,12 @@ const ListPage = observer(() => {
 
   return (
     <S.ListPageWrapper>
-      <PostHeader
-        title={'게시판'}
-        rightElements={
-          <Button onClick={handleCreateButtonClick} icon={<S.WriteIcon />}>
-            생성
-          </Button>
-        }
-      />
+      <S.ListPageHeader>
+        게시판
+        <Button onClick={handleCreateButtonClick} icon={<S.WriteIcon />}>
+          생성
+        </Button>
+      </S.ListPageHeader>
 
       {isPostsLoaded ? (
         posts.length > 0 ? (

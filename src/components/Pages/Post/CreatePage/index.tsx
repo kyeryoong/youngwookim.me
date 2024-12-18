@@ -6,11 +6,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
-import IconButton from '@/theme/IconButton';
 import InputBox from '@/theme/InputBox';
 import { encryptPassword } from '@/utils/password';
 
-import PostHeader from '../PostHeader';
 import * as S from './styled';
 
 const TITLE_MAX_LENGTH = 50;
@@ -132,17 +130,10 @@ const CreatePage = observer(() => {
 
   return (
     <S.CreatePageWrapper>
-      <PostHeader
-        title={postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
-        leftElements={
-          <IconButton
-            type={'left'}
-            size={32}
-            onClick={handleBackButtonClick}
-            style={{ marginLeft: 'calc(-1 * min(1vw, 8px))' }}
-          />
-        }
-      />
+      <S.CreatePageHeader>
+        <S.BackButton onClick={handleBackButtonClick} />
+        {postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
+      </S.CreatePageHeader>
 
       <InputBox
         type={'text'}
