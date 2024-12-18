@@ -32,7 +32,7 @@ export const HeaderWrapper = styled('header')<HeaderWrapperProps>`
 export const AdminBanner = styled('section')`
   font-size: 1rem;
   font-weight: 300;
-  width: 100vw;
+  width: 100%;
   height: 32px;
   line-height: 32px;
   position: fixed;
