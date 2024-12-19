@@ -75,9 +75,12 @@ export const DoubleItem = styled('li')<ItemProps>`
 `;
 
 export const ItemLabel = styled('h2')`
-  font-size: max(2vw, 1rem);
+  font-size: 1.6rem;
   font-weight: 300;
-  line-height: max(2vw, 1rem);
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(3.2vw, 1.6rem);
+  }
 `;
 
 export const Name = styled(SingleItem)`
@@ -92,7 +95,7 @@ export const NameLabel = styled(ItemLabel)`
 export const ProfileImage = styled(Image)`
   width: min(20vw, 300px);
   height: min(20vw, 300px);
-  border-radius: min(16vw, 300px);
+  border-radius: min(20vw, 300px);
   object-fit: cover;
   object-position: 0px 0px;
   background-color: ${({ theme }) => theme.color.gray[200]};
@@ -107,12 +110,21 @@ export const NameValueWrapper = styled('div')`
 `;
 
 export const NameKorean = styled('p')`
-  font-size: max(3.6vw, 1.2rem);
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 600;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(6vw, 3rem);
+  }
 `;
 
 export const NameEnglish = styled('p')`
-  font-size: max(3vw, 1rem);
+  font-size: 1.6rem;
+  font-weight: 300;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(3.2vw, 1.6rem);
+  }
 `;
 
 export const Position = styled(SingleItem)`
@@ -124,7 +136,7 @@ export const PositionLabel = styled(ItemLabel)`
 `;
 
 export const PositionValue = styled('p')`
-  font-size: max(3vw, 1rem);
+  font-size: 3rem;
   font-weight: 700;
   font-style: italic;
   width: 100%;
@@ -134,6 +146,10 @@ export const PositionValue = styled('p')`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    font-size: min(6vw, 3rem);
+  }
 `;
 
 export const Education = styled(SingleItem)`
@@ -165,11 +181,12 @@ export const EducationValueWrapper = styled('div')`
 `;
 
 export const EducationUniveristy = styled('p')`
-  font-size: 3rem;
+  font-size: 2.4rem;
+  font-weight: 600;
   margin-bottom: 12px;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(4.5vw, 3rem);
+    font-size: min(4.8vw, 2.4rem);
     margin-bottom: min(1vw, 12px);
   }
 `;
@@ -179,7 +196,7 @@ export const EducationPeriod = styled('p')`
   font-weight: 300;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(1.8vw, 1.2rem);
+    font-size: min(2.4vw, 1.2rem);
   }
 `;
 
@@ -196,7 +213,7 @@ export const AwardsLabel = styled(ItemLabel)`
 `;
 
 export const AwardsCount = styled('h2')`
-  font-size: 8.8rem;
+  font-size: 8rem;
   font-weight: 700;
   line-height: 6.6rem;
   position: absolute;
@@ -209,7 +226,7 @@ export const AwardsCount = styled('h2')`
   color: transparent;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(13.22vw, 8.8rem);
+    font-size: min(12vw, 8rem);
     line-height: min(9.9vw, 6.6rem);
     transform: translate(calc(-1 * min(6vw, 48px)), min(6vw, 48px));
   }
@@ -264,19 +281,19 @@ export const AwardsTitle = styled('p')`
 
 export const AwardsContent = styled('p')`
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(3vw, 2rem);
+    font-size: min(4vw, 2rem);
   }
 `;
 
 export const AwardsDate = styled('p')`
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(1.5vw, 1rem);
+    font-size: min(1.8vw, 1.2rem);
   }
 `;
 
@@ -300,19 +317,20 @@ export const WorkingExperienceValueWrapper = styled('div')`
 
 export const WorkingExperienceCompany = styled('p')`
   font-size: 2.4rem;
+  font-weight: 600;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(3.6vw, 2.4rem);
+    font-size: min(4.8vw, 2.4rem);
   }
 `;
 
 export const WorkingExperiencePosition = styled('p')`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
   margin-bottom: 12px;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(2.1vw, 1.4rem);
+    font-size: min(3.2vw, 1.6rem);
     margin-bottom: min(1vw, 12px);
   }
 `;
@@ -322,7 +340,7 @@ export const WorkingExperiencePeriod = styled('p')`
   font-weight: 300;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(1.8vw, 1.2rem);
+    font-size: min(2.4vw, 1.2rem);
   }
 `;
 
@@ -357,9 +375,15 @@ export const WorkingYearsLabel = styled('h3')`
 `;
 
 export const Tech = styled(DoubleItem)`
+  flex: 0 1 100%;
+  aspect-ratio: 3 / 1;
   background-color: ${({ theme }) => theme.color.gray[900]};
   padding: 0px;
   overflow: hidden;
+
+  @media (pointer: coarse) or (max-width: 1200px) {
+    aspect-ratio: 2 / 1;
+  }
 `;
 
 export const TechLabel = styled(ItemLabel)`
@@ -388,7 +412,6 @@ export const TechList = styled('li')`
   width: fit-content;
   list-style: none;
   display: flex;
-  flex: 1;
   animation: techCarouselScroll 12s infinite;
   animation-timing-function: linear;
 
@@ -415,12 +438,12 @@ export const TechWrapper = styled('ul')`
 
   @media (pointer: coarse) or (max-width: 1200px) {
     margin-right: min(10vw, 60px);
-    gap: min(4vw, 24px);
+    gap: min(3vw, 24px);
   }
 `;
 
 export const TechName = styled('p')`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
   width: 100%;
   text-align: center;
@@ -428,6 +451,6 @@ export const TechName = styled('p')`
   word-break: keep-all;
 
   @media (pointer: coarse) or (max-width: 1200px) {
-    font-size: min(2.4vw, 1.6rem);
+    font-size: min(2.8vw, 1.4rem);
   }
 `;

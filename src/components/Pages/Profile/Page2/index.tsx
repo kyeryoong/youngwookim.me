@@ -121,7 +121,7 @@ const Page2 = () => {
               <br />
               컴퓨터공학전공
             </S.EducationUniveristy>
-            <S.EducationPeriod>2017.3 ~ 2023.2</S.EducationPeriod>
+            <S.EducationPeriod>2017.03 ~ 2023.02</S.EducationPeriod>
           </S.EducationValueWrapper>
         </S.Education>
 
@@ -155,7 +155,7 @@ const Page2 = () => {
             <S.WorkingExperiencePosition>
               WAPL 협업 솔루션 Front-end 연구원
             </S.WorkingExperiencePosition>
-            <S.WorkingExperiencePeriod>2023.7 ~</S.WorkingExperiencePeriod>
+            <S.WorkingExperiencePeriod>2023.07 ~</S.WorkingExperiencePeriod>
           </S.WorkingExperienceValueWrapper>
         </S.WorkingExperience>
 
