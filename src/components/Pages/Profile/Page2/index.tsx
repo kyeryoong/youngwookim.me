@@ -1,50 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import CSS3Badge from '@/components/Badge/Premade/CSS3Badge';
-import HTML5Badge from '@/components/Badge/Premade/HTML5Badge';
-import JavaScriptBadge from '@/components/Badge/Premade/JavaScriptBadge';
-import MobXBadge from '@/components/Badge/Premade/MobXBadge';
-import ReactBadge from '@/components/Badge/Premade/ReactBadge';
-import StyledComponentsBadge from '@/components/Badge/Premade/StyledComponentsBadge';
-import TypeScriptBadge from '@/components/Badge/Premade/TypeScriptBadge';
 import jetBrainsMono from '@/font/jetBrainsMono';
 
 import * as S from './styled';
-
-const TechList = () => {
-  return (
-    <S.TechList>
-      <S.TechWrapper>
-        <HTML5Badge showName={false} size={80} />
-        <S.TechName>HTML5</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <CSS3Badge showName={false} size={80} />
-        <S.TechName>CSS3</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <JavaScriptBadge showName={false} size={80} />
-        <S.TechName>JavaScript</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <TypeScriptBadge showName={false} size={80} />
-        <S.TechName>TypeScript</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <ReactBadge showName={false} size={80} />
-        <S.TechName>React.js</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <MobXBadge showName={false} size={80} />
-        <S.TechName>MobX</S.TechName>
-      </S.TechWrapper>
-      <S.TechWrapper>
-        <StyledComponentsBadge showName={false} size={80} />
-        <S.TechName>styled components</S.TechName>
-      </S.TechWrapper>
-    </S.TechList>
-  );
-};
+import TechList from './TechList';
 
 const Page2 = () => {
   const ref = useRef<HTMLUListElement>(null);
