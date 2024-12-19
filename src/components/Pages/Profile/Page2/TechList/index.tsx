@@ -33,7 +33,7 @@ const TechList = () => {
       </S.TechWrapper>
       <S.TechWrapper>
         <ReactBadge showName={false} size={80} />
-        <S.TechName>React.js</S.TechName>
+        <S.TechName>React</S.TechName>
       </S.TechWrapper>
       <S.TechWrapper>
         <NextJSBadge showName={false} size={80} />
