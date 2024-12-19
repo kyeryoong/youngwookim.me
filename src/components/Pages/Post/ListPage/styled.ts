@@ -8,6 +8,7 @@ export const ListPageHeader = styled('div')`
   font-weight: 600;
   width: 100%;
   margin-bottom: 48px;
+  color: ${({ theme }) => theme.color.white};
   display: flex;
   align-items: center;
   flex-direction: row;

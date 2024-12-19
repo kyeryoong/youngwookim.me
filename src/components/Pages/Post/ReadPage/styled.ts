@@ -12,6 +12,7 @@ export const ReadPageHeader = styled('div')`
   font-weight: 600;
   width: 100%;
   margin-bottom: 48px;
+  color: ${({ theme }) => theme.color.white};
   display: grid;
   grid-template-columns: fit-content(100%) 1fr;
   align-items: flex-start;
@@ -31,6 +32,7 @@ export const BackButton = styled(ChevronLeft)`
   padding: 8px;
   margin-left: -12px;
   transition: 0.5s;
+  color: ${({ theme }) => theme.color.gray[600]};
   cursor: pointer;
 
   &:hover {
