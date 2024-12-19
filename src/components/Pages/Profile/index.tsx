@@ -7,7 +7,7 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 import Page5 from './Page5';
 
-const Profile = () => {
+const ProfilePage = () => {
   const [positionY, setPositionY] = useState<number>(0);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;

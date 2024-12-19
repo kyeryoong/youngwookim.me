@@ -1,9 +1,9 @@
 'use client';
 
-import New from '@/components/Pages/Profile';
+import ProfilePage from '@/components/Pages/Profile';
 
 const Profile = () => {
-  return <New />;
+  return <ProfilePage />;
 };
 
 export default Profile;
