@@ -4,7 +4,7 @@ export const TechList = styled('li')`
   width: fit-content;
   list-style: none;
   display: flex;
-  animation: techCarouselScroll 12s infinite;
+  animation: techCarouselScroll 20s infinite;
   animation-timing-function: linear;
 
   @keyframes techCarouselScroll {
