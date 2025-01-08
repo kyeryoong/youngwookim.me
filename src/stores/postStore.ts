@@ -51,7 +51,7 @@ export class PostStore {
 
   fetchPosts = async () => {
     try {
-      const res = await fetch('/api/getPosts');
+      const res = await fetch('/api/getPosts', { cache: 'no-store' });
 
       if (res) {
         const { data, error } = await res.json();
@@ -69,7 +69,7 @@ export class PostStore {
 
   fetchPost = async ({ _id }: { _id: string }) => {
     try {
-      const res = await fetch(`/api/getPost?_id=${_id}`);
+      const res = await fetch(`/api/getPost?_id=${_id}`, { cache: 'no-store' });
 
       if (res) {
         const { status, data, error } = await res.json();
@@ -108,6 +108,7 @@ export class PostStore {
           replies: [],
           isAdmin,
         }),
+        cache: 'no-store',
       });
 
       if (res) {
@@ -126,7 +127,10 @@ export class PostStore {
 
   deletePost = async ({ _id }: { _id: string }) => {
     try {
-      const res = await fetch(`/api/deletePost?_id=${_id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/deletePost?_id=${_id}`, {
+        method: 'DELETE',
+        cache: 'no-store',
+      });
 
       if (res) {
         const { status, error } = await res.json();
@@ -150,6 +154,7 @@ export class PostStore {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ title, userName, content, password }),
+        cache: 'no-store',
       });
 
       if (res) {
@@ -181,6 +186,8 @@ export class PostStore {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ userName, content, createdAt, password, isAdmin, isDeleted: false }),
+
+        cache: 'no-store',
       });
 
       if (res) {
@@ -205,6 +212,7 @@ export class PostStore {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ _id, replyId }),
+        cache: 'no-store',
       });
 
       if (res) {
