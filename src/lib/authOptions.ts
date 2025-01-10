@@ -13,4 +13,13 @@ export const authOptions: AuthOptions = {
     strategy: 'jwt',
     maxAge: 1800,
   },
+  callbacks: {
+    async signIn({ user }) {
+      if (user.email && user.email === process.env.MAIL_ID) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 };
