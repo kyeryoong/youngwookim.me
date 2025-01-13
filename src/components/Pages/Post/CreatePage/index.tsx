@@ -1,3 +1,5 @@
+'use client';
+
 import { observer } from 'mobx-react-lite';
 import { useSession } from 'next-auth/react';
 import { ChangeEvent, useEffect, useState } from 'react';
@@ -7,6 +9,7 @@ import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
+import Page from '@/theme/Page';
 import { encryptPassword } from '@/utils/password';
 
 import * as S from './styled';
@@ -129,91 +132,93 @@ const CreatePage = observer(() => {
   }, [postStore.pageMode]);
 
   return (
-    <S.CreatePageWrapper>
-      <S.CreatePageHeader>
-        <S.BackButton onClick={handleBackButtonClick} />
-        {postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
-      </S.CreatePageHeader>
+    <Page>
+      <S.CreatePageWrapper>
+        <S.CreatePageHeader>
+          <S.BackButton onClick={handleBackButtonClick} />
+          {postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
+        </S.CreatePageHeader>
 
-      <InputBox
-        type={'text'}
-        value={postStore.title}
-        onInputChange={handleTitleChange}
-        label={'제목'}
-        maxLength={TITLE_MAX_LENGTH}
-        showCounter
-      />
+        <InputBox
+          type={'text'}
+          value={postStore.title}
+          onInputChange={handleTitleChange}
+          label={'제목'}
+          maxLength={TITLE_MAX_LENGTH}
+          showCounter
+        />
 
-      <InputBox
-        type={'text'}
-        value={postStore.userName}
-        onInputChange={handleUserNameChange}
-        label={'이름'}
-        maxLength={USER_NAME_MAX_LENGTH}
-        showCounter
-        disabled={postStore.pageMode === 'edit' || !!session}
-      />
+        <InputBox
+          type={'text'}
+          value={postStore.userName}
+          onInputChange={handleUserNameChange}
+          label={'이름'}
+          maxLength={USER_NAME_MAX_LENGTH}
+          showCounter
+          disabled={postStore.pageMode === 'edit' || !!session}
+        />
 
-      <InputBox
-        type={'textarea'}
-        value={postStore.content}
-        onTextAreaChange={handleContentChange}
-        label={'내용'}
-        maxLength={session ? undefined : CONTENT_MAX_LENGTH}
-        showCounter={!session}
-        style={{ height: '200px' }}
-      />
+        <InputBox
+          type={'textarea'}
+          value={postStore.content}
+          onTextAreaChange={handleContentChange}
+          label={'내용'}
+          maxLength={session ? undefined : CONTENT_MAX_LENGTH}
+          showCounter={!session}
+          style={{ height: '200px' }}
+        />
 
-      {session ? (
-        <>
-          <br />
-          <br />
-          <br />
-        </>
-      ) : (
-        <>
-          <InputBox
-            type={'password'}
-            value={postStore.password}
-            onInputChange={handlePasswordChange}
-            label={'비밀번호'}
-            minLength={6}
-            maxLength={16}
-            style={{ width: '180px' }}
-          />
-
-          <S.PasswordComment>
-            {postStore.password.length > 0 &&
-              !isValidPassword &&
-              '비밀번호는 6~16 자리여야 합니다.'}
-          </S.PasswordComment>
-
-          <S.ReCAPTCHAWrapper>
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
-              onChange={handleReCaptchaChanged}
-              onExpired={handleReCaptchaExpired}
+        {session ? (
+          <>
+            <br />
+            <br />
+            <br />
+          </>
+        ) : (
+          <>
+            <InputBox
+              type={'password'}
+              value={postStore.password}
+              onInputChange={handlePasswordChange}
+              label={'비밀번호'}
+              minLength={6}
+              maxLength={16}
+              style={{ width: '180px' }}
             />
-          </S.ReCAPTCHAWrapper>
-        </>
-      )}
 
-      <Buttons>
-        <Button
-          onClick={handleCreateEditButtonClick}
-          icon={<S.WriteIcon />}
-          disabled={
-            postStore.title === '' ||
-            postStore.userName === '' ||
-            postStore.content === '' ||
-            !isVerified ||
-            !isValidPassword
-          }
-        >
-          {postStore.pageMode === 'create' ? '작성' : '수정'}
-        </Button>
-      </Buttons>
-    </S.CreatePageWrapper>
+            <S.PasswordComment>
+              {postStore.password.length > 0 &&
+                !isValidPassword &&
+                '비밀번호는 6~16 자리여야 합니다.'}
+            </S.PasswordComment>
+
+            <S.ReCAPTCHAWrapper>
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY ?? ''}
+                onChange={handleReCaptchaChanged}
+                onExpired={handleReCaptchaExpired}
+              />
+            </S.ReCAPTCHAWrapper>
+          </>
+        )}
+
+        <Buttons>
+          <Button
+            onClick={handleCreateEditButtonClick}
+            icon={<S.WriteIcon />}
+            disabled={
+              postStore.title === '' ||
+              postStore.userName === '' ||
+              postStore.content === '' ||
+              !isVerified ||
+              !isValidPassword
+            }
+          >
+            {postStore.pageMode === 'create' ? '작성' : '수정'}
+          </Button>
+        </Buttons>
+      </S.CreatePageWrapper>
+    </Page>
   );
 });
 

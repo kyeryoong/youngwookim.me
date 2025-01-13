@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import Link from 'next/link';
 
 import { PostItemModel } from '@/models/post';
 import { useStore } from '@/stores';
@@ -11,7 +12,6 @@ const PostItem = observer(
 
     const handlePostItemClick = () => {
       postStore.setPageMode('read');
-      postStore.setCurrentId(_id);
     };
 
     const timeToString = (createdAt: string) => {
@@ -42,21 +42,25 @@ const PostItem = observer(
     };
 
     return (
-      <S.PostItemWrapper key={_id} onClick={handlePostItemClick}>
-        <S.PostIndex>{index}</S.PostIndex>
-        <S.PostTitle>
-          {isAdmin && <S.PostTitleAdminPrefix>[관리자]&nbsp;</S.PostTitleAdminPrefix>}
-          {title}
-          {repliesLength > 0 && (
-            <S.PostTitleRepliesSuffix>&nbsp;&nbsp;&nbsp;[{repliesLength}]</S.PostTitleRepliesSuffix>
-          )}
-        </S.PostTitle>
-        <S.PostCreatedAt>{timeToString(createdAt)}</S.PostCreatedAt>
-        <S.PostUserName>
-          {userName}
-          {isAdmin && '(관리자)'}
-        </S.PostUserName>
-      </S.PostItemWrapper>
+      <Link href={`/post/read/${_id}`}>
+        <S.PostItemWrapper key={_id} onClick={handlePostItemClick}>
+          <S.PostIndex>{index}</S.PostIndex>
+          <S.PostTitle>
+            {isAdmin && <S.PostTitleAdminPrefix>[관리자]&nbsp;</S.PostTitleAdminPrefix>}
+            {title}
+            {repliesLength > 0 && (
+              <S.PostTitleRepliesSuffix>
+                &nbsp;&nbsp;&nbsp;[{repliesLength}]
+              </S.PostTitleRepliesSuffix>
+            )}
+          </S.PostTitle>
+          <S.PostCreatedAt>{timeToString(createdAt)}</S.PostCreatedAt>
+          <S.PostUserName>
+            {userName}
+            {isAdmin && '(관리자)'}
+          </S.PostUserName>
+        </S.PostItemWrapper>
+      </Link>
     );
   },
 );
