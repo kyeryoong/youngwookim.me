@@ -51,7 +51,7 @@ export class PostStore {
 
   fetchPosts = async () => {
     try {
-      const res = await fetch('/api/getPosts');
+      const res = await fetch('/api/getPosts', { next: { revalidate: 20 } });
 
       if (res) {
         const { data, error } = await res.json();
