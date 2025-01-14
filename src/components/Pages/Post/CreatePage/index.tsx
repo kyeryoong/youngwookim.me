@@ -5,12 +5,12 @@ import { useSession } from 'next-auth/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+import usePassword from '@/hooks/usePassword';
 import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
 import Page from '@/theme/Page';
-import { encryptPassword } from '@/utils/password';
 
 import * as S from './styled';
 
@@ -21,6 +21,7 @@ const CONTENT_MAX_LENGTH = 300;
 const CreatePage = observer(() => {
   const { postStore, uiStore } = useStore();
   const { data: session } = useSession();
+  const { encryptPassword } = usePassword();
 
   const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
   const [isVerified, setIsVerified] = useState<boolean>(false);

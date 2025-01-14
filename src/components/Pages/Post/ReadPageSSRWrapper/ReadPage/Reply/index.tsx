@@ -12,13 +12,13 @@ import {
 } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+import usePassword from '@/hooks/usePassword';
 import { PostModel, ReplyCreateModel, ReplyModel } from '@/models/post';
 import { useStore } from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
 import Modal from '@/theme/Modal';
-import { decryptPassword, encryptPassword } from '@/utils/password';
 
 import * as S from './styled';
 
@@ -33,6 +33,7 @@ const CONTENT_MAX_LENGTH = 100;
 const Reply = observer(({ post, setPost }: ReplyProps) => {
   const { postStore, uiStore } = useStore();
   const { data: session } = useSession();
+  const { encryptPassword, decryptPassword } = usePassword();
 
   const replyInputRef = useRef<HTMLDivElement>(null);
   const [isReplyInputFocused, setIsReplyInputFocused] = useState<boolean>(false);
