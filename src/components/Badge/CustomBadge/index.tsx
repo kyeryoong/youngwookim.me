@@ -1,3 +1,5 @@
+'use client';
+
 import { GradientBackground } from './GradientBackground';
 import * as S from './styled';
 

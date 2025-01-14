@@ -1,6 +1,4 @@
-'use client';
-
-import TechList from '@/components/Badge/BadgeList';
+import BadgeList from '@/components/Badge/BadgeList';
 import CSS3Badge from '@/components/Badge/Premade/CSS3Badge';
 import FigmaBadge from '@/components/Badge/Premade/FigmaBadge';
 import FirebaseBadge from '@/components/Badge/Premade/FirebaseBadge';
@@ -23,7 +21,7 @@ import Page from '@/theme/Page';
 const TechPage = () => {
   return (
     <Page>
-      <TechList name="Front-end">
+      <BadgeList name="Front-end">
         <HTML5Badge />
         <JavaScriptBadge />
         <TypeScriptBadge core />
@@ -31,25 +29,25 @@ const TechPage = () => {
         <MobXBadge core />
         <NextJSBadge />
         <VercelBadge />
-      </TechList>
+      </BadgeList>
 
-      <TechList name="Style Sheet & Design">
+      <BadgeList name="Style Sheet & Design">
         <CSS3Badge core />
         <StyledComponentsBadge core />
         <FigmaBadge core />
-      </TechList>
+      </BadgeList>
 
-      <TechList name="Database">
+      <BadgeList name="Database">
         <MongoDBBadge />
         <MySQLBadge />
         <FirebaseBadge />
-      </TechList>
+      </BadgeList>
 
-      <TechList name="Version Control">
+      <BadgeList name="Version Control">
         <GitBadge core />
         <GitHubBadge />
         <GitLabBadge core />
-      </TechList>
+      </BadgeList>
 
       <ScrollToTopButton />
     </Page>

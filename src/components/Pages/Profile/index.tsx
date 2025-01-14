@@ -1,3 +1,5 @@
+'use client';
+
 import { throttle } from 'lodash';
 import { useEffect, useState } from 'react';
 
@@ -7,7 +9,7 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 import Page5 from './Page5';
 
-const ProfilePage = () => {
+const Profile = () => {
   const [positionY, setPositionY] = useState<number>(0);
 
   useEffect(() => {
@@ -34,4 +36,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

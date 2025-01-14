@@ -1,3 +1,5 @@
+'use client';
+
 import { TouchEvent, useCallback, useState } from 'react';
 
 import IconButton from '@/theme/IconButton';

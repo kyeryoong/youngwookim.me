@@ -1,3 +1,5 @@
+'use client';
+
 import { Children, ReactNode } from 'react';
 
 import * as S from './styled';

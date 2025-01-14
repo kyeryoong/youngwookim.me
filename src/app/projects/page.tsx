@@ -1,9 +1,7 @@
-'use client';
-
 import MainPage from '@/components/Pages/Projects/MainPage';
 
-const ProjectPage = () => {
+const ProjectsPage = () => {
   return <MainPage />;
 };
 
-export default ProjectPage;
+export default ProjectsPage;
