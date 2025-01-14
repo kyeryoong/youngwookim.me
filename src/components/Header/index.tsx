@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { signOut, useSession } from 'next-auth/react';
 import { useCallback } from 'react';
 
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 
 import Logo from './Logo';
 import MenuButton from './MenuButton';

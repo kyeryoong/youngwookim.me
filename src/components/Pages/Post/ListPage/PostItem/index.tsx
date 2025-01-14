@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 
 import { PostItemModel } from '@/models/post';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 
 import * as S from './styled';
 

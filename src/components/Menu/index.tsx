@@ -3,7 +3,7 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useRef } from 'react';
 
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import isMobile from '@/utils/isMobile';
 
 import MenuButton from './MenuElement';

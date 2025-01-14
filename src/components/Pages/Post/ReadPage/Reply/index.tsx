@@ -14,7 +14,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import usePassword from '@/hooks/usePassword';
 import { PostModel, ReplyCreateModel, ReplyModel } from '@/models/post';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';

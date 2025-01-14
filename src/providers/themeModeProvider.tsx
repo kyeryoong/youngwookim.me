@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { ReactNode, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import { ThemeType } from '@/stores/themeStore';
 import dark from '@/theme/dark';
 import font from '@/theme/font';

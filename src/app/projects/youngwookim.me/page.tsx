@@ -19,7 +19,7 @@ import Navigator from '@/components/Pages/Projects/Components/Navigator';
 import SourceCodeButton from '@/components/Pages/Projects/Components/SourceCodeButton';
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 
 import * as S from './styled';
 

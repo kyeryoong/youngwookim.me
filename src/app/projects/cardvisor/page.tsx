@@ -13,7 +13,7 @@ import SourceCodeButton from '@/components/Pages/Projects/Components/SourceCodeB
 import SourceCodeButtonList from '@/components/Pages/Projects/Components/SourceCodeButtonList';
 import Text from '@/components/Pages/Projects/Components/Text';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import ImageCarousel from '@/theme/ImageCarousel';
 
 import * as S from './styled';

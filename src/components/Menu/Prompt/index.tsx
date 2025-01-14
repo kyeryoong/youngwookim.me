@@ -6,7 +6,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 
 import jetBrainsMono from '@/font/jetBrainsMono';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 
 import isMobile from '../../../utils/isMobile';
 import * as S from './styled';

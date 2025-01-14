@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 
 import { PostModel } from '@/models/post';
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import Button from '@/theme/Button';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 

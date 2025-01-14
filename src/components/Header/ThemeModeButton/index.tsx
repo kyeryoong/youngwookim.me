@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useTheme } from 'styled-components';
 
-import { useStore } from '@/stores';
+import useStore from '@/stores';
 import ToggleSwitch from '@/theme/ToggleSwitch';
 import isMobile from '@/utils/isMobile';
 

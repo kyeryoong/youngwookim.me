@@ -17,11 +17,14 @@ export class Store {
   }
 }
 
-let store: Store | null = null;
+let store: Store;
 
-export function useStore() {
+const useStore = () => {
   if (!store) {
     store = new Store();
   }
+
   return store;
-}
+};
+
+export default useStore;
