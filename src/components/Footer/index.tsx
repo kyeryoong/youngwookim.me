@@ -38,7 +38,9 @@ const Footer = () => {
         </S.FooterTopRight>
       </S.FooterTop>
 
-      <S.FooterBottom>{new Date().getFullYear()}. archive-eng. All rights reserved.</S.FooterBottom>
+      <S.FooterBottom>
+        {new Date().getFullYear()}. youngwookim.me. All rights reserved.
+      </S.FooterBottom>
     </S.FooterWrapper>
   );
 };
