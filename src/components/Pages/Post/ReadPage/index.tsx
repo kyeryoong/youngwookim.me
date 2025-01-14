@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useSession } from 'next-auth/react';
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 
+import usePassword from '@/hooks/usePassword';
 import { PostModel } from '@/models/post';
 import { useStore } from '@/stores';
 import Button from '@/theme/Button';
@@ -11,7 +12,6 @@ import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
-import { decryptPassword } from '@/utils/password';
 
 import Reply from './Reply';
 import * as S from './styled';
@@ -19,6 +19,7 @@ import * as S from './styled';
 const ReadPage = observer(() => {
   const { postStore, uiStore } = useStore();
   const { data: session } = useSession();
+  const { decryptPassword } = usePassword();
 
   const [post, setPost] = useState<PostModel | null>(null);
   const [isPostLoaded, setIsPostLoaded] = useState<boolean>(false);
