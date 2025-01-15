@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { connectDB } from '../../../utils/database';
 
-export async function PUT(req: NextRequest) {
+export const PUT = async (req: NextRequest) => {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
 
@@ -32,4 +32,4 @@ export async function PUT(req: NextRequest) {
   } catch (error) {
     return NextResponse.json({ status: 500, error });
   }
-}
+};

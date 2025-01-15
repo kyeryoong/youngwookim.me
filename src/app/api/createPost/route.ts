@@ -6,7 +6,7 @@ import getEmailHtml from '@/utils/getEmailHtml';
 
 import { connectDB } from '../../../utils/database';
 
-export async function POST(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
 
@@ -62,4 +62,4 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     return NextResponse.json({ status: 500, error });
   }
-}
+};

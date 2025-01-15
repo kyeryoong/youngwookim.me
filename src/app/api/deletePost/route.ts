@@ -5,7 +5,7 @@ import { connectDB } from '../../../utils/database';
 
 export const dynamic = 'force-dynamic';
 
-export async function DELETE(req: NextRequest) {
+export const DELETE = async (req: NextRequest) => {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
 
@@ -30,4 +30,4 @@ export async function DELETE(req: NextRequest) {
   } catch (error) {
     return NextResponse.json({ status: 500, error });
   }
-}
+};
