@@ -4,7 +4,7 @@ import { connectDB } from '../../../utils/database';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export const GET = async () => {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
     const res = await database
@@ -16,4 +16,4 @@ export async function GET() {
   } catch (error) {
     return NextResponse.json({ status: 500, error });
   }
-}
+};
