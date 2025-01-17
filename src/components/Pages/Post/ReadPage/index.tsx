@@ -1,8 +1,9 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import usePassword from '@/hooks/usePassword';
 import { PostModel } from '@/models/post';
@@ -13,31 +14,27 @@ import InputBox from '@/theme/InputBox';
 import LoadingSpinner from '@/theme/LoadingSpinner';
 import Modal from '@/theme/Modal';
 
-import Reply from './Reply';
 import * as S from './styled';
 
-const ReadPage = observer(() => {
+type ReadPageProps = {
+  post: PostModel;
+};
+
+const ReadPage = observer(({ post }: ReadPageProps) => {
   const { postStore, uiStore } = useStore();
+  const router = useRouter();
   const { data: session } = useSession();
   const { decryptPassword } = usePassword();
-
-  const [post, setPost] = useState<PostModel | null>(null);
-  const [isPostLoaded, setIsPostLoaded] = useState<boolean>(false);
 
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
   const [passwordModalMode, setPasswordModalMode] = useState<'delete' | 'edit' | null>(null);
   const [password, setPassword] = useState<string>('');
 
-  const handleBackButtonClick = () => {
-    postStore.setPageMode('list');
-    postStore.setCurrentId(null);
-  };
-
-  const handleEditButtonClick = () => {
-    setPasswordModalMode('edit');
-    setShowPasswordModal(true);
-    setPassword('');
-  };
+  // const handleEditButtonClick = () => {
+  //   setPasswordModalMode('edit');
+  //   setShowPasswordModal(true);
+  //   setPassword('');
+  // };
 
   const handleDeleteButtonClick = () => {
     setPasswordModalMode('delete');
@@ -53,15 +50,12 @@ const ReadPage = observer(() => {
         const res = await postStore.deletePost({ _id: post?._id });
 
         if (res?.status === 200) {
-          postStore.setPageMode('list');
+          router.push('/post');
           window.scrollTo({ top: 0 });
 
           uiStore.openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
         }
       } else if (passwordModalMode === 'edit') {
-        postStore.setPageMode('edit');
-
-        postStore.setCurrentId(post._id);
         postStore.setTitle(post.title);
         postStore.setUserName(post.userName);
         postStore.setContent(post.content);
@@ -90,44 +84,19 @@ const ReadPage = observer(() => {
     setPassword('');
   };
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (postStore.currentId) {
-        const res = await postStore.fetchPost({ _id: postStore.currentId });
-
-        if (res) {
-          setPost(res.data);
-          setIsPostLoaded(true);
-        }
-      }
-    };
-
-    fetchPost();
-  }, []);
-
-  useEffect(() => {
-    history.pushState(null, '', location.href);
-
-    const handleBroswerBackButtonClick = (event: PopStateEvent) => {
-      event.preventDefault();
-      handleBackButtonClick();
-    };
-
-    window.addEventListener('popstate', handleBroswerBackButtonClick);
-    return () => window.removeEventListener('popstate', handleBroswerBackButtonClick);
-  }, []);
-
   return (
     <S.ReadPageWrapper>
       <S.ReadPageHeader>
-        <S.BackButton onClick={handleBackButtonClick} />
+        <S.BackButtonWrapper href={'/post'}>
+          <S.BackButton />
+        </S.BackButtonWrapper>
         <S.TitleWrapper>
           {post?.isAdmin && <S.TitleAdminPrefix>[관리자] </S.TitleAdminPrefix>}
           {post?.title}
         </S.TitleWrapper>
       </S.ReadPageHeader>
 
-      {isPostLoaded ? (
+      {post ? (
         <>
           <S.InfoWrapper>
             <S.Info>
@@ -153,7 +122,7 @@ const ReadPage = observer(() => {
           <S.Content>{post?.content}</S.Content>
 
           <Buttons>
-            {(() => {
+            {/* {(() => {
               if (session) {
                 if (post?.isAdmin) {
                   return true;
@@ -165,13 +134,13 @@ const ReadPage = observer(() => {
                   return true;
                 }
               }
-            })() && <Button onClick={handleEditButtonClick}>수정</Button>}
+            })() && <Button onClick={handleEditButtonClick}>수정</Button>} */}
             {(post?.isAdmin ? session : true) && (
               <Button onClick={handleDeleteButtonClick}>삭제</Button>
             )}
           </Buttons>
 
-          <Reply post={post} setPost={setPost} />
+          {/* <Reply post={post} setPost={setPost} /> */}
         </>
       ) : (
         <S.LoadingSpinnerWrapper>

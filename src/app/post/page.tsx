@@ -1,30 +1,28 @@
-'use client';
-
-import { observer } from 'mobx-react-lite';
-import { useEffect } from 'react';
-
-import CreatePage from '@/components/Pages/Post/CreatePage';
 import ListPage from '@/components/Pages/Post/ListPage';
-import ReadPage from '@/components/Pages/Post/ReadPage';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
-import useStore from '@/stores';
 import Page from '@/theme/Page';
 
-const PostPage = observer(() => {
-  const { postStore } = useStore();
+const getPosts = async () => {
+  const res = await fetch('https://youngwookim.me/api/getPosts', { cache: 'no-store' });
 
-  useEffect(() => {
-    postStore.setPageMode('list');
-  }, []);
+  if (res.ok) {
+    const { data, error } = await res.json();
+
+    if (data) {
+      return data;
+    } else if (error) {
+      console.error(error);
+    }
+  }
+};
+
+const PostPage = async () => {
+  const posts = await getPosts();
 
   return (
     <Page>
-      {postStore.pageMode === 'list' && <ListPage />}
-      {(postStore.pageMode === 'create' || postStore.pageMode === 'edit') && <CreatePage />}
-      {postStore.pageMode === 'read' && postStore.currentId && <ReadPage />}
-      <ScrollToTopButton />
+      <ListPage posts={posts} />
     </Page>
   );
-});
+};
 
 export default PostPage;
