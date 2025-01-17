@@ -1,4 +1,7 @@
+'use client';
+
 import { observer } from 'mobx-react-lite';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -11,12 +14,17 @@ import InputBox from '@/theme/InputBox';
 
 import * as S from './styled';
 
+type CreatePageProps = {
+  mode: 'create' | 'edit';
+};
+
 const TITLE_MAX_LENGTH = 50;
 const USER_NAME_MAX_LENGTH = 30;
 const CONTENT_MAX_LENGTH = 300;
 
-const CreatePage = observer(() => {
+const CreatePage = observer(({ mode }: CreatePageProps) => {
   const { postStore, uiStore } = useStore();
+  const router = useRouter();
   const { data: session } = useSession();
   const { encryptPassword } = usePassword();
 
@@ -43,7 +51,7 @@ const CreatePage = observer(() => {
   };
 
   const handleCreateEditButtonClick = async () => {
-    if (postStore.pageMode === 'create') {
+    if (mode === 'create') {
       const res = await postStore.createPost({
         title: postStore.title,
         userName: postStore.userName,
@@ -54,16 +62,14 @@ const CreatePage = observer(() => {
       });
 
       if (res?.status === 200) {
-        postStore.setPageMode('read');
-        postStore.setCurrentId(res?._id);
+        router.push(`/post/read/${res?._id}`);
         window.scrollTo({ top: 0 });
 
         uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
-        postStore.clearPost();
       }
-    } else if (postStore.pageMode === 'edit') {
+    } else if (mode === 'edit') {
       const res = await postStore.editPost({
-        _id: postStore.currentId ?? '',
+        _id: '',
         title: postStore.title,
         userName: postStore.userName,
         content: postStore.content,
@@ -72,18 +78,12 @@ const CreatePage = observer(() => {
       });
 
       if (res?.status === 200) {
-        postStore.setPageMode('read');
-        postStore.setCurrentId(postStore.currentId);
         window.scrollTo({ top: 0 });
 
         uiStore.openToastPopup({ toastString: '게시글이 수정되었습니다.', toastType: 'success' });
         postStore.clearPost();
       }
     }
-  };
-
-  const handleBackButtonClick = () => {
-    postStore.setPageMode('list');
   };
 
   const handleReCaptchaChanged = () => {
@@ -95,18 +95,6 @@ const CreatePage = observer(() => {
   };
 
   useEffect(() => {
-    history.pushState(null, '', location.href);
-
-    const handleBroswerBackButtonClick = (event: PopStateEvent) => {
-      event.preventDefault();
-      handleBackButtonClick();
-    };
-
-    window.addEventListener('popstate', handleBroswerBackButtonClick);
-    return () => window.removeEventListener('popstate', handleBroswerBackButtonClick);
-  }, []);
-
-  useEffect(() => {
     if (session) {
       setIsValidPassword(true);
       setIsVerified(true);
@@ -114,26 +102,28 @@ const CreatePage = observer(() => {
   }, []);
 
   useEffect(() => {
-    if (postStore.pageMode === 'create') {
+    if (mode === 'create') {
       postStore.clearPost();
 
       if (session) {
         postStore.setUserName('김영우');
       }
-    } else if (postStore.pageMode === 'edit') {
+    } else if (mode === 'edit') {
       if (session) {
         setIsValidPassword(true);
       } else {
         setIsValidPassword(postStore.password.length >= 6 && postStore.password.length <= 16);
       }
     }
-  }, [postStore.pageMode]);
+  }, [mode]);
 
   return (
     <S.CreatePageWrapper>
       <S.CreatePageHeader>
-        <S.BackButton onClick={handleBackButtonClick} />
-        {postStore.pageMode === 'create' ? '게시글 작성' : '게시글 수정'}
+        <S.BackButtonWrapper href={'/post'}>
+          <S.BackButton />
+        </S.BackButtonWrapper>
+        <S.TitleWrapper>{mode === 'create' ? '게시글 작성' : '게시글 수정'}</S.TitleWrapper>
       </S.CreatePageHeader>
 
       <InputBox
@@ -152,7 +142,7 @@ const CreatePage = observer(() => {
         label={'이름'}
         maxLength={USER_NAME_MAX_LENGTH}
         showCounter
-        disabled={postStore.pageMode === 'edit' || !!session}
+        disabled={mode === 'edit' || !!session}
       />
 
       <InputBox
@@ -211,7 +201,7 @@ const CreatePage = observer(() => {
             !isValidPassword
           }
         >
-          {postStore.pageMode === 'create' ? '작성' : '수정'}
+          {mode === 'create' ? '작성' : '수정'}
         </Button>
       </Buttons>
     </S.CreatePageWrapper>

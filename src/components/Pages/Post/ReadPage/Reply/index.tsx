@@ -85,7 +85,7 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
 
   const handleCreateReplyButtonClick = async () => {
     const replyBody: ReplyCreateModel = {
-      _id: postStore.currentId ?? '',
+      _id: '',
       userName: replyUserName,
       createdAt: new Date(),
       content: replyContent,

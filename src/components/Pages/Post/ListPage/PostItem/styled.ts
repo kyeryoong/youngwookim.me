@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
-export const PostItemWrapper = styled('div')`
+export const PostItemWrapper = styled(Link)`
   width: 100%;
   padding: 20px 12px;
   display: grid;
@@ -16,7 +17,7 @@ export const PostItemWrapper = styled('div')`
     background-color: ${({ theme }) => theme.color.gray[900]};
   }
 
-  &:nth-of-type(2) {
+  &:nth-of-type(1) {
     border-top: 1px solid ${({ theme }) => theme.color.gray[800]};
   }
 

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ChevronLeft, PencilFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
@@ -10,7 +11,7 @@ export const CreatePageHeader = styled('div')`
   margin-bottom: 48px;
   display: grid;
   grid-template-columns: fit-content(100%) 1fr;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   gap: 8px;
 
@@ -21,12 +22,15 @@ export const CreatePageHeader = styled('div')`
   }
 `;
 
+export const BackButtonWrapper = styled(Link)``;
+
 export const BackButton = styled(ChevronLeft)`
   width: 48px;
   height: 48px;
   padding: 8px;
   margin-left: -12px;
   transition: 0.5s;
+  color: ${({ theme }) => theme.color.gray[600]};
   cursor: pointer;
 
   &:hover {
@@ -35,6 +39,16 @@ export const BackButton = styled(ChevronLeft)`
 
   @media (pointer: coarse) or (max-width: 1000px) {
     margin-left: calc(-1 * min(3vw, 12px));
+  }
+`;
+
+export const TitleWrapper = styled('div')`
+  line-height: 36px;
+  margin-top: 6px;
+
+  @media (pointer: coarse) or (max-width: 1000px) {
+    line-height: 28px;
+    margin-top: 10px;
   }
 `;
 

@@ -1,14 +1,8 @@
 import { makeAutoObservable } from 'mobx';
 
-import { PostCreateModel, PostEditModel, PostModel, ReplyCreateModel } from '@/models/post';
-
-export type PostPageMode = 'list' | 'create' | 'read' | 'edit';
+import { PostCreateModel, PostEditModel, ReplyCreateModel } from '@/models/post';
 
 export class PostStore {
-  posts: PostModel[] = [];
-  pageMode: PostPageMode = 'list';
-  currentId: string | null = null;
-
   title: string = '';
   userName: string = '';
   content: string = '';
@@ -17,14 +11,6 @@ export class PostStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  setPageMode = (value: PostPageMode) => {
-    this.pageMode = value;
-  };
-
-  setCurrentId = (value: string | null) => {
-    this.currentId = value;
-  };
 
   setTitle = (value: string) => {
     this.title = value;
@@ -47,42 +33,6 @@ export class PostStore {
     this.userName = '';
     this.content = '';
     this.password = '';
-  };
-
-  fetchPosts = async () => {
-    try {
-      const res = await fetch('/api/getPosts');
-
-      if (res) {
-        const { data, error } = await res.json();
-
-        if (data) {
-          this.posts = data;
-        } else if (error) {
-          console.error(error);
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  fetchPost = async ({ _id }: { _id: string }) => {
-    try {
-      const res = await fetch(`/api/getPost?_id=${_id}`);
-
-      if (res) {
-        const { status, data, error } = await res.json();
-
-        if (error) {
-          console.error(error);
-        }
-
-        return { status, data };
-      }
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   createPost = async ({

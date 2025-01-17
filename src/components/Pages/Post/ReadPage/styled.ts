@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ChevronLeft, ClockFill, PersonFill } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 
@@ -25,6 +26,8 @@ export const ReadPageHeader = styled('div')`
     gap: min(1vw, 8px);
   }
 `;
+
+export const BackButtonWrapper = styled(Link)``;
 
 export const BackButton = styled(ChevronLeft)`
   width: 48px;
