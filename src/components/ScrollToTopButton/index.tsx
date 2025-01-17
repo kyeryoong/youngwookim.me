@@ -33,10 +33,8 @@ const ScrollToTopButton = ({ show, onClick, height = 100 }: ScrollToTopButtonPro
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <S.ScrollToTopButtonWrapper $show={show ?? showButton} onClick={onClick ?? scrollToTop}>
