@@ -6,6 +6,8 @@ import getEmailHtml from '@/utils/getEmailHtml';
 
 import { connectDB } from '../../../utils/database';
 
+export const dynamic = 'force-dynamic';
+
 export const POST = async (req: NextRequest) => {
   try {
     const database = (await connectDB).db(process.env.DATABASE_NAME);
