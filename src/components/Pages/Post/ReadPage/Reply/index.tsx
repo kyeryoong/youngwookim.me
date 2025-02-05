@@ -1,3 +1,4 @@
+import { useSetAtom } from 'jotai';
 import { observer } from 'mobx-react-lite';
 import { useSession } from 'next-auth/react';
 import {
@@ -15,6 +16,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import usePassword from '@/hooks/usePassword';
 import { PostModel, ReplyCreateModel, ReplyModel } from '@/models/post';
 import useStore from '@/stores';
+import { openToastPopupAtom } from '@/stores/toastPopupAtom';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
@@ -31,7 +33,9 @@ const USER_NAME_MAX_LENGTH = 30;
 const CONTENT_MAX_LENGTH = 100;
 
 const Reply = observer(({ post, setPost }: ReplyProps) => {
-  const { postStore, uiStore } = useStore();
+  const { postStore } = useStore();
+  const openToastPopup = useSetAtom(openToastPopupAtom);
+
   const { data: session } = useSession();
   const { encryptPassword, decryptPassword } = usePassword();
 
@@ -132,11 +136,11 @@ const Reply = observer(({ post, setPost }: ReplyProps) => {
 
         setPost(newPost);
 
-        uiStore.openToastPopup({ toastString: '댓글이 삭제되었습니다.', toastType: 'success' });
+        openToastPopup({ toastString: '댓글이 삭제되었습니다.', toastType: 'success' });
         setShowPasswordModal(false);
       }
     } else {
-      uiStore.openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
+      openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
     }
   };
 

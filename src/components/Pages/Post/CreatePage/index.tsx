@@ -1,5 +1,6 @@
 'use client';
 
+import { useSetAtom } from 'jotai';
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -8,6 +9,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import usePassword from '@/hooks/usePassword';
 import useStore from '@/stores';
+import { openToastPopupAtom } from '@/stores/toastPopupAtom';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
@@ -23,7 +25,9 @@ const USER_NAME_MAX_LENGTH = 30;
 const CONTENT_MAX_LENGTH = 300;
 
 const CreatePage = observer(({ mode }: CreatePageProps) => {
-  const { postStore, uiStore } = useStore();
+  const { postStore } = useStore();
+  const openToastPopup = useSetAtom(openToastPopupAtom);
+
   const router = useRouter();
   const { data: session } = useSession();
   const { encryptPassword } = usePassword();
@@ -65,7 +69,7 @@ const CreatePage = observer(({ mode }: CreatePageProps) => {
         router.push(`/post/read/${res?._id}`);
         window.scrollTo({ top: 0 });
 
-        uiStore.openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
+        openToastPopup({ toastString: '게시글이 작성되었습니다.', toastType: 'success' });
       }
     } else if (mode === 'edit') {
       const res = await postStore.editPost({
@@ -80,7 +84,7 @@ const CreatePage = observer(({ mode }: CreatePageProps) => {
       if (res?.status === 200) {
         window.scrollTo({ top: 0 });
 
-        uiStore.openToastPopup({ toastString: '게시글이 수정되었습니다.', toastType: 'success' });
+        openToastPopup({ toastString: '게시글이 수정되었습니다.', toastType: 'success' });
         postStore.clearPost();
       }
     }

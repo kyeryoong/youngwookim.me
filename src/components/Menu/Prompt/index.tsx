@@ -1,5 +1,6 @@
 'use client';
 
+import { useSetAtom } from 'jotai';
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -7,13 +8,16 @@ import { useEffect, useRef, useState } from 'react';
 
 import jetBrainsMono from '@/font/jetBrainsMono';
 import useStore from '@/stores';
+import { themeAtom, toggleThemeAtom } from '@/stores/themeAtom';
 
 import isMobile from '../../../utils/isMobile';
 import * as S from './styled';
 import { fortuneTexts, helpText, initText } from './text';
 
 const Prompt = observer(() => {
-  const { menuStore, themeStore } = useStore();
+  const { menuStore } = useStore();
+  const setThemeValue = useSetAtom(themeAtom);
+  const toggleThemeValue = useSetAtom(toggleThemeAtom);
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -88,9 +92,9 @@ const Prompt = observer(() => {
     // 테마 변경
     else if (prefix === 'theme') {
       if (suffix === undefined) {
-        themeStore.toggleTheme();
+        toggleThemeValue();
       } else if (suffix === 'dark' || suffix === 'light') {
-        themeStore.setTheme(suffix);
+        setThemeValue(suffix);
       } else {
         setResultLines((prev: string[]) => [...prev, `bash: theme: No such theme`]);
       }

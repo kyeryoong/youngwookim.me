@@ -1,4 +1,9 @@
+import { atom } from 'jotai';
 import { makeAutoObservable } from 'mobx';
+
+export const showHeaderAtom = atom(true, (get, set, value: boolean) => {
+  set(showHeaderAtom, value);
+});
 
 export class MenuStore {
   showHeader: boolean = true;

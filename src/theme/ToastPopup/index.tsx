@@ -1,31 +1,43 @@
 'use client';
 
-import { observer } from 'mobx-react-lite';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useEffect } from 'react';
 import { useTheme } from 'styled-components';
 
-import useStore from '@/stores';
+import {
+  closeToastPopupAtom,
+  showToastPopupAtom,
+  toastStringAtom,
+  toastTimerAtom,
+  toastTypeAtom,
+} from '@/stores/toastPopupAtom';
 
 import * as S from './styled';
 
-const ToastPopup = observer(() => {
-  const { uiStore } = useStore();
+const ToastPopup = () => {
   const theme = useTheme();
 
+  const showToastPopup = useAtomValue(showToastPopupAtom);
+  const toastType = useAtomValue(toastTypeAtom);
+  const toastString = useAtomValue(toastStringAtom);
+  const toastTimer = useAtomValue(toastTimerAtom);
+
+  const closeToastPopup = useSetAtom(closeToastPopupAtom);
+
   useEffect(() => {
-    if (uiStore.showToastPopup) {
+    if (showToastPopup) {
       setTimeout(() => {
-        uiStore.setShowToastPopup(false);
-      }, uiStore.timer * 1000);
+        closeToastPopup();
+      }, toastTimer * 1000);
     }
-  }, [uiStore.showToastPopup]);
+  }, [showToastPopup]);
 
   const handleCloseButtonClick = () => {
-    uiStore.setShowToastPopup(false);
+    closeToastPopup();
   };
 
   const toastPopupBackgroundColor = () => {
-    switch (uiStore.toastType) {
+    switch (toastType) {
       case 'default':
         return theme.color.gray[200];
       case 'success':
@@ -40,7 +52,7 @@ const ToastPopup = observer(() => {
   };
 
   const toastPopupTextColor = () => {
-    switch (uiStore.toastType) {
+    switch (toastType) {
       case 'default':
         return theme.color.black;
       case 'success':
@@ -55,7 +67,7 @@ const ToastPopup = observer(() => {
   };
 
   const toastPopupIcon = () => {
-    switch (uiStore.toastType) {
+    switch (toastType) {
       case 'default':
         return <div></div>;
       case 'success':
@@ -71,15 +83,15 @@ const ToastPopup = observer(() => {
 
   return (
     <S.ToastPopupWrapper
-      showToastPopup={uiStore.showToastPopup}
+      showToastPopup={showToastPopup}
       backgroundColor={toastPopupBackgroundColor()}
       textColor={toastPopupTextColor()}
     >
       {toastPopupIcon()}
-      {uiStore.toastString}
+      {toastString}
       <S.CloseButton buttonColor={toastPopupTextColor()} onClick={handleCloseButtonClick} />
     </S.ToastPopupWrapper>
   );
-});
+};
 
 export default ToastPopup;

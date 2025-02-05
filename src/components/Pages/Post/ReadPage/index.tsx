@@ -1,5 +1,6 @@
 'use client';
 
+import { useSetAtom } from 'jotai';
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -8,6 +9,7 @@ import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import usePassword from '@/hooks/usePassword';
 import { PostModel } from '@/models/post';
 import useStore from '@/stores';
+import { openToastPopupAtom } from '@/stores/toastPopupAtom';
 import Button from '@/theme/Button';
 import Buttons from '@/theme/Buttons';
 import InputBox from '@/theme/InputBox';
@@ -21,7 +23,9 @@ type ReadPageProps = {
 };
 
 const ReadPage = observer(({ post }: ReadPageProps) => {
-  const { postStore, uiStore } = useStore();
+  const { postStore } = useStore();
+  const openToastPopup = useSetAtom(openToastPopupAtom);
+
   const router = useRouter();
   const { data: session } = useSession();
   const { decryptPassword } = usePassword();
@@ -53,7 +57,7 @@ const ReadPage = observer(({ post }: ReadPageProps) => {
           router.push('/post');
           window.scrollTo({ top: 0 });
 
-          uiStore.openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
+          openToastPopup({ toastString: '게시글이 삭제되었습니다.', toastType: 'success' });
         }
       } else if (passwordModalMode === 'edit') {
         postStore.setTitle(post.title);
@@ -62,7 +66,7 @@ const ReadPage = observer(({ post }: ReadPageProps) => {
         postStore.setPassword(decryptPassword(post.password ?? ''));
       }
     } else {
-      uiStore.openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
+      openToastPopup({ toastString: '비밀번호가 틀렸습니다.', toastType: 'error' });
     }
   };
 
