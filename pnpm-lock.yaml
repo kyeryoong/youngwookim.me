@@ -35,6 +35,9 @@ importers:
       mobx-react:
         specifier: ^9.1.0
         version: 9.2.0(mobx@6.13.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mobx-react-lite:
+        specifier: ^4.1.0
+        version: 4.1.0(mobx@6.13.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       mongodb:
         specifier: ^6.9.0
         version: 6.14.0
